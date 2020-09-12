@@ -1,0 +1,9 @@
+<view class="container flex col fl-align">
+
+	<view class="article flex col fl-align">
+		<view>此处为富文本</view>
+	</view>
+
+	<view class="sure b-e5">确定</view>
+
+</view>

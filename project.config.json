@@ -113,6 +113,13 @@
 					"pathName": "weixinmao_zp/pages_four/notice/notice",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "招聘会通知",
+					"pathName": "weixinmao_zp/pages_four/notice_detail/notice_detail",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

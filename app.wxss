@@ -3206,6 +3206,17 @@
   border: 0px solid #eee;
 }
 
+
+.container {
+  width: 750rpx;
+  height: auto;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  overflow: auto;
+}
+
+
+/* 弹性 */
 .flex {
   display: flex;
 }
@@ -3245,4 +3256,40 @@
 /* 背景色 */
 .b-ff {
   background: #fff;
+}
+
+.b-e5 {
+  background: #3274e5;
+}
+
+/* 字体色 */
+.c-e5 {
+  color: #3274e5;
+}
+
+.c-66 {
+  color: #666;
+}
+
+
+/* 超出省略 */
+.climp1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.climp2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.climp3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }

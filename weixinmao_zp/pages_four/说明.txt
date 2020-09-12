@@ -1,5 +1,7 @@
 1.邀约通知
 notice
+1.1 通知详情
+notice_detail
 2.精确匹配简历
 match
 3.企业信息编辑

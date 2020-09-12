@@ -122,7 +122,8 @@
         "edit/edit",
         "position/position",
         "history/history",
-        "record/record"
+        "record/record",
+        "notice_detail/notice_detail"
       ]
     }
   ],

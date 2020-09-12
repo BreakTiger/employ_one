@@ -1,0 +1,22 @@
+.sure {
+  width: 92%;
+  height: 80rpx;
+  border-radius: 5rpx;
+  margin: 20rpx 0;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: .7rem;
+  text-align: center;
+}
+
+.article {
+  width: 100%;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.article>view {
+  font-size: .7rem;
+  width: 92%;
+  overflow: hidden;
+  margin: 20rpx 0;
+}

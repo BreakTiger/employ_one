@@ -1,4 +1,4 @@
-// weixinmao_zp/pages_four/notice/notice.js
+// weixinmao_zp/pages_four/notice_detail/notice_detail.js
 Page({
 
   /**
@@ -15,10 +15,11 @@ Page({
 
   },
 
-  toDetail: function () {
-    wx.navigateTo({
-      url: '/weixinmao_zp/pages_four/notice_detail/notice_detail',
-    })
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
 
   /**
