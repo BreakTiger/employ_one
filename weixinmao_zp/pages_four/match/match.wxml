@@ -7,7 +7,7 @@
 
 			<view class="detail">
 				<view class="pic">
-					<image src=""></image>
+					<image src="../../resource/images/male1.png"></image>
 				</view>
 				<view class="info">
 					<view>顺年 <text class="time">1月前</text></view>

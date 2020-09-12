@@ -125,7 +125,7 @@
  				<image src="../../resource/images/dui.png"></image>
  			</block>
  		</view>
- 		<block wx:for="{{housewaylist}}">
+ 		<block wx:for="{{housewaylist}}" wx:key="index">
  			<block wx:if="{{item.id== selectid}}">
  				<view class="select_cars_list colorred" bindtap='selectwayitem' id="{{item.id}}" data-title="{{item.name}}">
  					<text>{{item.name}}</text>
@@ -148,7 +148,7 @@
 
  	<!-- 列表 -->
  	<view class="news">
- 		<view class="newslist" wx:for="{{worklist}}">
+ 		<view class="newslist" wx:for="{{worklist}}" wx:key="index">
  			<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
  				<view class="detail">
  					<view class="pic">
