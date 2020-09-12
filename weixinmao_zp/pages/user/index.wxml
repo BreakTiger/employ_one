@@ -1,0 +1,109 @@
+<view class="container">
+
+	<view class="header flex col fl-align">
+		<image src="{{companyinfo.thumb}}"></image>
+		<view>广州佳航信息技术有限公司</view>
+	</view>
+
+	<!-- 计数 -->
+	<view class="mymoney flex fl-jsa b-ff">
+
+		<view class="item flex col fl-align">
+			<view>13个</view>
+			<view>已发布职位数</view>
+		</view>
+
+		<view class="item flex col fl-align">
+			<view>1条</view>
+			<view>已收到简历</view>
+		</view>
+
+	</view>
+
+	<!-- 入口列表 -->
+	<view class="list b-ff">
+
+
+		<view class="item" bindtap="notice">
+			<image src="../../resource/img/inform.png"></image>邀约通知
+		</view>
+
+		<view class="item" bindtap="toMatchnote">
+			<image src="../../resource/img/search.png"></image>精确匹配简历
+		</view>
+
+		<view class="item" bindtap="toEditcompany">
+			<image src="../../resource/img/edit.png"></image>企业信息编辑
+		</view>
+
+		<view class="item" bindtap='toMyjoblist'>
+			<image src="../../resource/img/manage.png"></image>职位管理
+		</view>
+
+		<view class="item" bindtap="vitae">
+			<image src="../../resource/img/note.png"></image>求职简历
+		</view>
+
+		<view class="item" bindtap="toHistory">
+			<image src="../../resource/img/Jjob.png"></image>求职面试历史
+		</view>
+
+		<view class="item" bindtap="collect">
+			<image src="../../resource/img/collect.png"></image>收藏简历
+		</view>
+
+		<view class="item" bindtap="loginout">
+			<image src="../../resource/img/exit.png"></image>退出登录
+		</view>
+
+	</view>
+
+</view>
+
+
+<!-- <view class="weixinmao-msg" hidden="{{showmsg}}">
+	<view class="weixinmao-content">
+
+		<view class="title">
+			<view></view>
+			<view>绑定主管</view>
+			<view bindtap='closemsg'>关闭</view>
+		</view>
+		<form bindsubmit="saveuserinfo">
+			<view class="content">
+				<view class="item">
+					<input class="inputlist" placeholder="请输入您的姓名" name="name" type='text' value='{{user.name}}' />
+				</view>
+				<view class="item">
+					<input class="inputlist" placeholder="请输入您的手机号" name="tel" type='text' value='{{user.tel}}' />
+
+				</view>
+
+				<view class="item tops">
+					<button class="bindtel" formType="submit">立即绑定</button>
+				</view>
+			</view>
+
+		</form>
+	</view>
+</view> -->
+
+
+
+<!-- <view class="weixinmao-msg-userinfo" hidden='{{isuser}}'>
+    <view class="weixinmao-content-userinfo">
+
+        <view class="userinfo-title">
+          您还没有授权呢
+        </view>
+      
+           <view class="userinfo-content">
+          点击授权按钮，期待与您愉快的沟通~
+        </view>
+   <view class="userinfo-button">
+          <button bindtap='cancelUser'></button>   <button  open-type ='getUserInfo' bindgetuserinfo="bindGetUserInfo">去授权</button>
+        </view>
+
+
+    </view>
+</view> -->

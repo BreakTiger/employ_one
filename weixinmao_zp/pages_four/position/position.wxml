@@ -1,0 +1,70 @@
+   <view class="container">
+
+
+
+   	<view class="orderlist">
+
+
+   		<view class="content">
+
+
+
+   			<view class="jobinfo">
+   				<view class="jobleft">
+   					<view>0</view>
+   					<view>投递简历</view>
+   				</view>
+   				<view class="line">
+   				</view>
+
+   				<view class="jobright">
+   					<view class="jobtitle">
+   						<view>明天</view>
+   						<view bindtap='editCompanyjob' data-id="{{item.id}}">
+   							<image src="../../resource/images/edit.png" />
+   						</view>
+   					</view>
+   					<view>人数:123 | 薪资:6k</view>
+
+   					<view>到期:1921-20-15 | 置顶:123</view>
+   					<view>创建:2020-09-03</view>
+						 
+   				</view>
+
+   			</view>
+
+
+
+
+   			<view class="payitem">
+
+
+   				<view hidden="" bindtap='topPaytopjob' data-id="{{item.id}}">置顶</view>
+
+
+   				<view hidden="" bindtap='toMatchnote' data-id="{{item.worktype}}">匹配</view>
+
+
+   				<view hidden="" bindtap='toSharejob' data-id="{{item.id}}">分享</view>
+
+   				<view hidden="" bindtap='doCompanyendtime' data-id="{{item.id}}">同步 </view>
+
+   				<block wx:if="{{item.status == 0}}">
+   					<view hidden="" bindtap='cancleJob' data-id="{{item.id}}">下架</view>
+   				</block>
+   				<block wx:else>
+   					<view hidden="" bindtap='upJob' data-id="{{item.id}}">上架</view>
+
+   				</block>
+   			</view>
+
+   		</view>
+   	</view>
+   </view>
+
+
+   <view class="weixinmao-float">
+   	<view class="weixinmao-foot">
+   		<view class="footer" bindtap='addcompanyjob'>添加招聘职位</view>
+   	</view>
+   </view>

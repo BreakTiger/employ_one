@@ -1,0 +1,28 @@
+<view style="height:28rpx;"></view>
+
+<!-- 列表 -->
+<view class="news">
+	<view class="newslist" wx:for="[1,2]" wx:key="index">
+		<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
+
+			<view class="detail">
+				<view class="pic">
+					<image src=""></image>
+				</view>
+				<view class="info">
+					<view>顺年 <text class="time">1月前</text></view>
+					<view> 男/26岁/大专/3-5年 </view>
+					<view class="jobmoney">
+						<view>职位意向<text>保健老师</text></view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+<!-- 加载更多 -->
+<view class="loadmore">
+	<text>{{loadMore}}</text>
+</view>

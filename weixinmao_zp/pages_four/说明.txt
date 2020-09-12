@@ -1,0 +1,13 @@
+1.邀约通知
+notice
+2.精确匹配简历
+match
+3.企业信息编辑
+edit
+4.职位管理
+position
+5.求职简历
+recode
+6.求职面试历史
+history
+
