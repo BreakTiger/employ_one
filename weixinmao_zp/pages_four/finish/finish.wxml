@@ -1,2 +1,162 @@
-<!--weixinmao_zp/pages_four/finish/finish.wxml-->
-<text>weixinmao_zp/pages_four/finish/finish.wxml</text>
+<view class="container flex col fl-align">
+
+	<view class="content b-ff flex col fl-align">
+		<view>应聘职位：【全职】销售经理</view>
+		<view>应聘人：ads</view>
+		<view class="flex fl-align fl-jsb">
+			<text>工作经验：</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>优秀</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>良好</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>合格</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>较差</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>很差</text>
+				</view>
+			</view>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<text>专业知识：</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>优秀</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>良好</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>合格</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>较差</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>很差</text>
+				</view>
+			</view>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<text>沟通能力：</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>优秀</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>良好</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>合格</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>较差</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>很差</text>
+				</view>
+			</view>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<text>职业文化水平：</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>优秀</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>良好</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>合格</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>较差</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>很差</text>
+				</view>
+			</view>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<text>岗位稳定性：</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>优秀</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>良好</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>合格</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>较差</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>很差</text>
+				</view>
+			</view>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<text>综合评价</text>
+			<view class="flex fl-align fl-jsb">
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>建议录取</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>推荐复试</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>人才储备</text>
+				</view>
+				<view>
+					<icon type="circle" size="20"></icon>
+					<text>拒绝录用</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="flex fl-align fl-jsb btn">
+
+		<view class="b-e5">提交</view>
+
+    <view >取消</view>
+
+	</view>
+
+</view>

@@ -6,36 +6,73 @@
 
 		<view class="content-line flex fl-align">
 			<text>面试职位</text>
-			<input placeholder=""></input>
+			<input placeholder="请选择面试职位"></input>
 		</view>
 
 		<view class="content-line flex fl-align">
 			<text>姓名</text>
-			<input placeholder=""></input>
+			<input placeholder="请输入姓名"></input>
 		</view>
 
 		<view class="content-line flex fl-align">
-			<text></text>
+			<text>性别</text>
+			<view class="flex fl-align fl-jsa">
+				<view class="flex fl-align">
+					<icon type="circle" size="24"></icon>
+					<!-- <icon type="success" size="24"></icon> -->
+					<text>男</text>
+				</view>
+
+				<view class="flex fl-align">
+					<icon type="circle" size="24"></icon>
+					<!-- <icon type="success" size="24"></icon> -->
+					<text>女</text>
+				</view>
+			</view>
 		</view>
 
 		<view class="content-line flex fl-align">
-			<text></text>
+			<text>出生年份</text>
+			<picker mode="date">1996</picker>
 		</view>
 
 		<view class="content-line flex fl-align">
-			<text></text>
+			<text>最高学历</text>
+			<picker moda="selector">大专</picker>
 		</view>
 
 		<view class="content-line flex fl-align">
-			<text></text>
+			<text>工作经验</text>
+			<picker mode="selector">无经验</picker>
 		</view>
+
+		<view class="content-line flex fl-align">
+			<text>现居住地</text>
+			<input placeholder="请输入现居住地"></input>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text>邮 箱</text>
+			<input placeholder="请输入邮箱"></input>
+		</view>
+
+		<view class="content-line flex fl-align" style="border：none;">
+			<text>手机号码</text>
+			<input placeholder="请输入手机号码"></input>
+		</view>
+
+
 
 	</view>
 
 	<view class="title">简历拍照上传</view>
 
-	<view class="flex fl-align fl-w b-ff img">
-
+	<view class="flex fl-w b-ff img">
+		<image src="../../resource/images/photo.png" class="photo"></image>
 	</view>
+
+  <view style="height:80rpx;"></view>
+
+  <view class="save b-e5">保存</view>
 
 </view>
