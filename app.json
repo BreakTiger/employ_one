@@ -123,7 +123,9 @@
         "position/position",
         "history/history",
         "record/record",
-        "notice_detail/notice_detail"
+        "notice_detail/notice_detail",
+        "add_record/add_record",
+        "finish/finish"
       ]
     }
   ],

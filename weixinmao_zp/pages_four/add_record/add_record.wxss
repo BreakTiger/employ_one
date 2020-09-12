@@ -1,0 +1,21 @@
+page {
+  background: #f5f5f5;
+}
+
+.title {
+  margin: 20rpx
+}
+
+.content-line {
+  width: 92%;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #666;
+}
+
+.content-line>text {
+  width: 25%;
+}
+
+/* .content-line input view {
+  width: 75%;
+} */

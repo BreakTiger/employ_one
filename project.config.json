@@ -120,6 +120,20 @@
 					"pathName": "weixinmao_zp/pages_four/notice_detail/notice_detail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增面试",
+					"pathName": "weixinmao_zp/pages_four/add_record/add_record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结束面试",
+					"pathName": "weixinmao_zp/pages_four/finish/finish",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

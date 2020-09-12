@@ -1,4 +1,4 @@
-// pages_one/record/record.js
+// weixinmao_zp/pages_four/add_record/add_record.js
 Page({
 
   /**
@@ -15,11 +15,11 @@ Page({
 
   },
 
-  // 新增面试
-  toAdd: function () {
-    wx.navigateTo({
-      url: '/weixinmao_zp/pages_four/add_record/add_record',
-    })
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
 
   /**

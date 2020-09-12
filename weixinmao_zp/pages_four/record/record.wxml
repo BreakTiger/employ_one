@@ -9,9 +9,14 @@
    			<view class="item">联系电话：13868367595</view>
    			<view class="item">创建时间:2020-09-03</view>
    			<view class="payitem">
-   				<view >查看简历</view>
-   				<view >邀请面试</view>
+   				<view>查看简历</view>
+   				<view>邀请面试</view>
    			</view>
    		</view>
    	</view>
+
+   	<view style="height:80rpx;" class="b-ff"></view>
+
+   	<view class="addNew b-e5" bindtap="toAdd">新增面试</view>
+
    </view>

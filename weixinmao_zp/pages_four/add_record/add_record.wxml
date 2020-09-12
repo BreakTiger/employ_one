@@ -1,0 +1,41 @@
+<view class="container">
+
+	<view class="title">个人基本信息</view>
+
+	<view class="b-ff flex col fl-align content">
+
+		<view class="content-line flex fl-align">
+			<text>面试职位</text>
+			<input placeholder=""></input>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text>姓名</text>
+			<input placeholder=""></input>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text></text>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text></text>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text></text>
+		</view>
+
+		<view class="content-line flex fl-align">
+			<text></text>
+		</view>
+
+	</view>
+
+	<view class="title">简历拍照上传</view>
+
+	<view class="flex fl-align fl-w b-ff img">
+
+	</view>
+
+</view>
