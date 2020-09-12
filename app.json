@@ -99,20 +99,17 @@
     {
       "root": "weixinmao_zp/pages_one",
       "pages": [
-        "Entrance"
+        "sign/sign",
+        "gain/gain"
       ]
     },
     {
       "root": "weixinmao_zp/pages_two",
-      "pages": [
-        "Entrance"
-      ]
+      "pages": []
     },
     {
       "root": "weixinmao_zp/pages_three",
-      "pages": [
-        "Entrance"
-      ]
+      "pages": []
     },
     {
       "root": "weixinmao_zp/pages_four",

@@ -134,6 +134,27 @@
 					"pathName": "weixinmao_zp/pages_four/finish/finish",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "weixinmao_zp/pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫码签到",
+					"pathName": "weixinmao_zp/pages_one/sign/sign",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫码领取Ipad",
+					"pathName": "weixinmao_zp/pages_one/gain/gain",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

@@ -1,4 +1,4 @@
-// weixinmao_zp/pages_three/Entrance.js
+// weixinmao_zp/pages_one/sign/sign.js
 Page({
 
   /**

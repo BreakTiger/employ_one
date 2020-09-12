@@ -1,4 +1,4 @@
-// weixinmao_zp/pages_one/Entrance.js
+// weixinmao_zp/pages_one/gain/gain.js
 Page({
 
   /**
