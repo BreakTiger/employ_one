@@ -121,7 +121,8 @@
         "match/match",
         "edit/edit",
         "position/position",
-        "history/history"
+        "history/history",
+        "record/record"
       ]
     }
   ],

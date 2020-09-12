@@ -77,16 +77,10 @@ Page({
           var title = res.data.data.title;
           if (res.data.data.intro.ischeck == 1) {
 
-            wx.setNavigationBarTitle({
-              title: '服务中心-' + wx.getStorageSync('companyinfo').name,
-            })
 
           } else {
 
-            wx.setNavigationBarTitle({
-              title: title['matchnewnote'] + wx.getStorageSync('companyinfo').name,
-            })
-
+       
           }
           that.setData({
             city: wx.getStorageSync('cityinfo').name,

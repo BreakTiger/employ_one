@@ -1,2 +1,24 @@
-<!--pages_one/history/history.wxml-->
-<text>pages_one/history/history.wxml</text>
+   <view class="container">
+
+   	<view class="orderlist b-ff">
+   		<view class="orderid">应聘人：asd</view>
+   		<view class="content">
+   			<view class="item">性别：男</view>
+   			<view class="item">联系电话:13868367595</view>
+   			<view class="item">创建时间:2020-09-03</view>
+   			<view class="payitem">
+
+   				<view>查看简历</view>
+
+   				<view bindtap='toJob' data-id="{{item.jobid}}">结束面试</view>
+
+   			</view>
+
+   		</view>
+   	</view>
+
+    <view class="b-ff" style="height:80rpx;"></view>
+
+    <view class="addNew">新增面试</view>
+
+   </view>

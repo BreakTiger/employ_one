@@ -5,35 +5,35 @@
 	},
 	"setting": {
 		"urlCheck": false,
+		"scopeDataCheck": false,
+		"coverView": true,
 		"es6": true,
-		"enhance": false,
 		"postcss": true,
+		"compileHotReLoad": false,
 		"preloadBackgroundData": false,
 		"minified": true,
-		"newFeature": false,
-		"coverView": true,
-		"nodeModules": false,
 		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
+		"newFeature": false,
 		"uglifyFileName": false,
+		"uploadWithSourceMap": true,
+		"useIsolateContext": true,
+		"nodeModules": false,
+		"enhance": false,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"showShadowRootInWxmlPanel": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.13.0",
 	"appid": "wx401a2c2d3d422ffd",
-	"projectname": "zhaop",
+	"projectname": "zhaoping",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -69,6 +69,49 @@
 					"id": -1,
 					"name": "企业中心",
 					"pathName": "weixinmao_zp/pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "求职面试历史",
+					"pathName": "weixinmao_zp/pages_four/history/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "精准匹配简历",
+					"pathName": "weixinmao_zp/pages_four/match/match",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "职位管理",
+					"pathName": "weixinmao_zp/pages_four/position/position",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "求职简历",
+					"pathName": "weixinmao_zp/pages_four/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业信息编辑",
+					"pathName": "weixinmao_zp/pages_four/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀约通知",
+					"pathName": "weixinmao_zp/pages_four/notice/notice",
+					"query": "",
 					"scene": null
 				}
 			]
