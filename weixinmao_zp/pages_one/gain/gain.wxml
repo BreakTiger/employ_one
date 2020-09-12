@@ -1,0 +1,30 @@
+<view class="container flex col fl-align">
+
+	<view class="content flex col fl-align b-ff">
+
+		<view class="flex fl-jsb">
+			<text>Ipad编号</text>
+			<text>452135543K</text>
+		</view>
+
+		<view class="flex fl-jsb">
+			<text>领取时间</text>
+			<text>2020/09/12</text>
+		</view>
+
+		<view class="flex fl-jsb">
+			<text>归还时间</text>
+			<text>暂无</text>
+		</view>
+
+	</view>
+
+	<view class="flex fl-align fl-jsb btn">
+
+		<view class="b-e5">领取</view>
+
+		<view>归还</view>
+
+	</view>
+
+</view>

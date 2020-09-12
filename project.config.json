@@ -155,6 +155,20 @@
 					"pathName": "weixinmao_zp/pages_one/gain/gain",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业注册",
+					"pathName": "weixinmao_zp/pages/companyregister/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "找人才",
+					"pathName": "weixinmao_zp/pages/findworker/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

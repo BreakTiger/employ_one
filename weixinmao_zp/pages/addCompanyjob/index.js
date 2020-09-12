@@ -103,9 +103,9 @@ Page({
 
     }else{
 
-      wx.redirectTo({
-        url: "/weixinmao_zp/pages/message/index"
-      })
+      // wx.redirectTo({
+      //   url: "/weixinmao_zp/pages/message/index"
+      // })
     }
 
 

@@ -22,3 +22,6 @@ message
 
 7.我的收藏
 mysave
+
+8.企业注册
+companyregister
