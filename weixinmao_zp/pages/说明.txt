@@ -25,3 +25,6 @@ mysave
 
 8.企业注册
 companyregister
+
+9.简历详情
+workerdetail
