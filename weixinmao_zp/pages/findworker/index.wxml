@@ -152,7 +152,7 @@
  			<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
  				<view class="detail">
  					<view class="pic">
- 						<image src="{{item.avatarUrl}}"></image>
+ 						<image src="../../resource/images/male1.png"></image>
  					</view>
  					<view class="info">
  						<view>{{item.name}} <text class="time">{{item.createtime}}</text></view>

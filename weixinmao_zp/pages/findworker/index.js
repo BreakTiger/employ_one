@@ -21,7 +21,34 @@ Page({
     housetype: 0,
     letway: 0,
     page:1,
-    title:''
+    title:'',
+    worklist:[
+      {
+        name: '张学航',
+        sex: '1',
+        jobtitle: '产品经理',
+        age: '24',
+        education: '大专',
+        express:'一年一下'
+      },
+      {
+        name: '李勇存',
+        sex: '1',
+        jobtitle: '项目经理',
+        age: '35',
+        education: '本科',
+        express:'10年'
+      },
+      {
+        name: '张雪',
+        sex: '1',
+        jobtitle: '前端工程师',
+        age: '22',
+        education: '本科',
+        express:'一年以下'
+      }
+
+    ]
   },
 
   // 首屏渲染
@@ -157,11 +184,11 @@ Page({
       data: { cityid: cityid, page: that.data.page, houseareaid: that.data.houseareaid, housepriceid: that.data.housepriceid, housetype: that.data.housetype, letway: that.data.letway},
       success: function (res) {
         if (!res.data.message.errno) {
-          console.log(res.data.data);
-          that.setData({
-            worklist: res.data.data.worklist,
+          // console.log(res.data.data);
+          // that.setData({
+          //   worklist: res.data.data.worklist,
 
-          })
+          // })
         }
       },
       complete: function () {

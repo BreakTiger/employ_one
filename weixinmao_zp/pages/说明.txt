@@ -28,3 +28,6 @@ companyregister
 
 9.简历详情
 workerdetail
+
+10.企业登录
+message

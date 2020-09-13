@@ -1,2 +1,35 @@
-<!--weixinmao_zp/pages_three/venue.wxml-->
-<text>weixinmao_zp/pages_three/venue.wxml</text>
+<view class="container">
+  <view class="header">
+    <view class='acitveinfo'>
+      <view class="item">时间：2020-03-02至2020-11-12</view>
+      <view class="item">主办方：肇庆招聘平台</view>
+      <view class="item">规模：参会企业10家|岗位20个|100个求职者</view>
+      <view class="item">地点：肇庆市鼎湖区</view>
+      <view class="notice">
+        <text class="fa fa-volume-up fa-lg" style='color:#FFF;'></text>
+        <swiper class="swiper_container_move" vertical="true" autoplay="true" circular="true" interval="2000">
+          <navigator url="" open-type="navigate" wx:for="{{list}}">
+            <swiper-item>
+              <view class="swiper_item_move">{{item.companyname}}</view>
+            </swiper-item>
+          </navigator>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <view class="companylist">
+    <view class="jobitem" wx:for="{{list}}">
+      <image src="{{item.thumb}}" class="img"></image>
+      <view class="jobtitle">{{item.companyname}}</view>
+      <view class="joblist">
+        <view class="title" wx:for="{{item.joblist_four}}" wx:for-item="itemjob">
+          <view></view>
+          <view>{{itemjob.jobtitle}}</view>
+        </view>
+      </view>
+      <view class="jobcount">共用{{item.jobnum}}个职位招聘</view>
+      <view class="sendjob" bindtap='doSendjob' data-id="{{itemjob.id}}" data-companyid="{{item.companyid}}">投递简历</view>
+    </view>
+  
+  </view>
+</view>

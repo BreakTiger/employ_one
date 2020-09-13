@@ -34,8 +34,8 @@
 						<view>主办方: 人力资源与社会保障局</view>
 						<view>地址: 鼎湖区</view>
 						<view class="flex fl-align fl-jsb" style="margin: 20rpx 0">
-							<view class="recruit_button">报名参会</view>
-							<view class="recruit_button" style="background: #fff;color:#33b6be;border:2rpx solid #33b6be">进入会场</view>
+							<view class="recruit_button" bindtap="join">报名参会</view>
+							<view class="recruit_button" style="background: #fff;color:#33b6be;border:2rpx solid #33b6be" bindtap="toVenue">进入会场</view>
 						</view>
 					</view>
 				</view>

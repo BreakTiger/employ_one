@@ -62,9 +62,18 @@ page {
   flex-direction: row;
 }
 
-.list .item image {
+.icon {
   width: 50rpx;
   height: 50rpx;
+  margin-right: 20rpx;
+}
+
+
+.count{
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5rpx 18rpx;
   margin-right: 20rpx;
 }
 

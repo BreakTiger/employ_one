@@ -10,7 +10,36 @@ Page({
 
     swiperCurrent: '',
 
-    notelist: [], //优秀人才列表
+    notelist: [
+      {
+        name: '张学航',
+        sex: '1',
+        jobtitle: '产品经理',
+        age: '24',
+        education: '大专',
+        express:'一年以下',
+        createtime:'一小时前'
+      },
+      {
+        name: '李勇存',
+        sex: '1',
+        jobtitle: '项目经理',
+        age: '35',
+        education: '本科',
+        express:'10年',
+        createtime:'一小时前'
+      },
+      {
+        name: '张雪',
+        sex: '1',
+        jobtitle: '前端工程师',
+        age: '22',
+        education: '本科',
+        express:'一年以下',
+        createtime:'一小时前'
+      }
+
+    ], //优秀人才列表
 
     indeximg: true,
 
@@ -162,7 +191,7 @@ Page({
 
           that.setData({
             banners: res.data.data.bannerlist,
-            notelist: res.data.data.notelist
+            // notelist: res.data.data.notelist
           })
 
         }

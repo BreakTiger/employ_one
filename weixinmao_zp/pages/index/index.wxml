@@ -90,7 +90,7 @@
 		<view class="type-container flex col fl-align">
 
 			<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-id="{{item.id}}" bindtap="toWorkerdetial">
-				<image src="{{item.avatarUrl}}"></image>
+				<image src="../../resource/images/male1.png"></image>
 
 				<view class="type-info flex col">
 					<view class="flex fl-align fl-jsb">

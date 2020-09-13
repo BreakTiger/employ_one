@@ -43,7 +43,7 @@ Page({
       { 'name': '兼职', 'id': 2 }
     ];
 
-    //  housetypelist.push(data);
+    
     var typeid = 0;
     var carid = 0;
     var priceid = 0;
@@ -125,6 +125,13 @@ Page({
 
   },
 
+  join:function(){
+    wx.navigateTo({
+      url: '/weixinmao_zp/pages/message/index',
+    })
+
+  },
+
   toWorkerDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -183,10 +190,11 @@ Page({
     })
   },
 
-  // 点击列表
-  clickList: function () {
+
+  //进入会场
+  toVenue: function () {
     wx.navigateTo({
-      url: '../cars/cars'
+      url: '/weixinmao_zp/pages_two/venue/venue',
     })
   },
 
@@ -194,7 +202,9 @@ Page({
     wx.navigateTo({
       url: '../brand/brand'
     })
-  }, onPullDownRefresh: function () {
+  },
+
+  onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
     this.onShow();
   },
