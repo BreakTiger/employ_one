@@ -1,4 +1,4 @@
-// pages_one/history/history.js
+// weixinmao_zp/pages_three/venue.js
 Page({
 
   /**
@@ -20,12 +20,6 @@ Page({
    */
   onReady: function () {
 
-  },
-
-  toWatch: function () {
-    wx.navigateTo({
-      url: '/weixinmao_zp/pages/workerdetail/index',
-    })
   },
 
   /**

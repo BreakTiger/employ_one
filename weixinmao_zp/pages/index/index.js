@@ -178,7 +178,7 @@ Page({
 
 
   // 跳转：
-  
+
   // 搜索
   toSearch: function () {
     wx.navigateTo({
@@ -207,6 +207,9 @@ Page({
       scanType: 'qrCode',
       success: function (res) {
         console.log(res)
+        wx.navigateTo({
+          url: '/weixinmao_zp/pages_one/sign/sign',
+        })
       }
 
     })
@@ -226,6 +229,9 @@ Page({
       scanType: 'qrCode',
       success: function (res) {
         console.log(res)
+        wx.navigateTo({
+          url: '/weixinmao_zp/pages_one/gain/gain',
+        })
       }
 
     })

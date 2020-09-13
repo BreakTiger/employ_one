@@ -1,7 +1,7 @@
 <view class="container">
 
 	<view class="header flex col fl-align">
-		<image src="{{companyinfo.thumb}}"></image>
+		<image src="../../resource/images/logo.png"></image>
 		<view>广州佳航信息技术有限公司</view>
 	</view>
 

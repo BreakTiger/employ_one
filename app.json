@@ -1,7 +1,6 @@
 {
   "pages": [
     "weixinmao_zp/pages/index/index",
-    "weixinmao_zp/pages/active/index",
     "weixinmao_zp/pages/user/index",
     "weixinmao_zp/pages/addemployee/index",
     "weixinmao_zp/pages/mysendnote/index",
@@ -34,7 +33,6 @@
     "weixinmao_zp/pages/message/index",
     "weixinmao_zp/pages/search/index",
     "weixinmao_zp/pages/findworker/index",
-    "weixinmao_zp/pages/activedetail/index",
     "weixinmao_zp/pages/editCompanyjob/index",
     "weixinmao_zp/pages/companynote/index",
     "weixinmao_zp/pages/mysave/index",
@@ -46,7 +44,6 @@
     "weixinmao_zp/pages/companypartjob/index",
     "weixinmao_zp/pages/editpartjob/index",
     "weixinmao_zp/pages/partjobdetail/index",
-    "weixinmao_zp/pages/city/index",
     "weixinmao_zp/pages/regagent/index",
     "weixinmao_zp/pages/myagent/index",
     "weixinmao_zp/pages/agentdetail/index",
@@ -54,7 +51,6 @@
     "weixinmao_zp/pages/sharejob/index",
     "weixinmao_zp/pages/jobnewdetail/index",
     "weixinmao_zp/pages/myshare/index",
-    "weixinmao_zp/pages/bindcard/index",
     "weixinmao_zp/pages/notevideodetail/index",
     "weixinmao_zp/pages/moneyjob/index",
     "weixinmao_zp/pages/agentnotelist/index",
@@ -94,11 +90,15 @@
     },
     {
       "root": "weixinmao_zp/pages_two",
-      "pages": []
+      "pages": [
+        "venue/venue"
+      ]
     },
     {
       "root": "weixinmao_zp/pages_three",
-      "pages": []
+      "pages": [
+        
+      ]
     },
     {
       "root": "weixinmao_zp/pages_four",

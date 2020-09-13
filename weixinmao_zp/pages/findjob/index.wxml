@@ -14,7 +14,7 @@
 		<view wx:for="{{worklist}}">
 			<view class="recruit_header">2020年朝气人社局人力资源招聘会</view>
 			<view class="recruitlist">
-				<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
+				<view class="title">
 					<view class="detail">
 						<view class="type_list">家政、外贸、文职、电商专场</view>
 						<view class="flex fl-align" style="margin: 10rpx 0rpx">
