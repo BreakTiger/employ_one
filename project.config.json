@@ -169,6 +169,13 @@
 					"pathName": "weixinmao_zp/pages/findworker/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "简历详情",
+					"pathName": "weixinmao_zp/pages/workerdetail/index",
+					"query": "id=2023",
+					"scene": null
 				}
 			]
 		}
