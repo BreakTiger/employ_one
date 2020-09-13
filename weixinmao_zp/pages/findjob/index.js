@@ -43,7 +43,7 @@ Page({
       { 'name': '兼职', 'id': 2 }
     ];
 
-    
+
     var typeid = 0;
     var carid = 0;
     var priceid = 0;
@@ -125,10 +125,19 @@ Page({
 
   },
 
-  join:function(){
-    wx.navigateTo({
-      url: '/weixinmao_zp/pages/message/index',
+  join: function () {
+    wx.showModal({
+      title: '提示',
+      content: '请先登录',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/weixinmao_zp/pages/message/index',
+          })
+        }
+      }
     })
+
 
   },
 
