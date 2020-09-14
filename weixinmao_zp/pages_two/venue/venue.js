@@ -175,66 +175,73 @@ Page({
   },
 
   doSendjob: function (e) {
-    var that = this;
-    var jobid = e.currentTarget.dataset.id;
-    var userinfo = wx.getStorageSync('userInfo');
-    console.log(userinfo);
-    var companyid = e.currentTarget.dataset.companyid;
-    console.log(companyid);
-    console.log(jobid);
-    app.util.request({
-      'url': 'entry/wxapp/sendjob',
-      data: {
-        jobid: jobid,
-        companyid: companyid,
-        sessionid: userinfo.sessionid,
-        uid: userinfo.memberInfo.uid
-      },
-      success: function (res) {
 
-        if (!res.data.message.errno) {
-          if (res.data.data.error == 0) {
-            wx.showToast({
-              title: '投递成功!',
-              icon: 'success',
-              duration: 2000
-            })
+    var jobid = 65;
+    // var jobid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/companydetail/index?id=" + jobid
+    })
 
-          } else if (res.data.data.error == 2) {
+    // var that = this;
+    // var jobid = e.currentTarget.dataset.id;
+    // var userinfo = wx.getStorageSync('userInfo');
+    // console.log(userinfo);
+    // var companyid = e.currentTarget.dataset.companyid;
+    // console.log(companyid);
+    // console.log(jobid);
+    // app.util.request({
+    //   'url': 'entry/wxapp/sendjob',
+    //   data: {
+    //     jobid: jobid,
+    //     companyid: companyid,
+    //     sessionid: userinfo.sessionid,
+    //     uid: userinfo.memberInfo.uid
+    //   },
+    //   success: function (res) {
 
-            wx.showModal({
-              title: '提示',
-              content: res.data.data.msg,
-              showCancel: false
-            })
-            return
-          } else if (res.data.data.error == 3) {
+    //     if (!res.data.message.errno) {
+    //       if (res.data.data.error == 0) {
+    //         wx.showToast({
+    //           title: '投递成功!',
+    //           icon: 'success',
+    //           duration: 2000
+    //         })
 
-            wx.showModal({
-              title: '提示',
-              content: res.data.data.msg,
-              showCancel: false,
-              success: function (res) {
-                wx.navigateTo({
-                  url: "/weixinmao_zp/pages/mynote/index"
-                })
-              }
-            })
-            return
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: res.data.data.msg,
-              showCancel: false
-            })
-            return
-          }
-          that.setData({
-            data: res.data.data.jobdetail,
-          })
-        }
-      }
-    });
+    //       } else if (res.data.data.error == 2) {
+
+    //         wx.showModal({
+    //           title: '提示',
+    //           content: res.data.data.msg,
+    //           showCancel: false
+    //         })
+    //         return
+    //       } else if (res.data.data.error == 3) {
+
+    //         wx.showModal({
+    //           title: '提示',
+    //           content: res.data.data.msg,
+    //           showCancel: false,
+    //           success: function (res) {
+    //             wx.navigateTo({
+    //               url: "/weixinmao_zp/pages/mynote/index"
+    //             })
+    //           }
+    //         })
+    //         return
+    //       } else {
+    //         wx.showModal({
+    //           title: '提示',
+    //           content: res.data.data.msg,
+    //           showCancel: false
+    //         })
+    //         return
+    //       }
+    //       that.setData({
+    //         data: res.data.data.jobdetail,
+    //       })
+    //     }
+    //   }
+    // });
 
 
   },

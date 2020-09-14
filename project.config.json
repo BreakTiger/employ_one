@@ -176,6 +176,13 @@
 					"pathName": "weixinmao_zp/pages/workerdetail/index",
 					"query": "id=2023",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布职位",
+					"pathName": "weixinmao_zp/pages/addCompanyjob/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

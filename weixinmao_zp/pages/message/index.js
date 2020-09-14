@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isuser:false
+    isuser: false
   },
 
   /**
@@ -71,11 +71,17 @@ Page({
 
 
   },
-  goregister:function(e){
+  goregister: function (e) {
     wx.navigateTo({
       url: "/weixinmao_zp/pages/companyregister/index"
     })
 
+  },
+
+  tologin: function () {
+    wx.switchTab({
+      url: '/weixinmao_zp/pages/user/index',
+    })
   },
 
   toCompanyforget: function () {
@@ -94,18 +100,10 @@ Page({
       address: wx.getStorageSync('companyinfo').address
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+
   onLoad: function () {
-    
+
     var that = this;
 
     var appuser = wx.getStorageSync('userInfo');
@@ -121,7 +119,7 @@ Page({
 
       }
     }
-  
+
   },
 
 
@@ -130,14 +128,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -193,21 +191,21 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
   bindSave: function (e) {
     console.log(e.detail.formId);
     var that = this;
- 
 
-    
+
+
     var name = e.detail.value.name;
     var password = e.detail.value.password;
 
@@ -228,14 +226,14 @@ Page({
       return
     }
 
-  
+
 
 
     app.util.request({
       'url': 'entry/wxapp/companylogin',
       data: { name: name, password: password },
       success: function (res) {
-                
+
         if (res.data.errno != 0) {
           // 登录错误 
           wx.hideLoading();
@@ -245,60 +243,59 @@ Page({
             showCancel: false
           })
           return;
-        }else{
-    if(res.data.data.error == 1)
-      {
-      wx.showModal({
-            title: '登录提示',
-            content: res.data.data.msg,
-            showCancel: false
-          })
+        } else {
+          if (res.data.data.error == 1) {
+            wx.showModal({
+              title: '登录提示',
+              content: res.data.data.msg,
+              showCancel: false
+            })
 
-         
-      }else{
-      wx.showToast({
-        title: '登录成功',
-        icon: 'success',
-        duration: 2000,
-        success:function () {
-          console.log(res.data.data.companyid);
-          
-          wx.setStorageSync('companyid', res.data.data.companyid);
-          wx.redirectTo({
-            url: "/weixinmao_zp/pages/companylogin/index"
-          })
 
-        }
+          } else {
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success',
+              duration: 2000,
+              success: function () {
+                console.log(res.data.data.companyid);
 
-      })
+                wx.setStorageSync('companyid', res.data.data.companyid);
+                wx.redirectTo({
+                  url: "/weixinmao_zp/pages/companylogin/index"
+                })
 
-      }
+              }
+
+            })
+
+          }
           /*
           wx.switchTab({
             url: '/weixinmao_zp/pages/index/index',
           })
           */
-        } 
+        }
 
 
 
-    
+
 
       }
     });
 
-    
 
-  
+
+
   },
   onShareAppMessage() {
     return {
-      title: '申请入驻'+wx.getStorageSync('companyname').name,
+      title: '申请入驻' + wx.getStorageSync('companyname').name,
       path: '/weixinmao_zp/pages/message/index'
     }
   },
-  
- checkuser: function (options) {
+
+  checkuser: function (options) {
 
 
     var that = this;

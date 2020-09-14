@@ -15,6 +15,12 @@ Page({
 
   },
 
+  join:function(){
+    wx.showToast({
+      title: '报名成功',
+    })
+  },
+
   back:function(){
     wx.navigateBack({
       delta: 0,

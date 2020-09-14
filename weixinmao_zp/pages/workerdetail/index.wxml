@@ -27,7 +27,7 @@
 					<text>性别：</text>男
 				</view>
 				<view>
-					<text>身份证号码：</text>XXXXXXXXX
+					<text>身份证号码：</text>440105198903153326
 				</view>
 				<view>
 					<text>参加工作：</text>2020年9月8日
@@ -40,7 +40,7 @@
 					<text>出生日期：</text>1989年11月30日
 				</view>
 				<view>
-					<text>联系电话：</text>xxxxxxxxxxx
+					<text>联系电话：</text>13113357685
 				</view>
 				<view>
 					<text>工作经验：</text>0年
@@ -92,7 +92,13 @@
 		<view>北京家里海科技有限公司 | 10年7月</view>
 		<view class="flex">
 			<view style="width：20%;">工作描述：</view>
-			<view style="width:80%;">我我我我我我我我我我嚄喔喔喔我我我嚄嚄嚄嚄嚄嚄嚄嚄嚄嚄我我我我我我我我靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠酷酷酷酷酷酷酷酷</view>
+			<view style="width:80%;">
+				<view>1.执行部门领导下达的产品开发计划及相关技术事项；</view>
+				<view>2.协调各工程师执行部门领导下达的产品开发计划及相关技术事项；</view>
+				<view>3.协助各工程师执行对项目的统计工作：资料汇总、分析、技术报告的编制、图纸及相关文件归档、产品成本的分析；</view>
+				<view>4.协助各工程师项目产品开发图纸及相关文件输出及首板确认；</view>
+				<view>5.协助各工程师项目新产品认证工作跟进和样板的制作</view>
+			</view>
 		</view>
 	</view>
 
@@ -102,7 +108,7 @@
 		<view>
 			<view class="flex fl-align">
 				<view>2006/01 - 2010/01</view>
-				<view style="margin-left:50rpx;font-weight:bold;">家里蹲学校</view>
+				<view style="margin-left:50rpx;font-weight:bold;">江西省外贸商业学校</view>
 			</view>
 			<view>博士 | 经济与金融</view>
 		</view>

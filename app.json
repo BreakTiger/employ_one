@@ -3,8 +3,6 @@
     "weixinmao_zp/pages/index/index",
     "weixinmao_zp/pages/user/index",
     "weixinmao_zp/pages/mysendnote/index",
-    "weixinmao_zp/pages/employeemain/index",
-    "weixinmao_zp/pages/agentcenter/index",
     "weixinmao_zp/pages/mymoneyjob/index",
     "weixinmao_zp/pages/findvocationjob/index",
     "weixinmao_zp/pages/companylist/index",
@@ -15,10 +13,8 @@
     "weixinmao_zp/pages/mynote/index",
     "weixinmao_zp/pages/regmoney/index",
     "weixinmao_zp/pages/jobmoneydetail/index",
-    "weixinmao_zp/pages/agentnote/index",
     "weixinmao_zp/pages/findnotevideo/index",
     "weixinmao_zp/pages/myvideonote/index",
-    "weixinmao_zp/pages/agentlist/index",
     "weixinmao_zp/pages/regsub/index",
     "weixinmao_zp/pages/findpartjob/index",
     "weixinmao_zp/pages/findjob/index",
@@ -38,7 +34,6 @@
     "weixinmao_zp/pages/editpartjob/index",
     "weixinmao_zp/pages/partjobdetail/index",
     "weixinmao_zp/pages/regagent/index",
-    "weixinmao_zp/pages/agentdetail/index",
     "weixinmao_zp/pages/sharejob/index",
     "weixinmao_zp/pages/jobnewdetail/index",
     "weixinmao_zp/pages/myshare/index",
@@ -47,10 +42,10 @@
     "weixinmao_zp/pages/agentnotelist/index",
     "weixinmao_zp/pages/agentqrcode/index",
     "weixinmao_zp/pages/agentcompanylist/index",
-    "weixinmao_zp/pages/fxrecord/index",
     "weixinmao_zp/pages/sharecompanyjob/index",
     "weixinmao_zp/pages/matchnote/index",
     "weixinmao_zp/pages/jobcompanydetail/index",
+    "weixinmao_zp/pages/companydetail/index",
     "weixinmao_zp/pages/nicenotelist/index",
     "weixinmao_zp/pages/findcatejob/index",
     "weixinmao_zp/pages/newsharejob/index",
@@ -58,10 +53,8 @@
     "weixinmao_zp/pages/navlast/index",
     "weixinmao_zp/pages/editvocationjob/index",
     "weixinmao_zp/pages/searchnote/index",
-    "weixinmao_zp/pages/mytask/index",
     "weixinmao_zp/pages/sendcompany/index",
     "weixinmao_zp/pages/departmentlist/index",
-    "weixinmao_zp/pages/myemployeemoneylist/index",
     "weixinmao_zp/pages/findcateworker/index"
   ],
   "subPackages": [
@@ -80,9 +73,7 @@
     },
     {
       "root": "weixinmao_zp/pages_three",
-      "pages": [
-        
-      ]
+      "pages": []
     },
     {
       "root": "weixinmao_zp/pages_four",

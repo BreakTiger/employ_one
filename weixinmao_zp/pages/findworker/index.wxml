@@ -172,11 +172,11 @@
  	</view>
 
  	<!-- 客服 -->
- 	<view class="u-tap-btn">
+ 	<!-- <view class="u-tap-btn">
  		<button class="u-go-home2" open-type='contact'>
  			<view class="iconfont fa fa-comments-o"></view>
  		</button>
- 	</view>
+ 	</view> -->
 
  </block>
 

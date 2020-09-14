@@ -1,4 +1,4 @@
-/<view class="container flex col fl-align">
+<view class="container flex col fl-align">
 
 	<view class="content flex col fl-align b-ff">
 
@@ -8,8 +8,8 @@
 
 		<view>
 			<view>注意事项：</view>
-			<view>1.xxx</view>
-			<view>2.XXX</view>
+			<view>1.签到后扫码领取平板电脑</view>
+			<view>2.离开前请归还平板电脑</view>
 		</view>
 
 	</view>

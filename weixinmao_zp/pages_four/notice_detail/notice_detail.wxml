@@ -20,7 +20,7 @@
 
 	<view class="btn flex fl-align fl-jsb">
 
-		<view class="b-e5">招聘会报名</view>
+		<view class="b-e5" bindtap="join">招聘会报名</view>
 
 		<view bindtap="back">返回</view>
 

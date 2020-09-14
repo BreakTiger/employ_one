@@ -65,7 +65,7 @@
 
 		<view class="item flex col fl-align" bindtap="scanGet">
 			<image src="../../resource/images/nav/nav-3.png"></image>
-			<view>扫码领取Ipad</view>
+			<view>借用/归还平板</view>
 		</view>
 
 	</view>

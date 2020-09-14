@@ -1,5 +1,5 @@
-// weixinmao_house/pages/agentdetail/index.js
-var R_htmlToWxml = require('../../resource/js/htmlToWxml.js');//引入公共方法
+// weixinmao_zp/pages/agentdetail/index.js
+var WxParse = require('../../resource/wxParse/wxParse.js');//
 var app = getApp();
 Page({
 
@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (e) {
     wx.setNavigationBarTitle({
-      title: '经纪人详情页',
+      title: wx.getStorageSync('companyinfo').name,
     })
 
     if (this.data.id > 0) {
@@ -31,11 +31,10 @@ Page({
     var that = this;
     //初始化导航数据
     app.util.request({
-      'url': 'entry/wxapp/getagentdetail',
+      'url': 'entry/wxapp/getcompanydetail',
       data: { id: id },
       success: function (res) {
         if (!res.data.message.errno) {
-
           if (!res.data.data.intro.maincolor) {
             res.data.data.intro.maincolor = '#3274e5';
 
@@ -48,11 +47,16 @@ Page({
               timingFunc: 'easeIn'
             }
           })
-
+          wx.setNavigationBarTitle({
+            title: that.data.title,
+          })
+          console.log(res.data.data.companydetail);
           that.setData({
-            data: res.data.data.list,
-        
-           // content: newsDetail
+            data: res.data.data.companydetail,
+            content: WxParse.wxParse('article', 'html', res.data.data.companydetail.content, that, 5),
+
+            joblist: res.data.data.joblist,
+            title: res.data.data.title
           })
         }
       },
@@ -64,21 +68,6 @@ Page({
       }
     });
   },
-
-  copyText: function (e) {
-    var that = this;
-    var content = e.currentTarget.dataset.weixin; 
-    wx.setClipboardData({
-      data: content, 
-      success: function (res) { 
-
-
-     
-          
-              }  
-          });
-
-      },
   tabClick: function (e) {
 
 
@@ -103,59 +92,12 @@ Page({
         }
       }
     });
-  },
-  Changeagent: function () {
-    var that = this;
-    var userinfo = wx.getStorageSync('userInfo');
-    var uid = userinfo.memberInfo.uid;
-    app.util.request({
-      'url': 'entry/wxapp/changeagent',
-      data: { uid: uid },
-      success: function (res) {
-        if (!res.data.message.errno) {
-
-          if (res.data.data.error == 0) {
-
-            that.onLoad();
-
-          } else if (res.data.data.error == 1) {
-
-            wx.showModal({
-              title: '提示',
-              content: res.data.data.msg,
-              showCancel: false
-            })
-            return
-          }
-        }
-
-      }
-    })
-  },
-  
-   toComplain:function(e){
+  }, toJobDetail: function (e) {
     var id = e.currentTarget.dataset.id;
-
     wx.navigateTo({
-      url: "/weixinmao_house/pages/complain/index?id=" + id
+      // url: "/weixinmao_zp/pages/jobmoneydetail/index?id=" + pid
+      url: "/weixinmao_zp/pages/jobmoneydetail/index?id=" + id
     })
-
-
-  }, toHouseDetail: function (e) {
-    var id = e.currentTarget.dataset.id;
-    var pid = this.data.pid;
-    if(pid == 1)
-      {
-    wx.navigateTo({
-      url: "/weixinmao_house/pages/oldhousedetail/index?id=" + id
-    })
-      }else{
-      wx.navigateTo({
-        url: "/weixinmao_house/pages/lethousedetail/index?id=" + id
-      })
-
-      }
-
   }
   ,
   doCall: function (e) {
@@ -221,7 +163,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.title,
-      path: '/weixinmao_house/pages/agentdetail/index?id=' + this.data.id
+      path: '/weixinmao_zp/pages/companydetail/index?id=' + this.data.id
     }
   }
 })

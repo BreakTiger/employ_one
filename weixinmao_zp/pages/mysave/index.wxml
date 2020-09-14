@@ -1,7 +1,7 @@
    <view class="container">
 
    	<view class="orderlist">
-   		<view class="orderid">应聘人：asd</view>
+   		<view class="orderid">应聘人：张灵</view>
    		<view class="content">
    			<view class="item">性别：男</view>
    			<view class="item">联系电话:13868367595</view>

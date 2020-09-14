@@ -20,16 +20,16 @@ Page({
     housepriceid: 0,
     housetype: 0,
     letway: 0,
-    page:1,
-    title:'',
-    worklist:[
+    page: 1,
+    title: '',
+    worklist: [
       {
         name: '张学航',
         sex: '1',
         jobtitle: '产品经理',
         age: '24',
         education: '大专',
-        express:'一年一下'
+        express: '一年一下'
       },
       {
         name: '李勇存',
@@ -37,7 +37,7 @@ Page({
         jobtitle: '项目经理',
         age: '35',
         education: '本科',
-        express:'10年'
+        express: '10年'
       },
       {
         name: '张雪',
@@ -45,9 +45,29 @@ Page({
         jobtitle: '前端工程师',
         age: '22',
         education: '本科',
-        express:'一年以下'
+        express: '一年以下'
       }
 
+    ],
+    arealist: [
+      {
+        name: '端州区'
+      },
+      {
+        name: '鼎湖区'
+      }, {
+        name: '高要区'
+      }, {
+        name: '广宁县'
+      }, {
+        name: '德庆县'
+      }, {
+        name: '封开县'
+      }, {
+        name: '怀集县'
+      }, {
+        name: '四会市'
+      }
     ]
   },
 
@@ -74,13 +94,13 @@ Page({
       { 'name': '全职', 'id': 1 },
       { 'name': '兼职', 'id': 2 }
     ];
-  
+
     //  housetypelist.push(data);
     var typeid = 0;
     var carid = 0;
     var priceid = 0;
     var selectid = 0;
-    this.setData({ housetypelist: housetypelist, housewaylist: housewaylist, typeid: typeid, carid: carid, priceid: priceid,selectid:selectid});
+    this.setData({ housetypelist: housetypelist, housewaylist: housewaylist, typeid: typeid, carid: carid, priceid: priceid, selectid: selectid });
 
     var cityinfo = wx.getStorageSync('cityinfo');
     if (cityinfo) {
@@ -89,13 +109,13 @@ Page({
       that.initpage();
 
     } else {
-     
-      
+
+
 
     }
 
 
-  }, 
+  },
 
   initpage: function () {
 
@@ -136,7 +156,7 @@ Page({
           }
           that.setData({
             city: wx.getStorageSync('cityinfo').name,
-            arealist: res.data.data.arealist,
+            // arealist: res.data.data.arealist,
             jobcatelist: res.data.data.jobcatelist,
             notetitle: title['notetitle'],
             title: '',
@@ -144,7 +164,7 @@ Page({
             typetitle: '',
             selecttitle: '',
             ischeck: res.data.data.intro.ischeck,
-            intro:res.data.data.intro,
+            intro: res.data.data.intro,
             selectworktitle: res.data.data.selectworktitle
           })
 
@@ -160,8 +180,8 @@ Page({
 
 
   },
-  
-  toWorkerDetail:function (e) {
+
+  toWorkerDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: "/weixinmao_zp/pages/workerdetail/index?id=" + id
@@ -181,7 +201,7 @@ Page({
     var cityid = wx.getStorageSync('cityinfo').id;
     app.util.request({
       'url': 'entry/wxapp/getfindworkerlist',
-      data: { cityid: cityid, page: that.data.page, houseareaid: that.data.houseareaid, housepriceid: that.data.housepriceid, housetype: that.data.housetype, letway: that.data.letway},
+      data: { cityid: cityid, page: that.data.page, houseareaid: that.data.houseareaid, housepriceid: that.data.housepriceid, housetype: that.data.housetype, letway: that.data.letway },
       success: function (res) {
         if (!res.data.message.errno) {
           // console.log(res.data.data);
@@ -317,7 +337,7 @@ Page({
     wx.navigateTo({
       url: '../brand/brand'
     })
-  },onPullDownRefresh: function () {
+  }, onPullDownRefresh: function () {
     wx.showNavigationBarLoading();
     this.onShow();
   },

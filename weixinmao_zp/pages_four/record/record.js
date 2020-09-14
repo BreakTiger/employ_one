@@ -28,6 +28,12 @@ Page({
     })
   },
 
+  toFinsh:function(){
+    wx.navigateTo({
+      url: '/weixinmao_zp/pages_four/finish/finish',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */

@@ -35,9 +35,11 @@
 			<view class="forget" bindtap="toCompanyforget">忘记密码？</view>
 
 		</view>
-		<button class="save-btn" formType="submit" hidden="{{!isuser}}">立即登录</button>
 
-		<button class="save-btn" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" hidden="{{isuser}}">立即登录</button>
+		<button class="save-btn" bindtap="tologin">立即登录</button>
+		<!-- <button class="save-btn" formType="submit" hidden="{{!isuser}}">立即登录</button>
+
+		<button class="save-btn" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" hidden="{{isuser}}">立即登录</button> -->
 
 		<button class="save-btn" bindtap='goregister'>立即注册</button>
 

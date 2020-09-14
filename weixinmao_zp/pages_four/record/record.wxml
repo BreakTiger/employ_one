@@ -10,7 +10,7 @@
    			<view class="item">创建时间:2020-09-03</view>
    			<view class="payitem">
    				<view bindtap="toWatch">查看简历</view>
-   				<view>邀请面试</view>
+   				<view bindtap="toFinsh">结束面试</view>
    			</view>
    		</view>
    	</view>

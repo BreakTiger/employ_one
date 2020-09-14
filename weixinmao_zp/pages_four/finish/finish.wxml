@@ -2,150 +2,64 @@
 
 	<view class="content b-ff flex col fl-align">
 		<view>应聘职位：【全职】销售经理</view>
-		<view>应聘人：ads</view>
+		<view>应聘人：张雪</view>
 		<view class="flex fl-align fl-jsb">
 			<text>工作经验：</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>优秀</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>良好</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>合格</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>较差</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>很差</text>
+				<view wx:for="{{one}}" wx:key="key" bindtap="toOne" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="flex fl-align fl-jsb">
 			<text>专业知识：</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>优秀</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>良好</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>合格</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>较差</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>很差</text>
+				<view wx:for="{{two}}" wx:key="key"  bindtap="toTwo" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="flex fl-align fl-jsb">
 			<text>沟通能力：</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>优秀</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>良好</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>合格</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>较差</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>很差</text>
+			<view wx:for="{{three}}" wx:key="key"  bindtap="toThree" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="flex fl-align fl-jsb">
 			<text>职业文化水平：</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>优秀</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>良好</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>合格</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>较差</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>很差</text>
+				<view wx:for="{{four}}" wx:key="key" bindtap="toFour" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="flex fl-align fl-jsb">
 			<text>岗位稳定性：</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>优秀</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>良好</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>合格</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>较差</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>很差</text>
+				<view wx:for="{{five}}" wx:key="key" bindtap="toFive" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="flex fl-align fl-jsb">
 			<text>综合评价</text>
 			<view class="flex fl-align fl-jsb">
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>建议录取</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>推荐复试</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>人才储备</text>
-				</view>
-				<view>
-					<icon type="circle" size="20"></icon>
-					<text>拒绝录用</text>
+				<view wx:for="{{six}}" wx:key="key" bindtap="toSix" data-index="{{index}}">
+					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
