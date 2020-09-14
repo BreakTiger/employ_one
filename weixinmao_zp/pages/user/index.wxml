@@ -9,12 +9,12 @@
 	<view class="mymoney flex fl-jsa b-ff">
 
 		<view class="item flex col fl-align" bindtap="toMyjoblist">
-			<view>13个</view>
+			<view>1个</view>
 			<view>已发布职位数</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="vitae">
-			<view>1条</view>
+			<view>2份</view>
 			<view>已收到简历</view>
 		</view>
 

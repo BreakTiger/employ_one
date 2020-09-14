@@ -69,44 +69,48 @@ Page({
     wx.navigateTo({
       url: "/weixinmao_zp/pages/editCompanyjob/index?id=" + id
     })
-  }, addcompanyjob: function (e) {
-    var companyid = wx.getStorageSync('companyid');
-    var userinfo = wx.getStorageSync('userInfo');
+  },
 
-    app.util.request({
-      'url': 'entry/wxapp/checkaddcompanyjob',
-      data: { companyid: companyid, sessionid: userinfo.sessionid, uid: userinfo.memberInfo.uid },
-      success: function (res) {
-        if (!res.data.message.errno) {
-          var companyinfo = res.data.data.companyinfo
-          if (companyinfo.jobnum < 1) {
+  addcompanyjob: function (e) {
+    // var companyid = wx.getStorageSync('companyid');
+    // var userinfo = wx.getStorageSync('userInfo');
 
-            wx.showModal({
-              title: '系统提示',
-              content: '您的发布职位数量达到了上限或是普通会员,发布职位需支付费用！',
-              showCancel: false,
-              success: function () {
+    // app.util.request({
+    //   'url': 'entry/wxapp/checkaddcompanyjob',
+    //   data: { companyid: companyid, sessionid: userinfo.sessionid, uid: userinfo.memberInfo.uid },
+    //   success: function (res) {
+    //     if (!res.data.message.errno) {
+    //       var companyinfo = res.data.data.companyinfo
+    //       if (companyinfo.jobnum < 1) {
 
-                wx.navigateTo({
-                  url: "/weixinmao_zp/pages/companyrole/index"
-                })
+    //         wx.showModal({
+    //           title: '系统提示',
+    //           content: '您的发布职位数量达到了上限或是普通会员,发布职位需支付费用！',
+    //           showCancel: false,
+    //           success: function () {
 
-              }
-            })
+    //             wx.navigateTo({
+    //               url: "/weixinmao_zp/pages/companyrole/index"
+    //             })
 
-
-          } else {
-
-            wx.navigateTo({
-              url: "/weixinmao_zp/pages/addCompanyjob/index"
-            })
+    //           }
+    //         })
 
 
-          }
+    //       } else {
 
-        }
-      }
-    });
+
+
+    //       }
+
+    //     }
+    //   }
+    // });
+
+    wx.navigateTo({
+      url: "/weixinmao_zp/pages/addCompanyjob/index"
+    })
+
 
 
 

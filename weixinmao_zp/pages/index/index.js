@@ -6,7 +6,17 @@ Page({
 
     imgheights: [], //轮播图高度列表
 
-    banners: [], //轮播图列表
+    banners: [
+      {
+        thumb: 'http://120.79.207.87:8091//img/zqzpImg/1.jpg'
+      },
+      {
+        thumb: 'http://120.79.207.87:8091//img/zqzpImg/2.jpg'
+      },
+      {
+        thumb: 'http://120.79.207.87:8091//img/zqzpImg/3.jpg'
+      }
+    ], //轮播图列表
 
     swiperCurrent: '',
 
@@ -17,8 +27,8 @@ Page({
         jobtitle: '产品经理',
         age: '24',
         education: '大专',
-        express:'一年以下',
-        createtime:'一小时前'
+        express: '一年以下',
+        createtime: '一小时前'
       },
       {
         name: '李勇存',
@@ -26,8 +36,8 @@ Page({
         jobtitle: '项目经理',
         age: '35',
         education: '本科',
-        express:'10年',
-        createtime:'一小时前'
+        express: '10年',
+        createtime: '一小时前'
       },
       {
         name: '张雪',
@@ -35,8 +45,8 @@ Page({
         jobtitle: '前端工程师',
         age: '22',
         education: '本科',
-        express:'一年以下',
-        createtime:'一小时前'
+        express: '一年以下',
+        createtime: '一小时前'
       }
 
     ], //优秀人才列表
@@ -190,7 +200,7 @@ Page({
           wx.setStorageSync('cityinfo', res.data.data.cityinfo);
 
           that.setData({
-            banners: res.data.data.bannerlist,
+            // banners: res.data.data.bannerlist,
             // notelist: res.data.data.notelist
           })
 

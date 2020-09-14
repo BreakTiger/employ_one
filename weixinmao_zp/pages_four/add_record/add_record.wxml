@@ -33,12 +33,12 @@
 
 		<view class="content-line flex fl-align">
 			<text>出生年份</text>
-			<picker mode="date">1996</picker>
+			<picker mode="date">请选择年份</picker>
 		</view>
 
 		<view class="content-line flex fl-align">
 			<text>最高学历</text>
-			<picker moda="selector">大专</picker>
+			<picker moda="selector">请选择最高学历</picker>
 		</view>
 
 		<view class="content-line flex fl-align">
@@ -68,7 +68,7 @@
 	<view class="title">简历拍照上传</view>
 
 	<view class="flex fl-w b-ff img">
-		<image src="../../resource/images/photo.png" class="photo"></image>
+		<image src="../../resource/images/photo.png" class="photo" bindtap="toImg"></image>
 	</view>
 
   <view style="height:80rpx;"></view>

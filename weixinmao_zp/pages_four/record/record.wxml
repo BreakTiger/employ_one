@@ -1,10 +1,25 @@
    <view class="container">
 
-   	<view class="orderlist" wx:for="[1,2]" wx:key="index">
+   	<view class="orderlist">
 
    		<view class="orderid">应聘职位：【全职】销售经理</view>
    		<view class="content">
-   			<view class="item">应聘人：asd</view>
+   			<view class="item">应聘人：章亮</view>
+   			<view class="item">性别：男</view>
+   			<view class="item">联系电话：13868367595</view>
+   			<view class="item">创建时间:2020-09-03</view>
+   			<view class="payitem">
+   				<view bindtap="toWatch">查看简历</view>
+   				<view bindtap="toFinsh">结束面试</view>
+   			</view>
+   		</view>
+   	</view>
+
+		 <view class="orderlist">
+
+   		<view class="orderid">应聘职位：【全职】销售经理</view>
+   		<view class="content">
+   			<view class="item">应聘人：刘星</view>
    			<view class="item">性别：男</view>
    			<view class="item">联系电话：13868367595</view>
    			<view class="item">创建时间:2020-09-03</view>

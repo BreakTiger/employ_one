@@ -15,6 +15,18 @@ Page({
 
   },
 
+
+  toImg: function () {
+    wx.chooseImage({
+      // sizeType: ['original', 'compressed'],
+      sourceType: ['camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
