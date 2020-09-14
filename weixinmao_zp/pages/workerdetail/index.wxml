@@ -5,7 +5,7 @@
 		<image src="../../resource/images/parson.png"></image>
 
 		<view>
-			<text style="font-size:32rpx;">张三</text>
+			<text style="font-size:32rpx;">章亮</text>
 
 			<view class="flex fl-align">
 				<image src="../../resource/images/s_parson.png" class="icon"></image>
