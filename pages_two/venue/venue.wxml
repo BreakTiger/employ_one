@@ -1,0 +1,38 @@
+<view class="container">
+
+	<view class="header">
+		<view class='acitveinfo'>
+			<view class="item">时间：{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
+			<view class="item">主办方：{{item.organizer}}</view>
+			<view class="item">规模：参会企业{{item.enterpriseTotal}}家|岗位{{item.postTotal}}个|{{item.personalTotal}}个求职者</view>
+			<view class="item">地点：{{item.address}}</view>
+			<view class="notice">
+				<text class="fa fa-volume-up fa-lg" style='color:#FFF;'></text>
+				<swiper class="swiper_container_move" vertical="true" autoplay="true" circular="true" interval="2000">
+					<navigator url="" open-type="navigate" wx:for="{{list}}" wx:key="index">
+						<swiper-item>
+							<view class="swiper_item_move">{{item.enterpriseName}}</view>
+						</swiper-item>
+					</navigator>
+				</swiper>
+			</view>
+		</view>
+	</view>
+
+	<view class="companylist">
+		<view class="jobitem" wx:for="{{list}}" wx:key="index">
+			<image src="http://120.79.207.87:8091{{item.logoAddress}}" class="img"></image>
+			<view class="jobtitle">{{item.enterpriseName}}</view>
+			<view class="joblist">
+				<view class="title" wx:for="{{item.joblist_four}}" wx:for-item="itemjob" wx:key="index">
+					<view></view>
+					<view>{{itemjob.jobtitle}}</view>
+				</view>
+			</view>
+			<view class="jobcount">共用{{item.posttotal}}个职位招聘</view>
+			<view class="sendjob" bindtap='toDeatil' data-id="{{item.id}}">查看详情</view>
+		</view>
+
+	</view>
+
+</view>

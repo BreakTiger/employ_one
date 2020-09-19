@@ -1,0 +1,51 @@
+<view class="container col fl-align">
+
+	<swiper class="swiper_box" autoplay="ture" interval="3000" duration="500" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#FFFFFF">
+		<swiper-item wx:for="{{banners}}" wx:key="index">
+			<image src="{{item.thumb}}" class="wh" />
+		</swiper-item>
+	</swiper>
+
+
+	<form class="w100" bindsubmit="bindSave" report-submit>
+
+
+		<view class="form-box flex col fl-align w100 b-ff">
+
+			<view class="row-wrap flex fl-align">
+				<view>手机号</view>
+
+				<view class="label-right flex fl-align fl-jsb">
+					<input bindinput="phoneinput" type="number" name="tel" placeholder="请输入手机号" style="width:300rpx;" />
+					<view>{{btn_title}}</view>
+				</view>
+
+			</view>
+
+			<view class="row-wrap flex fl-align">
+				<view class="label">验证码</view>
+				<input type="text" value="" name="code" placeholder="请输入验证码" bindtap="getCode"/>
+			</view>
+
+			<view class="row-wrap flex fl-align">
+				<view class="label">密 码</view>
+				<view class="label-right">
+					<input name="password" class="input" type="password" placeholder="请输入密码" value="" />
+				</view>
+			</view>
+
+			<view class="row-wrap flex fl-align">
+				<view class="label">确认密码</view>
+				<view class="label-right">
+					<input name="password2" class="input" maxlength="20" type="password" placeholder="请输入确认密码" value="" />
+				</view>
+			</view>
+
+		</view>
+
+		<button class="btn b-e5 c-ff" formType="submit">立即修改</button>
+
+	</form>
+
+
+</view>

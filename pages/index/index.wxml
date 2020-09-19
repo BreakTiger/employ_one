@@ -1,0 +1,97 @@
+<view class="container col fl-align b-ff">
+
+	<!-- 搜索栏 -->
+	<view class="header flex col fl-align">
+
+		<view class="search flex fl-align b-ff" bindtap='toSearch'>
+
+			<icon type="search" size="22" />
+
+			<view>请输入相关职位或企业名称</view>
+
+		</view>
+
+	</view>
+
+	<swiper class="swiper_box" autoplay="ture" interval="3000" duration="500" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#FFFFFF">
+		<swiper-item wx:for="{{banners}}" wx:key="index">
+			<image src="{{item.thumb}}" class="wh" />
+		</swiper-item>
+	</swiper>
+
+
+	<view class="tongji flex fl-w fl-jss">
+		<view>
+			<image src="../../images/tongji.png"></image>
+		</view>
+		<view>入驻企业:<text>{{companycount}}</text></view>
+		<view>职位:<text>{{jobcount}}</text></view>
+		<view>简历:<text>{{notecount}}</text></view>
+	</view>
+
+
+	<view class="navlist flex fl-w">
+
+		<view class="item flex col fl-align" bindtap="toMeeting">
+			<image src="../../nav/nav-1.png"></image>
+			<view>招聘会</view>
+		</view>
+
+		<view class="item flex col fl-align" bindtap="companyLogin">
+			<image src="../../nav/nav-2.png"></image>
+			<view>企业登录</view>
+		</view>
+
+		<view class="item flex col fl-align" bindtap="scanSign">
+			<image src="../../nav/nav-3.png"></image>
+			<view>扫码签到</view>
+		</view>
+
+		<view class="item flex col fl-align" bindtap="myCollect">
+			<image src="../../nav/nav-4.png"></image>
+			<view>我的收藏</view>
+		</view>
+
+		<view class="item flex col fl-align" bindtap="scanGet">
+			<image src="../../nav/nav-3.png"></image>
+			<view>借用/归还平板</view>
+		</view>
+
+	</view>
+
+
+	<view class="release flex fl-align fl-jc" bindtap="toAddCompanyjob">
+		<text class="fa fa-pencil-square-o fa-lg"></text>
+		<text>发布职位</text>
+	</view>
+
+
+	<view class="news flex fl-align fl-jsb">
+
+		<view>最新人才</view>
+
+		<view bindtap="toMore">更多</view>
+
+	</view>
+
+	<view class="type-container flex col fl-align">
+
+		<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-id="{{item.id}}" bindtap="toWorkerdetial" wx:if="{{item.enable==1}}">
+			<image src="{{imaUrl+item.headimgAddress}}"></image>
+
+			<view class="type-info flex col">
+				<view class="flex fl-align fl-jsb">
+					<text>{{item.name}}</text>
+					<text>1小时前</text>
+				</view>
+				<view>{{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+				<view>职位意向：{{item.intendedPosition}}</view>
+			</view>
+
+		</view>
+
+	</view>
+
+
+
+</view>

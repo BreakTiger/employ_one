@@ -1,0 +1,71 @@
+<view class="container col fl-align">
+
+	<!-- 搜索 -->
+	<view class="search w100 b-ff">
+		<view bindtap="toSearch" class="flex fl-align">
+			<icon type="search" size="14" />
+			<text>请输入查询信息</text>
+		</view>
+	</view>
+
+	<view style="height:60px;"></view>
+
+	<!-- 列表 -->
+	<view class="recruit">
+		<view wx:for="{{list}}" wx:key="index">
+			<view class="recruit_header">{{item.name}}</view>
+			<view class="recruitlist">
+				<view class="title">
+					<view class="detail">
+						<view class="type_list">{{item.theme}}</view>
+						<view class="flex fl-align" style="margin: 10rpx 0rpx">
+							<view class="recruit_state">{{item.status}}</view>
+							<view class="recruit_time">{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
+						</view>
+						<view class="flex fl-align">
+							<view class="flex fl-align">
+								<image src="../../images/qiye.png"></image>
+								<span class="enterprise">企业<span style="color: #33b6be">{{item.postTotal}}</span>家</span>
+							</view>
+							<view class="flex fl-align" style="margin-left: 60rpx">
+								<image src="../../images/join.png"></image>
+								<span class="enterprise">求职者<span style="color: #33b6be">{{item.personalTotal}}</span>人</span>
+							</view>
+						</view>
+						<view>主办方: {{item.organizer}}</view>
+						<view>地址: {{item.address}}</view>
+						<view class="flex fl-align fl-jsb" style="margin: 20rpx 0">
+							<view class="recruit_button" bindtap="join" data-item="{{item}}">报名参会</view>
+							<view class="recruit_button" style="background: #fff;color:#33b6be;border:2rpx solid #33b6be" bindtap="toVenue" data-item="{{item}}">进入会场</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+
+
+</view>
+
+
+
+<!--  -->
+
+<!-- 列表 -->
+
+
+<!-- 加载更多 -->
+<!-- <view class="loadmore">
+	<text>{{loadMore}}</text>
+</view> -->
+
+
+
+<!-- 
+<view class="case">
+	<view class="content">
+		{{intro.content}}
+	</view>
+</view> -->

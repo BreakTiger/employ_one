@@ -1,0 +1,25 @@
+<view class="container flex col fl-align">
+
+	<view class="content flex col fl-align b-ff">
+
+		<view class="flex fl-jsb">
+			<text>Ipad编号</text>
+			<text>{{code}}</text>
+		</view>
+
+		<view class="flex fl-jsb">
+			<text>扫码时间</text>
+			<text>{{time}}</text>
+		</view>
+
+	</view>
+
+	<view class="flex fl-align fl-jsb btn">
+
+		<view class="b-e5" bindtap="gets">领取</view>
+
+		<view bindtap="rback">归还</view>
+
+	</view>
+
+</view>

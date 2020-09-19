@@ -1,0 +1,105 @@
+ <view class="container">
+
+ 	<!-- 搜索 -->
+ 	<view class="search flex fl-align b-ff">
+ 		<view bindtap="toSearch" class="search_box flex fl-align">
+ 			<icon type="search" size="15" />
+ 			<text class="c-66">请输入查询信息</text>
+ 		</view>
+ 	</view>
+
+ 	<!-- 筛选栏 -->
+ 	<view class="list_sort flex b-ff">
+
+ 		<view class="sort_list {{isCars ? '' : 'select'}}" bindtap="selectCars">
+ 			<text>{{carid!=0?title:'区域'}}</text>
+ 			<image src="{{isCars ? '../../images/buttom.png' : '../../images/top-red.png'}}"></image>
+ 		</view>
+
+ 		<view class="sort_list {{isPrice ? '' : 'select'}}" bindtap="selectPrice">
+ 			<text>{{priceid!=0?price:'行业'}}</text>
+ 			<image src="{{isPrice ? '../../images/buttom.png' : '../../images/top-red.png'}}"></image>
+ 		</view>
+
+ 		<view class="sort_list {{isType ? '' : 'select'}}" bindtap="selectType">
+ 			<text>{{typeid!=0?typetitle:'学历'}}</text>
+ 			<image src="{{isType ? '../../images/buttom.png' : '../../images/top-red.png'}}"></image>
+ 		</view>
+
+ 	</view>
+
+
+ 	<!-- 区域 -->
+ 	<view class="select_cars b-ff" hidden="{{isCars}}">
+
+ 		<scroll-view class="bigWrap" scroll-y="true" scroll-top="{{scrollTop}}" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
+
+ 			<view class="select_cars_list {{carid == 0 ? 'colorred' : ''}}" bindtap='selectcarsitem' data-id="0" data-title="">
+ 				<text>全部</text>
+ 				<image src="../../images/dui.png" wx:if="{{carid== 0}}"></image>
+ 			</view>
+ 			<block wx:for="{{list}}" wx:key="index">
+
+ 				<view class="select_cars_list colorred" bindtap='selectcarsitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
+ 					<text>{{item.dataName}}</text>
+ 					<image src="../../images/dui.png" wx:if="{{item.id== carid}}"></image>
+ 				</view>
+
+ 			</block>
+ 		</scroll-view>
+ 	</view>
+
+ 	<!-- 行业 -->
+ 	<view class="select_sort b-ff" hidden="{{isPrice}}">
+ 		<scroll-view class="bigWrap" scroll-y="true" scroll-top="{{scrollTop}}" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
+ 			<view class="select_cars_list {{priceid == 0 ? 'colorred' : ''}}" bindtap='selectpriceitem' data-id="0" data-title="">
+ 				<text>不限</text>
+ 				<image src="../../images/dui.png" wx:if="{{priceid== 0}}"></image>
+ 			</view>
+ 			<block wx:for="{{list}}" wx:key="index">
+ 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
+ 					<text>{{item.dataName}}</text>
+ 					<image src="../../images/dui.png" wx:if="{{item.id== priceid}}"></image>
+ 				</view>
+ 			</block>
+ 		</scroll-view>
+ 	</view>
+
+ 	<!-- 学历 -->
+ 	<view class="select_sort b-ff" hidden="{{isType}}">
+ 		<scroll-view class="bigWrap" scroll-y="true" scroll-top="{{scrollTop}}" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
+ 			<view class="select_cars_list {{typeid == 0 ? 'colorred' : ''}}" bindtap='selecttypeitem' data-id="0" data-title="">
+ 				<text>不限</text>
+ 				<image src="../../images/dui.png" wx:if="{{typeid== 0}}"></image>
+ 			</view>
+ 			<block wx:for="{{list}}" wx:key="index">
+ 				<view class="select_cars_list colorred" bindtap='selecttypeitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
+ 					<text>{{item.dataName}}</text>
+ 					<image src="../../images/dui.png" wx:if="{{item.id== typeid}}"></image>
+ 				</view>
+ 			</block>
+ 		</scroll-view>
+ 	</view>
+
+ 	<!-- 列表 -->
+ 	<view class="news w100 b-ff flex col">
+
+ 		<view class="newslist" wx:for="{{worklist}}" wx:key="index" wx:if="{{item.enable==1}}">
+ 			<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
+ 				<view class="detail">
+ 					<view class="pic">
+ 						<image src="{{imaUrl+item.headimgAddress}}"></image>
+ 					</view>
+ 					<view class="info">
+ 						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>
+ 						<view> {{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+ 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 	</view>
+
+
+ </view>

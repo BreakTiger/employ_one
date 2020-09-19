@@ -1,0 +1,33 @@
+<view class="container flex col fl-align">
+
+	<swiper class="swiper_box" autoplay="ture" interval="3000" duration="500" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#FFFFFF">
+		<swiper-item wx:for="{{banners}}" wx:key="index">
+			<image src="{{item.thumb}}" class="wh" />
+		</swiper-item>
+	</swiper>
+
+	<form class="w100" bindsubmit="formSubmit">
+
+		<view class="form-box flex col fl-align w100 b-ff">
+
+			<view class="row-wrap flex fl-align">
+				<view>账 号</view>
+				<input name="name" class="input" type="text" placeholder="请输入账号" value="" />
+			</view>
+
+			<view class="row-wrap  flex fl-align">
+				<view>密 码</view>
+				<input name="password" class="input" maxlength="20" type="password" placeholder="请输入密码" value="" />
+			</view>
+
+			<view class="forget c-e5" bindtap="toForget">忘记密码？</view>
+
+		</view>
+
+		<button class="btn b-e5 c-ff" form-type="submit">立即登录</button>
+
+		<button class="btn b-e5 c-ff" bindtap="toRegister">立即注册</button>
+	</form>
+
+
+</view>

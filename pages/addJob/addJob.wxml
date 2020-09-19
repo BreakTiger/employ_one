@@ -1,0 +1,133 @@
+<view class="container col fl-align">
+
+	<form bindsubmit="formSubmit" class="w100">
+
+		<view class="main b-ff">
+
+			<view class="title c-66">招聘职位添加</view>
+
+			<view class="list flex col fl-align">
+
+				<!-- 职位名 -->
+				<view class="item">
+					<view class="name">工作职位</view>
+					<view class="selectitem">
+						<input type="text" name="name" placeholder="请输入岗位名称" />
+					</view>
+				</view>
+
+				<!-- 岗位类型 -->
+				<view class="item">
+					<view class="name">岗位类型</view>
+					<view class="selectitem">
+						<input type="text" name="type" placeholder="请输入岗位类型" />
+					</view>
+				</view>
+
+				<!-- 薪资待遇 -->
+				<view class="item">
+					<view class="name">薪资待遇</view>
+					<view class="selectitem">
+						<picker value="{{Index}}" range="{{price}}" bindchange="bindPriceChange">
+							<view class="picker">
+								{{price[priceindex] ? price[priceindex] : '请设置薪资待遇'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
+				<!-- 招聘人数 -->
+				<view class="item">
+					<view class="name">招聘人数</view>
+					<view class="selectitem">
+						<input type="number" name="number" placeholder="请设置招聘人数" />
+					</view>
+				</view>
+
+				<!-- 学历要求 -->
+				<view class="item">
+					<view class="name">学历要求</view>
+					<view class="selectitem">
+						<picker value="{{Index}}" range="{{education}}" bindchange="bindEducationChange">
+							<view class="picker">
+								{{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
+				<!-- 工作经验 -->
+				<view class="item">
+					<view class="name">工作经验</view>
+					<view class="selectitem">
+						<picker value="{{Index}}" range="{{express}}" range-key="" bindchange="bindExpressChange">
+							<view class="picker">
+								{{express[expressindex] ? express[expressindex] : '请选择工作经验'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
+				<!-- 工作性质 -->
+				<view class="item">
+					<view class="name">工作性质</view>
+					<view class="selectitem">
+						<picker value="{{Index}}" range="{{worktype}}" range-key="" bindchange="bindWorktypeChange">
+							<view class="picker">
+								{{worktype[worktypeindex] ? worktype[worktypeindex] : '请选择工作性质'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
+				<!-- 性别 -->
+				<view class="item">
+					<view class="name">性 别</view>
+					<view class="selectitem">
+						<radio-group class="radio-group" bindchange="radioChange">
+							<label class="radio">
+								<radio value="1" checked="{{sex ==1 ? 'checked':''}}" />男
+							</label>
+							<label class="radio">
+								<radio value="2" checked="{{sex ==2 ? 'checked':''}}" />女
+							</label>
+							<label class="radio">
+								<radio value="0" checked="{{sex ==0? 'checked':''}}" />不限
+							</label>
+						</radio-group>
+					</view>
+				</view>
+
+			</view>
+
+		</view>
+
+		<!-- 特色服务 -->
+		<view class="main">
+			<view class="title c-66">特色服务</view>
+			<view class="checklist b-ff ">
+				<checkbox-group bindchange="checkboxChange" class="w100 flex fl-w">
+					<view class="checkitem" wx:for="{{speciallist}}" wx:key="index">
+						<checkbox name="special" value="{{item.name}}" checked="{{item.checked ? true:false}}" />{{item.name}}
+					</view>
+				</checkbox-group>
+			</view>
+		</view>
+
+		<!-- 职位描述 -->
+		<view class="main">
+			<view class="title c-66">职位描述</view>
+			<view class="list b-ff flex col fl-align">
+				<view class="item">
+					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
+						<textarea placeholder="开始输入" name="describe" class="w100"></textarea>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<button class="footer b-e5" form-type="submit">立即添加</button>
+
+	</form>
+
+</view>

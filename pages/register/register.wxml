@@ -1,0 +1,57 @@
+<view class="container col fl-align">
+
+	<view class="title c-66">企业注册</view>
+
+	<form bindsubmit="formSubmit" class="w100">
+
+		<view class="w100 b-ff flex col fl-align">
+
+			<view class="item">
+				<view class="name">企业名称</view>
+				<input type="text" name="companyname" placeholder="请输入企业名称" />
+			</view>
+
+			<view class="item">
+				<view class="name">信用代码</view>
+				<input type="text" name="companycode" placeholder="请输入企业信用代码" />
+			</view>
+
+			<view class="item">
+				<view class="name"> 负责人</view>
+				<input type="text" name="mastername" placeholder="请输入负责人" />
+			</view>
+
+			<view class="item">
+				<view class="name">联系电话</view>
+				<input type="number" name="tel" placeholder="请输入联系电话" />
+			</view>
+
+			<view class="item">
+				<view class="name">邮 箱</view>
+				<input type="text" name="mail" placeholder="请输入邮箱" />
+			</view>
+
+			<view class="item">
+				<view class="name">密 码</view>
+				<input type="password" name="psw" placeholder="请设置密码" />
+			</view>
+
+		</view>
+
+		<view class="doagree">
+
+			<checkbox-group bindchange="checkboxChange">
+				<checkbox value="1"></checkbox>
+				我已阅读并同意<text style='color:blue;' bindtap='goHousexy'>《企业入驻协议》</text>
+			</checkbox-group>
+
+		</view>
+
+
+		<button class="btn b-e5 c-ff" form-type="submit">注册企业信息</button>
+
+	</form>
+
+
+
+</view>

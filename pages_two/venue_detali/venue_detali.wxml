@@ -1,0 +1,71 @@
+<view class="container col fl-align">
+
+	<view class="header">
+		<view class="pic">
+			<image src="{{imgurl+detail.logoAddress}}"></image>
+			<view>{{detail.enterpriseName}}</view>
+		</view>
+	</view>
+
+	<view class="order">
+		<view class="title">公司名片</view>
+		<view class="list">
+			<view class="item">规模 : {{detail.scale}}</view>
+			<view class="item">行业 : {{detail.trade}}</view>
+			<view class="item">地址 : {{detail.address}}</view>
+		</view>
+	</view>
+
+	<view class="order">
+		<view class="title">公司简介
+		</view>
+		<view class="content">
+			<view>{{detail.synopsis}}</view>
+		</view>
+	</view>
+
+	<view class="order">
+		<view class="title">该企业正在招聘</view>
+	</view>
+
+	<view>
+
+		<view class="newslist" wx:for="{{joblist}}" wx:key="index" wx:if="{{item.examinestate == 1}}">
+
+			<view class="title" bindtap="toJobDetail" data-id="{{item.id}}">
+
+				<view class="address">
+					<view class="jobname">{{item.postName}}<text>（{{detail.address}}）</text></view>
+				</view>
+
+				<view class="detail">
+
+					<view class="pic">
+						<image src="{{imgurl+detail.logoAddress}}"></image>
+					</view>
+
+					<view class="info">
+						
+            <view class="special">
+							<view class="item" wx:for="{{item.special}}" wx:key="index" wx:for-item="itemSpecial">{{itemSpecial}}</view>
+						</view>
+
+						<view>{{detail.enterpriseName}}</view>
+
+						<view class="jobmoney">
+							<text>{{item.salary}}</text>
+							<text>{{tools.distance(item.createTime)}}</text>
+						</view>
+
+					</view>
+
+				</view>
+
+			</view>
+
+
+		</view>
+
+	</view>
+
+</view>

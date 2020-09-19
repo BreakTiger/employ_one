@@ -31,9 +31,9 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.13.0",
+	"libVersion": "2.12.2",
 	"appid": "wx401a2c2d3d422ffd",
-	"projectname": "zhaoping",
+	"projectname": "employ",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -67,120 +67,29 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "企业中心",
-					"pathName": "weixinmao_zp/pages/user/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "求职面试历史",
-					"pathName": "weixinmao_zp/pages_four/history/history",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "精准匹配简历",
-					"pathName": "weixinmao_zp/pages_four/match/match",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "职位管理",
-					"pathName": "weixinmao_zp/pages_four/position/position",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "求职简历",
-					"pathName": "weixinmao_zp/pages_four/record/record",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业信息编辑",
-					"pathName": "weixinmao_zp/pages_four/edit/edit",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "邀约通知",
-					"pathName": "weixinmao_zp/pages_four/notice/notice",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "招聘会通知",
-					"pathName": "weixinmao_zp/pages_four/notice_detail/notice_detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "新增面试",
-					"pathName": "weixinmao_zp/pages_four/add_record/add_record",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "结束面试",
-					"pathName": "weixinmao_zp/pages_four/finish/finish",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "首页",
-					"pathName": "weixinmao_zp/pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "扫码签到",
-					"pathName": "weixinmao_zp/pages_one/sign/sign",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "扫码领取Ipad",
-					"pathName": "weixinmao_zp/pages_one/gain/gain",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业注册",
-					"pathName": "weixinmao_zp/pages/companyregister/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "找人才",
-					"pathName": "weixinmao_zp/pages/findworker/index",
+					"pathName": "pages/person/person",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "简历详情",
-					"pathName": "weixinmao_zp/pages/workerdetail/index",
-					"query": "id=2023",
+					"name": "企业详情信息",
+					"pathName": "pages_two/venue_detali/venue_detali",
+					"query": "id=3",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "发布职位",
-					"pathName": "weixinmao_zp/pages/addCompanyjob/index",
+					"name": "收藏简历",
+					"pathName": "pages/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业编辑",
+					"pathName": "pages_four/edit/edit",
 					"query": "",
 					"scene": null
 				}

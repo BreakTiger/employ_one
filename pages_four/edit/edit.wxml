@@ -1,0 +1,79 @@
+<form bindsubmit="savepubinfo">
+	<view class="container col fl-align">
+
+		<view class="title">企业信息编辑</view>
+
+		<view class="edit-content flex col fl-align">
+
+			<view class="item">
+				<view class="name">企业名称</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.enterpriseName}}" name="name" placeholder="请输入企业名称" />
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name">企业行业</view>
+				<view class="selectitem">
+					<picker mode="selector" range="{{list}}" >
+						<view>{{trade?trade:'请设置企业行业'}}</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name">企业性质</view>
+				<view class="selectitem">
+					<picker mode="selector" range="{{list}}">
+						<view>{{property?property:'请选择企业性质'}}</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name">人员规模</view>
+				<view class="selectitem">
+					<picker mode="selector" range="{{list}}">
+						<view>{{scale?scale:'请设置人员规模'}}</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name"> 负责人</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.companyPrincipal}}" name="mastername" placeholder="请输入负责人" />
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name"> 电 话</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.phone}}" name="tel" placeholder="请输入电话" />
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name">地址</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.address}}" name="address" placeholder="请输入地址" />
+				</view>
+			</view>
+
+		</view>
+
+		<view class="title">公司介绍</view>
+
+		<view class="introduce">
+			<textarea class="w100" value="{{detail.synopsis}}" placeholder="请输入公司介绍" name="introduce"></textarea>
+		</view>
+
+		<view class="title">企业LOGO</view>
+		<view class="logo flex fl-w">
+			<image src="{{logo?'logo':'../../images/pub.png'}}"></image>
+		</view>
+
+		<button class="btn b-e5 c-ff" form-type="submit">保存公司信息</button>
+
+	</view>
+</form>
