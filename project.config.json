@@ -67,29 +67,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "找人才",
-					"pathName": "pages/person/person",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业详情信息",
-					"pathName": "pages_two/venue_detali/venue_detali",
-					"query": "id=3",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "收藏简历",
-					"pathName": "pages/collect/collect",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业编辑",
-					"pathName": "pages_four/edit/edit",
+					"name": "员工管理",
+					"pathName": "pages_four/staff/staff",
 					"query": "",
 					"scene": null
 				}

@@ -1,2 +1,39 @@
-<!--pages_four/staff/staff.wxml-->
-<text>pages_four/staff/staff.wxml</text>
+<view class="container col fl-align">
+
+	<view class="b-ff flex col fl-align">
+
+		<view class="flex col fl-align">
+			<view class="w100 flex fl-align fl-jsb">
+				<text>张三</text>
+				<view class="laber c-e5">管理员</view>
+			</view>
+			<view class="w100 flex col">
+				<view class="item flex fl-align c-66">
+					<view class="name">联系电话：</view>
+					<view>XXXXXXXX</view>
+				</view>
+				<view class="item flex fl-align c-66">
+					<view class="name">身份证号码：</view>
+					<view>XXXXXXXX</view>
+				</view>
+				<view class="item flex fl-align c-66">
+					<view class="name">职位</view>
+					<view>XXXXXXXXXXXX</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="btn-line flex fl-align fl-jfe">
+			<view>编辑</view>
+			<view>删除</view>
+			<view>修改密码</view>
+		</view>
+
+	</view>
+
+	<view style="height:80rpx;"></view>
+
+	<view class="btn c-ff">添加企业员工</view>
+
+
+</view>
