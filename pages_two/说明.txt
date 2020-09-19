@@ -1,0 +1,10 @@
+招聘会分包：
+
+1.招聘会场
+venue
+
+2.招聘会 - 企业详情
+venue_detali
+
+3.职位详情
+job_detail

@@ -1,2 +1,71 @@
-<!--pages_two/job_detail/job_detail.wxml-->
-<text>pages_two/job_detail/job_detail.wxml</text>
+<view class="container">
+  <block>
+    <view class="header">
+      <view class="moneytitle">{{position.postName}}</view>
+      <view class="money">￥{{position.salary}}</view>
+    </view>
+    <view class="title">
+      <view class="jobtitle">
+        <view class="jobname flex">
+          <view>地址:</view>
+          <view>{{enterprise.address}}</view>
+        </view>
+        <view class="jobname flex">
+          <view style="width: 21%">要求:</view>
+          <view class="flex fl-w">
+            <view>学历/{{position.educationRequirements}}</view>
+            <view>工作经验/{{position.workExperience}}</view>
+            <view>年龄/{{position.ageRequirement}}</view>
+            <view>{{position.jobDescription}}.</view>
+          </view>
+        </view>
+        <view class="jobname flex fl-w">
+          <view>招聘人数:</view>
+          <view>{{position.recruitment}}人</view>
+        </view>
+        <view class="jobname flex fl-w">
+          <view>特色服务:</view>
+          <view wx:if="{{position.special != '' }}">{{position.special}}</view>
+          <view wx:else>无</view>
+        </view>
+        <view class="jobname flex fl-w">
+          <view>发布日期:</view>
+          <view>{{position.createTime}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="jobinfo">
+      <view class="jobtitle">
+        <view>发布企业</view>
+        <view>正在招聘</view>
+      </view>
+      <view class="joblabel">
+        <view>{{enterprise.enterpriseName}}</view>
+        <view>{{enterprise.scale}}|{{enterprise.nature}}|{{enterprise.trade}}</view>
+        <view class="flex fl-align"><image src="../../resource/images/nav/recruit-off.png" />{{enterprise.address}}</view>
+      </view>
+    </view>
+    <view class="company">
+    
+    </view>
+    <view class="jobdetail">
+      <view class="jobtitle">职位描述</view>
+    </view>
+    <view class="jobcontent">
+      <view class="detail">
+        <view>{{position.jobDescription}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="weixinmao-float">
+  <view class="weixinmao-foot">
+    <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}"
+      data-id="{{data.companyid}}"> <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+   
+    <view class="footer" data-id="{{data.companyid}}">
+      <button class="footerbuttons" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" >投递简历</button>
+    </view>
+  </view>
+</view>

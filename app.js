@@ -29,6 +29,7 @@ App({
   },
   globalData: {
     imaUrl: 'http://120.79.207.87:8091',
-    notice: {}
+    notice: {},
+    venue:{}
   }
 })

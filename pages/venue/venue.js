@@ -112,9 +112,9 @@ Page({
 
   // 进入会场
   toVenue: function (e) {
-    let item = e.currentTarget.dataset.item
+    app.globalData.venue = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '/pages_two/venue/venue?item=' +JSON.stringify(item),
+      url: '/pages_two/venue/venue',
     })
   },
 

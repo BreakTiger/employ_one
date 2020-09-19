@@ -11,7 +11,9 @@ Page({
   },
 
   onLoad: function (options) {
-    let item = JSON.parse(options.item)
+    
+   
+    let item = app.globalData.venue
     console.log(item)
 
     wx.setNavigationBarTitle({
