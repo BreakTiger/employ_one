@@ -85,7 +85,7 @@
  	<view class="news w100 b-ff flex col">
 
  		<view class="newslist" wx:for="{{worklist}}" wx:key="index" wx:if="{{item.enable==1}}">
- 			<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
+ 			<view class="title" bindtap="toWorkerDetail" data-item="{{item}}">
  				<view class="detail">
  					<view class="pic">
  						<image src="{{imaUrl+item.headimgAddress}}"></image>

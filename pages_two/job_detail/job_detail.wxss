@@ -424,5 +424,4 @@ button::after {
   width: 70rpx;
   height: 70rpx;
   align-self: center;
-
 }

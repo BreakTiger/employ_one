@@ -1,7 +1,7 @@
 const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
-import modals from '../../modals.js'
+
 
 Page({
 
@@ -41,7 +41,7 @@ Page({
           notelist: res.result.records
         })
       } else {
-        modals.showToast(res.message, 'none')
+        modal.showToast(res.message, 'none')
       }
     })
 
@@ -76,6 +76,7 @@ Page({
         onlyFromCamera: true,
         scanType: 'qrCode',
         success: function (res) {
+          console.log(res)
           let id = wx.getStorageSync('company').id
           let sid = res.result
           wx.navigateTo({
@@ -116,6 +117,7 @@ Page({
           onlyFromCamera: true,
           scanType: 'qrCode',
           success: function (res) {
+            console.log(res)
             let arr = []
             arr = res.result.split("|")
             console.log(arr)
@@ -178,27 +180,10 @@ Page({
   },
 
   // 简历
-  toWorkerdetial: function () {
+  toWorkerdetial: function (e) {
+    app.globalData.worker = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages/vitae/vitae',
     })
-  },
-
-
-  onShow: function () {
-
-  },
-
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })

@@ -1,8 +1,8 @@
-<view class="container">
+<view class="container col fl-align">
   <block>
     <view class="header">
       <view class="moneytitle">{{position.postName}}</view>
-      <view class="money">￥{{position.salary}}</view>
+      <view class="money">{{position.salary}}</view>
     </view>
     <view class="title">
       <view class="jobtitle">
@@ -42,7 +42,7 @@
       <view class="joblabel">
         <view>{{enterprise.enterpriseName}}</view>
         <view>{{enterprise.scale}}|{{enterprise.nature}}|{{enterprise.trade}}</view>
-        <view class="flex fl-align"><image src="../../resource/images/nav/recruit-off.png" />{{enterprise.address}}</view>
+        <view class="flex fl-align"><image src="../../img/lbs.png" />{{enterprise.address}}</view>
       </view>
     </view>
     <view class="company">
@@ -57,15 +57,4 @@
       </view>
     </view>
   </block>
-</view>
-
-<view class="weixinmao-float">
-  <view class="weixinmao-foot">
-    <view class="footer" bindtap='doSavejob' class="{{savestatus == 1 ? 'red' : 'black' }}"
-      data-id="{{data.companyid}}"> <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
-   
-    <view class="footer" data-id="{{data.companyid}}">
-      <button class="footerbuttons" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" >投递简历</button>
-    </view>
-  </view>
 </view>

@@ -76,7 +76,7 @@
 
 	<view class="type-container flex col fl-align">
 
-		<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-id="{{item.id}}" bindtap="toWorkerdetial" wx:if="{{item.enable==1}}">
+		<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-item="{{item}}" bindtap="toWorkerdetial" wx:if="{{item.enable==1}}">
 			<image src="{{imaUrl+item.headimgAddress}}"></image>
 
 			<view class="type-info flex col">

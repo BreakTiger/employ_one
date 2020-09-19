@@ -16,9 +16,7 @@ Page({
 
     joblist: []
 
-    // title: '',
-    // tel: '',
-    // pid: 1,
+
   },
 
 
@@ -35,6 +33,7 @@ Page({
 
   },
 
+  // 企业信息
   getList: function () {
     let that = this
     let data = {
@@ -52,6 +51,7 @@ Page({
     })
   },
 
+  // 发布职位
   getPosition: function () {
     let that = this
     let data = {
@@ -74,26 +74,9 @@ Page({
 
   // 岗位详情
   toJobDetail: function (e) {
-    // var id = e.currentTarget.dataset.id;
-    // wx.navigateTo({
-    //   url: "/weixinmao_zp/pages/jobmoneydetail/index?id=" + id
-    // })
-  },
-
-
-  onPullDownRefresh: function () {
-    wx.showNavigationBarLoading();
-    this.onLoad();
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-    return {
-      title: this.data.title,
-      path: '/weixinmao_zp/pages/companydetail/index?id=' + this.data.id
-    }
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages_two/job_detail/job_detail?id=' + id,
+    })
   }
 })

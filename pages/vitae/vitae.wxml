@@ -1,33 +1,34 @@
-<view class="container">
+<import src="../../wxParse/wxParse.wxml" />
 
-	<view class="header" style="background:{{intro.maincolor}}"></view>
+<view class="container col fl-align">
 
+	<view class="header b-e5"></view>
 
 	<view class="pic">
 
-		<image src="{{data.avatarUrl}}"></image>
+		<image src="{{imaUrl + detail.headimgAddress}}"></image>
 
-		<view>{{data.name}}</view>
+		<view>{{detail.name}}</view>
 
-		<view>{{data.sex == 1? '男' : '女'}} {{data.age}}岁 {{data.express}} {{data.education}}</view>
+		<view>{{detail.gender}} {{data.age}}岁 {{detail.workExperience}} {{detail.education}}</view>
 
 	</view>
 
 	<view class="order" style='margin-top:140rpx;'>
-		
-    <view class="title">简历信息</view>
+
+		<view class="title">简历信息</view>
 
 		<view class="list">
-			<view class="item">职位意向： {{data.jobtitle}}</view>
-			<view class="item">出生年份： {{data.birthday}}</view>
-			<view class="item">学历： {{data.education}}</view>
-			<view class="item">工作经验： {{data.express}}</view>
-			<view class="item">现居地址： {{data.address}}</view>
-			<view class="item">目前状态： {{data.currentname}}</view>
-			<view class="item">工作性质： {{data.worktype}}</view>
-			<view class="item">期望行业： {{data.jobcatename}}</view>
-			<view class="item">期望薪资： {{data.money}}</view>
-			<view class="item">工作区域： {{data.areaname}}</view>
+			<view class="item">职位意向： {{detail.intendedPosition}}</view>
+			<view class="item">出生年份： {{detail.birthday}}</view>
+			<view class="item">学历： {{detail.education}}</view>
+			<view class="item">工作经验： {{detail.workExperience}}</view>
+			<view class="item">现居地址： {{detail.habitation}}</view>
+			<view class="item">目前状态： {{detail.currentStatus}}</view>
+			<view class="item">工作性质： {{detail.jobNature}}</view>
+			<view class="item">期望行业： {{detail.intendedIndustries}}</view>
+			<view class="item">期望薪资： {{detail.salaryExpectation}}</view>
+			<view class="item">工作区域： {{detail.workArea}}</view>
 		</view>
 
 	</view>
@@ -36,29 +37,27 @@
 
 		<view class="title">联系方式</view>
 
-		<view class="list" hidden='{{showcontact}}'>
-
-			<view class="item" bindtap='doCall' data-tel="{{data.tel}}">联系电话 : {{data.tel}}</view>
-
+		<view class="list">
+			<view class="item" bindtap='doCall'>联系电话 : {{detail.phone}}</view>
 		</view>
 
-		<view class="list" hidden='{{!showcontact}}'><button bindtap='toSelectlook'>查看联系方式</button></view>
-	
-  </view>
+	</view>
 
 
 	<view class="order">
 
 		<view class="title">自我介绍及工作经历</view>
-		
-    <view class="content">
 
-			<!-- <rich-text nodes="{{data.content}}"></rich-text> -->
-			<!--
-           <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-           -->
+		<view class="content">
+			<view>{{detail.personalIntroduction}}</view>
+		</view>
+
+		<view class="content">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
 		</view>
 
 	</view>
+
+	<view class="btn b-e5 c-ff">收藏简历</view>
 
 </view>

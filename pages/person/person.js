@@ -180,7 +180,8 @@ Page({
   },
 
   // 简历详情
-  toWorkerDetail: function () {
+  toWorkerDetail: function (e) {
+    app.globalData.worker = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages/vitae/vitae',
     })

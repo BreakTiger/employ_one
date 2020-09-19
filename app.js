@@ -29,7 +29,8 @@ App({
   },
   globalData: {
     imaUrl: 'http://120.79.207.87:8091',
-    notice: {},
-    venue:{}
+    notice: {}, //通知信息
+    venue:{}, //会场信息
+    worker:{} //简历信息
   }
 })
