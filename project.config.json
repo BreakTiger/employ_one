@@ -64,49 +64,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "员工管理",
-					"pathName": "pages_four/staff/staff",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "招聘会",
-					"pathName": "pages/venue/venue",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业详情",
-					"pathName": "pages_two/venue_detali/venue_detali",
-					"query": "id=3",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "职位详情",
-					"pathName": "pages_two/job_detail/job_detail",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业编辑",
-					"pathName": "pages_four/edit/edit",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "招聘会",
-					"pathName": "pages/venue/venue",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

@@ -84,7 +84,7 @@ Page({
     if (time1 > timestamp) {
       wx.showModal({
         title: '提示',
-        content: '未到活动报名时间',
+        content: '未到招聘会报名时间',
         showCancel: false
       })
     } else if (time1 < timestamp && time2 > timestamp) {
@@ -105,7 +105,7 @@ Page({
     } else if (time2 < timestamp) {
       wx.showModal({
         title: '提示',
-        content: '活动报名时间已截止',
+        content: '招聘会报名时间已截止',
         showCancel: false
       })
     }
@@ -117,18 +117,5 @@ Page({
     wx.navigateTo({
       url: '/pages_two/venue/venue',
     })
-  },
-
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })

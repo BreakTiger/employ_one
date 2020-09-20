@@ -1,12 +1,12 @@
 <view class="container flex col fl-align">
 
 	<view class="header flex col fl-align" wx:if="{{login==0}}" bindtap="toLogin">
-		<image src=""></image>
+		<image src="../../images/center.png"></image>
 		<view>请先登录</view>
 	</view>
 
 	<view class="header flex col fl-align" wx:else>
-		<image src="http://120.79.207.87:8091{{company.logoAddress}}"></image>
+		<image src="{{company.logoAddress}}"></image>
 		<view>{{company.enterpriseName}}</view>
 	</view>
 

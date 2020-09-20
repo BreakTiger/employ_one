@@ -58,6 +58,8 @@
 
 	</view>
 
-	<view class="btn b-e5 c-ff">收藏简历</view>
+	<view class="btn b-e5 c-ff" bindtap="toCollect">收藏简历</view>
+
+	<!-- <view class="btn b-e5 c-ff" bindtap="toCancel">取消收藏</view> -->
 
 </view>

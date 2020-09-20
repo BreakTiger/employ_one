@@ -14,7 +14,7 @@ page {
 .header>image {
   width: 140rpx;
   height: 140rpx;
-  border: 7rpx solid #FFF;
+  border: 8rpx solid #FFF;
   margin: 15rpx 0;
   border-radius: 140rpx;
 }
