@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
 // 时间戳
-var timestamp = Date.parse(new Date());
+var timestamp = new Date().getTime();
 
 
 Page({
@@ -72,13 +72,13 @@ Page({
   join: function (e) {
     let that = this
 
-    console.log(timestamp)
+    console.log('当前时间：', timestamp)
 
-    let time1 = that.transform(e.currentTarget.dataset.item.entrytimeEnd)
-    console.log(time1)
+    let time1 = that.transform(e.currentTarget.dataset.item.entrytimeStart)
+    console.log('报名开始时间', time1)
 
-    let time2 = that.transform(e.currentTarget.dataset.item.entrytimeStart)
-    console.log(time2)
+    let time2 = that.transform(e.currentTarget.dataset.item.entrytimeEnd)
+    console.log('报名结束时间', time2)
 
     // 判断
     if (time1 > timestamp) {
@@ -89,8 +89,9 @@ Page({
       })
     } else if (time1 < timestamp && time2 > timestamp) {
       let data = {
+        createBy: wx.getStorageSync('company').id,
         enterpriseInfoId: wx.getStorageSync('company').id,
-        jobFairId: item.id,
+        jobFairId: e.currentTarget.dataset.item.id,
         token: wx.getStorageSync('token')
       }
       util.sendRequest('/jeecg-boot/hall/entryenterprise/entry', 'post', data).then(function (res) {

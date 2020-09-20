@@ -20,6 +20,11 @@
 
 		<view class="item flex col fl-align" bindtap="vitae">
 			<view>2份</view>
+			<view>面试管理</view>
+		</view>
+
+		<view class="item flex col fl-align" bindtap="vitae">
+			<view>2份</view>
 			<view>已收到简历</view>
 		</view>
 
@@ -27,7 +32,6 @@
 
 	<!-- 入口列表 -->
 	<view class="list b-ff">
-
 
 		<view class="item flex fl-align fl-jsb" bindtap="notice">
 			<view class="flex fl-align">
@@ -51,7 +55,7 @@
 
 		<view class="item" bindtap='toStaff'>
 			<image src="../../img/manage.png" class="icon"></image>员工管理
-		</view>	
+		</view>
 
 		<view class="item" bindtap="vitae">
 			<image src="../../img/note.png" class="icon"></image>求职简历

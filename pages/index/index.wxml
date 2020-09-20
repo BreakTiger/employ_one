@@ -82,7 +82,7 @@
 			<view class="type-info flex col">
 				<view class="flex fl-align fl-jsb">
 					<text>{{item.name}}</text>
-					<text>1小时前</text>
+					<text>{{item.createTime}}</text>
 				</view>
 				<view>{{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
 				<view>职位意向：{{item.intendedPosition}}</view>

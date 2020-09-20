@@ -35,7 +35,7 @@ textarea {
   text-indent: 20rpx;
 }
 
-.logo>image {
+.logo-img {
   width: 200rpx;
   height: 200rpx;
   margin: 10rpx;
