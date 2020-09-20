@@ -61,8 +61,6 @@
 			<input placeholder="请输入手机号码"></input>
 		</view>
 
-
-
 	</view>
 
 	<view class="title">简历拍照上传</view>
