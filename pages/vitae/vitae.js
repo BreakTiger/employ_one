@@ -11,18 +11,19 @@ Page({
    */
   data: {
     detail: {},
-    type:''
+    type: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+
     let that = this
+
     that.setData({
       imaUrl: app.globalData.imaUrl
     })
+
     console.log(app.globalData.worker)
+
     that.setData({
       detail: app.globalData.worker
     })
@@ -37,6 +38,17 @@ Page({
   //简历收藏状态
   getType: function () {
     let that = this
+    let data = {
+      id: that.data.detail.id
+    }
+    util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
 
   },
 
