@@ -1,14 +1,20 @@
+<import src="../../wxParse/wxParse.wxml" />
+
 <view class="container flex col fl-align">
 
 	<view class="base b-60 flex fl-align">
 
-		<image src="../../images/parson.png"></image>
+		<image src="{{header}}" wx:if="{{header}}"></image>
+
+		<image src="../../images/male1.png" wx:if="{{!header && detail.gender=='男'}}"></image>
+
+		<image src="../../images/male0.png" wx:if="{{!header && detail.gender=='女'}}"></image>
 
 		<view>
 			<text style="font-size:32rpx;">{{detail.name}}</text>
 			<view class="flex fl-align">
 				<image src="../../images/s_parson.png" class="icon"></image>
-				<text>{{item.age}}岁({{detail.birthday}})</text>
+				<text>{{detail.age}}岁({{detail.birthday}})</text>
 			</view>
 		</view>
 
@@ -85,46 +91,34 @@
 	<view class="info flex col fl-align">
 		<view class="title">工作经验</view>
 		<view class="flex fl-align">
-			<view>2020/01 - 至今</view>
-			<view style="margin-left:50rpx;">销售总监 | 销售</view>
+			<view>{{detail.workingHoursStart}} - {{detail.workingHoursEnd}}</view>
+			<view style="margin-left:50rpx;">{{detail.postName}}</view>
 		</view>
-		<view>北京家里海科技有限公司 | 10年7月</view>
+		<view>{{detail.jobCompanyName}}</view>
 		<view class="flex">
 			<view style="width：20%;">工作描述：</view>
 			<view style="width:80%;">
-				<view>1.执行部门领导下达的产品开发计划及相关技术事项；</view>
-				<view>2.协调各工程师执行部门领导下达的产品开发计划及相关技术事项；</view>
-				<view>3.协助各工程师执行对项目的统计工作：资料汇总、分析、技术报告的编制、图纸及相关文件归档、产品成本的分析；</view>
-				<view>4.协助各工程师项目产品开发图纸及相关文件输出及首板确认；</view>
-				<view>5.协助各工程师项目新产品认证工作跟进和样板的制作</view>
+
+				<template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+
 			</view>
 		</view>
 	</view>
 
 	<!-- 教育经验 -->
-	<view class="info flex col fl-align">
+	<view class="info flex col fl-align" style="border: none !important;">
 		<view class="title">教育经验</view>
 		<view>
 			<view>{{detail.educationHistory}}</view>
-			<!-- <view class="flex fl-align">
-				<view>2006/01 - 2010/01</view>
-				<view style="margin-left:50rpx;font-weight:bold;">江西省外贸商业学校</view>
-			</view> -->
-			<!-- <view>博士 | 经济与金融</view> -->
 		</view>
-
 	</view>
 
-	<!-- 收藏 + 面试邀约 -->
-	<!-- <view class="btn flex fl-align fl-jsb b-ff">
+	<view style="height：80rpx;"></view>
 
-		<view>收藏</view>
+	<!-- 收藏 -->
+	<view class="b-e5 c-ff btn">收藏简历</view>
 
-
-		<view class="b-e5">面试邀约</view>
-
-
-	</view> -->
+	<!-- <view class="b-e5 c-ff btn">取消收藏</view> -->
 
 
 

@@ -1,3 +1,5 @@
+@import '../../wxParse/wxParse.wxss';
+
 .b-60 {
   background: #3F4160;
 }
@@ -49,26 +51,12 @@
   font-size: 16rpx;
 }
 
-.container>view:last-child {
-  border: none;
-}
-
 .btn {
   width: 100%;
-  position: fixed;
-  bottom: 0rpx;
-  left: 0rpx;
-  border-top: 1rpx solid #f5f5f5;
-}
-
-.btn>view {
-  width: 50%;
   height: 80rpx;
   line-height: 80rpx;
-  font-size: .7rem;
   text-align: center;
-}
-
-.btn>view:last-child {
-  color: #fff;
+  position: fixed;
+  bottom: 0rpx;
+  z-index: 90;
 }
