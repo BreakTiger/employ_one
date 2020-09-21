@@ -5,11 +5,10 @@
 		<image src="../../images/parson.png"></image>
 
 		<view>
-			<text style="font-size:32rpx;">章亮</text>
-
+			<text style="font-size:32rpx;">{{detail.name}}</text>
 			<view class="flex fl-align">
 				<image src="../../images/s_parson.png" class="icon"></image>
-				<text>34岁(1996/02-04)</text>
+				<text>{{item.age}}岁({{detail.birthday}})</text>
 			</view>
 		</view>
 
@@ -24,26 +23,26 @@
 
 			<view class="info_item flex col">
 				<view>
-					<text>性别：</text>男
+					<text>性别：</text>{{detail.gender}}
 				</view>
 				<view>
-					<text>身份证号码：</text>440105198903153326
+					<text>身份证号码：</text>{{detail.idcard}}
 				</view>
 				<view>
-					<text>参加工作：</text>2020年9月8日
+					<text>参加工作：</text>{{detail.participateInWork}}
 				</view>
 			</view>
 
 
 			<view class="info_item flex col">
 				<view>
-					<text>出生日期：</text>1989年11月30日
+					<text>出生日期：</text>{{detail.birthday}}
 				</view>
 				<view>
-					<text>联系电话：</text>13113357685
+					<text>联系电话：</text>{{detail.phone}}
 				</view>
 				<view>
-					<text>工作经验：</text>0年
+					<text>工作经验：</text>{{detail.workExperience}}
 				</view>
 			</view>
 
@@ -57,25 +56,25 @@
 		<view class="flex fl-align fl-jsb">
 			<view class="info_item flex col">
 				<view>
-					<text>期望职业：</text>web前端工程师
+					<text>期望职业：</text>{{detail.intendedPosition}}
 				</view>
 				<view>
-					<text>期望行业：</text>软件开发
+					<text>期望行业：</text>{{detail.intendedIndustries}}
 				</view>
 				<view>
-					<text>工作区域：</text>四会市
+					<text>工作区域：</text>{{detail.workArea}}
 				</view>
 				<view>
-					<text>求职类型：</text>全职
+					<text>求职类型：</text>{{detail.jobSearchType}}
 				</view>
 			</view>
 
 			<view class="info_item flex col">
 				<view>
-					<text>期望薪资：</text>5k-8k/月
+					<text>期望薪资：</text>{{detail.salaryExpectation}}
 				</view>
 				<view>
-					<text>到岗时间：</text>随时
+					<text>到岗时间：</text>{{detail.availableTime}}
 				</view>
 			</view>
 
@@ -106,17 +105,18 @@
 	<view class="info flex col fl-align">
 		<view class="title">教育经验</view>
 		<view>
-			<view class="flex fl-align">
+			<view>{{detail.educationHistory}}</view>
+			<!-- <view class="flex fl-align">
 				<view>2006/01 - 2010/01</view>
 				<view style="margin-left:50rpx;font-weight:bold;">江西省外贸商业学校</view>
-			</view>
-			<view>博士 | 经济与金融</view>
+			</view> -->
+			<!-- <view>博士 | 经济与金融</view> -->
 		</view>
 
 	</view>
 
 	<!-- 收藏 + 面试邀约 -->
-	<view class="btn flex fl-align fl-jsb b-ff">
+	<!-- <view class="btn flex fl-align fl-jsb b-ff">
 
 		<view>收藏</view>
 
@@ -124,7 +124,7 @@
 		<view class="b-e5">面试邀约</view>
 
 
-	</view>
+	</view> -->
 
 
 

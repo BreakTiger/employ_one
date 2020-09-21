@@ -13,6 +13,7 @@ Page({
     this.getList()
   },
 
+  // 列表
   getList: function () {
     let that = this
     let data = {
@@ -21,7 +22,6 @@ Page({
       pageSize: 10
     }
     util.sendRequest('/jeecg-boot/app/interview/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
           list: res.result.records
@@ -32,12 +32,7 @@ Page({
     })
   },
 
-  // 新增面试
-  toAdd: function () {
-    wx.navigateTo({
-      url: '/pages_four/add_record/add_record',
-    })
-  },
+
 
   // 查看简历
   toWatch: function (e) {
@@ -47,23 +42,30 @@ Page({
     }
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        let list = util.ages(res.result.records[0])
-        // app.globalData.worker = res.result.records[0]
-        // wx.navigateTo({
-        //   url: '/pages/workerdetail/workerdetail',
-        // })
+        let item = res.result.records[0]
+        let age = util.ages(item)
+        item.age = age
+        app.globalData.worker = item
+        wx.navigateTo({
+          url: '/pages/workerdetail/workerdetail',
+        })
       } else {
         modal.showToast(res.message)
       }
     })
-    // wx.navigateTo({
-    //   url: '/pages/workerdetail/workerdetail',
-    // })
   },
 
+  // 结束面试
   toFinsh: function () {
     wx.navigateTo({
       url: '/pages_four/finish/finish',
+    })
+  },
+
+  // 新增面试
+  toAdd: function () {
+    wx.navigateTo({
+      url: '/pages_four/add_record/add_record',
     })
   },
 
