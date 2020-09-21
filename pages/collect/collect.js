@@ -103,13 +103,28 @@ Page({
   // 邀请面试
   toInvite: function (e) {
     let that = this
-    console.log(e.currentTarget.dataset.item)
+    let detail = e.currentTarget.dataset.item
+    console.log(detail)
     wx.showModal({
       title: '提示',
       content: "是否发送面试邀约给该投递人",
       success: function (res) {
         if (res.confirm) {
-
+          let data = {
+            createBy: wx.getStorageSync('company').id,
+            curriculumVitaeId: detail.curriculumVitaeId,
+            enterpriseInfoId: detail.enterpriseInfoId,
+            enterprisePostReleaseId: detail.enterprisePostReleaseId,
+            interviewstate: 'invite'
+          }
+          util.sendRequest('/jeecg-boot/app/interview/invite', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+            } else {
+              modal.showToast(res.messgae, 'none')
+            }
+          })
         }
       }
     })
