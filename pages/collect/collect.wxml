@@ -1,17 +1,23 @@
-   <view class="container">
+   <view class="container col fl-align">
 
-   	<view class="orderlist flex col b-ff" wx:for="{{list}}" wx:key="index">
+   	<view class="orderlist flex col b-ff" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+   		<view class="orderid">应聘职位：{{item.postName}}</view>
    		<view class="orderid">应聘人：{{item.name}}</view>
    		<view class="content">
    			<view class="item">性别：{{item.gender}}</view>
    			<view class="item">联系电话：{{item.phone}}</view>
    			<view class="item">创建时间：{{item.createTime}}</view>
    			<view class="payitem">
-   				<view bindtap='toCancle' data-id="{{item.curriculumVitaeId}}">取消收藏</view>
+   				<view bindtap='toCancle' data-id="{{item.id}}">取消收藏</view>
    				<view bindtap="toDetail" data-id="{{item.curriculumVitaeId}}" data-index="{{index}}">查看简历</view>
    				<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
    			</view>
    		</view>
+   	</view>
+
+   	<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
+   		<image src="../../images/empty.png" class="empty"></image>
+   		<text>您暂无收藏的简历</text>
    	</view>
 
    </view>

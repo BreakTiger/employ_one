@@ -51,19 +51,33 @@ Page({
   // 取消收藏
   toCancle: function (e) {
     let that = this
-    let list = that.data.list
-    let index = e.currentTarget.dataset.index
-    let data = {
-      curriculumVitaeId: e.currentTarget.dataset.id
-    }
-    util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
-      console.log(res)
-      if (res.code == 0) {
-
-      } else {
-        modal.showToast(res.message, 'none')
+    wx.showModal({
+      title: "提示",
+      content: "是否取消收藏",
+      success: function (res) {
+        if (res.confirm) {
+          let list = that.data.list
+          let index = e.currentTarget.dataset.index
+          let data = {
+            id: e.currentTarget.dataset.id
+          }
+          util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              list.splice(index, 1)
+              that.setData({
+                list: list
+              })
+            } else {
+              modal.showToast(res.message, 'none')
+            }
+          })
+        }
       }
     })
+
+
+
 
   },
 
@@ -90,6 +104,15 @@ Page({
   toInvite: function (e) {
     let that = this
     console.log(e.currentTarget.dataset.item)
+    wx.showModal({
+      title: '提示',
+      content: "是否发送面试邀约给该投递人",
+      success: function (res) {
+        if (res.confirm) {
+
+        }
+      }
+    })
   },
 
   onShow: function () {

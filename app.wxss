@@ -116,4 +116,5 @@
 .empty {
   width: 235rpx;
   height: 235rpx;
+  margin-bottom: 20rpx;
 }
