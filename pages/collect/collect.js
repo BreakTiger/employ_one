@@ -38,7 +38,6 @@ Page({
       pageSize: 10
     }
     util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
-      console.log(res)
       if (res.code == 0) {
         that.setData({
           list: res.result.records
@@ -47,6 +46,50 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  // 取消收藏
+  toCancle: function (e) {
+    let that = this
+    let list = that.data.list
+    let index = e.currentTarget.dataset.index
+    let data = {
+      curriculumVitaeId: e.currentTarget.dataset.id
+    }
+    util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+
+  },
+
+  // 查看简历详情
+  toDetail: function (e) {
+    let that = this
+    let data = {
+      id: e.currentTarget.dataset.id
+    }
+    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+        app.globalData.worker = res.result.records[0]
+        wx.navigateTo({
+          url: '/pages/vitae/vitae',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 邀请面试
+  toInvite: function (e) {
+    let that = this
+    console.log(e.currentTarget.dataset.item)
   },
 
   onShow: function () {

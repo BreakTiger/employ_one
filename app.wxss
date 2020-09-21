@@ -109,3 +109,11 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+
+/* 为空 */
+
+.empty {
+  width: 235rpx;
+  height: 235rpx;
+}

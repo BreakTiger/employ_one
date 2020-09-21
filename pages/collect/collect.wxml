@@ -7,9 +7,9 @@
    			<view class="item">联系电话：{{item.phone}}</view>
    			<view class="item">创建时间：{{item.createTime}}</view>
    			<view class="payitem">
-   				<view bindtap='toCancle'>取消收藏</view>
-   				<view bindtap="toDetail" data-="">查看简历</view>
-   				<view bindtap='toJob'>邀请面试</view>
+   				<view bindtap='toCancle' data-id="{{item.curriculumVitaeId}}">取消收藏</view>
+   				<view bindtap="toDetail" data-id="{{item.curriculumVitaeId}}" data-index="{{index}}">查看简历</view>
+   				<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
    			</view>
    		</view>
    	</view>
