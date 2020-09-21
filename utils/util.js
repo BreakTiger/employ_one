@@ -93,10 +93,31 @@ function upLoading(filePath, data) {
   return promise
 }
 
+// 计算年龄
+function calculate(item) {
+  let that = this
+
+  let date = new Date()
+  let n_year = date.getFullYear()
+  // console.log('年份：', n_year)
+
+  let time = []
+  let bir = item.birthday
+  time = bir.split('-')
+  // console.log('出生年份：', time[0])
+
+  let age = n_year - time[0]
+
+  // console.log('年龄：', age)
+
+  return age;
+}
+
 
 module.exports = {
   sendRequest: sendRequest,
-  upLoading: upLoading
+  upLoading: upLoading,
+  ages: calculate
 }
 
 

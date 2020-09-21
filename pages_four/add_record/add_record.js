@@ -1,11 +1,14 @@
-// weixinmao_zp/pages_four/add_record/add_record.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    sex: null
   },
 
   /**
@@ -20,7 +23,7 @@ Page({
     wx.chooseImage({
       // sizeType: ['original', 'compressed'],
       sourceType: ['camera'],
-      success (res) {
+      success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
       }

@@ -1,18 +1,35 @@
-// pages_one/record/record.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    page: 1,
+    list: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    this.getList()
+  },
 
+  getList: function () {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: that.data.page,
+      pageSize: 10
+    }
+    util.sendRequest('/jeecg-boot/app/interview/list', 'get', data).then(function (res) {
+      // console.log(res.result.records)
+      if (res.code == 0) {
+        that.setData({
+          list: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 新增面试
@@ -22,10 +39,26 @@ Page({
     })
   },
 
-  toWatch: function () {
-    wx.navigateTo({
-      url: '/pages/workerdetail/workerdetail',
+  // 查看简历
+  toWatch: function (e) {
+    let that = this
+    let data = {
+      id: e.currentTarget.dataset.id
+    }
+    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        let list = util.ages(res.result.records[0])
+        // app.globalData.worker = res.result.records[0]
+        // wx.navigateTo({
+        //   url: '/pages/workerdetail/workerdetail',
+        // })
+      } else {
+        modal.showToast(res.message)
+      }
     })
+    // wx.navigateTo({
+    //   url: '/pages/workerdetail/workerdetail',
+    // })
   },
 
   toFinsh: function () {

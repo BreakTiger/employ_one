@@ -10,7 +10,7 @@
 
 		<view>{{detail.name}}</view>
 
-		<view>{{detail.gender}} {{data.age}}岁 {{detail.workExperience}} {{detail.education}}</view>
+		<view>{{detail.gender}} {{detail.age}}岁 {{detail.workExperience}} {{detail.education}}</view>
 
 	</view>
 

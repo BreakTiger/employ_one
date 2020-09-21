@@ -67,8 +67,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "我的收藏",
-					"pathName": "pages/collect/collect",
+					"name": "求职管理",
+					"pathName": "pages_four/record/record",
+					"query": "",
 					"scene": null
 				}
 			]

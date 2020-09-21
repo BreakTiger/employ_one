@@ -1,76 +1,91 @@
-<view class="container">
+<form bindsubmit="formSubmit">
+	<view class="container col fl-align">
 
-	<view class="title">个人基本信息</view>
+		<view class="title">个人基本信息</view>
 
-	<view class="b-ff flex col fl-align content">
+		<view class="b-ff flex col fl-align content">
 
-		<view class="content-line flex fl-align">
-			<text>面试职位</text>
-			<input placeholder="请选择面试职位"></input>
-		</view>
-
-		<view class="content-line flex fl-align">
-			<text>姓名</text>
-			<input placeholder="请输入姓名"></input>
-		</view>
-
-		<view class="content-line flex fl-align">
-			<text>性别</text>
-			<view class="flex fl-align fl-jsa">
-				<view class="flex fl-align">
-					<icon type="circle" size="24"></icon>
-					<!-- <icon type="success" size="24"></icon> -->
-					<text>男</text>
-				</view>
-
-				<view class="flex fl-align">
-					<icon type="circle" size="24"></icon>
-					<!-- <icon type="success" size="24"></icon> -->
-					<text>女</text>
+			<view class="content-line flex fl-align">
+				<text>面试职位</text>
+				<view>
+					<input placeholder="请选择面试职位" name="job"></input>
 				</view>
 			</view>
+
+			<view class="content-line flex fl-align">
+				<text>姓名</text>
+				<view>
+					<input placeholder="请输入姓名" name="name"></input>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>性别</text>
+				<view>
+					<radio-group class="radio-group" bindchange="radioChange">
+						<label class="radio">
+							<radio value="1" checked="{{sex ==1 ? 'checked':''}}" />男
+						</label>
+						<label class="radio">
+							<radio value="2" checked="{{sex ==2 ? 'checked':''}}" />女
+						</label>
+					</radio-group>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>出生年份</text>
+				<view>
+					<picker mode="date">请选择年份</picker>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>最高学历</text>
+				<view>
+					<picker moda="selector">请选择最高学历</picker>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>工作经验</text>
+				<view>
+					<picker mode="selector">无经验</picker>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>现居住地</text>
+				<view>
+					<input placeholder="请输入现居住地" name="address"></input>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>邮 箱</text>
+				<view>
+					<input placeholder="请输入邮箱" name="email"></input>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align" style="border：none;">
+				<text>手机号码</text>
+				<view>
+					<input placeholder="请输入手机号码" name="tel"></input>
+				</view>
+			</view>
+
 		</view>
 
-		<view class="content-line flex fl-align">
-			<text>出生年份</text>
-			<picker mode="date">请选择年份</picker>
+		<view class="title">简历拍照上传</view>
+
+		<view class="flex fl-w b-ff img">
+			<image src="../../images/photo.png" class="photo" bindtap="toImg"></image>
 		</view>
 
-		<view class="content-line flex fl-align">
-			<text>最高学历</text>
-			<picker moda="selector">请选择最高学历</picker>
-		</view>
+		<view style="height:80rpx;"></view>
 
-		<view class="content-line flex fl-align">
-			<text>工作经验</text>
-			<picker mode="selector">无经验</picker>
-		</view>
-
-		<view class="content-line flex fl-align">
-			<text>现居住地</text>
-			<input placeholder="请输入现居住地"></input>
-		</view>
-
-		<view class="content-line flex fl-align">
-			<text>邮 箱</text>
-			<input placeholder="请输入邮箱"></input>
-		</view>
-
-		<view class="content-line flex fl-align" style="border：none;">
-			<text>手机号码</text>
-			<input placeholder="请输入手机号码"></input>
-		</view>
+		<button class="save b-e5 c-ff">保存</button>
 
 	</view>
-
-	<view class="title">简历拍照上传</view>
-
-	<view class="flex fl-w b-ff img">
-		<image src="../../resource/images/photo.png" class="photo" bindtap="toImg"></image>
-	</view>
-
-  <view style="height:80rpx;"></view>
-
-  <view class="save b-e5">保存</view>
-
-</view>
+</form>

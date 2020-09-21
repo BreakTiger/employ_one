@@ -58,7 +58,7 @@
 		</view>
 
 		<view class="item" bindtap="vitae">
-			<image src="../../img/note.png" class="icon"></image>求职简历
+			<image src="../../img/note.png" class="icon"></image>求职管理
 		</view>
 
 		<view class="item" bindtap="toHistory">

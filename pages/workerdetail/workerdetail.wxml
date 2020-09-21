@@ -2,7 +2,7 @@
 
 	<view class="base b-60 flex fl-align">
 
-		<image src="../images/parson.png"></image>
+		<image src="../../images/parson.png"></image>
 
 		<view>
 			<text style="font-size:32rpx;">章亮</text>

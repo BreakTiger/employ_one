@@ -57,15 +57,32 @@ Page({
       education: that.data.typetitle
     }
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
-      console.log(res.result.records)
       if (res.code == 0) {
-        that.setData({
-          worklist: res.result.records
-        })
+        that.settle(res.result.records)
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    // console.log(list)
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      if(item.enable==1){
+        let age = util.ages(item)
+        item.age = age
+        arr.push(item)
+      }
+      
+    })
+    console.log(arr)
+    that.setData({
+      worklist: arr
+    })
+
   },
 
   // 开关：

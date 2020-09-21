@@ -128,21 +128,5 @@ Page({
         }
       }
     })
-  },
-
-  onShow: function () {
-
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })
