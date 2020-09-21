@@ -64,7 +64,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/collect/collect",
+					"scene": null
+				}
+			]
 		}
 	}
 }

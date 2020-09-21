@@ -4,6 +4,8 @@ import modal from '../../modals.js'
 
 const WxParse = require('../../wxParse/wxParse.js')
 
+let token = wx.getStorageSync('token')
+
 Page({
 
   /**
@@ -11,7 +13,8 @@ Page({
    */
   data: {
     detail: {},
-    type: ''
+    type: null,
+    id:''
   },
 
   onLoad: function (options) {
@@ -39,12 +42,21 @@ Page({
   getType: function () {
     let that = this
     let data = {
-      id: that.data.detail.id
+      curriculumVitaeId: that.data.detail.id
     }
     util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-
+        if (res.result.records.length == 0) { //未收藏
+          that.setData({
+            type: 0
+          })
+        } else { //收藏
+          that.setData({
+            type: 1,
+            id:res.result.records[0].id
+          })
+        }
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -55,11 +67,67 @@ Page({
   // 收藏
   toCollect: function () {
     let that = this
+    if (token) {
+      let data = {
+        createBy: wx.getStorageSync('company').id,
+        curriculumVitaeId: that.data.detail.id,
+        enterpriseInfoId: wx.getStorageSync('company').id
+      }
+      util.sendRequest('/jeecg-boot/app/resumecollection/collection', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+          that.getType()
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
+
+
   },
 
   //取消收藏
   toCancel: function () {
     let that = this
+    if (token) {
+      let data = {
+        id: that.data.id
+      }
+      util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+          that.getType()
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
   }
 
 

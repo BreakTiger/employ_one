@@ -29,8 +29,8 @@ Page({
     that.getList()
   },
 
+  // 企业列表
   getList: function () {
-
     let that = this
     let data = {
       jobfairId: that.data.item.id,
@@ -54,17 +54,5 @@ Page({
     wx.navigateTo({
       url: '/pages_two/venue_detali/venue_detali?id=' + e.currentTarget.dataset.id,
     })
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })
