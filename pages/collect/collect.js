@@ -27,14 +27,26 @@ Page({
         }
       })
     }
-
   },
 
+  // 收藏列表
   getList: function () {
     let that = this
     let data = {
-
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: that.data.page,
+      pageSize: 10
     }
+    util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+        that.setData({
+          list: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   onShow: function () {
