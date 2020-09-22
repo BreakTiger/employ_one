@@ -81,12 +81,20 @@
 				</view>
 			</view>
 
+			<view class="content-line flex fl-align" style="border：none;">
+				<text>身份证号码</text>
+				<view>
+					<input placeholder="请输入身份证号码" name="idcard"></input>
+				</view>
+			</view>
+
 		</view>
 
 		<view class="title">简历拍照上传</view>
 
 		<view class="flex fl-w b-ff img">
-			<image src="../../images/photo.png" class="photo" bindtap="toImg"></image>
+			<image src="../../images/photo.png" wx:if="{{!photo}}" class="photo" bindtap="toImg"></image>
+			<image src="{{photo}}" wx:else class="photo" bindtap="toImg"></image>
 		</view>
 
 		<view style="height:80rpx;"></view>

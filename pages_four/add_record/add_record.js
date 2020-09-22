@@ -87,10 +87,13 @@ Page({
 
   // 拍照上传
   toImg: function () {
+    let that = this
     wx.chooseImage({
       sourceType: ['camera'],
       success(res) {
-        const tempFilePaths = res.tempFilePaths
+        that.setData({
+          photo: res.tempFilePaths[0]
+        })
       }
     })
   },
@@ -99,10 +102,9 @@ Page({
   formSubmit: function (e) {
     let that = this
     let data = e.detail.value
-    console.log(data)
     if (!data.job) {
       modal.showToast('请输入面试职位', 'none')
-    } else if (!data, name) {
+    } else if (!data.name) {
       modal.showToast('请输入姓名', 'none')
     } else if (!that.data.sex) {
       modal.showToast('请选择性别', 'none')
@@ -116,12 +118,74 @@ Page({
       modal.showToast('请输入现居住地', 'none')
     } else if (!data.email) {
       modal.showToast('请输入邮箱', 'none')
+    } else if (!(/^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/.test(data.email))) {
+      modal.showToast('请输入合法的邮箱', 'none')
     } else if (!data.tel) {
       modal.showToast('请输入手机号码', 'none')
+    } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
+      modal.showToast('请输入合法的电话号码', 'none')
+    } else if (!data.idcard) {
+      modal.showToast('请输入身份证号码', 'none')
+    } else if (!(/(^\d{15}$)|(^\d{17}(\d|X)$)/.test(data.idcard))) {
+      modal.showToast('请输入合法的身份号码', 'none')
     } else if (!that.data.photo) {
       modal.showToast('请上传简历照片', 'none')
     } else {
-      console.log(1111)
+      that.upImg(that.data.photo, data)
     }
+  },
+
+  // 上传
+  upImg: async function (path, data) {
+    let that = this
+    let param = {
+      systype: 'appEnterprise'
+    }
+    await util.upLoading(path, param).then(function (res) {
+      let detail = JSON.parse(res)
+      if (detail.code == 200) {
+        that.setData({
+          photo: app.globalData.imaUrl + detail.result
+        })
+        that.save(data)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+
+    })
+  },
+
+  save: function (data) {
+    let that = this
+    let param = {
+      postName: data.job,
+      name: data.name,
+      gender: that.data.sex,
+      birthday: that.data.birth,
+      education: that.data.educationName,
+      workExperience: that.data.experienceName,
+      habitation: data.address,
+      email: data.email,
+      phone: data.tel,
+      photographResumeAddress: that.data.photo,
+      createBy: wx.getStorageSync('company').id,
+      idcard: data.idcard
+    }
+    console.log(param)
+    util.sendRequest('/jeecg-boot/hall/curriculumvitae/add', 'post', param).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+        modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   }
+
+
 })
