@@ -11,6 +11,10 @@ Page({
 
 
   onLoad: function (options) {
+    this.setData({
+      imgUrl: app.globalData.imaUrl
+    })
+    
     let that = this
     let token = wx.getStorageSync('token')
     if (!token) {

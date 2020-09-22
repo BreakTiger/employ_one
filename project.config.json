@@ -67,15 +67,23 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "求职管理",
-					"pathName": "pages_four/record/record",
+					"name": "职位管理",
+					"pathName": "pages_four/position/position",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "新增面试",
-					"pathName": "pages_four/add_record/add_record",
+					"name": "职位添加",
+					"pathName": "pages/addJob/addJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业中心",
+					"pathName": "pages/mine/mine",
+					"query": "",
 					"scene": null
 				}
 			]

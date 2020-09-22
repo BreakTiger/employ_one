@@ -80,12 +80,12 @@
 			<image src="{{imaUrl+item.headimgAddress}}"></image>
 
 			<view class="type-info flex col">
-				<view class="flex fl-align fl-jsb">
+				<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
 					<text>{{item.name}}</text>
 					<text>{{item.createTime}}</text>
 				</view>
-				<view>{{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
-				<view>职位意向：{{item.intendedPosition}}</view>
+				<view style="color:#646464;font-size:.7rem;">{{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+				<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
 			</view>
 
 		</view>

@@ -25,6 +25,7 @@ Page({
 
 
   onLoad: function (options) {
+   
     this.getBase()
 
     this.getList_one()
