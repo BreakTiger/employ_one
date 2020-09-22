@@ -74,15 +74,8 @@
 				},
 				{
 					"id": -1,
-					"name": "职位添加",
-					"pathName": "pages/addJob/addJob",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "企业中心",
-					"pathName": "pages/mine/mine",
+					"name": "员工管理",
+					"pathName": "pages_four/staff/staff",
 					"query": "",
 					"scene": null
 				}

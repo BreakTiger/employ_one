@@ -12,7 +12,7 @@
 				<view class="item">
 					<view class="name">工作职位</view>
 					<view class="selectitem">
-						<input type="text" name="name" placeholder="请输入岗位名称" />
+						<input type="text" value="{{detail.postName}}" name="name" placeholder="请输入岗位名称" />
 					</view>
 				</view>
 
@@ -20,7 +20,7 @@
 				<view class="item">
 					<view class="name">岗位类型</view>
 					<view class="selectitem">
-						<input type="text" name="type" placeholder="请输入岗位类型" />
+						<input type="text" value="{{detail.jobType}}" name="type" placeholder="请输入岗位类型" />
 					</view>
 				</view>
 
@@ -28,9 +28,9 @@
 				<view class="item">
 					<view class="name">薪资待遇</view>
 					<view class="selectitem">
-						<picker value="{{Index}}" range="{{price}}" bindchange="bindPriceChange">
+						<picker range="{{price}}" bindchange="bindPriceChange">
 							<view class="picker">
-								{{price[priceindex] ? price[priceindex] : '请设置薪资待遇'}}
+								{{pricename? pricename: '请设置薪资待遇'}}
 							</view>
 						</picker>
 					</view>
@@ -40,7 +40,7 @@
 				<view class="item">
 					<view class="name">招聘人数</view>
 					<view class="selectitem">
-						<input type="number" name="number" placeholder="请设置招聘人数" />
+						<input type="number" value="{{detail.recruitment}}" name="number" placeholder="请设置招聘人数" />
 					</view>
 				</view>
 
@@ -48,9 +48,9 @@
 				<view class="item">
 					<view class="name">学历要求</view>
 					<view class="selectitem">
-						<picker value="{{Index}}" range="{{education}}" bindchange="bindEducationChange">
+						<picker range="{{education}}" bindchange="bindEducationChange">
 							<view class="picker">
-								{{education[educationindex] ? education[educationindex] : '请选择学历要求'}}
+								{{educationname? educationname : '请选择学历要求'}}
 							</view>
 						</picker>
 					</view>
@@ -62,7 +62,7 @@
 					<view class="selectitem">
 						<picker value="{{Index}}" range="{{express}}" range-key="" bindchange="bindExpressChange">
 							<view class="picker">
-								{{express[expressindex] ? express[expressindex] : '请选择工作经验'}}
+								{{expressname? expressname : '请选择工作经验'}}
 							</view>
 						</picker>
 					</view>
@@ -70,11 +70,11 @@
 
 				<!-- 工作性质 -->
 				<view class="item">
-					<view class="name">工作性质</view>
+					<view class="name">岗位性质</view>
 					<view class="selectitem">
 						<picker value="{{Index}}" range="{{worktype}}" range-key="" bindchange="bindWorktypeChange">
 							<view class="picker">
-								{{worktype[worktypeindex] ? worktype[worktypeindex] : '请选择工作性质'}}
+								{{worktypename? worktypename: '请选择岗位性质'}}
 							</view>
 						</picker>
 					</view>
@@ -86,13 +86,13 @@
 					<view class="selectitem">
 						<radio-group class="radio-group" bindchange="radioChange">
 							<label class="radio">
-								<radio value="1" checked="{{sex ==1 ? 'checked':''}}" />男
+								<radio value="1" checked="{{sex =='男' ? 'checked':''}}" />男
 							</label>
 							<label class="radio">
-								<radio value="2" checked="{{sex ==2 ? 'checked':''}}" />女
+								<radio value="2" checked="{{sex =='女'? 'checked':''}}" />女
 							</label>
 							<label class="radio">
-								<radio value="0" checked="{{sex ==0? 'checked':''}}" />不限
+								<radio value="0" checked="{{sex =='不限'? 'checked':''}}" />不限
 							</label>
 						</radio-group>
 					</view>
@@ -120,7 +120,8 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<textarea placeholder="开始输入" name="describe" class="w100"></textarea>
+						<!-- <textarea  class="w100"></textarea> -->
+						<editor placeholder="开始输入" value="{{detail.jobDescription}}" name="describe"></editor>
 					</view>
 				</view>
 			</view>

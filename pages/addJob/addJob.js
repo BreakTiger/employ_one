@@ -7,24 +7,22 @@ Page({
 
   data: {
 
+    detail: {},
+
     //薪资待遇
-    price: ['2k以下', '2-2.5k', '2.5-3k', '3-3.5k', '3.5-4.5k', '4.5-5.5k', '5.5-6.5k', '6.5k-8k', '8k-10k', '10k-12k', '12-14k', '14-16k', '16-18k','18-20k','20k以上'],
-    priceindex: -1,
+    price: ['2k以下', '2-2.5k', '2.5-3k', '3-3.5k', '3.5-4.5k', '4.5-5.5k', '5.5-6.5k', '6.5k-8k', '8k-10k', '10k-12k', '12-14k', '14-16k', '16-18k', '18-20k', '20k以上'],
     pricename: '',
 
     //学历
     education: ['不限', '初中以上', '高中以上', '中技以上', '中专以上', '大专以上', '本科以上', '硕士以上', '博士以上', '博后'],
-    educationindex: -1,
     educationname: '',
 
     //工作经验
     express: ['无经验', '1年以下', '1-3年', '3-5年', '5-10年', '10年以上'],
-    expressindex: -1,
     expressname: '',
 
     //工作性质
     worktype: ['全职', '兼职', '实习'],
-    worktypeindex: -1,
     worktypename: "",
 
     //性别
@@ -51,71 +49,66 @@ Page({
     choice: '', //所选的特色服务 逗号分隔
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
+  onLoad: function (options) {
+    let that = this
+    if (options.detail) {
+      let detail = JSON.parse(options.detail)
+      console.log(detail)
+
+      that.setData({
+        detail: detail,
+        pricename: detail.salary,
+        educationname: detail.educationRequirements,
+        expressname: detail.workExperience,
+        worktypename: detail.jobNature,
+        sex: detail.genderRequirement,
+        choice: detail.special
+      })
+
+    }
   },
 
-  bindPriceChange:function(e){
-    var price = this.data.price;
+  // 选项：
 
-    if (price) {
-      this.data.priceindex = e.detail.value;
-      this.data.pricename = price[e.detail.value];
-    }
-    console.log(this.data.pricename);
-
-    this.setData({
-      price: price,
-      priceindex: e.detail.value
+  //薪资
+  bindPriceChange: function (e) {
+    let that = this
+    let index = e.detail.value
+    let list = that.data.price
+    that.setData({
+      pricename: list[index]
     })
   },
 
   // 学历
   bindEducationChange: function (e) {
-    var education = this.data.education;
-
-    if (education) {
-      this.data.educationindex = e.detail.value;
-      this.data.educationname = education[e.detail.value];
-    }
-    console.log(this.data.educationname);
-
-    this.setData({
-      education: education,
-      educationindex: e.detail.value
+    let that = this
+    let index = e.detail.value
+    let list = that.data.education
+    that.setData({
+      educationname: list[index]
     })
   },
 
   // 经验
   bindExpressChange: function (e) {
-    var express = this.data.express;
-
-    if (express) {
-      this.data.expressindex = e.detail.value;
-      this.data.expressname = express[e.detail.value];
-    }
-    console.log(this.data.expressname);
-    this.setData({
-      express: express,
-      expressindex: e.detail.value
+    let that = this
+    let index = e.detail.value
+    let list = that.data.express
+    that.setData({
+      expressname: list[index]
     })
   },
 
-  // 性质
+  // 岗位性质
   bindWorktypeChange: function (e) {
-    var worktype = this.data.worktype;
 
-    if (worktype) {
-      this.data.worktypeindex = e.detail.value;
-      this.data.worktypename = worktype[e.detail.value];
-    }
-    console.log(this.data.worktypename);
-    this.setData({
-      worktype: worktype,
-      worktypeindex: e.detail.value
+    let that = this
+    let index = e.detail.value
+    let list = that.data.worktype
+    that.setData({
+      worktypename: list[index]
     })
   },
 
@@ -124,16 +117,14 @@ Page({
     this.data.sex = e.detail.value;
   },
 
-
   // 特色服务
   checkboxChange: function (e) {
-    var arr = ''
+    var arr = this.data.choice
     var list = e.detail.value
     list.forEach(function (item, index) {
       arr += item + ','
     })
     arr = arr.substring(0, arr.length - 1)
-    // console.log(arr)
     this.setData({
       choice: arr
     })
