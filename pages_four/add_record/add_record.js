@@ -11,23 +11,26 @@ Page({
     sex: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
 
   },
 
 
+  // 拍照上传
   toImg: function () {
     wx.chooseImage({
-      // sizeType: ['original', 'compressed'],
       sourceType: ['camera'],
       success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
       }
     })
+  },
+
+  // 提交
+  formSubmit: function (e) {
+    let that = this
+    console.log(e.detail.value)
   },
 
   /**

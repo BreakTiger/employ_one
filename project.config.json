@@ -71,6 +71,12 @@
 					"pathName": "pages_four/record/record",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增面试",
+					"pathName": "pages_four/add_record/add_record",
+					"scene": null
 				}
 			]
 		}

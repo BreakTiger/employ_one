@@ -85,7 +85,7 @@
 
 		<view style="height:80rpx;"></view>
 
-		<button class="save b-e5 c-ff">保存</button>
+		<button class="save b-e5 c-ff" form-type="submit">保存</button>
 
 	</view>
 </form>
