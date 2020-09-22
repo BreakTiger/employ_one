@@ -45,7 +45,7 @@
 			<view class="content-line flex fl-align">
 				<text>最高学历</text>
 				<view>
-					<picker moda="selector" range="{{education}}" range-key="dataName" bindtap="getEducation">
+					<picker moda="selector" range="{{education}}" range-key="dataName" bindchange="getEducation">
 					<view>{{educationName?educationName:'请选择最高学历'}}</view>
 					</picker>
 				</view>
@@ -54,7 +54,7 @@
 			<view class="content-line flex fl-align">
 				<text>工作经验</text>
 				<view>
-					<picker mode="selector" range="{{experience}}" bindtap="getExperience">
+					<picker mode="selector" range="{{experience}}" bindchange="getExperience">
 					<view>{{experienceName?experienceName:'请设置工作经验'}}</view>
 					</picker>
 				</view>
