@@ -36,21 +36,27 @@
 			<view class="content-line flex fl-align">
 				<text>出生年份</text>
 				<view>
-					<picker mode="date">请选择年份</picker>
+					<picker mode="date" bindchange="getBirth">
+					<view>{{birth?birth:'请选择年份'}}</view>
+					</picker>
 				</view>
 			</view>
 
 			<view class="content-line flex fl-align">
 				<text>最高学历</text>
 				<view>
-					<picker moda="selector">请选择最高学历</picker>
+					<picker moda="selector" range="{{education}}" range-key="dataName" bindtap="getEducation">
+					<view>{{educationName?educationName:'请选择最高学历'}}</view>
+					</picker>
 				</view>
 			</view>
 
 			<view class="content-line flex fl-align">
 				<text>工作经验</text>
 				<view>
-					<picker mode="selector">无经验</picker>
+					<picker mode="selector" range="{{experience}}" bindtap="getExperience">
+					<view>{{experienceName?experienceName:'请设置工作经验'}}</view>
+					</picker>
 				</view>
 			</view>
 

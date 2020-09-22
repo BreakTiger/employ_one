@@ -28,8 +28,8 @@
 		</view>
 
 		<view class="btn-line flex fl-align fl-jfe">
-			<view bindtap="toEditor">编辑</view>
-			<view bindtap="toDelete">删除</view>
+			<view bindtap="toEditor" wx:if="{{item.role!=1}}">编辑</view>
+			<view bindtap="toDelete" wx:if="{{item.role!=1}}">删除</view>
 			<view bindtap="toChange">修改密码</view>
 		</view>
 

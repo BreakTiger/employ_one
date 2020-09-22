@@ -71,15 +71,8 @@
       "list": [
         {
           "id": -1,
-          "name": "职位管理",
-          "pathName": "pages_four/position/position",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "员工管理",
-          "pathName": "pages_four/staff/staff",
+          "name": "新增面试",
+          "pathName": "pages_four/add_record/add_record",
           "query": "",
           "scene": null
         }
