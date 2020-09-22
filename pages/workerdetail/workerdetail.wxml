@@ -116,7 +116,7 @@
 	<view style="height：80rpx;"></view>
 
 	<!-- 收藏 -->
-	<view class="b-e5 c-ff btn">收藏简历</view>
+	<!-- <view class="b-e5 c-ff btn">收藏简历</view> -->
 
 	<!-- <view class="b-e5 c-ff btn">取消收藏</view> -->
 

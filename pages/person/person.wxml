@@ -88,7 +88,8 @@
  			<view class="title" bindtap="toWorkerDetail" data-item="{{item}}">
  				<view class="detail">
  					<view class="pic">
- 						<image src="{{imaUrl+item.headimgAddress}}"></image>
+ 						<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}"></image>
+ 						<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}"></image>
  					</view>
  					<view class="info">
  						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>

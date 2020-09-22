@@ -53,7 +53,7 @@ Page({
         if (detail.logoAddress) { //logo存在
           console.log('存在：', detail.logoAddress)
           that.setData({
-            logo: detail.logoAddress
+            logo: app.globalData.imaUrl + detail.logoAddress
           })
         }
       } else {

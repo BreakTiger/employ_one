@@ -14,7 +14,7 @@ Page({
   data: {
     detail: {},
     type: null,
-    id:''
+    id: ''
   },
 
   onLoad: function (options) {
@@ -32,8 +32,11 @@ Page({
     })
 
     let article = app.globalData.worker.workHistory
+    if (article) {
+      WxParse.wxParse('article', 'html', article, that, 5);
+    }
 
-    WxParse.wxParse('article', 'html', article, that, 5);
+
 
     that.getType()
   },
@@ -54,7 +57,7 @@ Page({
         } else { //收藏
           that.setData({
             type: 1,
-            id:res.result.records[0].id
+            id: res.result.records[0].id
           })
         }
       } else {
