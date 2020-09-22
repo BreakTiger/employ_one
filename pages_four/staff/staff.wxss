@@ -14,7 +14,6 @@ page {
 
 .laber {
   padding: 5rpx 15rpx;
-  border: 1rpx solid #3274e5;
   border-radius: 10rpx;
   font-size: .7rem;
 }

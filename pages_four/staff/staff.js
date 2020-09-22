@@ -24,7 +24,9 @@ Page({
     util.sendRequest('/jeecg-boot/app/staff/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-
+        that.setData({
+          list: res.result.records
+        })
       } else {
         modal.showToast(res.message, 'none')
       }

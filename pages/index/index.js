@@ -35,16 +35,32 @@ Page({
       pageSize: 5
     }
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
-      console.log(res.result.records)
+      // console.log(res.result.records)
       if (res.code == 0) {
-        that.setData({
-          notelist: res.result.records
-        })
+        // that.setData({
+        //   notelist: res.result.records
+        // })
+        that.settle(res.result.records)
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+  },
 
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      if(item.enable==1){
+        let age = util.ages(item)
+        item.age = age
+        arr.push(item)
+      }
+    })
+    that.setData({
+      notelist: arr
+    })
   },
 
   // 搜索

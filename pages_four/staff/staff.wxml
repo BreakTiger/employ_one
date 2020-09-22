@@ -1,32 +1,36 @@
 <view class="container col fl-align">
 
-	<view class="b-ff flex col fl-align">
+	<view class="b-ff flex col fl-align" wx:for="{{list}}" wx:key="index">
 
 		<view class="flex col fl-align">
 			<view class="w100 flex fl-align fl-jsb">
-				<text>张三</text>
-				<view class="laber c-e5">管理员</view>
+				<text>{{item.name}}</text>
+				<view class="laber c-e5" style=" border: 1rpx solid #3274e5;" wx:if="{{item.role==1}}">管理员</view>
+				<view class="laber" style=" border: 1rpx solid #ff6600;color:#ff6600;" wx:if="{{item.role!=1 && item.examinestate==0}}">待审核</view>
+				<view class="laber" style=" border: 1rpx solid #0DD068;color:#0DD068;" wx:if="{{item.role!=1 && item.examinestate==1}}">通过</view>
+				<view class="laber" style=" border: 1rpx solid #e74340;color:#e74340;" wx:if="{{item.role!=1 && item.examinestate==-1}}">不通过</view>
 			</view>
 			<view class="w100 flex col">
 				<view class="item flex fl-align c-66">
 					<view class="name">联系电话：</view>
-					<view>XXXXXXXX</view>
+					<view>{{item.phone}}</view>
 				</view>
 				<view class="item flex fl-align c-66">
 					<view class="name">身份证号码：</view>
-					<view>XXXXXXXX</view>
+					<view>{{item.idcard}}</view>
 				</view>
 				<view class="item flex fl-align c-66">
-					<view class="name">职位</view>
-					<view>XXXXXXXXXXXX</view>
+					<view class="name">角色</view>
+					<view wx:if="{{item.role==1}}">负责人</view>
+					<view wx:else>员工</view>
 				</view>
 			</view>
 		</view>
 
 		<view class="btn-line flex fl-align fl-jfe">
-			<view>编辑</view>
-			<view>删除</view>
-			<view>修改密码</view>
+			<view bindtap="toEditor">编辑</view>
+			<view bindtap="toDelete">删除</view>
+			<view bindtap="toChange">修改密码</view>
 		</view>
 
 	</view>
