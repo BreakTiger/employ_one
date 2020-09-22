@@ -7,6 +7,10 @@ Page({
 
   data: {
 
+    //职位列表
+    joblist: [],
+    jobName: '',
+
     //性别
     sex: null,
 
@@ -27,7 +31,27 @@ Page({
 
 
   onLoad: function (options) {
+    this.jobList()
     this.educationList()
+  },
+
+  // 职位 - 列表
+  jobList: function () {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: 1,
+      pageSize: 100
+    }
+    util.sendRequest('/jeecg-boot/hall/position/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          joblist: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   //学历-列表
@@ -37,7 +61,6 @@ Page({
       type: 'education'
     }
     util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
           education: res.result.records
@@ -45,6 +68,16 @@ Page({
       } else {
         modal.showToast(res.message, 'none')
       }
+    })
+  },
+
+  //职位 - 选择
+  getJob: function (e) {
+    let that = this
+    let index = e.detail.value
+    let list = that.data.joblist
+    that.setData({
+      jobName: list[index].postName
     })
   },
 
@@ -102,7 +135,7 @@ Page({
   formSubmit: function (e) {
     let that = this
     let data = e.detail.value
-    if (!data.job) {
+    if (!that.data.jobName) {
       modal.showToast('请输入面试职位', 'none')
     } else if (!data.name) {
       modal.showToast('请输入姓名', 'none')
@@ -151,14 +184,14 @@ Page({
       } else {
         modal.showToast(res.message, 'none')
       }
-
     })
   },
 
+  // 保存
   save: function (data) {
     let that = this
     let param = {
-      postName: data.job,
+      postName: that.data.jobName,
       name: data.name,
       gender: that.data.sex,
       birthday: that.data.birth,

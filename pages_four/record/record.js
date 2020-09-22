@@ -9,7 +9,10 @@ Page({
     list: []
   },
 
-  onLoad: function (options) {
+  onShow: function () {
+    this.setData({
+      page: 1
+    })
     this.getList()
   },
 
@@ -31,8 +34,6 @@ Page({
       }
     })
   },
-
-
 
   // 查看简历
   toWatch: function (e) {
@@ -72,9 +73,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
 
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

@@ -68,15 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "新增面试",
-          "pathName": "pages_four/add_record/add_record",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

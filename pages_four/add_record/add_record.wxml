@@ -8,7 +8,9 @@
 			<view class="content-line flex fl-align">
 				<text>面试职位</text>
 				<view>
-					<input placeholder="请选择面试职位" name="job"></input>
+					<picker moda="selector" range="{{joblist}}" range-key="postName" bindchange="getJob">
+					<view>{{jobName?jobName:'请选择面试职位'}}</view>
+					</picker>
 				</view>
 			</view>
 
