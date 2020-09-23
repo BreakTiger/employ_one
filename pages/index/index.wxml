@@ -59,7 +59,7 @@
 
 		<view class="item flex col fl-align" bindtap="ticket">
 			<image src="../../nav/nav-5.png"></image>
-			<view>入场券</view>
+			<view>电子入场券</view>
 		</view>
 
 	</view>

@@ -3,12 +3,12 @@
     <image src="../../images/ewmhead.png"></image>
     <view>电子入场券</view>
   </view>
-  <view class="main">
-    <view class="content">
+  <view class="main flex col fl-align">
+    <view class="content w100">
       <view>招聘会名称: 2020-02-20</view>
       <view>招聘会类型: 2020-02-20</view>
       <view>招聘会举办日期: 2020-02-20</view>
     </view>
-    <!-- <image src="../../resource/images/ewm.jpg"></image> -->
+    <image src="{{code}}" class="code"></image>
   </view>
 </view>

@@ -183,7 +183,6 @@ Page({
               delta: 0,
             })
           }, 2000);
-
         } else {
           modal.showToast(res.message, 'none')
         }

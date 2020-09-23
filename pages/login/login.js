@@ -37,19 +37,21 @@ Page({
       modal.showToast('请输入密码', 'none')
     } else {
       let data = {
-        username: e.detail.value.name,
+        account: e.detail.value.name,
         psw: e.detail.value.password
       }
       util.sendRequest('/jeecg-boot/app/user/login', 'get', data, 1).then(function (res) {
         if (res.code == 200) {
+          console.log(res.result)
           let company = res.result.enterprise
           wx.setStorageSync('company', company)
           let token = res.result.tokenModel.token
           wx.setStorageSync('token', token)
+          let person = res.result.tokenModel
+          wx.setStorageSync('person', person)
           wx.navigateBack({
             delta: 0,
           })
-
         } else {
           modal.showToast(res.message, 'none')
         }
