@@ -35,11 +35,7 @@ Page({
       pageSize: 5
     }
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
-        // that.setData({
-        //   notelist: res.result.records
-        // })
         that.settle(res.result.records)
       } else {
         modal.showToast(res.message, 'none')
@@ -52,7 +48,7 @@ Page({
     let that = this
     let arr = []
     list.forEach(function (item) {
-      if(item.enable==1){
+      if (item.enable == 1) {
         let age = util.ages(item)
         item.age = age
         arr.push(item)
@@ -163,6 +159,13 @@ Page({
       })
     }
 
+  },
+
+  // 入场券
+  ticket: function () {
+    wx.navigateTo({
+      url: '/pages_one/ticket/ticket',
+    })
   },
 
   // 发布职位

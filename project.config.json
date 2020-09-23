@@ -89,6 +89,13 @@
           "pathName": "pages_four/add_record/add_record",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "入场券",
+          "pathName": "pages_one/ticket/ticket",
+          "query": "",
+          "scene": null
         }
       ]
     }

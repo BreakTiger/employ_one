@@ -1,7 +1,4 @@
-const app = getApp()
-const util = require('../../utils/util.js')
-import modal from '../../modals.js'
-
+// pages_four/add_ staff/add_ staff.js
 Page({
 
   /**

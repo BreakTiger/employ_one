@@ -1,2 +1,14 @@
-<!--pages_one/ticket/ticket.wxml-->
-<text>pages_one/ticket/ticket.wxml</text>
+<view class="container col fl-align">
+  <view class="header w100 b-e5 flex col fl-align">
+    <image src="../../images/ewmhead.png"></image>
+    <view>电子入场券</view>
+  </view>
+  <view class="main">
+    <view class="content">
+      <view>招聘会名称: 2020-02-20</view>
+      <view>招聘会类型: 2020-02-20</view>
+      <view>招聘会举办日期: 2020-02-20</view>
+    </view>
+    <!-- <image src="../../resource/images/ewm.jpg"></image> -->
+  </view>
+</view>
