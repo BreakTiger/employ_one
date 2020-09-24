@@ -75,27 +75,6 @@
           "pathName": "pages/mine/mine",
           "query": "",
           "scene": null
-        },
-        {
-          "id": 1,
-          "name": "求职管理",
-          "pathName": "pages_four/record/record",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "新增面试",
-          "pathName": "pages_four/add_record/add_record",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "入场券",
-          "pathName": "pages_one/ticket/ticket",
-          "query": "",
-          "scene": null
         }
       ]
     }

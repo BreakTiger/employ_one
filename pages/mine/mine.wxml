@@ -40,7 +40,7 @@
 			<view class="count">1</view>
 		</view>
 
-		<view class="item">
+		<view class="item" bindtap="toCount">
 			<image src="../../img/note.png" class="icon"></image>收到简历
 		</view>
 

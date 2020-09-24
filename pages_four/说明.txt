@@ -32,5 +32,9 @@ staff
 add_ staff
 
 9.修改员工密码
+staff_editor
+
+10.收到简历
+vitae_count
 
 

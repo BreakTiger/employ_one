@@ -81,6 +81,11 @@ Page({
   },
 
   //收到简历
+  toCount: function () {
+    wx.navigateTo({
+      url: '/pages_four/vitae_count/vitae_count',
+    })
+  },
 
   // 编辑企业信息
   toEditcompany: function (e) {
@@ -110,16 +115,12 @@ Page({
     })
   },
 
-
-
   // 职位管理
   toMyjoblist: function (e) {
     wx.navigateTo({
       url: "/pages_four/position/position"
     })
   },
-
-  
 
   // 面试管理
   vitae: function () {
@@ -128,24 +129,10 @@ Page({
     })
   },
 
-
-
   // 收藏简历
   collect: function () {
     wx.navigateTo({
       url: '/pages/collect/collect',
     })
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })

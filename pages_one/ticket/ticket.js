@@ -4,7 +4,6 @@ import modal from '../../modals.js'
 
 Page({
 
-
   data: {
     detail: {},
     code: ''
@@ -32,20 +31,17 @@ Page({
     })
   },
 
-
+  // 面试管理
   one: function () {
     wx.navigateTo({
       url: '/pages_four/record/record',
     })
   },
 
+  // 收到简历
   two: function () {
     wx.navigateTo({
-      url: '',
+      url: '/pages_four/vitae_count/vitae_count',
     })
   }
-
-
-
-
 })
