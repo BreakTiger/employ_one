@@ -1,1 +1,25 @@
-/* pages_four/vitae_count/vitae_count.wxss */
+.container>view {
+  width: 100%;
+}
+
+.orderlist>view {
+  font-size: .8rem;
+  border-bottom: 1rpx solid #efefef;
+  padding: 20rpx 0 20rpx 20rpx;
+}
+
+.payitem view {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  border-radius: 5rpx;
+  background: #3274e5;
+  font-size: .6rem;
+  color: #FFF;
+}
+
+.payitem view:nth-child(1) {
+  background: #e64340;
+}

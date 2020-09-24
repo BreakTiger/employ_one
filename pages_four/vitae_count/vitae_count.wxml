@@ -1,2 +1,15 @@
-<!--pages_four/vitae_count/vitae_count.wxml-->
-<text>pages_four/vitae_count/vitae_count.wxml</text>
+   <view class="container col fl-align">
+
+   	<view class="orderlist" wx:for="{{list}}" wx:key="index">
+   		<view class="item">应聘职位：{{item.postName}}</view>
+   		<view class="item">应聘人：{{item.name}}</view>
+   		<view class="item">性别：{{item.gender}}</view>
+   		<view class="item">联系电话：{{item.phone}}</view>
+   		<view class="item">创建时间：{{item.createTime}}</view>
+   		<view class="payitem flex fl-align fl-jfe">
+   			<view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+   			<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
+   		</view>
+   	</view>
+
+   </view>
