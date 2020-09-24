@@ -78,15 +78,16 @@
         },
         {
           "id": -1,
-          "name": "收到简历",
-          "pathName": "pages_four/vitae_count/vitae_count",
+          "name": "职位管理",
+          "pathName": "pages_four/position/position",
           "query": "",
           "scene": null
         },
         {
           "id": -1,
-          "name": "职位管理",
-          "pathName": "pages_four/position/position",
+          "name": "员工管理",
+          "pathName": "pages_four/staff/staff",
+          "query": "",
           "scene": null
         }
       ]

@@ -33,16 +33,53 @@ Page({
     })
   },
 
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
+  // 编辑
+  toEditor: function () {
 
   },
 
-  onShareAppMessage: function () {
+  // 删除
+  toDelete: function (e) {
+    let that = this
 
-  }
+    wx.showModal({
+      title: "提示",
+      content: "是否删除该员工",
+      success: function (res) {
+        if (res.confirm) {
+          let index = e.currentTarget.dataset.index
+          let list = that.data.list
+          let data = {
+            id: e.currentTarget.dataset.id
+          }
+          util.sendRequest('/jeecg-boot/app/staff/delete', 'get', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.messgae)
+              list.splice(index, 0)
+              that.setData({
+                list: list
+              })
+            } else {
+              modal.showToast(res.messgae, 'none')
+            }
+          })
+        }
+      }
+    })
+  },
+
+  // 修改密码
+  toChange: function () {
+
+  },
+
+  // 添加企业员工
+  toAdd: function () {
+    wx.navigateTo({
+      url: '/pages_four/add_ staff/add_ staff',
+    })
+  },
+
+
 })

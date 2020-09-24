@@ -1,66 +1,69 @@
-// pages_four/add_ staff/add_ staff.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
 
+  data: {
+    sex: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 性别
+  radioChange: function (e) {
+    this.setData({
+      sex: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  formSubmit: function (e) {
+    let that = this
+    let data = e.detail.value
+    console.log(data)
+    if (!data.name) {
+      modal.showToast('请输入姓名', 'none')
+    } else if (!that.data.sex) {
+      modal.showToast('请选择性别', 'none')
+    } else if (!data.tel) {
+      modal.showToast('请输入手机号码', 'none')
+    } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
+      modal.showToast('请输入合法的电话号码', 'none')
+    } else if (!data.psw) {
+      modal.showToast('请设置密码', 'none')
+    } else if (!data.idcard) {
+      modal.showToast('请输入身份证号码', 'none')
+    } else if (!(/(^\d{15}$)|(^\d{17}(\d|X)$)/.test(data.idcard))) {
+      modal.showToast('请输入合法的身份号码', 'none')
+    } else {
+      let param = {
+        enterpriseInfoId: wx.getStorageSync('company').id,
+        gender: that.data.sex,
+        idcard: data.idcard,
+        name: data.name,
+        password: data.psw,
+        phone: data.tel,
+        createBy: wx.getStorageSync('company').id
+      }
+      console.log(param)
+      util.sendRequest('/jeecg-boot/app/staff/add', 'post', param).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 2000);
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    }
   }
+
+
 })

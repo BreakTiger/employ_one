@@ -1,2 +1,62 @@
-<!--pages_four/add_ staff/add_ staff.wxml-->
-<text>pages_four/add_ staff/add_ staff.wxml</text>
+<form bindsubmit="formSubmit">
+	<view class="container col fl-align">
+
+		<view class="title">员工基本信息</view>
+
+		<view class="b-ff flex col fl-align content">
+
+			<view class="content-line flex fl-align">
+				<text>角色</text>
+				<view>员工</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>姓名</text>
+				<view>
+					<input placeholder="请输入姓名" name="name"></input>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align">
+				<text>性别</text>
+				<view>
+					<radio-group class="radio-group" bindchange="radioChange">
+						<label class="radio">
+							<radio value="男" checked="{{sex =='男' ? 'checked':''}}" />男
+						</label>
+						<label class="radio">
+							<radio value="女" checked="{{sex =='女' ? 'checked':''}}" />女
+						</label>
+					</radio-group>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align" style="border：none;">
+				<text>手机号码</text>
+				<view>
+					<input placeholder="请输入手机号码" name="tel"></input>
+				</view>
+			</view>
+
+      <view class="content-line flex fl-align" style="border：none;">
+				<text>密 码</text>
+				<view>
+					<input placeholder="请设置密码" name="psw"></input>
+				</view>
+			</view>
+
+			<view class="content-line flex fl-align" style="border：none;">
+				<text>身份证号码</text>
+				<view>
+					<input placeholder="请输入身份证号码" name="idcard"></input>
+				</view>
+			</view>
+
+		</view>
+
+		<view style="height:80rpx;"></view>
+
+		<button class="save b-e5 c-ff" form-type="submit">保存</button>
+
+	</view>
+</form>
