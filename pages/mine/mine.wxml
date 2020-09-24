@@ -23,9 +23,9 @@
 			<view>面试管理</view>
 		</view>
 
-		<view class="item flex col fl-align" bindtap="vitae">
+		<view class="item flex col fl-align" bindtap="collect">
 			<view>2份</view>
-			<view>已收到简历</view>
+			<view>简历收藏</view>
 		</view>
 
 	</view>
@@ -37,36 +37,31 @@
 			<view class="flex fl-align">
 				<image src="../../img/inform.png" class="icon"></image>邀约通知
 			</view>
-
 			<view class="count">1</view>
 		</view>
 
-		<view class="item" bindtap="toMatchnote">
-			<image src="../../img/search.png" class="icon"></image>精确匹配简历
+		<view class="item">
+			<image src="../../img/note.png" class="icon"></image>收到简历
 		</view>
 
 		<view class="item" bindtap="toEditcompany">
 			<image src="../../img/edit.png" class="icon"></image>企业信息编辑
 		</view>
 
-		<view class="item" bindtap='toMyjoblist'>
+		<view class="item" bindtap="toMyjoblist">
 			<image src="../../img/manage.png" class="icon"></image>职位管理
 		</view>
 
-		<view class="item" bindtap='toStaff'>
-			<image src="../../img/manage.png" class="icon"></image>员工管理
-		</view>
-
-		<view class="item" bindtap="vitae">
-			<image src="../../img/note.png" class="icon"></image>求职管理
+		<view class="item" bindtap="toStaff">
+			<image src="../../img/Jjob.png" class="icon"></image>员工管理
 		</view>
 
 		<view class="item" bindtap="toHistory">
-			<image src="../../img/Jjob.png" class="icon"></image>求职面试历史
+			<image src="../../img/note.png" class="icon"></image>面试记录
 		</view>
 
-		<view class="item" bindtap="collect">
-			<image src="../../img/collect.png" class="icon"></image>收藏简历
+		<view class="item" bindtap="toMatchnote">
+			<image src="../../img/search.png" class="icon"></image>精确匹配简历
 		</view>
 
 		<view class="item" bindtap="loginout">

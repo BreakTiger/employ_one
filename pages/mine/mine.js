@@ -14,7 +14,7 @@ Page({
     this.setData({
       imgUrl: app.globalData.imaUrl
     })
-    
+
     let that = this
     let token = wx.getStorageSync('token')
     if (!token) {
@@ -24,7 +24,7 @@ Page({
     }
   },
 
-  // 去登陆
+  // 登陆
   toLogin: function () {
     wx.navigateTo({
       url: '/pages/login/login',
@@ -59,6 +59,7 @@ Page({
     })
   },
 
+
   onShow: function () {
     let that = this
     let token = wx.getStorageSync('token')
@@ -79,24 +80,12 @@ Page({
     })
   },
 
-  // 匹配简历
-  toMatchnote: function () {
-    wx.navigateTo({
-      url: "/pages_four/match/match"
-    })
-  },
+  //收到简历
 
   // 编辑企业信息
   toEditcompany: function (e) {
     wx.navigateTo({
       url: "/pages_four/edit/edit"
-    })
-  },
-
-  // 职位管理
-  toMyjoblist: function (e) {
-    wx.navigateTo({
-      url: "/pages_four/position/position"
     })
   },
 
@@ -107,19 +96,39 @@ Page({
     })
   },
 
-  // 求职简历
+  //面试记录
+  toHistory: function () {
+    wx.navigateTo({
+      url: '/pages_four/history/history',
+    })
+  },
+
+  // 匹配简历
+  toMatchnote: function () {
+    wx.navigateTo({
+      url: "/pages_four/match/match"
+    })
+  },
+
+
+
+  // 职位管理
+  toMyjoblist: function (e) {
+    wx.navigateTo({
+      url: "/pages_four/position/position"
+    })
+  },
+
+  
+
+  // 面试管理
   vitae: function () {
     wx.navigateTo({
       url: '/pages_four/record/record',
     })
   },
 
-  // 求职面试历史
-  toHistory: function () {
-    wx.navigateTo({
-      url: '/pages_four/history/history',
-    })
-  },
+
 
   // 收藏简历
   collect: function () {

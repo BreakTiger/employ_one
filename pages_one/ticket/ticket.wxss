@@ -30,9 +30,30 @@ page {
 .main {
   width: 90%;
   margin: 20rpx 0;
-  /* padding: 20rpx 40rpx; */
 }
 
+.title {
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+
+.time {
+  font-size: 24rpx;
+}
+
+.btn>view {
+  width: 40%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #3274e5;
+  border: 1rpx solid #3274e5;
+  text-align:center;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 
 .content {
   font-size: 28rpx;
   color: #666;
@@ -40,12 +61,11 @@ page {
 
 .content view {
   margin: 10rpx 0;
-}
+} */
 
 .code {
   width: 400rpx;
   height: 400rpx;
-  background: black;
   margin: 20rpx 0;
 }
 

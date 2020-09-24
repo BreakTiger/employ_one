@@ -6,7 +6,8 @@ Page({
 
 
   data: {
-    detail: {}
+    detail: {},
+    code: ''
   },
 
   onLoad: function (options) {
@@ -22,13 +23,27 @@ Page({
       console.log(res.result)
       if (res.code == 200) {
         that.setData({
-          detail: res.result
+          detail: res.result,
+          code: app.globalData.imaUrl + res.result.qrCodeAddress
         })
       } else {
         modal.showToast(res.message, 'none')
       }
     })
   },
+
+
+  one: function () {
+    wx.navigateTo({
+      url: '/pages_four/record/record',
+    })
+  },
+
+  two: function () {
+    wx.navigateTo({
+      url: '',
+    })
+  }
 
 
 

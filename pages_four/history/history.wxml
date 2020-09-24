@@ -19,6 +19,6 @@
 
     <view class="b-ff" style="height:80rpx;"></view>
 
-    <view class="addNew">新增面试</view>
+    <!-- <view class="addNew">新增面试</view> -->
 
    </view>
