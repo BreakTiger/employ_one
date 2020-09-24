@@ -29,19 +29,19 @@
    			<view class="payitem">
 
 
-   				<view hidden="" bindtap='topPaytopjob' data-id="{{item.id}}">置顶</view>
+   				<view>置顶</view>
 
 
-   				<view hidden="" bindtap='toMatchnote' data-id="{{item.worktype}}">匹配</view>
+   				<view>匹配</view>
 
    				<block wx:if="{{item.status == 0}}">
-   					<view hidden="" bindtap='cancleJob' data-id="{{item.id}}">下架</view>
+   					<view>关闭</view>
    				</block>
    				<block wx:else>
-   					<view hidden="" bindtap='upJob' data-id="{{item.id}}">上架</view>
+   					<view>开启</view>
    				</block>
 
-   				<view hidden="" bindtap='toMatchnote' data-id="{{item.worktype}}">删除</view>
+   				<view bindtap="toDel" data-id="{{item.id}}" data-index="{{index}}">删除</view>
 
 
    			</view>

@@ -48,21 +48,33 @@ Page({
   },
 
 
-  onPullDownRefresh: function () {
-
+  // 删除
+  toDel: function (e) {
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该职位',
+      success: function (res) {
+        if (res.confirm) {
+          let list = that.data.list
+          let index = e.currentTarget.dataset.index
+          let data = {
+            id: e.currentTarget.dataset.id
+          }
+          util.sendRequest('/jeecg-boot/hall/position/delete', 'DELETE', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+              list.splice(index, 1)
+              that.setData({
+                list: list
+              })
+            } else {
+              modal.showToast(res.message, 'none')
+            }
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

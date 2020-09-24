@@ -7,8 +7,9 @@
    		<view class="item">联系电话：{{item.phone}}</view>
    		<view class="item">创建时间：{{item.createTime}}</view>
    		<view class="payitem flex fl-align fl-jfe">
-   			<view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
-   			<view bindtap="toFinsh">评价面试</view>
+			  <view style="border: 1rpx solid #000000;">删除记录</view>
+   			<view class="c-ff" style="background: #e64340;" bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+   			<view class="c-ff b-e5" bindtap="toFinsh">评价面试</view>
    		</view>
    	</view>
 

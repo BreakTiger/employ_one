@@ -19,16 +19,14 @@
 				<!-- 岗位类型 -->
 				<view class="item">
 					<view class="name">岗位类型</view>
-					<view class="selectitem">
-						<input type="text" value="{{detail.jobType}}" name="type" placeholder="请输入岗位类型" />
-					</view>
+					<view class="selectitem" bindtap="toShow">{{typeName? typeName: '请选择岗位类型'}}</view>
 				</view>
 
 				<!-- 薪资待遇 -->
 				<view class="item">
 					<view class="name">薪资待遇</view>
 					<view class="selectitem">
-						<picker range="{{price}}" bindchange="bindPriceChange">
+						<picker range="{{price}}" range-key="dataName" bindchange="bindPriceChange">
 							<view class="picker">
 								{{pricename? pricename: '请设置薪资待遇'}}
 							</view>
@@ -48,7 +46,7 @@
 				<view class="item">
 					<view class="name">学历要求</view>
 					<view class="selectitem">
-						<picker range="{{education}}" bindchange="bindEducationChange">
+						<picker range="{{education}}" range-key="dataName" bindchange="bindEducationChange">
 							<view class="picker">
 								{{educationname? educationname : '请选择学历要求'}}
 							</view>
@@ -86,13 +84,13 @@
 					<view class="selectitem">
 						<radio-group class="radio-group" bindchange="radioChange">
 							<label class="radio">
-								<radio value="1" checked="{{sex =='男' ? 'checked':''}}" />男
+								<radio value="男" checked="{{sex =='男' ? 'checked':''}}" />男
 							</label>
 							<label class="radio">
-								<radio value="2" checked="{{sex =='女'? 'checked':''}}" />女
+								<radio value="女" checked="{{sex =='女'? 'checked':''}}" />女
 							</label>
 							<label class="radio">
-								<radio value="0" checked="{{sex =='不限'? 'checked':''}}" />不限
+								<radio value="不限" checked="{{sex =='不限'? 'checked':''}}" />不限
 							</label>
 						</radio-group>
 					</view>
@@ -120,8 +118,7 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<!-- <textarea  class="w100"></textarea> -->
-						<editor placeholder="开始输入" value="{{detail.jobDescription}}" name="describe"></editor>
+						<editor placeholder="开始输入" value="{{detail.jobDescription}}" bindinput="toDescribe"></editor>
 					</view>
 				</view>
 			</view>
@@ -132,3 +129,28 @@
 	</form>
 
 </view>
+
+<!-- <view class="cover">
+
+	<view class="type-content b-ff flex fl-align fl-jsb">
+
+		<view class="left flex col fl-align">
+
+		<scroll-view scroll-y="true">
+
+			<view class="types line">不限</view>
+		
+			<view class="types" wx:for="{{type}}" wx:key="index">{{item.dataName}}</view>
+	
+		</scroll-view>
+		
+		</view>
+		<view class="right flex col fl-align">
+		
+		<scroll-view scroll-y="true"></scroll-view>
+
+		</view>
+
+	</view>
+
+</view> -->

@@ -15,13 +15,7 @@
   text-align: center;
   margin-right: 20rpx;
   border-radius: 5rpx;
-  background: #3274e5;
   font-size: .6rem;
-  color: #FFF;
-}
-
-.payitem view:nth-child(1) {
-  background: #e64340;
 }
 
 .addNew {
