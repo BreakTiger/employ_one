@@ -77,4 +77,46 @@ Page({
       }
     })
   },
+
+  // 开启 / 关闭 
+  isOpen: function (e) {
+    let that = this
+    let list = that.data.list
+    let index = e.currentTarget.dataset.index
+    let type = e.currentTarget.dataset.type
+    let id = e.currentTarget.dataset.id
+    let data = {}
+    if (type == 1) {
+      console.log('关闭')
+      data = {
+        enable: -1,
+        id: id
+      }
+    } else {
+      console.log('开启')
+      data = {
+        enable: 1,
+        id: id
+      }
+    }
+    util.sendRequest('/jeecg-boot/hall/position/enable', 'get', data).then(function (res) {
+      if (res.code == 200) {
+        // 根据type,来JS变动enable
+        let temp_str = 'list[' + index + '].enable';
+        if (type == 1) {
+          that.setData({
+            [temp_str]: -1
+          })
+        } else {
+          that.setData({
+            [temp_str]: 1
+          })
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+
+
+  },
 })

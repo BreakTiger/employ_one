@@ -19,7 +19,6 @@
    					</view>
    					<view>人数:{{item.recruitment}} | 薪资:{{item.salary}}</view>
 
-   					<view>到期:1921-20-15 | 置顶:123</view>
    					<view>创建:{{item.createTime}}</view>
 
    				</view>
@@ -28,18 +27,13 @@
 
    			<view class="payitem">
 
-
-   				<view>置顶</view>
-
+   				<!-- <view>置顶</view> -->
 
    				<view>匹配</view>
 
-   				<block wx:if="{{item.status == 0}}">
-   					<view>关闭</view>
-   				</block>
-   				<block wx:else>
-   					<view>开启</view>
-   				</block>
+					<view wx:if="{{item.enable == -1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">关闭</view>
+
+					<view wx:if="{{item.enable == 1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">开启</view>
 
    				<view bindtap="toDel" data-id="{{item.id}}" data-index="{{index}}">删除</view>
 

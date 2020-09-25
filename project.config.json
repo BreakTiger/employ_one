@@ -68,7 +68,15 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "职位添加",
+          "pathName": "pages/addJob/addJob",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

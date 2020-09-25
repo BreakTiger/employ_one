@@ -1,10 +1,16 @@
-// weixinmao_zp/pages_four/finish/finish.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
+    detail: {},
+
     one: [
       {
         text: " 优秀",
@@ -27,6 +33,9 @@ Page({
         choice: 0
       }
     ],
+
+    c_one: '',
+
     two: [
       {
         text: " 优秀",
@@ -49,6 +58,9 @@ Page({
         choice: 0
       }
     ],
+
+    c_two: '',
+
     three: [
       {
         text: " 优秀",
@@ -71,6 +83,9 @@ Page({
         choice: 0
       }
     ],
+
+    c_three: '',
+
     four: [
       {
         text: " 优秀",
@@ -93,6 +108,9 @@ Page({
         choice: 0
       }
     ],
+
+    c_four: '',
+
     five: [
       {
         text: " 优秀",
@@ -115,6 +133,9 @@ Page({
         choice: 0
       }
     ],
+
+    c_five: '',
+
     six: [
       {
         text: "建议录取",
@@ -134,14 +155,21 @@ Page({
       }
     ],
 
+    c_six: ''
+
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
+    console.log(JSON.parse(options.detail))
+    this.setData({
+      detail: JSON.parse(options.detail)
+    })
 
+    // this.getData(JSON.parse(options.detail))
   },
+
+
 
   toOne: function (e) {
     let that = this
@@ -150,6 +178,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_one: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -166,6 +197,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_two: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -173,7 +207,7 @@ Page({
     that.setData({
       two: list
     })
-   },
+  },
 
   toThree: function (e) {
     let that = this
@@ -182,6 +216,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_three: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -189,7 +226,7 @@ Page({
     that.setData({
       three: list
     })
-   },
+  },
 
   toFour: function (e) {
     let that = this
@@ -198,6 +235,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_four: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -205,7 +245,7 @@ Page({
     that.setData({
       four: list
     })
-   },
+  },
 
   toFive: function (e) {
     let that = this
@@ -214,6 +254,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_five: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -221,7 +264,7 @@ Page({
     that.setData({
       five: list
     })
-   },
+  },
 
   toSix: function (e) {
     let that = this
@@ -230,6 +273,9 @@ Page({
     list.forEach(function (item, index) {
       if (index == indexs) {
         item.choice = 1
+        that.setData({
+          c_six: indexs + 1
+        })
       } else {
         item.choice = 0
       }
@@ -237,44 +283,60 @@ Page({
     that.setData({
       six: list
     })
-   },
-
-  onShow: function () {
-
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 提交
+  toSubmit: function () {
+    let that = this
+    if (!that.data.c_one) {
+      modal.showToast('请评价工作经验', 'none')
+    } else if (!that.data.c_two) {
+      modal.showToast('请评价专业知识', 'none')
+    } else if (!that.data.c_three) {
+      modal.showToast('请评价沟通能力', 'none')
+    } else if (!that.data.c_four) {
+      modal.showToast('请评价职业文化水平', 'none')
+    } else if (!that.data.c_five) {
+      modal.showToast('请评价岗位稳定性', 'none')
+    } else if (!that.data.c_six) {
+      modal.showToast('请选择综合评价', 'none')
+    } else {
+      let detail = that.data.detail
+      let data = {
+        curriculumVitaeId: detail.curriculumVitaeId,
+        enterpriseInfoId: detail.enterpriseInfoId,
+        enterprisePostReleaseId: detail.enterprisePostReleaseId,
+        createBy: wx.getStorageSync('company').id,
+        workExperience: that.data.c_one,
+        professionalKnowledge: that.data.c_two,
+        communicationSkills: that.data.c_three,
+        culturalLevel: that.data.c_four,
+        jobStability: that.data.c_five,
+        comprehensiveEvaluation: that.data.c_six
+      }
+      console.log(data)
+      util.sendRequest('/jeecg-boot/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 2000);
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 取消
+  toCancel: function () {
+    wx.navigateBack({
+      delta: 0,
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

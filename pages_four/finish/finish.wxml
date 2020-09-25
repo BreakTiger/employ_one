@@ -8,7 +8,7 @@
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{one}}" wx:key="key" bindtap="toOne" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:if="{{item.choice!=0}}"></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
@@ -67,9 +67,9 @@
 
 	<view class="flex fl-align fl-jsb btn">
 
-		<view class="b-e5">提交</view>
+		<view class="b-e5" bindtap="toSubmit">提交</view>
 
-    <view >取消</view>
+    <view bindtap="toCancel">取消</view>
 
 	</view>
 

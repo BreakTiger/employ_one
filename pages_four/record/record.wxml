@@ -9,7 +9,7 @@
    		<view class="payitem flex fl-align fl-jfe">
 			  <view style="border: 1rpx solid #000000;" bindtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
    			<view class="c-ff" style="background: #e64340;" bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
-   			<view class="c-ff b-e5" bindtap="toFinsh">评价面试</view>
+   			<view class="c-ff b-e5" bindtap="toFinsh" data-item="{{item}}">评价面试</view>
    		</view>
    	</view>
 
