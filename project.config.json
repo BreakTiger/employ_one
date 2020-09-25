@@ -68,43 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "企业中心",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "职位管理",
-          "pathName": "pages_four/position/position",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "员工管理",
-          "pathName": "pages_four/staff/staff",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "求职管理",
-          "pathName": "pages_four/record/record",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "添加职位",
-          "pathName": "pages/addJob/addJob",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
