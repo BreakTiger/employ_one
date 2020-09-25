@@ -11,7 +11,8 @@
     "pages/forget/forget",
     "pages/addJob/addJob",
     "pages/workerdetail/workerdetail",
-    "pages/vitae/vitae"
+    "pages/vitae/vitae",
+    "pages/search_list/search_list"
   ],
   "subPackages": [
     {

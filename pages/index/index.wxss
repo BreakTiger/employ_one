@@ -129,6 +129,19 @@
   width: 80%;
 }
 
-.type-info>view{
+.type-info>view {
   padding-top: 10rpx;
+}
+
+.inform {
+  background: #f5f5f5;
+  padding: 20rpx 0;
+  font-size: 1rem;
+}
+
+.inform>image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 35rpx;
+  margin-right: 15rpx;
 }

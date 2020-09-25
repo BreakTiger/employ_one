@@ -82,12 +82,13 @@ page {
   height: 100%;
 }
 
-.left>scroll-view,
+/* .left>scroll-view,
 .right>scroll-view {
   width: 100%;
-}
+} */
 
-.types {
+
+/* .types {
   padding: 40rpx 10rpx;
   line-height: 45rpx;
   font-size: .8rem;
@@ -107,4 +108,4 @@ page {
   position: absolute;
   left: 0rpx;
   top: 0rpx;
-}
+} */

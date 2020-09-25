@@ -75,6 +75,12 @@
           "pathName": "pages/addJob/addJob",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "企业中心",
+          "pathName": "pages/mine/mine",
+          "scene": null
         }
       ]
     }

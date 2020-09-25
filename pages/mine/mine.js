@@ -6,7 +6,8 @@ Page({
 
   data: {
     login: 0,
-    company: {}
+    company: {},
+    detail: {}
   },
 
 
@@ -22,6 +23,25 @@ Page({
         url: '/pages/login/login',
       })
     }
+
+    that.getData()
+  },
+
+  getData: function () {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/jeecg-boot/hall/statistics/EnterpriseStatistics', 'get', data).then(function (res) {
+      console.log(res.result)
+      if (res.code == 0) {
+        that.setData({
+          detail: res.result
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 登陆

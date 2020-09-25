@@ -74,10 +74,12 @@ page {
 
 
 .count {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
   background: red;
-  color: #fff;
   border-radius: 50%;
-  padding: 5rpx 18rpx;
   margin-right: 20rpx;
 }
 

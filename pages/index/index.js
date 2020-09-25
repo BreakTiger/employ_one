@@ -17,7 +17,13 @@ Page({
         thumb: 'http://120.79.207.87:8091//img/zqzpImg/3.jpg'
       }
     ],
-    notelist: []
+    notelist: [],
+
+    companycount: '',
+
+    jobcount: '',
+
+    notecount: ''
 
   },
 
@@ -25,7 +31,24 @@ Page({
     this.setData({
       imaUrl: app.globalData.imaUrl
     })
+    this.getData()
+
     this.getList()
+  },
+
+  getData: function () {
+    let that = this
+    util.sendRequest('/jeecg-boot/hall/statistics/HomePageStatistics', 'get', {}).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          companycount: res.result.enterpriseCount,
+          jobcount: res.result.postReleaseCount,
+          notecount: res.result.curriculumVitaeCount
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   getList: function () {

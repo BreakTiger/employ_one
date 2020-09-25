@@ -130,27 +130,27 @@
 
 </view>
 
-<!-- <view class="cover">
+<view class="cover">
 
 	<view class="type-content b-ff flex fl-align fl-jsb">
 
-		<view class="left flex col fl-align">
+		<view class="left">
 
-		<scroll-view scroll-y="true">
+		<!-- <scroll-view scroll-y="true">
 
 			<view class="types line">不限</view>
 		
 			<view class="types" wx:for="{{type}}" wx:key="index">{{item.dataName}}</view>
 	
-		</scroll-view>
+		</scroll-view> -->
 		
 		</view>
-		<view class="right flex col fl-align">
+		<view class="right">
 		
-		<scroll-view scroll-y="true"></scroll-view>
+		<!-- <scroll-view scroll-y="true"></scroll-view> -->
 
 		</view>
 
 	</view>
 
-</view> -->
+</view>

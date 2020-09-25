@@ -14,17 +14,17 @@
 	<view class="mymoney flex fl-jsa b-ff">
 
 		<view class="item flex col fl-align" bindtap="toMyjoblist">
-			<view>1个</view>
+			<view>{{detail.postReleaseCount}}个</view>
 			<view>已发布职位数</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="vitae">
-			<view>2份</view>
+			<view>{{detail.interviewCount}}份</view>
 			<view>面试管理</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="collect">
-			<view>2份</view>
+			<view>{{detail.resumeCollectionCount}}份</view>
 			<view>简历收藏</view>
 		</view>
 
@@ -37,7 +37,7 @@
 			<view class="flex fl-align">
 				<image src="../../img/inform.png" class="icon"></image>邀约通知
 			</view>
-			<view class="count">1</view>
+			<view class="count c-ff">{{detail.invitationCount}}</view>
 		</view>
 
 		<view class="item" bindtap="toCount">
