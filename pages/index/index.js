@@ -23,7 +23,9 @@ Page({
 
     jobcount: '',
 
-    notecount: ''
+    notecount: '',
+
+    noevaluationCount: ''
 
   },
 
@@ -38,12 +40,16 @@ Page({
 
   getData: function () {
     let that = this
-    util.sendRequest('/jeecg-boot/hall/statistics/HomePageStatistics', 'get', {}).then(function (res) {
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/jeecg-boot/hall/statistics/EnterpriseHomePageStatistics', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           companycount: res.result.enterpriseCount,
           jobcount: res.result.postReleaseCount,
-          notecount: res.result.curriculumVitaeCount
+          notecount: res.result.curriculumVitaeCount,
+          noevaluationCount: res.result.noevaluationCount
         })
       } else {
         modal.showToast(res.message, 'none')

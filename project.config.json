@@ -80,6 +80,13 @@
           "id": -1,
           "name": "企业中心",
           "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索",
+          "pathName": "pages/search/search",
           "scene": null
         }
       ]

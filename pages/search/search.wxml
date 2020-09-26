@@ -1,77 +1,66 @@
- <view class="container col fl-align">
+<view class="container col fl-align">
 
- 	<!-- 搜索栏 -->
- 	<form bindsubmit="formSubmit" class="w100">
+	<view class="top b-e5 flex col fl-align fl-jc">
 
- 		<view class="search flex fl-align fl-jsb fl-jsc">
+		<view class="search flex fl-align fl-jc">
 
- 			<view class="search_box flex fl-align b-ff">
- 				<icon type="search" size="14"></icon>
- 				<input type="text" placeholder="请输入相关职位关键词" name="keyword"></input>
- 			</view>
+			<block wx:if="{{word==''}}">
+				<icon type="search" size="22" color="#ffffff"></icon>
 
- 			<button class="search-btn c-ff">搜索</button>
+				<text class="c-ff">搜索人才</text>
+			</block>
 
- 		</view>
+			<block wx:else>
+				<input></input>
+			</block>
+
+		</view>
+
+	</view>
+
+	<!-- 筛选条件 -->
+	<view class="condition flex col fl-align">
+
+		<view>
+		
+			<view class="name">区域</view>
+		
+			<view class="setting">
+				<picker  bindchange="getArea">
+					<view class="title">不限</view>
+				</picker>
+			</view>
+
+		</view>
+
+		<view>
+		
+			<view class="name">行业</view>
+		
+			<view class="setting">
+				<picker  bindchange="getTrade">
+					<view class="title">不限</view>
+				</picker>
+			</view>
+
+		</view>
+		
+		
+		<view>
+		
+			<view class="name">学历</view>
+		
+			<view class="setting">
+				<picker  bindchange="getEducation">
+					<view class="title">不限</view>
+				</picker>
+			</view>
+
+		</view>
+	
+	</view>
+
+	<view class="btn b-e5 c-ff">提交</view>
 
 
-
-
- 		<!-- <view class="search flex fl-align fl-jsb">
- 			
- 		</view> -->
-
- 		<!--  -->
-
- 	</form>
-
- 	<!-- 列表 -->
- 	<view class="list-content w100 flex col fl-align">
-
-	 <view class="title w100">搜索结果</view>
-
- 	</view>
-
-
-
-
-
- 	<!-- begin-->
- 	<!-- <view class="news"> -->
-
- 	<!-- <view class="newstitle">
- 			<view></view>
- 			<view>搜索结果</view>
- 		</view> -->
- 	<!-- 
- 		<block wx:if="{{list}}">
-
- 			<view class="news">
- 				<view class="newslist" wx:for="{{list}}">
- 					<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
-
-
- 						<view class="detail">
- 							<view class="pic">
- 								<image src="{{item.avatarUrl}}"></image>
- 							</view>
- 							<view class="info">
- 								<view>{{item.name}} <text class="time">{{item.createtime}}</text></view>
- 								<view> {{item.sex == 1 ? '男' : '女'}} / {{item.age}}岁 / {{item.education}} / {{item.express}} </view>
- 								<view class="jobmoney">{{notetitle}}<text>{{item.jobtitle}}</text></view>
- 							</view>
- 						</view>
- 					</view>
- 				</view>
-
- 			</view>
- 		</block> -->
-
- 	<!-- </view> -->
- 	<!-- end-->
-
- 	<!-- <view class="loadmore" hidden='{{loadmore}}'>
- 		<text>未查找相关信息</text>
- 	</view> -->
-
- </view>
+</view>
