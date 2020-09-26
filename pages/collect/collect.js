@@ -90,9 +90,25 @@ Page({
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-        app.globalData.worker = res.result.records[0]
+        that.addlog(res.result.records[0])
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  addlog: function (detail) {
+    let that = this
+    let data = {
+      curriculumVitaeId: detail.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        app.globalData.worker = detail
         wx.navigateTo({
-          url: '/pages/vitae/vitae',
+          url: '/pages/workerdetail/workerdetail',
         })
       } else {
         modal.showToast(res.message, 'none')

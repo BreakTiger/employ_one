@@ -75,6 +75,20 @@
           "pathName": "pages/mine/mine",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收到简历",
+          "pathName": "pages_four/vitae_count/vitae_count",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收到简历",
+          "pathName": "pages_four/vitae_count/vitae_count",
+          "query": "",
+          "scene": null
         }
       ]
     }

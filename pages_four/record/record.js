@@ -46,12 +46,28 @@ Page({
         let item = res.result.records[0]
         let age = util.ages(item)
         item.age = age
-        app.globalData.worker = item
+        that.addlog(item)
+      } else {
+        modal.showToast(res.message)
+      }
+    })
+  },
+
+  addlog: function (detail) {
+    let that = this
+    let data = {
+      curriculumVitaeId: detail.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        app.globalData.worker = detail
         wx.navigateTo({
           url: '/pages/workerdetail/workerdetail',
         })
       } else {
-        modal.showToast(res.message)
+        modal.showToast(res.message, 'none')
       }
     })
   },
