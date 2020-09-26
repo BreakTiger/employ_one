@@ -31,7 +31,7 @@ Page({
       education: detail.education,
       name: detail.word
     }
-    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.settle(res.result.records)
       } else {
@@ -66,7 +66,7 @@ Page({
       curriculumVitaeId: detail.id,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
         app.globalData.worker = detail

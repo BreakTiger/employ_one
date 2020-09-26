@@ -40,7 +40,7 @@ Page({
         account: e.detail.value.name,
         psw: e.detail.value.password
       }
-      util.sendRequest('/jeecg-boot/app/user/login', 'get', data, 1).then(function (res) {
+      util.sendRequest('/zqhr/app/user/login', 'get', data, 1).then(function (res) {
         if (res.code == 200) {
           console.log(res.result)
           let company = res.result.enterprise

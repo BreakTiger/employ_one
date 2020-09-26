@@ -41,7 +41,7 @@ Page({
     let data = {
       id: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/hall/enterprise/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/enterprise/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         let detail = res.result.records[0]
@@ -71,7 +71,7 @@ Page({
     let data = {
       type: 'industry'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -89,7 +89,7 @@ Page({
     let data = {
       type: 'nature'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -107,7 +107,7 @@ Page({
     let data = {
       type: 'scale'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -244,7 +244,7 @@ Page({
       updateBy: wx.getStorageSync('company').id
     }
     console.log('参数：', param)
-    util.sendRequest('/jeecg-boot/hall/enterprise/editById', 'post', param).then(function (res) {
+    util.sendRequest('/zqhr/hall/enterprise/editById', 'post', param).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         modal.showToast(res.message)

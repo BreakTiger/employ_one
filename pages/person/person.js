@@ -56,7 +56,7 @@ Page({
       intendedIndustries: that.data.price,
       education: that.data.typetitle
     }
-    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.settle(res.result.records)
       } else {
@@ -147,7 +147,7 @@ Page({
     let data = {
       type: type
     }
-    await util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -204,7 +204,7 @@ Page({
       curriculumVitaeId: detail.id,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
         app.globalData.worker = detail

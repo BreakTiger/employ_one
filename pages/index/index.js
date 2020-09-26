@@ -2,7 +2,6 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-
 Page({
 
   data: {
@@ -33,7 +32,6 @@ Page({
     this.setData({
       imaUrl: app.globalData.imaUrl
     })
-    this.getData()
 
     this.getList()
   },
@@ -43,7 +41,7 @@ Page({
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/hall/statistics/EnterpriseHomePageStatistics', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           companycount: res.result.enterpriseCount,
@@ -63,7 +61,7 @@ Page({
       pageNo: 1,
       pageSize: 5
     }
-    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.settle(res.result.records)
       } else {
@@ -235,7 +233,7 @@ Page({
       curriculumVitaeId: detail.id,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
         app.globalData.worker = detail
@@ -247,5 +245,12 @@ Page({
       }
     })
 
+  },
+
+  onShow: function () {
+    let token = wx.getStorageSync('token')
+    if (token) {
+      this.getData()
+    }
   }
 })

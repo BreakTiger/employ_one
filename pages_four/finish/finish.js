@@ -315,7 +315,7 @@ Page({
         comprehensiveEvaluation: that.data.c_six
       }
       console.log(data)
-      util.sendRequest('/jeecg-boot/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
+      util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
           modal.showToast(res.message)

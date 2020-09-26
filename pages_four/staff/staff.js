@@ -23,7 +23,7 @@ Page({
       role:wx.getStorageSync('person').userRole,
       staffManageId:wx.getStorageSync('key').userId
     }
-    util.sendRequest('/jeecg-boot/app/staff/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/staff/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         that.setData({
@@ -54,7 +54,7 @@ Page({
           let data = {
             id: e.currentTarget.dataset.id
           }
-          util.sendRequest('/jeecg-boot/app/staff/delete', 'get', data).then(function (res) {
+          util.sendRequest('/zqhr/app/staff/delete', 'get', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.messgae)

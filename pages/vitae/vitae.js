@@ -47,7 +47,7 @@ Page({
     let data = {
       curriculumVitaeId: that.data.detail.id
     }
-    util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         if (res.result.records.length == 0) { //未收藏
@@ -76,7 +76,7 @@ Page({
         curriculumVitaeId: that.data.detail.id,
         enterpriseInfoId: wx.getStorageSync('company').id
       }
-      util.sendRequest('/jeecg-boot/app/resumecollection/collection', 'post', data).then(function (res) {
+      util.sendRequest('/zqhr/app/resumecollection/collection', 'post', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
           modal.showToast(res.message)
@@ -107,7 +107,7 @@ Page({
       let data = {
         id: that.data.id
       }
-      util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
+      util.sendRequest('/zqhr/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
           modal.showToast(res.message)

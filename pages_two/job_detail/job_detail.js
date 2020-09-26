@@ -30,7 +30,7 @@ Page({
     let data = {
       id: id
     }
-    util.sendRequest('/jeecg-boot/hall/position/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         that.setData({
@@ -48,7 +48,7 @@ Page({
     let data = {
       id: id
     }
-    util.sendRequest('/jeecg-boot/hall/enterprise/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/enterprise/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         that.setData({

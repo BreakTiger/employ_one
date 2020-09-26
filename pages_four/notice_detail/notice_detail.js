@@ -35,7 +35,7 @@ Page({
       token: wx.getStorageSync('token'),
       createBy: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/hall/entryenterprise/entry', 'post', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         wx.showModal({

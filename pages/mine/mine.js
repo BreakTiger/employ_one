@@ -23,8 +23,6 @@ Page({
         url: '/pages/login/login',
       })
     }
-
-    that.getData()
   },
 
   getData: function () {
@@ -32,7 +30,7 @@ Page({
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/hall/statistics/EnterpriseStatistics', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/statistics/EnterpriseStatistics', 'get', data).then(function (res) {
       console.log(res.result)
       if (res.code == 0) {
         that.setData({
@@ -62,7 +60,7 @@ Page({
           let data = {
             token: wx.getStorageSync('token')
           }
-          util.sendRequest('/jeecg-boot/app/user/logout', 'get', data).then(function (res) {
+          util.sendRequest('/zqhr/app/user/logout', 'get', data).then(function (res) {
             console.log(res)
             if (res.code == 0) {
               modal.showToast(res.message)
@@ -88,6 +86,7 @@ Page({
         company: wx.getStorageSync('company'),
         login: 1
       })
+      that.getData()
     }
   },
 

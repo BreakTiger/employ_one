@@ -27,7 +27,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
     }
-    util.sendRequest('/jeecg-boot/hall/jobfair/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.settle(res.result.records)
       } else {
@@ -94,7 +94,7 @@ Page({
         jobFairId: e.currentTarget.dataset.item.id,
         token: wx.getStorageSync('token')
       }
-      util.sendRequest('/jeecg-boot/hall/entryenterprise/entry', 'post', data).then(function (res) {
+      util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
         console.log(res)
         if (res.code == 0) {
           modal.showToast('报名成功')

@@ -33,7 +33,7 @@ Page({
     let data = {
       type: 'area'
     }
-    await util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -50,7 +50,7 @@ Page({
     let data = {
       type: 'industrytype'
     }
-    await util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -67,7 +67,7 @@ Page({
     let data = {
       type: 'education'
     }
-    await util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({

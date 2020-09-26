@@ -1,4 +1,4 @@
- <view class="container">
+ <view class="container col fl-align">
 
  	<!-- 搜索 -->
  	<view class="search flex fl-align b-ff">
@@ -82,7 +82,7 @@
  	</view>
 
  	<!-- 列表 -->
- 	<view class="news w100 b-ff flex col">
+ 	<view class="news w100 b-ff flex col" wx:if="{{worklist.length!=0}}">
 
  		<view class="newslist" wx:for="{{worklist}}" wx:key="index" wx:if="{{item.enable==1}}">
  			<view class="title" bindtap="toWorkerDetail" data-item="{{item}}">
@@ -101,6 +101,11 @@
  		</view>
 
  	</view>
+
+	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:else>
+		<image src="../../images/empty.png" class="empty"></image>
+		<text>暂无记录</text>
+	</view>
 
 
  </view>

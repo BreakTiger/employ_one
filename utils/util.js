@@ -1,7 +1,7 @@
 const { default: modals } = require("../modals")
 
 // 网络请求 - 封装文件
-const api = "http://120.79.207.87:8110" //域名头部
+const api = "https://zqrsjjz.jiahangit.com.cn" //域名头部
 
 //请求分装 -  不带有登录判断
 function sendRequest(url, method, data, loading) {
@@ -71,7 +71,7 @@ function upLoading(filePath, data) {
     wx.uploadFile({
       filePath: filePath,
       name: 'file',
-      url: api + '/jeecg-boot/base/upload',
+      url: api + '/zqhr/base/upload',
       formData: data,
       header: {
         "content-type": "application/json"

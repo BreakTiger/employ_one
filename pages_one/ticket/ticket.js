@@ -18,7 +18,7 @@ Page({
     let data = {
       token: wx.getStorageSync('token')
     }
-    util.sendRequest('/jeecg-boot/app/ticket/getticket', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
       console.log(res.result)
       if (res.code == 200) {
         that.setData({

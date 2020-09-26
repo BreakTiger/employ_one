@@ -39,7 +39,7 @@ Page({
       borrowingTime: year + '/' + month + '/' + day + '/' + hour + ':' + minute + ':' + second,
       borrowState: 1
     }
-    util.sendRequest("/jeecg-boot/hall/tabletpc/scan", 'post', data).then(function (res) {
+    util.sendRequest("/zqhr/hall/tabletpc/scan", 'post', data).then(function (res) {
       if (res.code == 200) {
         modal.showToast(res.message)
         setTimeout(() => {
@@ -64,7 +64,7 @@ Page({
       token: wx.getStorageSync('token'),
       returnTime: year + '/' + month + '/' + day + '/' + hour + ':' + minute + ':' + second,
     }
-    util.sendRequest('/jeecg-boot/hall/tabletpc/repay', 'post', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/tabletpc/repay', 'post', data).then(function (res) {
       if (res.code == 200) {
         modal.showToast(res.message)
         setTimeout(() => {

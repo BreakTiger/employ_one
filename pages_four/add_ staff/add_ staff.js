@@ -49,7 +49,7 @@ Page({
         createBy: wx.getStorageSync('company').id
       }
       console.log(param)
-      util.sendRequest('/jeecg-boot/app/staff/add', 'post', param).then(function (res) {
+      util.sendRequest('/zqhr/app/staff/add', 'post', param).then(function (res) {
         console.log(res)
         if (res.code == 200) {
           modal.showToast(res.message)

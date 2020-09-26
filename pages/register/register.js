@@ -59,7 +59,7 @@ Page({
         password: data.psw,
         account:data.tel
       }
-      util.sendRequest('/jeecg-boot/hall/enterprise/add', 'post', param).then(function (res) {
+      util.sendRequest('/zqhr/hall/enterprise/add', 'post', param).then(function (res) {
         if (res.code == 200) {
           wx.showModal({
             title: '提示',

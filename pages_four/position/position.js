@@ -21,7 +21,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10
     }
-    util.sendRequest('/jeecg-boot/hall/position/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
       console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -61,7 +61,7 @@ Page({
           let data = {
             id: e.currentTarget.dataset.id
           }
-          util.sendRequest('/jeecg-boot/hall/position/delete', 'DELETE', data).then(function (res) {
+          util.sendRequest('/zqhr/hall/position/delete', 'DELETE', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.message)
@@ -99,7 +99,7 @@ Page({
         id: id
       }
     }
-    util.sendRequest('/jeecg-boot/hall/position/enable', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/position/enable', 'get', data).then(function (res) {
       if (res.code == 200) {
         // 根据type,来JS变动enable
         let temp_str = 'list[' + index + '].enable';

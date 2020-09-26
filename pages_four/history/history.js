@@ -1,26 +1,36 @@
-// pages_one/history/history.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    page: 1,
+    list: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.getList()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getList: function () {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      interviewstate: 'finish',
+      pageNo: that.data.page,
+      pageSize: 10
+    }
+    util.sendRequest('/zqhr/app/interview/list', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
 
+      } else {
+        modal.showToast(res.messgae, 'none')
+      }
+    })
   },
+
 
   toWatch: function () {
     wx.navigateTo({
@@ -28,45 +38,4 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

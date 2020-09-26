@@ -37,7 +37,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10
     }
-    util.sendRequest('/jeecg-boot/app/resumecollection/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           list: res.result.records
@@ -61,7 +61,7 @@ Page({
           let data = {
             id: e.currentTarget.dataset.id
           }
-          util.sendRequest('/jeecg-boot/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
+          util.sendRequest('/zqhr/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
               list.splice(index, 1)
@@ -87,7 +87,7 @@ Page({
     let data = {
       id: e.currentTarget.dataset.id
     }
-    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         that.addlog(res.result.records[0])
@@ -103,7 +103,7 @@ Page({
       curriculumVitaeId: detail.id,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
         app.globalData.worker = detail
@@ -133,7 +133,7 @@ Page({
             enterprisePostReleaseId: detail.enterprisePostReleaseId,
             interviewstate: 'invite'
           }
-          util.sendRequest('/jeecg-boot/app/interview/invite', 'post', data).then(function (res) {
+          util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.message)

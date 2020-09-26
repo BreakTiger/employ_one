@@ -88,7 +88,7 @@ Page({
     let data = {
       type: 'jobtype'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -111,7 +111,7 @@ Page({
     let data = {
       type: 'salaryrange'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -129,7 +129,7 @@ Page({
     let data = {
       type: 'education'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({

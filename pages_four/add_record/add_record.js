@@ -43,7 +43,7 @@ Page({
       pageNo: 1,
       pageSize: 100
     }
-    util.sendRequest('/jeecg-boot/hall/position/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           joblist: res.result.records
@@ -60,7 +60,7 @@ Page({
     let data = {
       type: 'education'
     }
-    util.sendRequest('/jeecg-boot/base/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           education: res.result.records
@@ -205,7 +205,7 @@ Page({
       idcard: data.idcard
     }
     console.log(param)
-    util.sendRequest('/jeecg-boot/hall/curriculumvitae/add', 'post', param).then(function (res) {
+    util.sendRequest('/zqhr/hall/curriculumvitae/add', 'post', param).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         modal.showToast(res.message)

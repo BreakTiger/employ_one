@@ -22,7 +22,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10
     }
-    util.sendRequest('/jeecg-boot/hall/jobfair/invitationlist', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/jobfair/invitationlist', 'get', data).then(function (res) {
       console.log(res.result.records)
       if (res.code == 0) {
         that.setData({

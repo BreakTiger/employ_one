@@ -43,7 +43,7 @@ Page({
       signStatus: 1,
       token:wx.getStorageSync('token')
     }
-    util.sendRequest('/jeecg-boot/hall/sign/scan', 'post', data, 1).then(function (res) {
+    util.sendRequest('/zqhr/hall/sign/scan', 'post', data, 1).then(function (res) {
       console.log(res)
       if (res.code == 200) {
         wx.setStorageSync('sign', year + '/' + month + '/' + day)
