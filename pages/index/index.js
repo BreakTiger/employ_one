@@ -18,11 +18,11 @@ Page({
     ],
     notelist: [],
 
-    companycount: '',
+    companycount: 0,
 
-    jobcount: '',
+    jobcount: 0,
 
-    notecount: '',
+    notecount: 0,
 
     noevaluationCount: ''
 

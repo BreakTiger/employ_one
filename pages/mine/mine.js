@@ -77,7 +77,6 @@ Page({
     })
   },
 
-
   onShow: function () {
     let that = this
     let token = wx.getStorageSync('token')
