@@ -110,7 +110,7 @@ Page({
     let that = this
     let type = that.data.isPrice
     if (type) {
-      that.condition('industry')
+      that.condition('industrytype')
       this.setData({
         isCars: true,
         isPrice: false,

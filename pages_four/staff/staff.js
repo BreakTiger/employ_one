@@ -19,7 +19,9 @@ Page({
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
       pageNo: that.data.page,
-      pageSize: 10
+      pageSize: 10,
+      role:wx.getStorageSync('person').userRole,
+      staffManageId:wx.getStorageSync('key').userId
     }
     util.sendRequest('/jeecg-boot/app/staff/list', 'get', data).then(function (res) {
       console.log(res)

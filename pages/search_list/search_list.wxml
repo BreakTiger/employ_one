@@ -1,2 +1,32 @@
-<!--pages/search_list/search_list.wxml-->
-<text>pages/search_list/search_list.wxml</text>
+<view class="container col fl-align">
+
+  <!-- 列表 -->
+ 	<view class="news w100 b-ff flex col" wx:if="{{worklist.length!=0}}">
+
+ 		<view class="newslist" wx:for="{{worklist}}" wx:key="index" wx:if="{{item.enable==1}}">
+ 			<view class="title" bindtap="toWorkerDetail" data-item="{{item}}">
+ 				<view class="detail">
+ 					<view class="pic">
+ 						<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}"></image>
+ 						<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}"></image>
+ 					</view>
+ 					<view class="info">
+ 						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>
+ 						<view> {{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+ 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</view>
+
+ 	</view>
+
+  <view class="flex col fl-align" style="margin-top:200rpx;" wx:else>
+
+    <image src="../../images/empty.png" class="empty"></image>
+
+    <text>不存在搜索内容</text>
+
+  </view>
+
+</view>

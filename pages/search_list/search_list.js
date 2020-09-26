@@ -1,66 +1,62 @@
-// pages/search_list/search_list.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    page: 1,
+    worklist: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    console.log(JSON.parse(options.detail))
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+    this.getList(JSON.parse(options.detail))
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 人才列表
+  getList: function (detail) {
+    let that = this
+    let data = {
+      pageNo: that.data.page,
+      pageSize: 10,
+      workArea: detail.area,
+      intendedIndustries: detail.trade,
+      education: detail.education,
+      name:detail.word
+    }
+    util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.settle(res.result.records)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      if (item.enable == 1) {
+        let age = util.ages(item)
+        item.age = age
+        arr.push(item)
+      }
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    })
+    console.log(arr)
+    that.setData({
+      worklist: arr
+    })
 
   }
+
 })

@@ -1,66 +1,70 @@
-<view class="container col fl-align">
+<form bindsubmit="toSearch">
 
-	<view class="top b-e5 flex col fl-align fl-jc">
+	<view class="container col fl-align">
 
-		<view class="search flex fl-align fl-jc">
+		<view class="top b-e5 flex col fl-align fl-jc">
 
-			<block wx:if="{{word==''}}">
-				<icon type="search" size="22" color="#ffffff"></icon>
+			<view class="search flex fl-align fl-jc">
 
-				<text class="c-ff">搜索人才</text>
-			</block>
+				<input placeholder-class="c-ff" placeholder="搜索人才" name="word"></input>
 
-			<block wx:else>
-				<input></input>
-			</block>
+			</view>
 
 		</view>
+
+		<!-- 筛选条件 -->
+		<view class="condition flex col fl-align">
+
+			<view>
+			
+				<view class="name">区域</view>
+			
+				<view class="setting">
+					<picker  bindchange="getArea" range="{{area}}" range-key="dataName">
+						<view class="title">
+						{{areaname?areaname:'不限'}}
+						</view>
+					</picker>
+				</view>
+
+			</view>
+
+			<view>
+			
+				<view class="name">行业</view>
+			
+				<view class="setting">
+					<picker  bindchange="getTrade" range="{{trade}}" range-key="dataName">
+						<view class="title">
+						{{tradename?tradename:'不限'}}
+						</view>
+					</picker>
+				</view>
+
+			</view>
+			
+			
+			<view>
+			
+				<view class="name">学历</view>
+			
+				<view class="setting">
+					<picker  bindchange="getEducation" range="{{eductaion}}"  range-key="dataName">
+						<view class="title">
+						{{eductaionname?eductaionname:'不限'}}
+						</view>
+					</picker>
+				</view>
+
+			</view>
+		
+		</view>
+
+		<button class="btn b-e5 c-ff" form-type="submit">提交</button>
+
+		<!-- <view class="btn b-e5 c-ff" bindtap="toSearch">提交</view> -->
+
 
 	</view>
 
-	<!-- 筛选条件 -->
-	<view class="condition flex col fl-align">
-
-		<view>
-		
-			<view class="name">区域</view>
-		
-			<view class="setting">
-				<picker  bindchange="getArea">
-					<view class="title">不限</view>
-				</picker>
-			</view>
-
-		</view>
-
-		<view>
-		
-			<view class="name">行业</view>
-		
-			<view class="setting">
-				<picker  bindchange="getTrade">
-					<view class="title">不限</view>
-				</picker>
-			</view>
-
-		</view>
-		
-		
-		<view>
-		
-			<view class="name">学历</view>
-		
-			<view class="setting">
-				<picker  bindchange="getEducation">
-					<view class="title">不限</view>
-				</picker>
-			</view>
-
-		</view>
-	
-	</view>
-
-	<view class="btn b-e5 c-ff">提交</view>
-
-
-</view>
+</form>
