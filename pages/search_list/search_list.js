@@ -29,7 +29,7 @@ Page({
       workArea: detail.area,
       intendedIndustries: detail.trade,
       education: detail.education,
-      name:detail.word
+      name: detail.word
     }
     util.sendRequest('/jeecg-boot/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -56,7 +56,28 @@ Page({
     that.setData({
       worklist: arr
     })
+  },
 
-  }
+  // 简历详情
+  toWorkerDetail: function (e) {
+    let that = this
+    let detail = e.currentTarget.dataset.item
+    let data = {
+      curriculumVitaeId: detail.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/jeecg-boot/app/interview/browse', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        app.globalData.worker = detail
+        wx.navigateTo({
+          url: '/pages/vitae/vitae',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
 
 })

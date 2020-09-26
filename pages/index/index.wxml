@@ -19,7 +19,7 @@
 		</swiper-item>
 	</swiper>
 
-	<view class="inform w100 flex fl-align">
+	<view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}">
 		<image src="../../images/inform.png"></image>
 		<text class="c-66">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
 	</view>
