@@ -29,5 +29,4 @@
 		<button class="btn b-e5 c-ff" bindtap="toRegister">立即注册</button>
 	</form>
 
-
 </view>

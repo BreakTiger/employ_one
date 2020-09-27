@@ -1,2 +1,28 @@
-<!--pages_four/staff_editor/staff_editor.wxml-->
-<text>pages_four/staff_editor/staff_editor.wxml</text>
+<form bindsubmit="formSubmit">
+
+<view class="container col fl-align">
+
+  <view class="items flex fl-align b-ff">
+
+    <view class="name">旧密码：</view>
+    <view class="setting">
+      <input placeholder="请输入旧密码" name="old"></input>
+    </view>
+
+  </view>
+
+  <view class="items flex fl-align b-ff">
+
+    <view class="name">新密码：</view>
+    <view class="setting">
+      <input placeholder="请输入新密码" name="new"></input>
+    </view>
+
+  </view>
+
+  <button class="btn b-e5 c-ff" form-type="submit">立即修改</button>
+
+
+</view>
+
+</form>

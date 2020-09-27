@@ -44,28 +44,4 @@
 		</view>
 	</view>
 
-
-
-
 </view>
-
-
-
-<!--  -->
-
-<!-- 列表 -->
-
-
-<!-- 加载更多 -->
-<!-- <view class="loadmore">
-	<text>{{loadMore}}</text>
-</view> -->
-
-
-
-<!-- 
-<view class="case">
-	<view class="content">
-		{{intro.content}}
-	</view>
-</view> -->

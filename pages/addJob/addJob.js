@@ -288,7 +288,7 @@ Page({
         token: wx.getStorageSync('token')
       }
       console.log(param)
-      util.sendRequest('/zqhr/hall/position/release', 'post', param).then(function (res) {
+      util.sendRequest('/zqhr/hall/position/add', 'post', param).then(function (res) {
         console.log(res)
         if (res.code == 0) {
           modal.showToast(res.message)

@@ -8,7 +8,7 @@ Page({
     page: 1,
     list: []
   },
-  
+
   onShow: function () {
     this.setData({
       page: 1
@@ -77,9 +77,9 @@ Page({
   },
 
   // 修改密码
-  toChange: function () {
+  toChange: function (e) {
     wx.navigateTo({
-      url: '/pages_four/staff_editor/staff_editor',
+      url: '/pages_four/staff_editor/staff_editor?detail='+JSON.stringify(e.currentTarget.dataset.item),
     })
   },
 

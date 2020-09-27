@@ -46,11 +46,12 @@
 			<image src="../../nav/nav-2.png"></image>
 			<view>企业登录</view>
 		</view>
-
+		
+<!-- 
 		<view class="item flex col fl-align" bindtap="scanSign">
 			<image src="../../nav/nav-3.png"></image>
 			<view>扫码签到</view>
-		</view>
+		</view> -->
 
 		<view class="item flex col fl-align" bindtap="myCollect">
 			<image src="../../nav/nav-4.png"></image>

@@ -13,7 +13,8 @@ Page({
    */
   data: {
     page: 1,
-    list: []
+    list: [],
+    load: ''
   },
 
   onLoad: function (options) {
@@ -123,6 +124,45 @@ Page({
     app.globalData.venue = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages_two/venue/venue',
+    })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.setData({
+      page: 1
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
+
+  onReachBottom: function () {
+    let that = this
+    let old = that.data.list
+    let data = {
+      pageNo: that.data.page + 1,
+      pageSize: 10,
+    }
+    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        let news = res.result.records  
+        if (news.length != 0) {
+          that.settle(old.concat(news))
+          that.setData({
+            page: data.pageNo
+          })
+        } else {
+          modal.showToast('已经到底了', 'none')
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
   }
 })

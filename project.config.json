@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -68,7 +68,21 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "招聘会",
+          "pathName": "pages/venue/venue",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "找人才",
+          "pathName": "pages/person/person",
+          "scene": null
+        }
+      ]
     }
   }
 }
