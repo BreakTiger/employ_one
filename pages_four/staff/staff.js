@@ -8,8 +8,11 @@ Page({
     page: 1,
     list: []
   },
-
-  onLoad: function (options) {
+  
+  onShow: function () {
+    this.setData({
+      page: 1
+    })
     this.getList()
   },
 
@@ -20,8 +23,8 @@ Page({
       enterpriseInfoId: wx.getStorageSync('company').id,
       pageNo: that.data.page,
       pageSize: 10,
-      role:wx.getStorageSync('person').userRole,
-      staffManageId:wx.getStorageSync('key').userId
+      role: wx.getStorageSync('person').userRole,
+      staffManageId: wx.getStorageSync('key').userId
     }
     util.sendRequest('/zqhr/app/staff/list', 'get', data).then(function (res) {
       console.log(res)
@@ -37,7 +40,9 @@ Page({
 
   // 编辑
   toEditor: function () {
-
+    wx.navigateTo({
+      url: '/pages_four/add_ staff/add_ staff',
+    })
   },
 
   // 删除
@@ -73,7 +78,9 @@ Page({
 
   // 修改密码
   toChange: function () {
-
+    wx.navigateTo({
+      url: '/pages_four/staff_editor/staff_editor',
+    })
   },
 
   // 添加企业员工

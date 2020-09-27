@@ -68,22 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "企业中心",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "添加职位",
-          "pathName": "pages/addJob/addJob",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

@@ -20,7 +20,7 @@
 				<input name="password" class="input" maxlength="20" type="password" placeholder="请输入密码" value="" />
 			</view>
 
-			<view class="forget c-e5" bindtap="toForget">忘记密码？</view>
+			<!-- <view class="forget c-e5" bindtap="toForget">忘记密码？</view> -->
 
 		</view>
 

@@ -31,6 +31,8 @@ App({
     imaUrl: 'http://120.79.207.87:8091',
     notice: {}, //通知信息
     venue:{}, //会场信息
-    worker:{} //简历信息
+    worker:{}, //简历信息
+    loading:'加载中···',
+    loaded:'~ 已经到底 ~'
   }
 })

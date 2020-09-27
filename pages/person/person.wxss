@@ -366,6 +366,7 @@
 	flex: 1;
 	height: 30px;
 	background-color: #f7f7f7;
+	font-size: .9rem;
 }
 
 icon {

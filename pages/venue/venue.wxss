@@ -17,6 +17,8 @@ page {
   height: 30px;
   background-color: #f7f7f7;
   margin-top: calc(50rpx - 30rpx);
+  font-size: .9rem;
+  color: #666666;
 }
 
 icon {

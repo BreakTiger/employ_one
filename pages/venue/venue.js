@@ -68,6 +68,13 @@ Page({
     return date.getTime();
   },
 
+  // 搜索
+  toSearch: function () {
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  },
+
   // 报名参会
   join: function (e) {
     let that = this

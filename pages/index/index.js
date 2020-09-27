@@ -2,6 +2,8 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
+let token = wx.getStorageSync('token')
+
 Page({
 
   data: {
@@ -41,7 +43,7 @@ Page({
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data,1).then(function (res) {
       if (res.code == 0) {
         that.setData({
           companycount: res.result.enterpriseCount,
@@ -247,9 +249,26 @@ Page({
   },
 
   onShow: function () {
-    let token = wx.getStorageSync('token')
     if (token) {
       this.getData()
     }
+  },
+
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.getList()
+    if (token) {
+      this.getData()
+    }
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
   }
+
+
 })
