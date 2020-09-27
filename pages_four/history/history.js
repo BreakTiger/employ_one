@@ -24,17 +24,50 @@ Page({
     util.sendRequest('/zqhr/app/interview/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-
+        that.setData({
+          list: res.result.records
+        })
       } else {
         modal.showToast(res.messgae, 'none')
       }
     })
   },
 
+  // 查看简历
+  toWatch: function (e) {
+    let that = this
+    let data = {
+      id: e.currentTarget.dataset.item.id
+    }
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        console.log(res.result.records[0])
+        let item = res.result.records[0]
+        let age = util.ages(item)
+        item.age = age
+        that.addlog(item)
+      } else {
+        modal.showToast(res.message)
+      }
+    })
+  },
 
-  toWatch: function () {
-    wx.navigateTo({
-      url: '/weixinmao_zp/pages/workerdetail/index',
+  addlog: function (detail) {
+    let that = this
+    let data = {
+      curriculumVitaeId: detail.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        app.globalData.worker = detail
+        wx.navigateTo({
+          url: '/pages/workerdetail/workerdetail',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
   },
 

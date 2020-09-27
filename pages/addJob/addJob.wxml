@@ -130,27 +130,24 @@
 
 </view>
 
-<view class="cover">
+<view class="cover" catchtouchmove="preventdefault" wx:if="{{is_show}}" bindtap="toShow"></view>
 
-	<view class="type-content b-ff flex fl-align fl-jsb">
+<view class="majorShow flex fl-jsb" wx:if="{{is_show}}">
 
-		<view class="left">
+	  <view class='left'>
+      <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
 
-		<!-- <scroll-view scroll-y="true">
+				<view class="left-title {{choice_one==index?'line':''}}" wx:for="{{type}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtap="choice_title">{{item.dataName}}</view>
+          
+      </scroll-view>
+    </view>
 
-			<view class="types line">不限</view>
-		
-			<view class="types" wx:for="{{type}}" wx:key="index">{{item.dataName}}</view>
-	
-		</scroll-view> -->
-		
-		</view>
-		<view class="right">
-		
-		<!-- <scroll-view scroll-y="true"></scroll-view> -->
+    <view class="right">
+      <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
 
-		</view>
-
-	</view>
+				<view class="right-title" wx:for="{{types}}" wx:key="index" bindtap="choice_right" data-item="{{item}}">{{item.dataName}}</view>
+    
+      </scroll-view>
+    </view>
 
 </view>

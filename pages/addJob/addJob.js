@@ -10,6 +10,11 @@ Page({
 
     //岗位类型
     type: [],
+    choice_one: 0,
+
+    types: [],
+    choice_two: '',
+
     typeName: '',
 
     //薪资待遇
@@ -94,6 +99,7 @@ Page({
         that.setData({
           type: res.result.records
         })
+        that.typesList(res.result.records[0].id)
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -101,8 +107,22 @@ Page({
   },
 
   // 岗位类型 - 2
-  typeItem: function () {
-
+  typesList: function (e) {
+    let that = this
+    let data = {
+      type: 'jobname',
+      parentid: e
+    }
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+        that.setData({
+          types: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 薪资待遇
@@ -140,6 +160,151 @@ Page({
       }
     })
   },
+
+  // 是否显示
+  toShow: function () {
+    let type = this.data.is_show
+    if (type) {
+      this.setData({
+        is_show: false
+      })
+    } else {
+      this.setData({
+        is_show: true
+      })
+    }
+  },
+
+  // 选择职位类型
+  choice_title: function (e) {
+    let that = this
+    let index = e.currentTarget.dataset.index
+    that.setData({
+      choice_one: index
+    })
+    that.typesList(e.currentTarget.dataset.item.id)
+  },
+
+  choice_right: function (e) {
+    let item = e.currentTarget.dataset.item
+    console.log(item)
+    this.setData({
+      typeName: item.dataName,
+      is_show: false
+    })
+  },
+
+  bindPriceChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.price
+    this.setData({
+      pricename: list[index].dataName
+    })
+  },
+
+  bindEducationChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.education
+    this.setData({
+      educationname: list[index].dataName
+    })
+  },
+
+  bindExpressChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.express
+    this.setData({
+      expressname: list[index]
+    })
+  },
+
+  bindWorktypeChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.worktype
+    this.setData({
+      worktypename: list[index]
+    })
+  },
+
+  radioChange: function (e) {
+    this.setData({
+      sex: e.detail.value
+    })
+  },
+
+  // 特色服务
+  checkboxChange: function (e) {
+    let arr = e.detail.value
+    this.setData({
+      choice: arr.join(',')
+    })
+  },
+
+  // 职位描述
+  toDescribe: function (e) {
+    this.setData({
+      describe: e.detail.html
+    })
+  },
+
+  formSubmit: function (e) {
+    let that = this
+    let data = e.detail.value
+    if (!data.name) {
+      modal.showToast('请输入岗位名称', 'none')
+    } else if (!that.data.typeName) {
+      modal.showToast('请选择岗位类型', 'none')
+    } else if (!that.data.pricename) {
+      modal.showToast('请设置薪资待遇', 'none')
+    } else if (!data.number) {
+      modal.showToast('请设置招聘人数', 'none')
+    } else if (!that.data.educationname) {
+      modal.showToast('请选择学历要求', 'none')
+    } else if (!that.data.expressname) {
+      modal.showToast('请选择工作经验', 'none')
+    } else if (!that.data.worktypename) {
+      modal.showToast('请选择岗位性质', 'none')
+    } else if (!that.data.sex) {
+      modal.showToast('请选择性别', 'none')
+    } else if (!that.data.describe) {
+      modal.showToast('请输入岗位描述', 'none')
+    } else {
+      let param = {
+        enterprisePostRelease: {
+          createBy: wx.getStorageSync('company').id,
+          enterpriseInfoId: wx.getStorageSync('company').id,
+          enable: 1,
+          postName: data.name,
+          jobType: that.data.typeName,
+          salary: that.data.pricename,
+          recruitment: data.number,
+          educationRequirements: that.data.educationname,
+          workExperience: that.data.expressname,
+          jobNature: that.data.worktypename,
+          genderRequirement: that.data.sex,
+          special: that.data.choice,
+          jobDescription: that.data.describe
+        },
+        token: wx.getStorageSync('token')
+      }
+      console.log(param)
+      util.sendRequest('/zqhr/hall/position/release', 'post', param).then(function (res) {
+        console.log(res)
+        if (res.code == 0) {
+          modal.showToast(res.message)
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 2000);
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    }
+  }
+
+
 
 
 })

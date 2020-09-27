@@ -78,8 +78,8 @@
         },
         {
           "id": -1,
-          "name": "面试记录",
-          "pathName": "pages_four/history/history",
+          "name": "添加职位",
+          "pathName": "pages/addJob/addJob",
           "query": "",
           "scene": null
         }
