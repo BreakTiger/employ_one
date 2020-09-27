@@ -28,21 +28,22 @@ function sendRequest(url, method, data, loading) {
           wx.hideLoading()
         }
         if (res.statusCode == 200) {
-          if (res.data.success) {
-            resolve(res.data);
-          } else {
-            wx.showModal({
-              title: "提示",
-              content: "登录失效，请重新登录",
-              success: function (res) {
-                if (res.confirm) {
-                  wx.navigateTo({
-                    url: '/pages/login/login',
-                  })
-                }
-              }
-            })
-          }
+          resolve(res.data);
+          // if (res.data.success) {
+          //   resolve(res.data);
+          // } else {
+          //   wx.showModal({
+          //     title: "提示",
+          //     content: "登录失效，请重新登录",
+          //     success: function (res) {
+          //       if (res.confirm) {
+          //         wx.navigateTo({
+          //           url: '/pages/login/login',
+          //         })
+          //       }
+          //     }
+          //   })
+          // }
         } else {
           wx.showModal({
             title: "提示",
