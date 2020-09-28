@@ -3,62 +3,62 @@
 	<view class="content b-ff flex col fl-align">
 		<view>应聘职位：{{detail.postName}}</view>
 		<view>应聘人：{{detail.name}}</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>工作经验：</text>
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{one}}" wx:key="key" bindtap="toOne" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice!=0}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>专业知识：</text>
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{two}}" wx:key="key"  bindtap="toTwo" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>沟通能力：</text>
 			<view class="flex fl-align fl-jsb">
 			<view wx:for="{{three}}" wx:key="key"  bindtap="toThree" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>职业文化水平：</text>
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{four}}" wx:key="key" bindtap="toFour" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>岗位稳定性：</text>
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{five}}" wx:key="key" bindtap="toFive" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>
 		</view>
-		<view class="flex fl-align fl-jsb">
+		<view class="flex col">
 			<text>综合评价</text>
 			<view class="flex fl-align fl-jsb">
 				<view wx:for="{{six}}" wx:key="key" bindtap="toSix" data-index="{{index}}">
 					<icon type="circle" size="20" wx:if="{{item.choice==0}}"></icon>
-					<icon type="success" size="20" wx:if="{{item.choice==1}}"></icon>
+					<icon type="success" size="20" wx:else></icon>
 					<text>{{item.text}}</text>
 				</view>
 			</view>

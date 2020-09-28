@@ -18,18 +18,15 @@ page {
   border: none;
 }
 
-.content>view>text {
-  width: 15%;
-}
-
 .content>view>view {
   font-size: .7rem;
-  width: 85%;
+  margin-top: 20rpx;
 }
 
 .content>view>view>view {
   display: flex;
   align-items: center;
+  width: calc(100% / 4);
 }
 
 icon {

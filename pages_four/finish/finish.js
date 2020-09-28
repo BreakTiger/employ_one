@@ -4,9 +4,6 @@ import modal from '../../modals.js'
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
     detail: {},
@@ -30,8 +27,6 @@ Page({
       }
     ],
 
-    c_one: '',
-
     two: [
       {
         text: " 优秀",
@@ -50,8 +45,6 @@ Page({
         choice: 0
       }
     ],
-
-    c_two: '',
 
     three: [
       {
@@ -72,8 +65,6 @@ Page({
       }
     ],
 
-    c_three: '',
-
     four: [
       {
         text: " 优秀",
@@ -92,8 +83,6 @@ Page({
         choice: 0
       }
     ],
-
-    c_four: '',
 
     five: [
       {
@@ -114,8 +103,6 @@ Page({
       }
     ],
 
-    c_five: '',
-
     six: [
       {
         text: "建议录取",
@@ -135,18 +122,28 @@ Page({
       }
     ],
 
-    c_six: ''
+    // 选择
+    c_one: null,
+    c_two: null,
+    c_three: null,
+    c_four: null,
+    c_five: null,
+    c_six: null,
+
+    is_edit: false
 
   },
 
 
   onLoad: function (options) {
     console.log(JSON.parse(options.detail))
+
     this.setData({
       detail: JSON.parse(options.detail)
     })
 
     this.getData(JSON.parse(options.detail))
+
   },
 
   getData: function (e) {
@@ -161,6 +158,7 @@ Page({
       if (res.code == 0) {
         let detail = res.result
         if (detail) {
+          // 1.赋值
           that.setData({
             c_one: detail.workExperience - 1,
             c_two: detail.professionalKnowledge - 1,
@@ -169,6 +167,8 @@ Page({
             c_five: detail.jobStability - 1,
             c_six: detail.comprehensiveEvaluation - 1
           })
+          
+          // 2.判断计算
           that.seteled()
         }
       } else {
@@ -177,17 +177,7 @@ Page({
     })
   },
 
-  seteled: function () {
-    let that = this
-    let one = that.data.one
-    let two = that.data.two
-    let three = that.data.three
-    let four = that.data.four
-    let five = that.data.five
-    let six = that.data.six
-    console.log(one)
-
-  },
+  // 选择：
 
   toOne: function (e) {
     let that = this
@@ -333,17 +323,44 @@ Page({
         comprehensiveEvaluation: that.data.c_six
       }
       console.log(data)
-      util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
-        console.log(res)
-        if (res.code == 200) {
-          that.toFinsh()
-        } else {
-          modal.showToast(res.message, 'none')
-        }
-      })
+      if (that.data.is_edit) {
+        that.edit(data)
+      } else {
+        that.send(data)
+      }
     }
   },
 
+
+  send: function (data) {
+    console.log('发布')
+    let that = this
+    util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        that.toFinsh()
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  edit: function (data) {
+    console.log('修改')
+    let that = this
+    util.sendRequest('/zqhr/app/interviewevaluation/editById', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        wx.navigateBack({
+          delta: 0,
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 完成
   toFinsh: function () {
     let that = this
     let data = {

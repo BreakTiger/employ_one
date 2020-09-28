@@ -77,8 +77,8 @@
           "scene": null
         },
         {
-          "id": 1,
-          "name": "结束面试",
+          "id": -1,
+          "name": "pages_four/finish/finish",
           "pathName": "pages_four/finish/finish",
           "query": "detail={\"gender\":\"男\",\"comprehensiveEvaluation\":\"1\",\"curriculumVitaeId\":11,\"submitResumeTime\":null,\"updateTime\":null,\"enterpriseInfoId\":14,\"salary\":\"8-10K\",\"createBy\":\"14\",\"enterprisePostReleaseId\":5,\"createTime\":\"2020-09-27 20:11:51\",\"updateBy\":null,\"phone\":\"13111111111\",\"postName\":\"web\",\"name\":\"hjt\",\"interviewstate\":\"finish\",\"id\":\"12\",\"enterpriseName\":\"Hhh\"}",
           "scene": null
