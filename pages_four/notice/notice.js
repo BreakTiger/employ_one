@@ -58,7 +58,30 @@ Page({
   },
 
   onReachBottom: function () {
+    let that = this
+    let old = that.data.list
+    let data = {
+      enterpriseid: wx.getStorageSync('company').id,
+      pageNo: that.data.page + 1,
+      pageSize: 10
+    }
+    util.sendRequest('/zqhr/hall/jobfair/invitationlist', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 0) {
+        let news = res.result.records
+        if (news.length != 0) {
+          that.setData({
+            list: old.concat(news),
+            page:data.pageNo
+          })
+        } else {
 
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+
+    })
   }
 
 

@@ -247,6 +247,9 @@ Page({
         let news = res.result.records
         if (news.length != 0) {
           that.settle(old.concat(news))
+          that.setData({
+            page:data.pageNo
+          })
         } else {
 
         }

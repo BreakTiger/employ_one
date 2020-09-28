@@ -59,7 +59,7 @@ Page({
           let list = that.data.list
           let index = e.currentTarget.dataset.index
           let data = {
-            id: e.currentTarget.dataset.id
+            id: parseInt(e.currentTarget.dataset.id)
           }
           util.sendRequest('/zqhr/hall/position/delete', 'DELETE', data).then(function (res) {
             console.log(res)
@@ -134,6 +134,27 @@ Page({
   },
 
   onReachBottom:function(){
-    
+    let that = this
+    let old = that.data.list
+    let data = {
+      pageNo: that.data.page+1,
+      pageSize: 10
+    }
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
+      console.log(res.result.records)
+      if (res.code == 0) {
+        let news = res.result.records
+        if (news.length != 0) {
+          that.setData({
+            list: old.concat(news),
+            page:data.pageNo
+          })
+        } else {
+
+        }
+      } else {
+        modal.showToast(res.messgae, 'none')
+      }
+    })
   }
 })

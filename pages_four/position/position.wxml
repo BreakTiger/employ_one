@@ -31,9 +31,9 @@
 
    				<view>匹配</view>
 
-					<view wx:if="{{item.enable == -1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">关闭</view>
+					<view wx:if="{{item.enable == 1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">关闭</view>
 
-					<view wx:if="{{item.enable == 1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">开启</view>
+					<view wx:if="{{item.enable == -1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">开启</view>
 
    				<view bindtap="toDel" data-id="{{item.id}}" data-index="{{index}}">删除</view>
 

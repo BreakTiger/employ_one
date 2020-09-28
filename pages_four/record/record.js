@@ -150,7 +150,7 @@ Page({
             list: old.concat(news)
           })
         } else {
-          modal.showToast('已经到底', 'none')
+          // modal.showToast('已经到底', 'none')
         }
       } else {
         modal.showToast(res.message, 'none')

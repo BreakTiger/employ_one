@@ -68,7 +68,15 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/addJob/addJob",
+          "pathName": "pages/addJob/addJob",
+          "query": "detail={\"submitResumeTotal\":0,\"jobNature\":\"全职\",\"workExperience\":\"3-5年\",\"updateTime\":null,\"enterpriseInfoId\":21,\"salary\":\"5K-7K\",\"genderRequirement\":\"不限\",\"ageRequirement\":null,\"special\":\"五险,五险一金,补充医疗保险,员工旅游,交通补贴,餐饮补贴\",\"createBy\":\"21\",\"createTime\":\"2020-09-28 20:02:28\",\"updateBy\":null,\"recruitment\":10,\"enable\":-1,\"postName\":\"网络管理员\",\"jobDescription\":\"<p>待遇好，待遇好</p>\",\"id\":\"8\",\"educationRequirements\":\"大学本科\",\"jobType\":\"计算机软件\",\"examinestate\":1}",
+          "scene": null
+        }
+      ]
     }
   }
 }

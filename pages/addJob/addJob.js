@@ -60,7 +60,9 @@ Page({
 
     describe: '', //描述
 
-    is_show: false
+    is_show: false,
+
+    is_editor: false
   },
 
   onLoad: function (options) {
@@ -70,14 +72,23 @@ Page({
       console.log(detail)
 
       that.setData({
+        is_editor: true,
         detail: detail,
         pricename: detail.salary,
         educationname: detail.educationRequirements,
         expressname: detail.workExperience,
         worktypename: detail.jobNature,
         sex: detail.genderRequirement,
-        choice: detail.special
+        choice: detail.special,
+        describe: detail.jobDescription,
+        typeName: detail.jobType
       })
+
+      if (that.data.choice) {
+        that.seteld(that.data.choice)
+      }
+
+
     }
 
     that.typeList()
@@ -87,6 +98,37 @@ Page({
     that.educationList()
   },
 
+
+  seteld: function (e) {
+    let that = this
+    let arr = e.split(',')
+    let list = that.data.speciallist
+    console.log(list)
+    for (let i = 0; i < arr.length; i++) {
+      let item = arr[i]
+      for (let j = 0; j < list.length; j++) {
+        let items = list[j].name
+        if (item == items) {
+          list[j].checked = true
+        }
+      }
+    }
+    that.setData({
+      speciallist: list
+    })
+  },
+
+  onEditorReady: function () {
+    const that = this
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      console.log(res.context)
+      that.editorCtx = res.context;
+      that.editorCtx.setContents({
+        html: that.data.describe
+      })
+    }).exec()
+  },
+
   // 岗位类型 - 1
   typeList: function () {
     let that = this
@@ -94,7 +136,6 @@ Page({
       type: 'jobtype'
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
           type: res.result.records
@@ -286,20 +327,50 @@ Page({
         token: wx.getStorageSync('token')
       }
       console.log(param)
-      util.sendRequest('/zqhr/hall/position/add', 'post', param).then(function (res) {
-        console.log(res)
-        if (res.code == 200) {
-          modal.showToast(res.message)
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 0,
-            })
-          }, 2000);
-        } else {
-          modal.showToast(res.message, 'none')
-        }
-      })
+
+      if (!that.data.is_editor) {
+        that.add(param)
+      } else {
+        that.editors(param)
+      }
+      
     }
+  },
+
+
+  add: function (data) {
+    let that = this
+    util.sendRequest('/zqhr/hall/position/add', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  editors: function (data) {
+    let that = this
+    data.updateBy = wx.getStorageSync('company').id
+    util.sendRequest('/zqhr/hall/position/editById', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   }
 
 

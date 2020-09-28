@@ -118,7 +118,7 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<editor placeholder="开始输入" value="{{detail.jobDescription}}" bindinput="toDescribe"></editor>
+						<editor id="editor" placeholder="开始输入" bindinput="toDescribe" bindready="onEditorReady" value="{{describe}}"></editor>
 					</view>
 				</view>
 			</view>
