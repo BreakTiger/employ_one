@@ -26,10 +26,10 @@
 				<view>
 					<radio-group class="radio-group" bindchange="radioChange">
 						<label class="radio">
-							<radio value="1" checked="{{sex ==1 ? 'checked':''}}" />男
+							<radio value="男" checked="{{sex =='男' ? 'checked':''}}" />男
 						</label>
 						<label class="radio">
-							<radio value="2" checked="{{sex ==2 ? 'checked':''}}" />女
+							<radio value="女" checked="{{sex =='女' ? 'checked':''}}" />女
 						</label>
 					</radio-group>
 				</view>
@@ -45,31 +45,6 @@
 			</view>
 
 			<view class="content-line flex fl-align">
-				<text>最高学历</text>
-				<view>
-					<picker moda="selector" range="{{education}}" range-key="dataName" bindchange="getEducation">
-					<view>{{educationName?educationName:'请选择最高学历'}}</view>
-					</picker>
-				</view>
-			</view>
-
-			<view class="content-line flex fl-align">
-				<text>工作经验</text>
-				<view>
-					<picker mode="selector" range="{{experience}}" bindchange="getExperience">
-					<view>{{experienceName?experienceName:'请设置工作经验'}}</view>
-					</picker>
-				</view>
-			</view>
-
-			<view class="content-line flex fl-align">
-				<text>现居住地</text>
-				<view>
-					<input placeholder="请输入现居住地" name="address"></input>
-				</view>
-			</view>
-
-			<view class="content-line flex fl-align">
 				<text>邮 箱</text>
 				<view>
 					<input placeholder="请输入邮箱" name="email"></input>
@@ -80,13 +55,6 @@
 				<text>手机号码</text>
 				<view>
 					<input placeholder="请输入手机号码" name="tel"></input>
-				</view>
-			</view>
-
-			<view class="content-line flex fl-align" style="border：none;">
-				<text>身份证号码</text>
-				<view>
-					<input placeholder="请输入身份证号码" name="idcard"></input>
 				</view>
 			</view>
 

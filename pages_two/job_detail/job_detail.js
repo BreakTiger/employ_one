@@ -61,5 +61,19 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    
+    this.getBase(this.data.id)
+
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
   }
 })

@@ -86,4 +86,6 @@
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
+  position: fixed;
+  bottom: 0rpx;
 }

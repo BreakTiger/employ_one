@@ -75,6 +75,20 @@
           "pathName": "pages_two/venue_detali/venue_detali",
           "query": "id=21",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages_four/add_record/add_record",
+          "pathName": "pages_four/add_record/add_record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages_two/job_detail/job_detail",
+          "pathName": "pages_two/job_detail/job_detail",
+          "query": "id=13",
+          "scene": null
         }
       ]
     }

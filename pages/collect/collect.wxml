@@ -2,10 +2,10 @@
 
 		<view class="list-item flex col fl-align b-ff" wx:for="{{list}}" wx:key="index">
 
-			<view style="font-weight:bold;">{{item.postName}}</view>
+			<view style="font-weight:bold;">{{item.name}}</view>
 
 			<view class="flex fl-align fl-jsb c-66" style="margin:20rpx 0;font-size:.7rem;">
-				<text>{{item.name}} | {{item.phone}}</text>
+				<text>{{item.gender}} | {{item.phone}}</text>
 				<text>{{item.createTime}}</text>
 			</view>
 

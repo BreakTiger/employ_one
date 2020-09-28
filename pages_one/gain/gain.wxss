@@ -30,5 +30,6 @@ page {
 }
 
 .btn>view:last-child {
-  border: 1rpx solid #000;
+  border: 1rpx solid #777777;
+  color: #777777;
 }

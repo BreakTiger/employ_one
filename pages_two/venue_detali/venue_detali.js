@@ -74,7 +74,7 @@ Page({
         that.setData({
           joblist: list
         })
-        
+
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -87,5 +87,20 @@ Page({
     wx.navigateTo({
       url: '/pages_two/job_detail/job_detail?id=' + id,
     })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+
+    this.getList()// 初始化数据
+    this.getPosition()// 企业发布职位查询
+
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
   }
 })

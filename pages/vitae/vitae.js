@@ -70,6 +70,7 @@ Page({
   // 收藏
   toCollect: function () {
     let that = this
+    let token = wx.getStorageSync('token')
     if (token) {
       let data = {
         createBy: wx.getStorageSync('company').id,
@@ -79,8 +80,10 @@ Page({
       util.sendRequest('/zqhr/app/resumecollection/collection', 'post', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
-          modal.showToast(res.message)
-          that.getType()
+          modal.showToast('收藏成功')
+          setTimeout(() => {
+            that.getType()
+          }, 2000);
         } else {
           modal.showToast(res.message, 'none')
         }
@@ -103,6 +106,7 @@ Page({
   //取消收藏
   toCancel: function () {
     let that = this
+    let token = wx.getStorageSync('token')
     if (token) {
       let data = {
         id: that.data.id
@@ -110,8 +114,11 @@ Page({
       util.sendRequest('/zqhr/app/resumecollection/cancelcollection', 'get', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
-          modal.showToast(res.message)
-          that.getType()
+          modal.showToast('取消收藏')
+          setTimeout(() => {
+            that.getType()
+          }, 2000);
+
         } else {
           modal.showToast(res.message, 'none')
         }

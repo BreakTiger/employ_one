@@ -42,8 +42,6 @@ Page({
       modal.showToast('请输入合法的联系电话', 'none')
     } else if (!data.mail) {
       modal.showToast('请输入邮箱', 'none')
-    } else if (!(/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/.test(data.mail))) {
-      modal.showToast('请输入合法的邮箱地址', 'none')
     } else if (!data.psw) {
       modal.showToast('请设置密码', 'none')
     } else if (that.data.choice == 0) {
@@ -57,7 +55,7 @@ Page({
         email: data.mail,
         creditCode: data.companycode,
         password: data.psw,
-        account:data.tel
+        account: data.tel
       }
       util.sendRequest('/zqhr/hall/enterprise/add', 'post', param).then(function (res) {
         if (res.code == 200) {

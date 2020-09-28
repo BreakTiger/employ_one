@@ -1,3 +1,5 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container col fl-align b-ff">
 
 	<!-- 搜索栏 -->
@@ -19,7 +21,7 @@
 		</swiper-item>
 	</swiper>
 
-	<view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}">
+	<view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}" bindtap="toManage" >
 		<image src="../../images/inform.png"></image>
 		<text class="c-66">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
 	</view>
@@ -87,7 +89,7 @@
 
 	<view class="type-container flex col fl-align">
 
-		<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-item="{{item}}" bindtap="toWorkerdetial" wx:if="{{item.enable==1}}">
+		<view class="type-box flex fl-align fl-jsb" wx:for="{{notelist}}" wx:key="index" data-item="{{item}}" bindtap="toWorkerdetial" wx:if="{{item.overt==1}}">
 		
 			<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}"></image>
 
@@ -96,9 +98,16 @@
 			<view class="type-info flex col">
 				<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
 					<text>{{item.name}}</text>
-					<text>{{item.createTime}}</text>
+					<text>{{tools.distance(item.createTime)}}</text>
+					<!-- <text wx:if="{{item.createTime}}">{{tools.distance(item.createTime)}} </text> -->
+					<!-- <text>{{item.createTime}}</text> -->
 				</view>
-				<view style="color:#646464;font-size:.7rem;">{{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+				<view style="color:#646464;font-size:.7rem;">
+					<text wx:if="{{item.gender}}">{{item.gender}}</text>
+					<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
+					<text wx:if="{{item.education}}">{{item.education}} /</text>
+					<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+				</view>
 				<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
 			</view>
 

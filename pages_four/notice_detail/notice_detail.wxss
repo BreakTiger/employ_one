@@ -19,7 +19,8 @@
 }
 
 .btn>view:last-child{
-  border: 1rpx solid #000;
+  border: 1rpx solid #777;
+  color: #777;
 }
 
 .article {

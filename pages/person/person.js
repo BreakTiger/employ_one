@@ -54,7 +54,8 @@ Page({
       pageSize: 10,
       workArea: that.data.title,
       intendedIndustries: that.data.price,
-      education: that.data.typetitle
+      education: that.data.typetitle,
+      overt: 1
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -245,7 +246,7 @@ Page({
         if (news.length != 0) {
           that.settle(old.concat(news))
           that.setData({
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 

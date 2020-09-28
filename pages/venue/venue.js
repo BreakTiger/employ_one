@@ -52,20 +52,37 @@ Page({
   // 报名参会
   join: function (e) {
     let that = this
-    let data = {
-      createBy: wx.getStorageSync('company').id,
-      enterpriseInfoId: wx.getStorageSync('company').id,
-      jobFairId: e.currentTarget.dataset.item.id,
-      token: wx.getStorageSync('token')
-    }
-    util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        modal.showToast(res.message)
-      } else {
-        modal.showToast(res.message, 'none')
+    let token = wx.getStorageSync('token')
+
+    if (token) {
+      let data = {
+        createBy: wx.getStorageSync('company').id,
+        enterpriseInfoId: wx.getStorageSync('company').id,
+        jobFairId: e.currentTarget.dataset.item.id,
+        token: wx.getStorageSync('token')
       }
-    })
+      util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: "提示",
+        content: "请先登录",
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
+
   },
 
   // 进入会场

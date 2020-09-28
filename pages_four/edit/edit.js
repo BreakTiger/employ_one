@@ -32,7 +32,7 @@ Page({
 
 
   onLoad: function (options) {
-   
+
     this.getBase()
 
     this.getList_one()
@@ -149,27 +149,27 @@ Page({
   },
   blurInputValue(e) { // 失去光标
     var name = e.currentTarget.dataset.type
-    if(name == 'tempenterpriseName') {
+    if (name == 'tempenterpriseName') {
       this.setData({
         [name]: '请输入企业名称',
       })
-    } else if(name == 'tempmastername') {
+    } else if (name == 'tempmastername') {
       this.setData({
         [name]: '请输入负责人',
       })
-    } else if(name == 'tempidcard') {
+    } else if (name == 'tempidcard') {
       this.setData({
         [name]: '请输入负责人身份证',
       })
-    } else if(name == 'tempphone') {
+    } else if (name == 'tempphone') {
       this.setData({
         [name]: '请输入电话',
       })
-    } else if(name == 'tempemail') {
+    } else if (name == 'tempemail') {
       this.setData({
         [name]: '请输入邮箱',
       })
-    } else if(name == 'tempaddress') {
+    } else if (name == 'tempaddress') {
       this.setData({
         [name]: '请输入地址',
       })
@@ -223,7 +223,7 @@ Page({
     })
   },
 
-  getFour: function(e) {
+  getFour: function (e) {
     let that = this
     let index = e.detail.value
     let list = that.data.list_four
@@ -266,11 +266,11 @@ Page({
     })
   },
 
-  
+
 
   // 提交验证  图片 和 介绍 不做限制
   forSubmit: function (e) {
-    
+
     let that = this
     let data = e.detail.value
     // 判断
@@ -290,28 +290,26 @@ Page({
       modal.showToast('请输入合法的电话号码', 'none')
     } else if (!data.email) {
       modal.showToast('请输入邮箱', 'none')
-    } else if (!(/^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/.test(data.email))) {
-      modal.showToast('请输入合法的邮箱', 'none')
     } else if (!data.address) {
       modal.showToast('请输入地址信息', 'none')
-    }else if (!data.idcard) {
+    } else if (!data.idcard) {
       modal.showToast('请输入负责人身份证', 'none')
     } else {
-      if (that.data.logo) { //存在
-        // 二次判断
-        console.log(that.data.logo.indexOf(app.globalData.imaUrl) != -1)
+
+      // 判断 - 是否存在logo / 凭证
+      if (that.data.logo) {
+        console.log('存在logo')
         if (that.data.logo.indexOf(app.globalData.imaUrl) == -1) {
           that.upImg(that.data.logo, data)
         }
-      } 
-      if (that.data.businessLicense) { //存在
-        // 二次判断
-        console.log(that.data.businessLicense.indexOf(app.globalData.imaUrl) != -1)
+      } else if (that.data.businessLicense) {
+        console.log('存在凭证')
         if (that.data.businessLicense.indexOf(app.globalData.imaUrl) == -1) {
           that.upBusinessLicense(that.data.businessLicense, data)
         }
+      } else {
+        that.upForms(data)
       }
-      that.upForms(data)
     }
   },
 
@@ -329,7 +327,14 @@ Page({
           logo: app.globalData.imaUrl + datas.result,
           logoAddress: datas.result
         })
-        that.upForms(param)
+        if (that.data.businessLicense) {
+          console.log('存在凭证')
+          if (that.data.businessLicense.indexOf(app.globalData.imaUrl) == -1) {
+            that.upBusinessLicense(that.data.businessLicense, param)
+          }
+        } else {
+          that.upForms(param)
+        }
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -350,7 +355,15 @@ Page({
           businessLicense: app.globalData.imaUrl + datas.result,
           businessLicenseAddress: datas.result
         })
-        that.upForms(param)
+
+        if (that.data.logo) {
+          console.log('存在logo')
+          if (that.data.logo.indexOf(app.globalData.imaUrl) == -1) {
+            that.upImg(that.data.logo, param)
+          }
+        } else {
+          that.upForms(param)
+        }
       } else {
         modal.showToast(res.message, 'none')
       }

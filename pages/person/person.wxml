@@ -1,3 +1,5 @@
+ <wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+ 
  <view class="container col fl-align">
 
  	<!-- 搜索 -->
@@ -39,12 +41,10 @@
  				<image src="../../images/dui.png" wx:if="{{carid== 0}}"></image>
  			</view>
  			<block wx:for="{{list}}" wx:key="index">
-
  				<view class="select_cars_list colorred" bindtap='selectcarsitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
  					<text>{{item.dataName}}</text>
  					<image src="../../images/dui.png" wx:if="{{item.id== carid}}"></image>
  				</view>
-
  			</block>
  		</scroll-view>
  	</view>
@@ -92,7 +92,7 @@
  						<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}"></image>
  					</view>
  					<view class="info">
- 						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>
+ 						<view>{{item.name}}<text class="time">{{tools.distance(item.createTime)}}</text></view>
  						<view>
 							<text>{{item.gender}}</text>
 							<text>/ {{item.age}}岁</text>

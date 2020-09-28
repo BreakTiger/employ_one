@@ -57,5 +57,17 @@ Page({
     wx.navigateTo({
       url: '/pages_two/venue_detali/venue_detali?id=' + e.currentTarget.dataset.id,
     })
+  },
+
+  onPullDownRefresh:function(){
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
   }
 })

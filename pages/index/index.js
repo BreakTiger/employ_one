@@ -57,6 +57,7 @@ Page({
   getList: function () {
     let that = this
     let data = {
+      overt: 1,
       pageNo: 1,
       pageSize: 5
     }
@@ -74,11 +75,9 @@ Page({
     let that = this
     let arr = []
     list.forEach(function (item) {
-      if (item.enable == 1) {
-        let age = util.ages(item)
-        item.age = age
-        arr.push(item)
-      }
+      let age = util.ages(item)
+      item.age = age
+      arr.push(item)
     })
     that.setData({
       notelist: arr
@@ -102,7 +101,7 @@ Page({
   // 企业登录
   companyLogin: function () {
     let token = wx.getStorageSync('token')
-    if(!token) {
+    if (!token) {
       wx.navigateTo({
         url: '/pages/login/login',
       })
@@ -154,28 +153,41 @@ Page({
   scanGet: function () {
     let token = wx.getStorageSync('token')
     if (token) {
-      let sign = wx.getStorageSync('sign')
-      if (sign) {
-        wx.scanCode({
-          onlyFromCamera: true,
-          scanType: 'qrCode',
-          success: function (res) {
-            console.log(res)
-            let arr = []
-            arr = res.result.split("|")
-            console.log(arr)
-            wx.navigateTo({
-              url: '/pages_one/gain/gain?code=' + arr[0] + '&sid=' + arr[1],
-            })
-          }
-        })
-      } else {
-        wx.showModal({
-          title: "提示",
-          content: "请先扫码签到",
-          showCancel: false,
-        })
-      }
+      wx.scanCode({
+        onlyFromCamera: true,
+        scanType: 'qrCode',
+        success: function (res) {
+          console.log(res)
+          let arr = []
+          arr = res.result.split("|")
+          console.log(arr)
+          wx.navigateTo({
+            url: '/pages_one/gain/gain?code=' + arr[0] + '&sid=' + arr[1],
+          })
+        }
+      })
+      // let sign = wx.getStorageSync('sign')
+      // if (sign) {
+      //   wx.scanCode({
+      //     onlyFromCamera: true,
+      //     scanType: 'qrCode',
+      //     success: function (res) {
+      //       console.log(res)
+      //       let arr = []
+      //       arr = res.result.split("|")
+      //       console.log(arr)
+      //       wx.navigateTo({
+      //         url: '/pages_one/gain/gain?code=' + arr[0] + '&sid=' + arr[1],
+      //       })
+      //     }
+      //   })
+      // } else {
+      //   wx.showModal({
+      //     title: "提示",
+      //     content: "请先扫码签到",
+      //     showCancel: false,
+      //   })
+      // }
     } else {
       wx.showModal({
         title: '提示',
@@ -189,7 +201,6 @@ Page({
         }
       })
     }
-
   },
 
   // 入场券
@@ -229,6 +240,12 @@ Page({
         }
       })
     }
+  },
+
+  toManage: function () {
+    wx.navigateTo({
+      url: '/pages_four/record/record',
+    })
   },
 
   // 更多

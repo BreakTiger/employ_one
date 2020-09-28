@@ -37,20 +37,32 @@ Page({
   toWatch: function (e) {
     let that = this
     console.log(e.currentTarget.dataset.item)
-    let data = {
-      id: e.currentTarget.dataset.item.curriculumVitaeId
-    }
-    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
-      if (res.code == 0) {
-        console.log(res.result.records[0])
-        let item = res.result.records[0]
-        let age = util.ages(item)
-        item.age = age
-        that.addlog(item)
-      } else {
-        modal.showToast(res.message)
+    let photo = e.currentTarget.dataset.item.photographResumeAddress
+
+    if (photo) {
+      let arr = []
+      arr.push(app.globalData.imaUrl + photo)
+      wx.previewImage({
+        urls: arr,
+      })
+    } else {
+      let data = {
+        id: e.currentTarget.dataset.item.curriculumVitaeId
       }
-    })
+      util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
+        if (res.code == 0) {
+          console.log(res.result.records[0])
+          let item = res.result.records[0]
+          let age = util.ages(item)
+          item.age = age
+          that.addlog(item)
+        } else {
+          modal.showToast(res.message)
+        }
+      })
+    }
+
+
   },
 
   addlog: function (detail) {
@@ -79,7 +91,7 @@ Page({
     })
   },
 
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function () {
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -94,13 +106,13 @@ Page({
     }, 1000);
   },
 
-  onReachBottom:function(){
+  onReachBottom: function () {
     let that = this
     let old = that.data.list
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
       interviewstate: 'finish',
-      pageNo: that.data.page+1,
+      pageNo: that.data.page + 1,
       pageSize: 10
     }
     util.sendRequest('/zqhr/app/interview/list', 'get', data).then(function (res) {
@@ -110,7 +122,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(news),
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 
