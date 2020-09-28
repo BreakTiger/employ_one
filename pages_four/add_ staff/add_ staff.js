@@ -15,14 +15,14 @@ Page({
     if (detail) {
       console.log(detail)
       this.setData({
-        sex:detail.sex,
-        name:detail.name,
-        phone:detail.phone,
-        psw:detail.password,
-        idcard:detail.idcard
+        ed_type: true,
+        sex: detail.sex,
+        name: detail.name,
+        phone: detail.phone,
+        psw: detail.password,
+        idcard: detail.idcard
       })
     }
-
   },
 
   // 性别
@@ -61,20 +61,47 @@ Page({
         createBy: wx.getStorageSync('company').id
       }
       console.log(param)
-      util.sendRequest('/zqhr/app/staff/add', 'post', param).then(function (res) {
-        console.log(res)
-        if (res.code == 200) {
-          modal.showToast(res.message)
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 0,
-            })
-          }, 2000);
-        } else {
-          modal.showToast(res.message, 'none')
-        }
-      })
+      if (!that.data.ed_type) {
+        that.add(param)
+      } else {
+        that.editor(param)
+      }
     }
+  },
+
+  add: function (param) {
+    let that = this
+    util.sendRequest('/zqhr/app/staff/add', 'post', param).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  editor: function (param) {
+    let that = this
+    param.updateBy = wx.getStorageSync('company').id
+    util.sendRequest('/zqhr/app/staff/editById', 'post', param).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   }
 
 

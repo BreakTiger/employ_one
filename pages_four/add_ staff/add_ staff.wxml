@@ -48,7 +48,7 @@
 			<view class="content-line flex fl-align" style="border：none;">
 				<text>身份证号码</text>
 				<view>
-					<input placeholder="请输入身份证号码" name="idcard"></input>
+					<input placeholder="请输入身份证号码" name="idcard" value="{{idcard}}"></input>
 				</view>
 			</view>
 
