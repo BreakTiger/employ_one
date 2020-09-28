@@ -71,4 +71,11 @@ Page({
     })
   },
 
+  //评价面试
+  toFinsh: function (e) {
+    wx.navigateTo({
+      url: '/pages_four/finish/finish?detail=' + JSON.stringify(e.currentTarget.dataset.item),
+    })
+  },
+
 })

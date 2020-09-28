@@ -130,7 +130,7 @@ Page({
     c_five: null,
     c_six: null,
 
-    is_edit: false
+    ed_type: false
 
   },
 
@@ -160,21 +160,85 @@ Page({
         if (detail) {
           // 1.赋值
           that.setData({
-            c_one: detail.workExperience - 1,
-            c_two: detail.professionalKnowledge - 1,
-            c_three: detail.communicationSkills - 1,
-            c_four: detail.culturalLevel - 1,
-            c_five: detail.jobStability - 1,
-            c_six: detail.comprehensiveEvaluation - 1
+            c_one: detail.workExperience,
+            c_two: detail.professionalKnowledge,
+            c_three: detail.communicationSkills,
+            c_four: detail.culturalLevel,
+            c_five: detail.jobStability,
+            c_six: detail.comprehensiveEvaluation,
+            ed_type: true
           })
-          
+
           // 2.判断计算
-          // that.seteled()
+          that.seteled()
         }
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  seteled: function () {
+    let that = this
+    let one = that.data.one
+    let ones = that.data.c_one
+    one.forEach(function (item, index) {
+      if (index == ones - 1) {
+        item.choice = 1
+      }
+    })
+
+    let two = that.data.two
+    let twos = that.data.c_two
+    two.forEach(function (item, index) {
+      if (index == twos - 1) {
+        item.choice = 1
+      }
+    })
+
+    let three = that.data.three
+    let threes = that.data.c_three
+    three.forEach(function (item, index) {
+      if (index == threes - 1) {
+        item.choice = 1
+      }
+    })
+
+    let four = that.data.four
+    let fours = that.data.c_four
+    four.forEach(function (item, index) {
+      if (index == fours - 1) {
+        item.choice = 1
+      }
+    })
+
+    let five = that.data.five
+    let fives = that.data.c_five
+    five.forEach(function (item, index) {
+      if (index == fives - 1) {
+        item.choice = 1
+      }
+    })
+
+    let six = that.data.six
+    let sixs = that.data.c_six
+    six.forEach(function (item, index) {
+      if (index == sixs - 1) {
+        item.choice = 1
+      }
+    })
+
+    // 绑定
+    that.setData({
+      one: one,
+      two: two,
+      three: three,
+      four: four,
+      five: five,
+      six: six
+    })
+
+
   },
 
   // 选择：
@@ -323,7 +387,7 @@ Page({
         comprehensiveEvaluation: that.data.c_six
       }
       console.log(data)
-      if (that.data.is_edit) {
+      if (that.data.ed_type) {
         that.edit(data)
       } else {
         that.send(data)
@@ -349,6 +413,8 @@ Page({
   edit: function (data) {
     console.log('修改')
     let that = this
+    data.updateBy = wx.getStorageSync('company').id
+    data.id = that.data.detail.id
     util.sendRequest('/zqhr/app/interviewevaluation/editById', 'post', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
