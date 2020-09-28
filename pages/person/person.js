@@ -71,12 +71,9 @@ Page({
     let that = this
     let arr = []
     list.forEach(function (item) {
-      if (item.enable == 1) {
-        let age = util.ages(item)
-        item.age = age
-        arr.push(item)
-      }
-
+      let age = util.ages(item)
+      item.age = age
+      arr.push(item)
     })
     console.log(arr)
     that.setData({

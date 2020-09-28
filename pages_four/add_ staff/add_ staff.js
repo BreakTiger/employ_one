@@ -22,6 +22,10 @@ Page({
         psw: detail.password,
         idcard: detail.idcard
       })
+
+      wx.setNavigationBarTitle({
+        title: '修改员工',
+      })
     }
   },
 

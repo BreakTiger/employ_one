@@ -4,6 +4,7 @@ page {
 
 .container>view {
   width: 100%;
+  margin-bottom: 20rpx;
 }
 
 .container>view>view {
