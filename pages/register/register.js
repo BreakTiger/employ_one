@@ -67,8 +67,8 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                wx.redirectTo({
-                  url: '/pages/login/login',
+                wx.navigateBack({
+                  delta: 0
                 })
               }
             }

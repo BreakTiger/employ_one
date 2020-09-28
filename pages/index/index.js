@@ -101,9 +101,14 @@ Page({
 
   // 企业登录
   companyLogin: function () {
-    wx.navigateTo({
-      url: '/pages/login/login',
-    })
+    let token = wx.getStorageSync('token')
+    if(!token) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    } else {
+      modal.showToast('已经进行登录', 'none')
+    }
   },
 
   // 扫码签到

@@ -31,6 +31,16 @@ page {
   position: relative;
 }
 
+.mymoney::before {
+  content: '';
+  position: absolute;
+  width: 4rpx;
+  height: 80rpx;
+  background: #efefef;
+  top: 18rpx;
+  left: calc((750 - 4) / 2);
+}
+
 .mymoney .item view:nth-child(1) {
   color: #1aad19;
 }

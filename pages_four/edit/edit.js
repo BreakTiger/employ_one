@@ -33,6 +33,8 @@ Page({
     this.getList_two()
 
     this.getList_three()
+
+    this.getList_four()
   },
 
   // 企业信息
@@ -49,12 +51,20 @@ Page({
           detail: detail,
           trade: detail.trade,
           property: detail.nature,
-          scale: detail.scale
+          scale: detail.scale,
+          area: detail.area
         })
         if (detail.logoAddress) { //logo存在
           console.log('存在：', detail.logoAddress)
           that.setData({
             logo: app.globalData.imaUrl + detail.logoAddress
+          })
+        }
+
+        if (detail.businessLicenseAddress) { //营业执照存在
+          console.log('存在：', detail.businessLicenseAddress)
+          that.setData({
+            businessLicense: app.globalData.imaUrl + detail.businessLicenseAddress
           })
         }
       } else {
@@ -69,7 +79,8 @@ Page({
   getList_one: function () {
     let that = this
     let data = {
-      type: 'industrytype'
+      type: 'industrytype',
+      pageSize: 200
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
@@ -87,7 +98,8 @@ Page({
   getList_two: function () {
     let that = this
     let data = {
-      type: 'nature'
+      type: 'nature',
+      pageSize: 200
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
@@ -105,13 +117,33 @@ Page({
   getList_three: function () {
     let that = this
     let data = {
-      type: 'scale'
+      type: 'scale',
+      pageSize: 200
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
           list_three: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  //规模
+  getList_four: function () {
+    let that = this
+    let data = {
+      type: 'area',
+      pageSize: 200
+    }
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      // console.log(res.result.records)
+      if (res.code == 0) {
+        that.setData({
+          list_four: res.result.records
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -147,6 +179,15 @@ Page({
     })
   },
 
+  getFour: function(e) {
+    let that = this
+    let index = e.detail.value
+    let list = that.data.list_four
+    that.setData({
+      area: list[index].dataName
+    })
+  },
+
   // logo上传
   getLogo: function () {
     let that = this
@@ -164,8 +205,28 @@ Page({
     })
   },
 
+  // 营业执照上传
+  getBusinessLicense: function () {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        let img = res.tempFilePaths[0]
+        that.setData({
+          businessLicense: img
+        })
+      },
+      fail: function (res) {
+        modal.showToast('图片选择失败', 'none')
+      }
+    })
+  },
+
+  
+
   // 提交验证  图片 和 介绍 不做限制
   forSubmit: function (e) {
+    
     let that = this
     let data = e.detail.value
     // 判断
@@ -203,6 +264,20 @@ Page({
       } else {
         that.upForms(data)
       }
+
+      if (that.data.businessLicense) { //存在
+        // 二次判断
+        console.log(that.data.businessLicense.indexOf(app.globalData.imaUrl) != -1)
+        if (that.data.businessLicense.indexOf(app.globalData.imaUrl) != -1) {
+          that.upForms(data)
+        } else {
+          that.upBusinessLicense(that.data.businessLicense, data)
+        }
+
+      } else {
+        that.upForms(data)
+      }
+      
     }
   },
 
@@ -217,7 +292,29 @@ Page({
       console.log(datas)
       if (datas.code == 200) {
         that.setData({
-          logo: app.globalData.imaUrl + datas.result
+          logo: app.globalData.imaUrl + datas.result,
+          logoAddress: datas.result
+        })
+        that.upForms(param)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 上传营业执照图片
+  upBusinessLicense: async function (img, param) {
+    let that = this
+    let data = {
+      systype: 'appEnterprise'
+    }
+    await util.upLoading(img, data).then(function (res) {
+      let datas = JSON.parse(res)
+      console.log(datas)
+      if (datas.code == 200) {
+        that.setData({
+          businessLicense: app.globalData.imaUrl + datas.result,
+          businessLicenseAddress: datas.result
         })
         that.upForms(param)
       } else {
@@ -240,7 +337,9 @@ Page({
       email: datas.email,
       address: datas.address,
       synopsis: datas.introduce,
-      logoAddress: that.data.logo,
+      logoAddress: that.data.logoAddress,
+      businessLicenseAddress: that.data.businessLicenseAddress,
+      area: that.data.area,
       updateBy: wx.getStorageSync('company').id
     }
     console.log('参数：', param)

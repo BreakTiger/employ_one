@@ -61,12 +61,12 @@ Page({
             token: wx.getStorageSync('token')
           }
           util.sendRequest('/zqhr/app/user/logout', 'get', data).then(function (res) {
-            console.log(res)
             if (res.code == 0) {
               modal.showToast(res.message)
               wx.clearStorage()
               that.setData({
-                login: 0
+                login: 0,
+                detail: {}
               })
             } else {
               modal.showToast(res.message, 'none')

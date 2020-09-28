@@ -1,73 +1,73 @@
 <view class="container flex col fl-align">
 
-	<view class="header flex col fl-align" wx:if="{{login==0}}" bindtap="toLogin">
-		<image src="../../images/center.png"></image>
-		<view>请先登录</view>
+<view class="header flex col fl-align" wx:if="{{login==0}}" bindtap="toLogin">
+	<image src="../../images/center.png"></image>
+	<view>请先登录</view>
+</view>
+
+<view class="header flex col fl-align" wx:else>
+	<image src="{{imgUrl+company.logoAddress}}"></image>
+	<view>{{company.enterpriseName}}</view>
+</view>
+
+<!-- 计数 -->
+<view class="mymoney flex fl-jsa b-ff">
+
+	<view class="item flex col fl-align" bindtap="toMyjoblist">
+		<view>{{detail.postReleaseCount ? detail.postReleaseCount : 0}}个</view>
+		<view>已发布职位数</view>
 	</view>
 
-	<view class="header flex col fl-align" wx:else>
-		<image src="{{imgUrl+company.logoAddress}}"></image>
-		<view>{{company.enterpriseName}}</view>
+	<view class="item flex col fl-align" bindtap="vitae">
+		<view>{{detail.interviewCount ? detail.interviewCount : 0}}份</view>
+		<view>求职管理</view>
 	</view>
 
-	<!-- 计数 -->
-	<view class="mymoney flex fl-jsa b-ff">
-
-		<view class="item flex col fl-align" bindtap="toMyjoblist">
-			<view>{{detail.postReleaseCount}}个</view>
-			<view>已发布职位数</view>
-		</view>
-
-		<view class="item flex col fl-align" bindtap="vitae">
-			<view>{{detail.interviewCount}}份</view>
-			<view>求职管理</view>
-		</view>
-
-		<view class="item flex col fl-align" bindtap="collect">
-			<view>{{detail.resumeCollectionCount}}份</view>
-			<view>简历收藏</view>
-		</view>
-
+	<view class="item flex col fl-align" bindtap="collect">
+		<view>{{detail.resumeCollectionCount ? detail.resumeCollectionCount : 0}}份</view>
+		<view>简历收藏</view>
 	</view>
 
-	<!-- 入口列表 -->
-	<view class="list b-ff">
+</view>
 
-		<view class="item flex fl-align fl-jsb" bindtap="notice">
-			<view class="flex fl-align">
-				<image src="../../img/inform.png" class="icon"></image>邀约通知
-			</view>
-			<view class="count c-ff" wx:if="{{detail.invitationCount}}">{{detail.invitationCount}}</view>
+<!-- 入口列表 -->
+<view class="list b-ff">
+
+	<view class="item flex fl-align fl-jsb" bindtap="notice">
+		<view class="flex fl-align">
+			<image src="../../img/inform.png" class="icon"></image>邀约通知
 		</view>
-
-		<view class="item" bindtap="toCount">
-			<image src="../../img/note.png" class="icon"></image>收到简历
-		</view>
-
-		<view class="item" bindtap="toEditcompany">
-			<image src="../../img/edit.png" class="icon"></image>企业信息编辑
-		</view>
-
-		<view class="item" bindtap="toMyjoblist">
-			<image src="../../img/manage.png" class="icon"></image>职位管理
-		</view>
-
-		<view class="item" bindtap="toStaff">
-			<image src="../../img/Jjob.png" class="icon"></image>员工管理
-		</view>
-
-		<view class="item" bindtap="toHistory">
-			<image src="../../img/note.png" class="icon"></image>面试记录
-		</view>
-
-		<view class="item" bindtap="toMatchnote">
-			<image src="../../img/search.png" class="icon"></image>精确匹配简历
-		</view>
-
-		<view class="item" bindtap="loginout">
-			<image src="../../img/exit.png" class="icon"></image>退出登录
-		</view>
-
+		<view class="count c-ff" wx:if="{{detail.invitationCount}}">{{detail.invitationCount}}</view>
 	</view>
+
+	<view class="item" bindtap="toCount">
+		<image src="../../img/note.png" class="icon"></image>收到简历
+	</view>
+
+	<view class="item" bindtap="toEditcompany">
+		<image src="../../img/edit.png" class="icon"></image>企业信息编辑
+	</view>
+
+	<view class="item" bindtap="toMyjoblist">
+		<image src="../../img/manage.png" class="icon"></image>职位管理
+	</view>
+
+	<view class="item" bindtap="toStaff">
+		<image src="../../img/Jjob.png" class="icon"></image>员工管理
+	</view>
+
+	<view class="item" bindtap="toHistory">
+		<image src="../../img/note.png" class="icon"></image>面试记录
+	</view>
+
+	<view class="item" bindtap="toMatchnote">
+		<image src="../../img/search.png" class="icon"></image>精确匹配简历
+	</view>
+
+	<view class="item" bindtap="loginout">
+		<image src="../../img/exit.png" class="icon"></image>退出登录
+	</view>
+
+</view>
 
 </view>

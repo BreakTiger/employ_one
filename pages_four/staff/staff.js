@@ -24,7 +24,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
       role: wx.getStorageSync('person').userRole,
-      staffManageId: wx.getStorageSync('key').userId
+      staffManageId: ''
     }
     util.sendRequest('/zqhr/app/staff/list', 'get', data).then(function (res) {
       console.log(res)
@@ -89,6 +89,4 @@ Page({
       url: '/pages_four/add_ staff/add_ staff',
     })
   },
-
-
 })
