@@ -2,7 +2,7 @@
 
    	<view class="orderlist">
 
-   		<view class="content" wx:for="{{list}}" wx:key="index">
+   		<view class="content" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
    			<view class="jobinfo">
    				<view class="jobleft">
@@ -37,9 +37,7 @@
 
    				<view bindtap="toDel" data-id="{{item.id}}" data-index="{{index}}">删除</view>
 
-
    			</view>
-
 
    		</view>
 
@@ -52,3 +50,8 @@
    		<view class="footer" bindtap='addcompanyjob'>添加招聘职位</view>
    	</view>
    </view>
+
+	 <view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
+   		<image src="../../images/empty.png" class="empty"></image>
+   		<text class="c-98">暂无应聘职位</text>
+   	</view>

@@ -145,6 +145,48 @@ Page({
     this.setData({
       detail: JSON.parse(options.detail)
     })
+
+    this.getData(JSON.parse(options.detail))
+  },
+
+  getData: function (e) {
+    let that = this
+    let data = {
+      curriculumVitaeId: e.curriculumVitaeId,
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      enterprisePostReleaseId: e.enterprisePostReleaseId
+    }
+    util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
+      console.log(res.result)
+      if (res.code == 0) {
+        let detail = res.result
+        if (detail) {
+          that.setData({
+            c_one: detail.workExperience - 1,
+            c_two: detail.professionalKnowledge - 1,
+            c_three: detail.communicationSkills - 1,
+            c_four: detail.culturalLevel - 1,
+            c_five: detail.jobStability - 1,
+            c_six: detail.comprehensiveEvaluation - 1
+          })
+          that.seteled()
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  seteled: function () {
+    let that = this
+    let one = that.data.one
+    let two = that.data.two
+    let three = that.data.three
+    let four = that.data.four
+    let five = that.data.five
+    let six = that.data.six
+    console.log(one)
+
   },
 
   toOne: function (e) {
@@ -294,12 +336,7 @@ Page({
       util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
         console.log(res)
         if (res.code == 200) {
-          modal.showToast(res.message)
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 0,
-            })
-          }, 2000);
+          that.toFinsh()
         } else {
           modal.showToast(res.message, 'none')
         }
@@ -307,12 +344,28 @@ Page({
     }
   },
 
+  toFinsh: function () {
+    let that = this
+    let data = {
+      curriculumVitaeId: that.data.detail.curriculumVitaeId,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/zqhr/app/interview/finish', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        wx.navigateBack({
+          delta: 0,
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
   // 取消
   toCancel: function () {
     wx.navigateBack({
       delta: 0,
     })
-  },
-
-
+  }
 })

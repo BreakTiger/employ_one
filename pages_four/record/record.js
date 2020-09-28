@@ -6,7 +6,8 @@ Page({
 
   data: {
     page: 1,
-    list: []
+    list: [],
+    ed_type: false
   },
 
   onShow: function () {
@@ -21,6 +22,7 @@ Page({
     let that = this
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
+      interviewstate: 'invite',
       pageNo: that.data.page,
       pageSize: 10
     }
@@ -115,4 +117,46 @@ Page({
       }
     })
   },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.setData({
+      page: 1
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
+
+  onReachBottom: function () {
+    let that = this
+    let old = that.data.list
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: that.data.page + 1,
+      pageSize: 10
+    }
+    util.sendRequest('/zqhr/app/interview/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        let news = res.result.records
+        if (news.length != 0) {
+          that.setData({
+            page: data.pageNo,
+            list: old.concat(news)
+          })
+        } else {
+          modal.showToast('已经到底', 'none')
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  }
+
+
 })
