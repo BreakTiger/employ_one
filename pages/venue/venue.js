@@ -30,43 +30,13 @@ Page({
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          list:res.result.records
+        })
       } else {
         modal.showToast(res.message, 'none')
       }
     })
-  },
-
-  // 整理
-  settle: function (list) {
-    let that = this
-
-    list.forEach(function (item, index) {
-
-      let time1 = that.transform(item.holdingtimeStart)
-
-      let time2 = that.transform(item.holdingtimeEnd)
-
-      // 判断活动状态
-      if (time1 > timestamp) {
-        item.status = "未开始"
-      } else if (time1 < timestamp && time2 > timestamp) {
-        item.status = "进行中"
-      } else if (time2 < timestamp) {
-        item.status = "已结束"
-      }
-
-    })
-
-    that.setData({
-      list: list
-    })
-  },
-
-  // 转时间戳:
-  transform: function (time) {
-    var date = new Date(time.replace(/-/g, '/'));
-    return date.getTime();
   },
 
   // 搜索
@@ -129,9 +99,9 @@ Page({
       if (res.code == 0) {
         let news = res.result.records
         if (news.length != 0) {
-          that.settle(old.concat(news))
           that.setData({
-            page: data.pageNo
+            page: data.pageNo,
+            list:old.concat(news)
           })
         } else {
           modal.showToast('已经到底了', 'none')

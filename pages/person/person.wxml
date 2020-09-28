@@ -104,7 +104,7 @@
 
 	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:else>
 		<image src="../../images/empty.png" class="empty"></image>
-		<text>暂无记录</text>
+		<text class="c-98">暂无记录</text>
 	</view>
 
 

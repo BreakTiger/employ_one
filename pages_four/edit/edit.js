@@ -69,7 +69,7 @@ Page({
   getList_one: function () {
     let that = this
     let data = {
-      type: 'industry'
+      type: 'industrytype'
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res.result.records)

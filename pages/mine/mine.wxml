@@ -20,7 +20,7 @@
 
 		<view class="item flex col fl-align" bindtap="vitae">
 			<view>{{detail.interviewCount}}份</view>
-			<view>面试管理</view>
+			<view>求职管理</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="collect">

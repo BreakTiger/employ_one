@@ -1,6 +1,6 @@
 <view class="container flex col fl-align">
 
-	<view class="item flex col fl-align" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}">
+	<view class="item flex col fl-align" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}" wx:if="{{list.length!=0}}">
 
 		<view class="flex fl-jsb">
 			<view class="c-e5" style="font-size:32rpx;">{{item.invitationTitle}}</view>
@@ -12,5 +12,10 @@
 		<view><text class="c-66">地点：</text>{{item.address}}</view>
 
 	</view>
+
+	<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
+   		<image src="../../images/empty.png" class="empty"></image>
+   		<text class="c-98">暂无求职记录</text>
+   	</view>
 
 </view>

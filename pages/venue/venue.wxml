@@ -19,7 +19,9 @@
 					<view class="detail">
 						<view class="type_list">{{item.theme}}</view>
 						<view class="flex fl-align" style="margin: 10rpx 0rpx">
-							<view class="recruit_state">{{item.status}}</view>
+							<view class="recruit_state" wx:if="{{item.enable==1}}">正在进行</view>
+							<view class="recruit_state" wx:if="{{item.enable==-1&&item.holdingtimeOverdue!=-1}}">即将进行</view>
+							<view class="recruit_state" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
 							<view class="recruit_time">{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
 						</view>
 						<view class="flex fl-align">

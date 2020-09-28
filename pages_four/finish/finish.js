@@ -27,10 +27,6 @@ Page({
       {
         text: "较差",
         choice: 0
-      },
-      {
-        text: "很差",
-        choice: 0
       }
     ],
 
@@ -51,10 +47,6 @@ Page({
       },
       {
         text: "较差",
-        choice: 0
-      },
-      {
-        text: "很差",
         choice: 0
       }
     ],
@@ -77,10 +69,6 @@ Page({
       {
         text: "较差",
         choice: 0
-      },
-      {
-        text: "很差",
-        choice: 0
       }
     ],
 
@@ -102,10 +90,6 @@ Page({
       {
         text: "较差",
         choice: 0
-      },
-      {
-        text: "很差",
-        choice: 0
       }
     ],
 
@@ -126,10 +110,6 @@ Page({
       },
       {
         text: "较差",
-        choice: 0
-      },
-      {
-        text: "很差",
         choice: 0
       }
     ],
@@ -165,11 +145,7 @@ Page({
     this.setData({
       detail: JSON.parse(options.detail)
     })
-
-    // this.getData(JSON.parse(options.detail))
   },
-
-
 
   toOne: function (e) {
     let that = this

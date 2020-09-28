@@ -68,35 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "招聘会",
-          "pathName": "pages/venue/venue",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "找人才",
-          "pathName": "pages/person/person",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "求职管理",
-          "pathName": "pages_four/record/record",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "收藏简历",
-          "pathName": "pages/collect/collect",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
