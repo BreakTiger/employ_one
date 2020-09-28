@@ -194,8 +194,18 @@ Page({
 
   // 入场券
   ticket: function () {
-    wx.navigateTo({
-      url: '/pages_one/ticket/ticket',
+    let data = {
+      token: wx.getStorageSync('token')
+    }
+    util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
+      console.log(res.result)
+      if (res.code == 200) {
+        wx.navigateTo({
+          url: '/pages_one/ticket/ticket',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
   },
 

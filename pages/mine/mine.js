@@ -134,7 +134,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 编辑企业信息
@@ -157,7 +157,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 员工管理
@@ -180,7 +180,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   //面试记录
@@ -203,7 +203,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 匹配简历
@@ -226,7 +226,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 职位管理
@@ -249,7 +249,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 面试管理
@@ -272,7 +272,7 @@ Page({
         }
       })
     }
-    
+
   },
 
   // 收藏简历
@@ -295,6 +295,21 @@ Page({
         }
       })
     }
-    
-  }
+
+  },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    let token = wx.getStorageSync('token')
+    if (token) {
+      this.getData()
+    }
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
 })

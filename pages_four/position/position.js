@@ -61,7 +61,7 @@ Page({
           let data = {
             id: parseInt(e.currentTarget.dataset.id)
           }
-          util.sendRequest('/zqhr/hall/position/delete', 'DELETE', data).then(function (res) {
+          util.sendRequest('/zqhr/hall/position/delete', 'get', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.message)
