@@ -36,8 +36,9 @@ Page({
   // 查看简历
   toWatch: function (e) {
     let that = this
+    console.log(e.currentTarget.dataset.item)
     let data = {
-      id: e.currentTarget.dataset.item.id
+      id: e.currentTarget.dataset.item.curriculumVitaeId
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {

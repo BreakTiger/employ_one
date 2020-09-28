@@ -12,7 +12,12 @@
 
 		<view>{{detail.name}}</view>
 
-		<view>{{detail.gender}}/{{detail.age}}岁/{{detail.education}}/{{detail.workExperience}}</view>
+		<view>
+			<text>{{detail.gender}}</text>
+			<text>/{{detail.age}}岁</text>
+			<text wx:if="{{detail.education}}">/{{detail.education}}</text>
+			<text wx:if="{{detail.workExperience}}">/{{detail.workExperience}}</text>
+		</view>
 
 	</view>
 

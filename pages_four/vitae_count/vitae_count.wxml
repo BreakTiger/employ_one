@@ -5,8 +5,11 @@
 		<view style="font-weight:bold;">{{item.postName}}</view>
 
 		<view class="flex fl-align fl-jsb c-66" style="margin:20rpx 0;font-size:.7rem;">
-			<text>{{item.name}} | {{item.phone}}</text>
-			<text>{{item.createTime}}</text>
+			<view class="flex">
+				<text wx:if="{{item.name}}">{{item.name}} | </text>
+				<text wx:if="{{item.phone}}">{{item.phone}}</text>
+			</view>
+			<text>投递时间: {{item.submitResumeTime}}</text>
 		</view>
 
 		<view class="btn flex fl-align fl-jfe">

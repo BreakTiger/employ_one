@@ -60,12 +60,21 @@ Page({
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.code == 0) {
-        console.log(res.result.records)
-        that.setData({
-          joblist: res.result.records
+        let list = res.result.records
+        list.forEach(function (item) {
+          let arr = item.special.split(',')
+          console.log(arr)
+          item.special = arr
         })
+
+        console.log(list)
+
+        that.setData({
+          joblist: list
+        })
+        
       } else {
         modal.showToast(res.message, 'none')
       }

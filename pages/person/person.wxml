@@ -93,7 +93,12 @@
  					</view>
  					<view class="info">
  						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>
- 						<view> {{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+ 						<view>
+							<text>{{item.gender}}</text>
+							<text>/ {{item.age}}岁</text>
+							<text wx:if="{{item.education}}">/ {{item.education}}</text>
+							<text wx:if="{{item.workExperience}}">/ {{item.workExperience}}</text>
+						</view>
  						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
  					</view>
  				</view>

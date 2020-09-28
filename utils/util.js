@@ -34,6 +34,7 @@ function sendRequest(url, method, data, loading) {
               content: "登录失效，请重新登录",
               success: function (res) {
                 if (res.confirm) {
+                  // wx.clearStorage()
                   wx.navigateTo({
                     url: '/pages/login/login',
                   })

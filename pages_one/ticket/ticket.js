@@ -43,5 +43,17 @@ Page({
     wx.navigateTo({
       url: '/pages_four/vitae_count/vitae_count',
     })
-  }
+  },
+
+  onPullDownRefresh:function(){
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.getType()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
 })

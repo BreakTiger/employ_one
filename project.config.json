@@ -68,7 +68,15 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "pages_two/venue_detali/venue_detali",
+          "pathName": "pages_two/venue_detali/venue_detali",
+          "query": "id=21",
+          "scene": null
+        }
+      ]
     }
   }
 }
