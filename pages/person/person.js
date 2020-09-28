@@ -230,6 +230,31 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);
+  },
+
+  onReachBottom: function () {
+    let that = this
+    let old = that.data.list
+    let data = {
+      pageNo: that.data.page + 1,
+      pageSize: 10,
+      workArea: that.data.title,
+      intendedIndustries: that.data.price,
+      education: that.data.typetitle
+    }
+    util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        let news = res.result.records
+        if (news.length != 0) {
+          that.settle(old.concat(news))
+        } else {
+
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+
   }
 
 })

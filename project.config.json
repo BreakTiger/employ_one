@@ -68,22 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "求职管理",
-          "pathName": "pages_four/record/record",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages_four/finish/finish",
-          "pathName": "pages_four/finish/finish",
-          "query": "detail={\"gender\":\"女\",\"comprehensiveEvaluation\":\"1\",\"curriculumVitaeId\":1,\"submitResumeTime\":null,\"updateTime\":null,\"enterpriseInfoId\":3,\"salary\":\"3K以下\",\"createBy\":\"3\",\"enterprisePostReleaseId\":7,\"createTime\":\"2020-09-28 18:01:04\",\"updateBy\":null,\"phone\":\"13678999999\",\"postName\":\"HTML5\",\"name\":\"张三\",\"interviewstate\":\"finish\",\"id\":\"19\",\"enterpriseName\":\"光大物业管理有限公司\"}",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

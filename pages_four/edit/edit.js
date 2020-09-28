@@ -52,7 +52,8 @@ Page({
           trade: detail.trade,
           property: detail.nature,
           scale: detail.scale,
-          area: detail.area
+          area: detail.area,
+          examinestate: detail.examinestate,
         })
         if (detail.logoAddress) { //logo存在
           console.log('存在：', detail.logoAddress)
@@ -340,6 +341,7 @@ Page({
       logoAddress: that.data.logoAddress,
       businessLicenseAddress: that.data.businessLicenseAddress,
       area: that.data.area,
+      examinestate: that.data.examinestate,
       updateBy: wx.getStorageSync('company').id
     }
     console.log('参数：', param)

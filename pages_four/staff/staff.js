@@ -39,9 +39,9 @@ Page({
   },
 
   // 编辑
-  toEditor: function () {
+  toEditor: function (e) {
     wx.navigateTo({
-      url: '/pages_four/add_ staff/add_ staff',
+      url: '/pages_four/add_ staff/add_ staff?detail=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
 
@@ -62,7 +62,7 @@ Page({
           util.sendRequest('/zqhr/app/staff/delete', 'get', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
-              modal.showToast(res.messgae)
+              modal.showToast(res.message)
               list.splice(index, 0)
               that.setData({
                 list: list
@@ -79,7 +79,7 @@ Page({
   // 修改密码
   toChange: function (e) {
     wx.navigateTo({
-      url: '/pages_four/staff_editor/staff_editor?detail='+JSON.stringify(e.currentTarget.dataset.item),
+      url: '/pages_four/staff_editor/staff_editor?detail=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
 
@@ -89,4 +89,23 @@ Page({
       url: '/pages_four/add_ staff/add_ staff',
     })
   },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.setData({
+      page: 1
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
+
+  onReachBottom: function () {
+
+  }
 })

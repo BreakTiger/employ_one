@@ -17,7 +17,10 @@ Page({
     load: ''
   },
 
-  onLoad: function (options) {
+  onShow: function () {
+    this.setData({
+      page: 1
+    })
     this.getList()
   },
 
@@ -31,7 +34,7 @@ Page({
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
-          list:res.result.records
+          list: res.result.records
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -101,7 +104,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             page: data.pageNo,
-            list:old.concat(news)
+            list: old.concat(news)
           })
         } else {
           // modal.showToast('已经到底了', 'none')

@@ -130,7 +130,9 @@ Page({
     c_five: null,
     c_six: null,
 
-    ed_type: false
+    ed_type: false,
+
+    id: null,
 
   },
 
@@ -166,7 +168,8 @@ Page({
             c_four: detail.culturalLevel,
             c_five: detail.jobStability,
             c_six: detail.comprehensiveEvaluation,
-            ed_type: true
+            ed_type: true,
+            id: detail.id
           })
 
           // 2.判断计算
@@ -414,7 +417,7 @@ Page({
     console.log('修改')
     let that = this
     data.updateBy = wx.getStorageSync('company').id
-    data.id = that.data.detail.id
+    data.id = that.data.id
     util.sendRequest('/zqhr/app/interviewevaluation/editById', 'post', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {

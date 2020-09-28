@@ -98,7 +98,15 @@ Page({
         }
       }
     })
-  }
+  },
+
+  onPullDownRefresh:function(){
+
+  },
+
+  onReachBottom:function(){
+    
+  },
 
 
 })

@@ -1,18 +1,8 @@
 <view class="container col fl-align">
 
-	<!-- 搜索 -->
-	<!-- <view class="search w100 b-ff">
-		<view bindtap="toSearch" class="flex fl-align">
-			<icon type="search" size="14" />
-			<text>请输入查询信息</text>
-		</view>
-	</view>
-
-	<view style="height:60px;"></view> -->
-
 	<!-- 列表 -->
 	<view class="recruit">
-		<view wx:for="{{list}}" wx:key="index">
+		<view wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 			<view class="recruit_header">{{item.name}}</view>
 			<view class="recruitlist">
 				<view class="title">
@@ -45,5 +35,11 @@
 			</view>
 		</view>
 	</view>
+
+	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:if="{{list.length==0}}">
+		<image src="../../images/empty.png" class="empty"></image>
+		<text class="c-98">暂无招聘会</text>
+	</view>
+
 
 </view>

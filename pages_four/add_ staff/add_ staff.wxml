@@ -13,7 +13,7 @@
 			<view class="content-line flex fl-align">
 				<text>姓名</text>
 				<view>
-					<input placeholder="请输入姓名" name="name"></input>
+					<input placeholder="请输入姓名" name="name" value="{{name}}"></input>
 				</view>
 			</view>
 
@@ -34,14 +34,14 @@
 			<view class="content-line flex fl-align" style="border：none;">
 				<text>手机号码</text>
 				<view>
-					<input placeholder="请输入手机号码" name="tel"></input>
+					<input placeholder="请输入手机号码" name="tel" value="{{phone}}"></input>
 				</view>
 			</view>
 
       <view class="content-line flex fl-align" style="border：none;">
 				<text>密 码</text>
 				<view>
-					<input placeholder="请设置密码" name="psw"></input>
+					<input placeholder="请设置密码" name="psw" value="{{psw}}"></input>
 				</view>
 			</view>
 

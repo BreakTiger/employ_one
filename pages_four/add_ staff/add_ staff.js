@@ -6,10 +6,22 @@ Page({
 
 
   data: {
-    sex: ''
+    sex: '',
+    ed_type: false
   },
 
   onLoad: function (options) {
+    let detail = JSON.parse(options.detail)
+    if (detail) {
+      console.log(detail)
+      this.setData({
+        sex:detail.sex,
+        name:detail.name,
+        phone:detail.phone,
+        psw:detail.password,
+        idcard:detail.idcard
+      })
+    }
 
   },
 

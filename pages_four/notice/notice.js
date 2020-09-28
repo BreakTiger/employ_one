@@ -40,5 +40,26 @@ Page({
     wx.navigateTo({
       url: '/pages_four/notice_detail/notice_detail',
     })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.setData({
+      page: 1
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  },
+
+  onReachBottom: function () {
+
   }
+
+
 })

@@ -131,5 +131,9 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);
+  },
+
+  onReachBottom:function(){
+    
   }
 })
