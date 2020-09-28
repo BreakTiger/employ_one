@@ -11,8 +11,10 @@ Page({
   },
 
   onLoad: function (options) {
-    
-   
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+
     let item = app.globalData.venue
     console.log(item)
 
@@ -51,6 +53,7 @@ Page({
 
   // 查看详情
   toDeatil: function (e) {
+    // console.log(e.currentTarget.dataset.item)
     wx.navigateTo({
       url: '/pages_two/venue_detali/venue_detali?id=' + e.currentTarget.dataset.id,
     })

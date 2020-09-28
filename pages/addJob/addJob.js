@@ -69,15 +69,15 @@ Page({
       let detail = JSON.parse(options.detail)
       console.log(detail)
 
-      // that.setData({
-      //   detail: detail,
-      //   pricename: detail.salary,
-      //   educationname: detail.educationRequirements,
-      //   expressname: detail.workExperience,
-      //   worktypename: detail.jobNature,
-      //   sex: detail.genderRequirement,
-      //   choice: detail.special
-      // })
+      that.setData({
+        detail: detail,
+        pricename: detail.salary,
+        educationname: detail.educationRequirements,
+        expressname: detail.workExperience,
+        worktypename: detail.jobNature,
+        sex: detail.genderRequirement,
+        choice: detail.special
+      })
     }
 
     that.typeList()

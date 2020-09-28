@@ -2,7 +2,7 @@
 
 	<view class="container col fl-align">
 
-		<view class="top b-e5 flex col fl-align fl-jc">
+		<!-- <view class="top b-e5 flex col fl-align fl-jc">
 
 			<view class="search flex fl-align fl-jc">
 
@@ -10,7 +10,7 @@
 
 			</view>
 
-		</view>
+		</view> -->
 
 		<!-- 筛选条件 -->
 		<view class="condition flex col fl-align">
@@ -21,8 +21,9 @@
 			
 				<view class="setting">
 					<picker  bindchange="getArea" range="{{area}}" range-key="dataName">
-						<view class="title">
-						{{areaname?areaname:'不限'}}
+						<view class="title flex fl-align fl-jfe c-e5">
+						<text>{{areaname?areaname:'不限'}}</text>
+						<image src="../../images/right.png" class="arrow"></image>
 						</view>
 					</picker>
 				</view>
@@ -35,8 +36,9 @@
 			
 				<view class="setting">
 					<picker  bindchange="getTrade" range="{{trade}}" range-key="dataName">
-						<view class="title">
-						{{tradename?tradename:'不限'}}
+						<view class="title flex fl-align fl-jfe c-e5">
+						<text>{{tradename?tradename:'不限'}}</text>
+						<image src="../../images/right.png" class="arrow"></image>
 						</view>
 					</picker>
 				</view>
@@ -50,8 +52,9 @@
 			
 				<view class="setting">
 					<picker  bindchange="getEducation" range="{{eductaion}}"  range-key="dataName">
-						<view class="title">
-						{{eductaionname?eductaionname:'不限'}}
+						<view class="title flex fl-align fl-jfe c-e5">
+						<text>{{eductaionname?eductaionname:'不限'}}</text>
+						<image src="../../images/right.png" class="arrow"></image>
 						</view>
 					</picker>
 				</view>
@@ -61,9 +64,6 @@
 		</view>
 
 		<button class="btn b-e5 c-ff" form-type="submit">提交</button>
-
-		<!-- <view class="btn b-e5 c-ff" bindtap="toSearch">提交</view> -->
-
 
 	</view>
 

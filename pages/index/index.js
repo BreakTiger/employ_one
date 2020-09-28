@@ -2,7 +2,7 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-let token = wx.getStorageSync('token')
+
 
 Page({
 
@@ -13,9 +13,6 @@ Page({
       },
       {
         thumb: 'http://120.79.207.87:8091//img/zqzpImg/2.jpg'
-      },
-      {
-        thumb: 'http://120.79.207.87:8091//img/zqzpImg/3.jpg'
       }
     ],
     notelist: [],
@@ -43,7 +40,7 @@ Page({
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data,1).then(function (res) {
+    util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data, 1).then(function (res) {
       if (res.code == 0) {
         that.setData({
           companycount: res.result.enterpriseCount,
@@ -228,27 +225,42 @@ Page({
 
   // 简历
   toWorkerdetial: function (e) {
-    let that = this
-    let detail = e.currentTarget.dataset.item
-    let data = {
-      curriculumVitaeId: detail.id,
-      enterpriseInfoId: wx.getStorageSync('company').id
-    }
-    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        app.globalData.worker = detail
-        wx.navigateTo({
-          url: '/pages/vitae/vitae',
-        })
-      } else {
-        modal.showToast(res.message, 'none')
+    let token = wx.getStorageSync('token')
+    if (token) {
+      let that = this
+      let detail = e.currentTarget.dataset.item
+      let data = {
+        curriculumVitaeId: detail.id,
+        enterpriseInfoId: wx.getStorageSync('company').id
       }
-    })
-
+      util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          app.globalData.worker = detail
+          wx.navigateTo({
+            url: '/pages/vitae/vitae',
+          })
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: "提示",
+        content: "请先登录",
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
   },
 
   onShow: function () {
+    let token = wx.getStorageSync('token')
     if (token) {
       this.getData()
     }
@@ -262,6 +274,7 @@ Page({
       duration: 1000
     })
     this.getList()
+    let token = wx.getStorageSync('token')
     if (token) {
       this.getData()
     }

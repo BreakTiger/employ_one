@@ -71,12 +71,12 @@ Page({
     let that = this
     let arr = []
     list.forEach(function (item) {
-      if(item.enable==1){
+      if (item.enable == 1) {
         let age = util.ages(item)
         item.age = age
         arr.push(item)
       }
-      
+
     })
     console.log(arr)
     that.setData({
@@ -216,5 +216,20 @@ Page({
       }
     })
   },
+
+  onPullDownRefresh: function () {
+    this.setData({
+      page: 1
+    })
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+  }
 
 })

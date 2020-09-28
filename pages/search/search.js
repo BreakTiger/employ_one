@@ -5,7 +5,6 @@ import modal from '../../modals.js'
 Page({
 
   data: {
-    word: '',
 
     area: [],
     areaname: '',
@@ -110,19 +109,15 @@ Page({
   // 提交
   toSearch: function (e) {
     let that = this
-    if (!e.detail.value.word) {
-      modal.showToast('请输入搜索关键字', 'none')
-    } else {
-      let detail = {
-        word: e.detail.value.word,
-        area: that.data.areaname,
-        trade: that.data.tradename,
-        education: that.data.eductaionname
-      }
-      wx.navigateTo({
-        url: '/pages/search_list/search_list?detail=' + JSON.stringify(detail),
-      })
+    let detail = {
+      word: that.data.word,
+      area: that.data.areaname,
+      trade: that.data.tradename,
+      education: that.data.eductaionname
     }
+    wx.navigateTo({
+      url: '/pages/search_list/search_list?detail=' + JSON.stringify(detail),
+    })
   },
 
 

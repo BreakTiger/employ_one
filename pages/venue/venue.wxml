@@ -1,14 +1,14 @@
 <view class="container col fl-align">
 
 	<!-- 搜索 -->
-	<view class="search w100 b-ff">
+	<!-- <view class="search w100 b-ff">
 		<view bindtap="toSearch" class="flex fl-align">
 			<icon type="search" size="14" />
 			<text>请输入查询信息</text>
 		</view>
 	</view>
 
-	<view style="height:60px;"></view>
+	<view style="height:60px;"></view> -->
 
 	<!-- 列表 -->
 	<view class="recruit">

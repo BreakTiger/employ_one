@@ -10,7 +10,7 @@
 			</view>
 
 			<view class="btn flex fl-align fl-jfe">
-				<view bindtap='toCancle' data-id="{{item.id}}">取消面试</view>
+				<view bindtap='toCancle' data-id="{{item.id}}">取消收藏</view>
 				<view bindtap="toDetail" data-id="{{item.curriculumVitaeId}}" data-index="{{index}}">查看简历</view>
    				<!-- <view bindtap='toInvite' data-item="{{item}}">邀请面试</view> -->
 			</view>
@@ -19,7 +19,7 @@
 
 		<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
    		<image src="../../images/empty.png" class="empty"></image>
-   		<text>您暂无收藏的简历</text>
+   		<text class="c-98">您暂无收藏的简历</text>
    	</view>
 
 		

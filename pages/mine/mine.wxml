@@ -37,7 +37,7 @@
 			<view class="flex fl-align">
 				<image src="../../img/inform.png" class="icon"></image>邀约通知
 			</view>
-			<view class="count c-ff">{{detail.invitationCount}}</view>
+			<view class="count c-ff" wx:if="{{detail.invitationCount}}">{{detail.invitationCount}}</view>
 		</view>
 
 		<view class="item" bindtap="toCount">

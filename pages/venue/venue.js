@@ -79,44 +79,20 @@ Page({
   // 报名参会
   join: function (e) {
     let that = this
-
-    console.log('当前时间：', timestamp)
-
-    let time1 = that.transform(e.currentTarget.dataset.item.entrytimeStart)
-    console.log('报名开始时间', time1)
-
-    let time2 = that.transform(e.currentTarget.dataset.item.entrytimeEnd)
-    console.log('报名结束时间', time2)
-
-    // 判断
-    if (time1 > timestamp) {
-      wx.showModal({
-        title: '提示',
-        content: '未到招聘会报名时间',
-        showCancel: false
-      })
-    } else if (time1 < timestamp && time2 > timestamp) {
-      let data = {
-        createBy: wx.getStorageSync('company').id,
-        enterpriseInfoId: wx.getStorageSync('company').id,
-        jobFairId: e.currentTarget.dataset.item.id,
-        token: wx.getStorageSync('token')
-      }
-      util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
-        console.log(res)
-        if (res.code == 0) {
-          modal.showToast('报名成功')
-        } else {
-          modal.showToast(res.message, 'none')
-        }
-      })
-    } else if (time2 < timestamp) {
-      wx.showModal({
-        title: '提示',
-        content: '招聘会报名时间已截止',
-        showCancel: false
-      })
+    let data = {
+      createBy: wx.getStorageSync('company').id,
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      jobFairId: e.currentTarget.dataset.item.id,
+      token: wx.getStorageSync('token')
     }
+    util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 进入会场
@@ -151,7 +127,7 @@ Page({
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        let news = res.result.records  
+        let news = res.result.records
         if (news.length != 0) {
           that.settle(old.concat(news))
           that.setData({

@@ -4,7 +4,7 @@
  	<view class="search flex fl-align b-ff">
  		<view bindtap="toSearch" class="search_box flex fl-align">
  			<icon type="search" size="15" />
- 			<text class="c-66">请输入查询信息</text>
+ 			<text class="c-66">请选择搜索信息</text>
  		</view>
  	</view>
 

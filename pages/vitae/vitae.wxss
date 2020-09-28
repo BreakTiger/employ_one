@@ -11,11 +11,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
 .pic {
-
   width: 380rpx;
   height: 350rpx;
   align-self: center;
@@ -25,8 +23,6 @@
   position: absolute;
   left: 200rpx;
   top: 40rpx;
-
-
 }
 
 .pic image {
@@ -34,27 +30,21 @@
   height: 140rpx;
   border: 7rpx solid #FFF;
   border-radius: 140rpx;
-
 }
 
 .pic view {
-
   height: 60rpx;
   line-height: 60rpx;
   width: 380rpx;
   text-align: center;
   color: #000;
   font-size: .8rem;
-
-
 }
 
 .container .order {
   width: 750rpx;
   display: flex;
   flex-direction: column;
-
-
 }
 
 .container .order .title {
@@ -70,17 +60,13 @@
 
 .container .order .content {
   display: flex;
-
   background: #FFF;
   padding: 20rpx;
   text-indent: 20rpx;
   font-size: .8rem;
-
-
 }
 
 .container .list {
-
   width: 750rpx;
   background: #FFF;
 }

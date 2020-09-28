@@ -14,9 +14,6 @@ Page({
       },
       {
         thumb: 'http://120.79.207.87:8091//img/zqzpImg/2.jpg'
-      },
-      {
-        thumb: 'http://120.79.207.87:8091//img/zqzpImg/3.jpg'
       }
     ]
   },

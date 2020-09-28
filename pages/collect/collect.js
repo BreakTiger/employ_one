@@ -12,21 +12,21 @@ Page({
   },
 
   onLoad: function (options) {
-    if (token) {
-      this.getList()
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '请先登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '/pages/login/login',
-            })
-          }
-        }
-      })
-    }
+    // if (token) {
+    //   this.getList()
+    // } else {
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '请先登录',
+    //     success: function (res) {
+    //       if (res.confirm) {
+    //         wx.navigateTo({
+    //           url: '/pages/login/login',
+    //         })
+    //       }
+    //     }
+    //   })
+    // }
   },
 
   // 收藏列表

@@ -24,11 +24,11 @@ input {
 
 .condition>view {
   width: 100%;
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid #000;
+  padding: 35rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
   display: flex;
   justify-content: space-between;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .btn {
@@ -48,6 +48,8 @@ input {
   width: 70%;
 }
 
-.title {
-  text-align: right;
+.arrow {
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 20rpx;
 }
