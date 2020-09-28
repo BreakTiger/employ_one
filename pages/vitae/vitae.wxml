@@ -7,6 +7,7 @@
 	<view class="pic">
 
 		<image src="{{imaUrl + detail.headimgAddress}}" wx:if="{{detail.headimgAddress}}"></image>
+		
 		<image src="{{detail.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:else></image>
 
 		<view>{{detail.name}}</view>
