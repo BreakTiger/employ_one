@@ -169,7 +169,7 @@ Page({
           })
           
           // 2.判断计算
-          that.seteled()
+          // that.seteled()
         }
       } else {
         modal.showToast(res.message, 'none')
@@ -345,6 +345,7 @@ Page({
     })
   },
 
+  // 修改
   edit: function (data) {
     console.log('修改')
     let that = this

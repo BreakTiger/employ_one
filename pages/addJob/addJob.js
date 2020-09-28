@@ -270,27 +270,25 @@ Page({
       modal.showToast('请输入岗位描述', 'none')
     } else {
       let param = {
-        enterprisePostRelease: {
-          createBy: wx.getStorageSync('company').id,
-          enterpriseInfoId: wx.getStorageSync('company').id,
-          enable: 1,
-          postName: data.name,
-          jobType: that.data.typeName,
-          salary: that.data.pricename,
-          recruitment: data.number,
-          educationRequirements: that.data.educationname,
-          workExperience: that.data.expressname,
-          jobNature: that.data.worktypename,
-          genderRequirement: that.data.sex,
-          special: that.data.choice,
-          jobDescription: that.data.describe
-        },
+        createBy: wx.getStorageSync('company').id,
+        enterpriseInfoId: wx.getStorageSync('company').id,
+        enable: 1,
+        postName: data.name,
+        jobType: that.data.typeName,
+        salary: that.data.pricename,
+        recruitment: data.number,
+        educationRequirements: that.data.educationname,
+        workExperience: that.data.expressname,
+        jobNature: that.data.worktypename,
+        genderRequirement: that.data.sex,
+        special: that.data.choice,
+        jobDescription: that.data.describe,
         token: wx.getStorageSync('token')
       }
       console.log(param)
       util.sendRequest('/zqhr/hall/position/add', 'post', param).then(function (res) {
         console.log(res)
-        if (res.code == 0) {
+        if (res.code == 200) {
           modal.showToast(res.message)
           setTimeout(() => {
             wx.navigateBack({

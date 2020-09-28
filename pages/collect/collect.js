@@ -2,7 +2,7 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-let token = wx.getStorageSync('token')
+
 
 Page({
 
@@ -12,21 +12,22 @@ Page({
   },
 
   onLoad: function (options) {
-    // if (token) {
-    //   this.getList()
-    // } else {
-    //   wx.showModal({
-    //     title: '提示',
-    //     content: '请先登录',
-    //     success: function (res) {
-    //       if (res.confirm) {
-    //         wx.navigateTo({
-    //           url: '/pages/login/login',
-    //         })
-    //       }
-    //     }
-    //   })
-    // }
+    let token = wx.getStorageSync('token')
+    if (token) {
+      this.getList()
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
   },
 
   // 收藏列表
