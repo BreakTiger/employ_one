@@ -20,7 +20,14 @@ Page({
     list_three: [],
     scale: '',
 
-    logo: ''
+    logo: '',
+
+    tempenterpriseName: '请输入企业名称',
+    tempmastername: '请输入负责人',
+    tempidcard: '请输入负责人身份证',
+    tempphone: '请输入电话',
+    tempemail: '请输入邮箱',
+    tempaddress: '请输入地址'
   },
 
 
@@ -54,6 +61,7 @@ Page({
           scale: detail.scale,
           area: detail.area,
           examinestate: detail.examinestate,
+          idcard: detail.idcard
         })
         if (detail.logoAddress) { //logo存在
           console.log('存在：', detail.logoAddress)
@@ -131,6 +139,41 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  getInputValue(e) { // 获取光标
+    var name = e.currentTarget.dataset.type
+    this.setData({
+      [name]: '',
+    })
+  },
+  blurInputValue(e) { // 失去光标
+    var name = e.currentTarget.dataset.type
+    if(name == 'tempenterpriseName') {
+      this.setData({
+        [name]: '请输入企业名称',
+      })
+    } else if(name == 'tempmastername') {
+      this.setData({
+        [name]: '请输入负责人',
+      })
+    } else if(name == 'tempidcard') {
+      this.setData({
+        [name]: '请输入负责人身份证',
+      })
+    } else if(name == 'tempphone') {
+      this.setData({
+        [name]: '请输入电话',
+      })
+    } else if(name == 'tempemail') {
+      this.setData({
+        [name]: '请输入邮箱',
+      })
+    } else if(name == 'tempaddress') {
+      this.setData({
+        [name]: '请输入地址',
+      })
+    }
   },
 
   //规模
@@ -251,34 +294,24 @@ Page({
       modal.showToast('请输入合法的邮箱', 'none')
     } else if (!data.address) {
       modal.showToast('请输入地址信息', 'none')
+    }else if (!data.idcard) {
+      modal.showToast('请输入负责人身份证', 'none')
     } else {
-
       if (that.data.logo) { //存在
         // 二次判断
         console.log(that.data.logo.indexOf(app.globalData.imaUrl) != -1)
-        if (that.data.logo.indexOf(app.globalData.imaUrl) != -1) {
-          that.upForms(data)
-        } else {
+        if (that.data.logo.indexOf(app.globalData.imaUrl) == -1) {
           that.upImg(that.data.logo, data)
         }
-
-      } else {
-        that.upForms(data)
-      }
-
+      } 
       if (that.data.businessLicense) { //存在
         // 二次判断
         console.log(that.data.businessLicense.indexOf(app.globalData.imaUrl) != -1)
-        if (that.data.businessLicense.indexOf(app.globalData.imaUrl) != -1) {
-          that.upForms(data)
-        } else {
+        if (that.data.businessLicense.indexOf(app.globalData.imaUrl) == -1) {
           that.upBusinessLicense(that.data.businessLicense, data)
         }
-
-      } else {
-        that.upForms(data)
       }
-      
+      that.upForms(data)
     }
   },
 
@@ -342,6 +375,7 @@ Page({
       businessLicenseAddress: that.data.businessLicenseAddress,
       area: that.data.area,
       examinestate: that.data.examinestate,
+      idcard: datas.idcard,
       updateBy: wx.getStorageSync('company').id
     }
     console.log('参数：', param)

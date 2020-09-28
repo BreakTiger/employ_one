@@ -5,24 +5,28 @@
   </view>
   <view class="main flex col fl-align">
 
-  <view class="w100">
+    <view class="w100">
 
-  <view class="title">{{detail.jobFairName}}</view>
+      <view class="title">{{detail.jobFairName}}</view>
 
-  <view class="time c-66">举办日期：{{detail.holdingtimeStart}}至{{detail.holdingtimeEnd}}</view>
+      <view class="time c-66">举办日期：{{detail.holdingtimeStart}}至{{detail.holdingtimeEnd}}</view>
+    </view>
 
-  </view>
-  
-  <image src="{{code}}" class="code"></image>
+    <image src="{{code}}" class="code"></image>
 
-  <view class="btn w100 flex fl-align fl-jsb">
-  <view bindtap="one">面试管理({{detail.interviewTotal}})</view>
-  <view bindtap="two">收到简历({{detail.resumeTotal}})</view>
-  </view>
+    <view class="company">
+      <view class="flex fl-jfs">{{detail.enterpriseName}}</view>
+      <view class="flex">
+        <view>参会人: {{detail.staffName}}</view>
+      </view>
+    </view>
+
+    <view class="btn w100 flex fl-align fl-jsb">
+      <view bindtap="one">面试管理({{detail.interviewTotal}})</view>
+      <view bindtap="two">收到简历({{detail.resumeTotal}})</view>
+    </view>
 
 
-  
-  
   </view>
 
   <!-- <view class="main flex col fl-align">

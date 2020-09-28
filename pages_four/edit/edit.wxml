@@ -9,7 +9,7 @@
 			<view class="item">
 				<view class="name">企业名称</view>
 				<view class="selectitem">
-					<input type="text" value="{{detail.enterpriseName}}" name="name" placeholder="请输入企业名称" />
+					<input type="text" value="{{detail.enterpriseName}}" name="name" placeholder="{{tempenterpriseName}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempenterpriseName"/>
 				</view>
 			</view>
 
@@ -43,21 +43,28 @@
 			<view class="item">
 				<view class="name"> 负责人</view>
 				<view class="selectitem">
-					<input type="text" value="{{detail.companyPrincipal}}" name="mastername" placeholder="请输入负责人" />
+					<input type="text" value="{{detail.companyPrincipal}}" name="mastername" placeholder="{{tempmastername}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempmastername" />
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="name"> 负责人身份证</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.idcard}}" name="idcard" placeholder="{{tempidcard}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempidcard"/>
 				</view>
 			</view>
 
 			<view class="item">
 				<view class="name"> 电 话</view>
 				<view class="selectitem">
-					<input type="text" value="{{detail.phone}}" name="tel" placeholder="请输入电话" />
+					<input type="text" value="{{detail.phone}}" name="tel" placeholder="{{tempphone}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempphone" />
 				</view>
 			</view>
 
 			<view class="item">
 				<view class="name">邮 箱</view>
 				<view class="selectitem">
-					<input type="text" value="{{detail.email}}" name="email" placeholder="请输入邮箱" />
+					<input type="text" value="{{detail.email}}" name="email" placeholder="{{tempemail}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempemail" />
 				</view>
 			</view>
 
@@ -73,7 +80,7 @@
 			<view class="item">
 				<view class="name">地址</view>
 				<view class="selectitem">
-					<input type="text" value="{{detail.address}}" name="address" placeholder="请输入地址" />
+					<input type="text" value="{{detail.address}}" name="address" placeholder="{{tempaddress}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempaddress" />
 				</view>
 			</view>
 

@@ -11,7 +11,7 @@ page {
 }
 
 .header {
-  padding-top: 50rpx;
+  padding-top: 60rpx;
 }
 
 .header image {
@@ -29,17 +29,18 @@ page {
 
 .main {
   width: 90%;
-  margin: 20rpx 0;
+  margin: 50rpx 0;
 }
 
 .title {
-  font-weight: bold;
-  font-size: 32rpx;
+  font-size: 30rpx;
   margin-bottom: 15rpx;
+  color: #666;
 }
 
 .time {
-  font-size: 24rpx;
+  font-size: 26rpx;
+  color: #666;
 }
 
 .btn>view {
@@ -64,8 +65,8 @@ page {
 } */
 
 .code {
-  width: 400rpx;
-  height: 400rpx;
+  width: 500rpx;
+  height: 500rpx;
   margin: 20rpx 0;
 }
 
@@ -73,4 +74,13 @@ page {
   text-align: center;
   font-size: 40rpx;
   color: red;
+}
+
+.company{
+  width: 100%;
+  text-align: left;
+  font-size: 28rpx;
+}
+.company view{
+  margin: 16rpx 0;
 }

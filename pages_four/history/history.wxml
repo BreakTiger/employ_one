@@ -5,7 +5,7 @@
    		<view class="content">
    			<view class="item">性别：{{item.gender}}</view>
    			<view class="item">联系电话：{{item.phone}}</view>
-   			<view class="item">创建时间：{{item.createTime}}</view>
+   			<view class="item">结束时间：{{item.createTime}}</view>
    			<view class="payitem">
    				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
 					<view bindtap="toFinsh" data-item="{{item}}">修改评价</view>

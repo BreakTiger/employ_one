@@ -1,39 +1,79 @@
+@import '../../wxParse/wxParse.wxss';
+
 page {
-
-  background-color: #f8f8f9;
-
-
+  background: #f8f8f9;
 }
 
-.container {
-  background-color: #f8f8f9;
-  min-height: 100%
-}
-
-.container .header {
-  display: flex;
-  flex-direction: column;
+.header {
   background: linear-gradient(to bottom, #3274e5, #3274e5);
   width: 750rpx;
   height: 450rpx;
   border-radius: 0 0 50% 50%;
-  align-items: center;
 }
 
-.container .header .moneytitle {
-
-  color: #fff;
+.moneytitle {
   margin-top: 50rpx;
-
 }
 
-.container .header .money {
-
-  color: #fff;
+.money {
   font-weight: 600;
   font-size: 1.5rem;
   margin-top: 40rpx;
 }
+
+.content {
+  width: 650rpx;
+  margin-top: -200rpx;
+  padding: 25rpx 0;
+}
+
+.content>view {
+  width: 90%;
+  margin-top: 12rpx;
+}
+
+.content>view>view:first-child {
+  width: 25%;
+}
+
+
+.enterprise,
+.describe {
+  padding: 20rpx 0;
+  margin-top: 30rpx;
+}
+
+.enterprise>view,
+.describe>view {
+  width: 95%;
+}
+
+.enterprise>view:nth-child(2)>view {
+  margin: 10rpx 0;
+  color: #666;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.icon {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+}
+
+
+
+/* 
+
+
+
+.container 
+
+.container .header 
+.container .header 
 
 .container .title {
   display: flex;
@@ -43,14 +83,12 @@ page {
 }
 
 .container .title .jobtitle {
-  width: 650rpx;
-  height: 400rpx;
+  
   background: #FFF;
-  margin-top: -200rpx;
+  
   display: flex;
   flex-direction: column;
-  padding: 40rpx;
-  box-sizing: border-box;
+  
 }
 
 .container .title .jobtitle .jobname {
@@ -424,4 +462,4 @@ button::after {
   width: 70rpx;
   height: 70rpx;
   align-self: center;
-}
+} */

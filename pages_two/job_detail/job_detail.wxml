@@ -1,60 +1,66 @@
+<import src="../../wxParse/wxParse.wxml" />
+
 <view class="container col fl-align">
-  <block>
-    <view class="header">
-      <view class="moneytitle">{{position.postName}}</view>
-      <view class="money">{{position.salary}}</view>
+
+  <view class="header flex col fl-align">
+    <view class="moneytitle c-ff">{{position.postName}}</view>
+    <view class="money c-ff">{{position.salary}}</view>
+  </view>
+
+  <view class="content b-ff flex col fl-align">
+
+    <view class="flex">
+        <view>地址:</view>
+        <view class="c-66">{{enterprise.address}}</view>
     </view>
-    <view class="title">
-      <view class="jobtitle">
-        <view class="jobname flex">
-          <view>地址:</view>
-          <view>{{enterprise.address}}</view>
-        </view>
-        <view class="jobname flex">
-          <view style="width: 21%">要求:</view>
-          <view class="flex fl-w">
-            <view>学历/{{position.educationRequirements}}</view>
-            <view>工作经验/{{position.workExperience}}</view>
-            <view>年龄/{{position.ageRequirement}}</view>
-            <view>{{position.jobDescription}}.</view>
-          </view>
-        </view>
-        <view class="jobname flex fl-w">
-          <view>招聘人数:</view>
-          <view>{{position.recruitment}}人</view>
-        </view>
-        <view class="jobname flex fl-w">
-          <view>特色服务:</view>
-          <view wx:if="{{position.special != '' }}">{{position.special}}</view>
-          <view wx:else>无</view>
-        </view>
-        <view class="jobname flex fl-w">
-          <view>发布日期:</view>
-          <view>{{position.createTime}}</view>
-        </view>
+
+    <view class="flex">
+      <view>要求:</view>
+      <view class="flex col">
+        <view class="c-66">学历：{{position.educationRequirements}} </view>
+        <view class="c-66">工作经验：{{position.workExperience}}</view>
+        <view class="c-66">年龄：{{position.ageRequirement}}</view>
       </view>
     </view>
-    <view class="jobinfo">
-      <view class="jobtitle">
-        <view>发布企业</view>
-        <view>正在招聘</view>
-      </view>
-      <view class="joblabel">
-        <view>{{enterprise.enterpriseName}}</view>
-        <view>{{enterprise.scale}}|{{enterprise.nature}}|{{enterprise.trade}}</view>
-        <view class="flex fl-align"><image src="../../img/lbs.png" />{{enterprise.address}}</view>
+
+    <view class="flex fl-w">
+      <view>招聘人数:</view>
+      <view class="c-66">{{position.recruitment}}人</view>
+    </view>
+
+    <view class="flex fl-w">
+      <view>特色服务:</view>
+      <view class="c-66" wx:if="{{position.special != '' }}">{{position.special}}</view>
+      <view class="c-66" wx:else>无</view>
+    </view>
+
+    <view class="jobname flex fl-w">
+      <view>发布日期:</view>
+      <view class="c-66">{{position.createTime}}</view>
+    </view>
+
+  </view>
+
+  <view class="enterprise w100 b-ff flex col fl-align">
+
+    <view class="title">发布企业</view>
+
+    <view>
+      <view>{{enterprise.enterpriseName}}</view>
+      <view>{{enterprise.scale}}|{{enterprise.nature}}|{{enterprise.trade}}</view>
+      <view class="flex fl-align">
+        <image src="../../img/lbs.png" class="icon"/>{{enterprise.address}}
       </view>
     </view>
-    <view class="company">
+
+  </view>
+
+  <view class="describe w100 b-ff flex col fl-align">
+    <view class="title">职位描述</view>
+    <view class="c-66" style="margin-top:15rpx;">
+      <template is="wxParse" data="{{wxParseData:ask.nodes}}"></template>
+    </view>
+  </view>
     
-    </view>
-    <view class="jobdetail">
-      <view class="jobtitle">职位描述</view>
-    </view>
-    <view class="jobcontent">
-      <view class="detail">
-        <view>{{position.jobDescription}}</view>
-      </view>
-    </view>
-  </block>
 </view>
+

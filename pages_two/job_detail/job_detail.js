@@ -2,6 +2,8 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
+const WxParse = require('../../wxParse/wxParse.js')
+
 Page({
 
   data: {
@@ -13,14 +15,12 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log(options.id)
+    // console.log(options.id)
     this.setData({
       id: options.id
     })
+
     this.getBase(options.id)
-
-    this.getEnterprise(options.id)
-
 
   },
 
@@ -31,11 +31,14 @@ Page({
       id: id
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
-      console.log(res)
+      console.log(res.result.records[0])
       if (res.code == 0) {
         that.setData({
           position: res.result.records[0]
         })
+        let ask = res.result.records[0].jobDescription
+        WxParse.wxParse('ask', 'html', ask, that, 5)
+        that.getEnterprise(res.result.records[0].enterpriseInfoId)
       } else {
         modal.showToast(res.messgae, 'none')
       }
@@ -43,13 +46,13 @@ Page({
   },
 
   // 企业数据
-  getEnterprise: function (id) {
+  getEnterprise: function (e) {
     let that = this
     let data = {
-      id: id
+      id: e
     }
     util.sendRequest('/zqhr/hall/enterprise/list', 'get', data).then(function (res) {
-      console.log(res)
+      console.log(res.result)
       if (res.code == 0) {
         that.setData({
           enterprise: res.result.records[0]
@@ -58,23 +61,5 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
-  },
-
-
-
-  onShow: function () {
-
-  },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
   }
 })

@@ -25,6 +25,7 @@
 
 .selectitem {
   flex: 1;
+  color: #8c8b8b;
 }
 
 .introduce {
