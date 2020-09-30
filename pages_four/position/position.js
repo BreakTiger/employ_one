@@ -18,6 +18,7 @@ Page({
   getList: function () {
     let that = this
     let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
       pageNo: that.data.page,
       pageSize: 10
     }
@@ -118,7 +119,7 @@ Page({
     })
   },
 
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function () {
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -133,11 +134,12 @@ Page({
     }, 1000);
   },
 
-  onReachBottom:function(){
+  onReachBottom: function () {
     let that = this
     let old = that.data.list
     let data = {
-      pageNo: that.data.page+1,
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: that.data.page + 1,
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
@@ -147,7 +149,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(news),
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 

@@ -158,11 +158,9 @@ Page({
         scanType: 'qrCode',
         success: function (res) {
           console.log(res)
-          let arr = []
-          arr = res.result.split("|")
-          console.log(arr)
+
           wx.navigateTo({
-            url: '/pages_one/gain/gain?code=' + arr[0] + '&sid=' + arr[1],
+            url: '/pages_one/gain/gain?code=' + res.result,
           })
         }
       })

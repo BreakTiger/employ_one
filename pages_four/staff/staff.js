@@ -24,7 +24,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
       role: wx.getStorageSync('person').userRole,
-      staffManageId: ''
+      staffManageId: wx.getStorageSync('person').userId
     }
     util.sendRequest('/zqhr/app/staff/list', 'get', data).then(function (res) {
       console.log(res)
@@ -110,10 +110,10 @@ Page({
     let old = that.data.list
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
-      pageNo: that.data.page+1,
+      pageNo: that.data.page + 1,
       pageSize: 10,
       role: wx.getStorageSync('person').userRole,
-      staffManageId: ''
+      staffManageId: wx.getStorageSync('person').userId
     }
     util.sendRequest('/zqhr/app/staff/list', 'get', data).then(function (res) {
       console.log(res.result.records)
@@ -122,7 +122,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(news),
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 

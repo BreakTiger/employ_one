@@ -22,7 +22,7 @@ Page({
   onLoad: function (options) {
     let that = this
     that.setData({
-      sid: options.sid,
+      // sid: options.sid,
       code: options.code,
       time: year + '/' + month + '/' + day + '/' + hour + ':' + minute + ':' + second
     })
@@ -34,9 +34,9 @@ Page({
     let data = {
       createBy: wx.getStorageSync('company').id,
       ipadCode: that.data.code,
-      jobFairId: that.data.sid,
+      // jobFairId: that.data.sid,
       token: wx.getStorageSync('token'),
-      borrowingTime: year + '/' + month + '/' + day + '/' + hour + ':' + minute + ':' + second,
+      borrowingTime: year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second,
       borrowState: 1
     }
     util.sendRequest("/zqhr/hall/tabletpc/scan", 'post', data).then(function (res) {
@@ -60,9 +60,9 @@ Page({
       borrowState: -1,
       updateBy: wx.getStorageSync('company').id,
       ipadCode: that.data.code,
-      jobFairId: that.data.sid,
+      // jobFairId: that.data.sid,
       token: wx.getStorageSync('token'),
-      returnTime: year + '/' + month + '/' + day + '/' + hour + ':' + minute + ':' + second,
+      returnTime: year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second,
     }
     util.sendRequest('/zqhr/hall/tabletpc/repay', 'post', data).then(function (res) {
       if (res.code == 200) {
