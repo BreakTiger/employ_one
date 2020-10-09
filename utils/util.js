@@ -34,7 +34,13 @@ function sendRequest(url, method, data, loading) {
               content: "登录失效，请重新登录",
               success: function (res) {
                 if (res.confirm) {
-                  // wx.clearStorage()
+                  
+                  // 清空所有的缓存
+                  wx.clearStorage()
+
+                  // 关闭socket连接
+                  wx.closeSocket()
+
                   wx.navigateTo({
                     url: '/pages/login/login',
                   })

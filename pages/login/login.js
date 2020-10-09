@@ -42,11 +42,24 @@ Page({
           wx.navigateBack({
             delta: 0,
           })
+
+          app.startConnect()
         } else {
           modal.showToast(res.message, 'none')
         }
       })
     }
+
+  },
+
+  // 创建链接
+  startConnect: function () {
+    let that = this
+    let id = wx.getStorageSync('company').id
+    
+
+    
+
 
   },
 
