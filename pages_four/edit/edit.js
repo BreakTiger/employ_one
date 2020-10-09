@@ -54,28 +54,37 @@ Page({
       console.log(res)
       if (res.code == 0) {
         let detail = res.result.records[0]
-        that.setData({
-          detail: detail,
-          trade: detail.trade,
-          property: detail.nature,
-          scale: detail.scale,
-          area: detail.area,
-          examinestate: detail.examinestate,
-          idcard: detail.idcard
-        })
-        if (detail.logoAddress) { //logo存在
-          console.log('存在：', detail.logoAddress)
+        if (detail) {
+          console.log(detail)
+
           that.setData({
-            logo: app.globalData.imaUrl + detail.logoAddress
+            detail: detail,
+            trade: detail.trade,
+            property: detail.nature,
+            scale: detail.scale,
+            area: detail.area,
+            examinestate: detail.examinestate,
+            idcard: detail.idcard
           })
+
+          if (detail.logoAddress) { //logo存在
+            console.log('存在：', detail.logoAddress)
+            that.setData({
+              logo: app.globalData.imaUrl + detail.logoAddress
+            })
+          }
+
+          if (detail.businessLicenseAddress) { //营业执照存在
+            console.log('存在：', detail.businessLicenseAddress)
+            that.setData({
+              businessLicense: app.globalData.imaUrl + detail.businessLicenseAddress
+            })
+          }
+
         }
 
-        if (detail.businessLicenseAddress) { //营业执照存在
-          console.log('存在：', detail.businessLicenseAddress)
-          that.setData({
-            businessLicense: app.globalData.imaUrl + detail.businessLicenseAddress
-          })
-        }
+
+
       } else {
         modal.showToast(res.message, 'none')
       }
