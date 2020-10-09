@@ -68,15 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "企业信息编辑",
-          "pathName": "pages_four/edit/edit",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

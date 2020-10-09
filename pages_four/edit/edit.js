@@ -80,11 +80,8 @@ Page({
               businessLicense: app.globalData.imaUrl + detail.businessLicenseAddress
             })
           }
-
+          
         }
-
-
-
       } else {
         modal.showToast(res.message, 'none')
       }
