@@ -6,7 +6,7 @@
 </view>
 
 <view class="header flex col fl-align" wx:else>
-	<image src="{{imgUrl+company.logoAddress}}"></image>
+	<image src="{{company.logoAddress?'imgUrl+company.logoAddress':'../../images/center.png'}}"></image>
 	<view>{{company.enterpriseName}}</view>
 </view>
 
