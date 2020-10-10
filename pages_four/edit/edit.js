@@ -414,9 +414,6 @@ Page({
       console.log(res)
       if (res.code == 200) {
         modal.showToast(res.message)
-        // setTimeout(() => {
-        //   that.getBase()
-        // }, 2000);
       } else {
         modal.showToast(res.message, 'none')
       }

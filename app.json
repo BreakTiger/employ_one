@@ -50,7 +50,8 @@
         "staff/staff",
         "add_ staff/add_ staff",
         "staff_editor/staff_editor",
-        "vitae_count/vitae_count"
+        "vitae_count/vitae_count",
+        "media/media"
       ]
     }
   ],

@@ -37,4 +37,5 @@ staff_editor
 10.收到简历
 vitae_count
 
-
+11.媒体
+media
