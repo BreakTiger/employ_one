@@ -29,7 +29,7 @@
 /* 轮播图 */
 .swiper_box {
   width: 100%;
-  height: 202px;
+  height: 402rpx;
 }
 
 

@@ -1,5 +1,5 @@
 .container {
-  width: 750rpx;
+  width: 100%;
   height: auto;
   display: flex;
   font-family: PingFangSC-Regular, PingFang SC;

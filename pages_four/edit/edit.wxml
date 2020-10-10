@@ -100,8 +100,8 @@
 
 		<view class="title">企业营业执照</view>
 		<view class="logo flex fl-w">
-			<image src="{{businessLicense}}" class="logo-img" wx:if="{{businessLicense}}" bindtap="getBusinessLicense"></image>
-			<image src="../../images/pub.png" class="logo-img" wx:else bindtap="getBusinessLicense"></image>
+			<image src="{{license}}" class="logo-img" wx:if="{{license}}" bindtap="getLicense"></image>
+			<image src="../../images/pub.png" class="logo-img" wx:else bindtap="getLicense"></image>
 		</view>
 
 		<button class="btn b-e5 c-ff" form-type="submit">保存公司信息</button>

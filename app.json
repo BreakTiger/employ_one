@@ -59,7 +59,8 @@
     "navigationBarBackgroundColor": "#3274e5",
     "navigationBarTitleText": "肇庆人力资源市场企业版",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "pageOrientation": "portrait"
   },
   "tabBar": {
     "color": "#6e6d6b",
