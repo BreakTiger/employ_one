@@ -196,22 +196,38 @@ Page({
   // 简历详情
   toWorkerDetail: function (e) {
     let that = this
-    let detail = e.currentTarget.dataset.item
-    let data = {
-      curriculumVitaeId: detail.id,
-      enterpriseInfoId: wx.getStorageSync('company').id
-    }
-    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        app.globalData.worker = detail
-        wx.navigateTo({
-          url: '/pages/vitae/vitae',
-        })
-      } else {
-        modal.showToast(res.message, 'none')
+    let token = wx.getStorageSync('token')
+    if (token) {
+      let detail = e.currentTarget.dataset.item
+      let data = {
+        curriculumVitaeId: detail.id,
+        enterpriseInfoId: wx.getStorageSync('company').id
       }
-    })
+      util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          app.globalData.worker = detail
+          wx.navigateTo({
+            url: '/pages/vitae/vitae',
+          })
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
+
   },
 
   onPullDownRefresh: function () {

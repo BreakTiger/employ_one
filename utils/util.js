@@ -39,7 +39,7 @@ function sendRequest(url, method, data, loading) {
                   wx.clearStorage()
 
                   // 关闭socket连接
-                  wx.closeSocket()
+                  // wx.closeSocket()
 
                   wx.navigateTo({
                     url: '/pages/login/login',

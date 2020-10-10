@@ -164,28 +164,6 @@ Page({
           })
         }
       })
-      // let sign = wx.getStorageSync('sign')
-      // if (sign) {
-      //   wx.scanCode({
-      //     onlyFromCamera: true,
-      //     scanType: 'qrCode',
-      //     success: function (res) {
-      //       console.log(res)
-      //       let arr = []
-      //       arr = res.result.split("|")
-      //       console.log(arr)
-      //       wx.navigateTo({
-      //         url: '/pages_one/gain/gain?code=' + arr[0] + '&sid=' + arr[1],
-      //       })
-      //     }
-      //   })
-      // } else {
-      //   wx.showModal({
-      //     title: "提示",
-      //     content: "请先扫码签到",
-      //     showCancel: false,
-      //   })
-      // }
     } else {
       wx.showModal({
         title: '提示',
