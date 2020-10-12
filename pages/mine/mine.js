@@ -92,27 +92,26 @@ Page({
   // 跳转:
 
   // 通知
-  notice: function () {
-    let token = wx.getStorageSync('token')
-    if (token) {
-      wx.navigateTo({
-        url: '/pages_four/notice/notice',
-      })
-    } else {
-      wx.showModal({
-        title: "提示",
-        content: "请先登录",
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '/pages/login/login',
-            })
-          }
-        }
-      })
-    }
-
-  },
+  // notice: function () {
+  //   let token = wx.getStorageSync('token')
+  //   if (token) {
+  //     wx.navigateTo({
+  //       url: '/pages_four/notice/notice',
+  //     })
+  //   } else {
+  //     wx.showModal({
+  //       title: "提示",
+  //       content: "请先登录",
+  //       success: function (res) {
+  //         if (res.confirm) {
+  //           wx.navigateTo({
+  //             url: '/pages/login/login',
+  //           })
+  //         }
+  //       }
+  //     })
+  //   }
+  // },
 
   //收到简历
   toCount: function () {
@@ -157,7 +156,27 @@ Page({
         }
       })
     }
+  },
 
+  upMedia: function () {
+    let token = wx.getStorageSync('token')
+    if (token) {
+      wx.navigateTo({
+        url: '/pages_four/media/media',
+      })
+    } else {
+      wx.showModal({
+        title: "提示",
+        content: "请先登录",
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
   },
 
   // 员工管理

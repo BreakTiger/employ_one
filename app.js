@@ -57,89 +57,11 @@ App({
         }
       }
     })
-
-    this.startConnect()
-
   },
-
-  // 启动socket
-  startConnect: function () {
-
-    let id = wx.getStorageSync('company').id
-
-    if (id) {
-
-      let url = 'wss://zqrsjjz.jiahangit.com.cn' + '/zqhr/websocket/' + id
-
-      // console.log('开启socket')
-      // console.log('链接为：', url)
-
-      // // 创建链接
-      // sotk = wx.connectSocket({
-      //   url: url,
-      //   header: {
-      //     "content-type": "application/json"
-      //   },
-      //   success: function (res) {
-      //     // console.log('创建成功', res)
-      //   },
-      //   fail: function (res) {
-      //     modal.showToast('创建连接失败', 'none')
-      //   }
-      // })
-
-      // // 监听开启
-      // sotk.onOpen(res => {
-      //   socketOpen = true;
-      //   // console.log('监听 WebSocket 连接打开事件。', res);
-      // })
-
-      // // 监听关闭
-      // sotk.onClose(res => {
-      //   socketOpen = false;
-      //   console.log('监听 WebSocket 连接关闭事件。', onClose)
-      // })
-
-      // // 监听错误
-      // sotk.onError(onError => {
-      //   socketOpen = true;
-      //   console.log('监听 WebSocket 错误。错误信息', onError)
-      // })
-
-      // // 发送数据
-      // // wx.onSocketOpen(function () {
-      // //   wx.sendSocketMessage({
-      // //     data: 'stock',
-      // //   })
-      // // })
-
-      // // 收到消息
-      // sotk.onMessage(onMessage => {
-      //   console.log('监听返回的数据内容：', onMessage);
-      //   let data = JSON.parse(onMessage.data)
-      //   console.log(data)
-      //   // reMsg(data);
-      // })
-
-    }
-
-  },
-
-  // // 断开 webSoket的方法
-  // closeWebSocket() {
-  //   sotk.close()
-  //   socketOpen = false;
-  // },
-
   globalData: {
     imaUrl: 'https://zqrsjjz.jiahangit.com.cn/zqhr',
     notice: {}, //通知信息
     venue: {}, //会场信息
     worker: {}, //简历信息
-  },
-
-  // onHide: function () {
-  //   this.closeWebSocket();
-  // }
-
+  }
 })

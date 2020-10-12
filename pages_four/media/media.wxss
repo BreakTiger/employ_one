@@ -1,0 +1,41 @@
+.title {
+  width: 100%;
+  height: 75rpx;
+  line-height: 75rpx;
+  background: #f5f5f5;
+  font-size: 22rpx;
+  color: #616161;
+}
+
+.title>text {
+  margin-left: 30rpx;
+}
+
+.picture {
+  height: 350rpx;
+}
+
+.picture>image,
+.picture>view {
+  width: 121rpx;
+  height: 121rpx;
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  width: 25rpx;
+  height: 25rpx;
+  z-index: 200;
+}
+
+.videos image,
+video {
+  width: 698rpx;
+  height: 433rpx;
+  margin-top: 35rpx;
+}

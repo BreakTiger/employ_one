@@ -34,12 +34,13 @@
 <!-- 入口列表 -->
 <view class="list b-ff">
 
-	<view class="item flex fl-align fl-jsb" bindtap="notice">
+	<!-- <view class="item flex fl-align fl-jsb" bindtap="notice">
 		<view class="flex fl-align">
 			<image src="../../img/inform.png" class="icon"></image>邀约通知
 		</view>
 		<view class="count c-ff" wx:if="{{detail.invitationCount}}">{{detail.invitationCount}}</view>
-	</view>
+	</view> -->
+
 
 	<view class="item" bindtap="toCount">
 		<image src="../../img/note.png" class="icon"></image>收到简历
@@ -47,6 +48,11 @@
 
 	<view class="item" bindtap="toEditcompany">
 		<image src="../../img/edit.png" class="icon"></image>企业信息编辑
+	</view>
+
+	
+	<view class="item" bindtap="upMedia">
+		<image src="../../img/media.png" class="icon"></image>多媒体上传
 	</view>
 
 	<view class="item" bindtap="toMyjoblist">

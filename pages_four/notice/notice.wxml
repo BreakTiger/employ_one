@@ -16,6 +16,6 @@
 	<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
    		<image src="../../images/empty.png" class="empty"></image>
    		<text class="c-98">暂无求职记录</text>
-   	</view>
+  </view>
 
 </view>

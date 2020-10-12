@@ -1,0 +1,24 @@
+<view class="container col fl-align">
+
+  <view class="title">
+    <text>宣传图上传</text>
+  </view>
+
+  <view class="picture w100 flex fl-w">
+    <image src="../../images/add.png" wx:if="{{img.length<=5}}" bindtap="choseImg"></image>
+    <view wx:for="{{img}}" wx:key="index">
+      <image class="close" src="../../images/close.png" data-index="{{index}}"></image>
+      <image src="{{item}}" class="wh"></image>
+    </view>
+  </view>
+
+  <view class="title">
+    <text>高清视频上传</text>
+  </view>
+
+  <view class="videos flex col fl-align">
+    <image src="../../images/upVideo.png" wx:if="{{!vd}}" bindtap="choiceVideo"></image>
+    <video src="{{vd}}" wx:else></video>
+  </view>
+
+</view>

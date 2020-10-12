@@ -18,7 +18,6 @@ Page({
 
     list: [], //区域 行业
 
-
     //区域
     carid: 0,
     title: '',
