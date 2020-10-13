@@ -70,6 +70,12 @@
 			<view>电子入场券</view>
 		</view>
 
+		
+		<view class="item flex col fl-align" bindtap="notice">
+			<image src="../../nav/nav-6.png"></image>
+			<view>通知</view>
+		</view>
+
 	</view>
 
 
@@ -99,8 +105,6 @@
 				<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
 					<text>{{item.name}}</text>
 					<text>{{tools.distance(item.createTime)}}</text>
-					<!-- <text wx:if="{{item.createTime}}">{{tools.distance(item.createTime)}} </text> -->
-					<!-- <text>{{item.createTime}}</text> -->
 				</view>
 				<view style="color:#646464;font-size:.7rem;">
 					<text wx:if="{{item.gender}}">{{item.gender}}</text>

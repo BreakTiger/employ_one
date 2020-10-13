@@ -8,6 +8,18 @@
 
 			<view class="list flex col fl-align">
 
+				<!-- 招聘会 -->
+				<view class="item">
+					<view class="name">参与招聘会</view>
+					<view class="selectitem">
+						<picker range="{{fair}}" range-key="name" bindchange="bindFairChange">
+							<view class="picker">
+								{{fairname? fairname: '请选择参加的招聘会'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
 				<!-- 职位名 -->
 				<view class="item">
 					<view class="name">工作职位</view>

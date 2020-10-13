@@ -196,6 +196,28 @@ Page({
     })
   },
 
+  // 通知
+  notice: function () {
+    let token = wx.getStorageSync('token')
+    if (token) {
+      wx.navigateTo({
+        url: '/pages_four/notice/notice',
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请您先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
+  },
+
   // 发布职位
   toAddCompanyjob: function () {
     let token = wx.getStorageSync('token')

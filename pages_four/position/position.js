@@ -6,20 +6,73 @@ Page({
 
 
   data: {
+
+    elist: [],
+    down: false,
+
+    choice: '',//招聘会ID
+
+    fid: '',
     page: 1,
     list: []
   },
 
 
   onShow: function () {
+    this.getElist()
     this.getList()
   },
 
+  // 招聘会列表
+  getElist: function () {
+    let that = this
+    let data = {
+      pageNo: 1,
+      pageSize: 50,
+    }
+    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          elist: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 显示 / 隐藏 下拉
+  showDown: function () {
+    let type = this.data.down
+    if (type) {
+      this.setData({
+        down: false
+      })
+    } else {
+      this.setData({
+        down: true
+      })
+    }
+  },
+
+  // 选择招聘会
+  choices: function (e) {
+    let that = this
+    let id = e.currentTarget.dataset.id
+    that.setData({
+      choice: id,
+      down: false
+    })
+    that.getList()
+  },
+
+  // 职位列表
   getList: function () {
     let that = this
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
       pageNo: that.data.page,
+      jobFairId: that.data.choice,
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
@@ -34,12 +87,6 @@ Page({
     })
   },
 
-  // 编辑
-  toEdit: function (e) {
-    wx.navigateTo({
-      url: '/pages/addJob/addJob?detail=' + JSON.stringify(e.currentTarget.dataset.item),
-    })
-  },
 
   // 添加职位
   addcompanyjob: function () {
@@ -49,114 +96,124 @@ Page({
   },
 
 
-  // 删除
-  toDel: function (e) {
-    let that = this
-    wx.showModal({
-      title: '提示',
-      content: '是否删除该职位',
-      success: function (res) {
-        if (res.confirm) {
-          let list = that.data.list
-          let index = e.currentTarget.dataset.index
-          let data = {
-            id: parseInt(e.currentTarget.dataset.id)
-          }
-          util.sendRequest('/zqhr/hall/position/delete', 'get', data).then(function (res) {
-            console.log(res)
-            if (res.code == 200) {
-              modal.showToast(res.message)
-              list.splice(index, 1)
-              that.setData({
-                list: list
-              })
-            } else {
-              modal.showToast(res.message, 'none')
-            }
-          })
-        }
-      }
-    })
-  },
+  // // 编辑
+  // toEdit: function (e) {
+  //   wx.navigateTo({
+  //     url: '/pages/addJob/addJob?detail=' + JSON.stringify(e.currentTarget.dataset.item),
+  //   })
+  // },
 
-  // 开启 / 关闭 
-  isOpen: function (e) {
-    let that = this
-    let list = that.data.list
-    let index = e.currentTarget.dataset.index
-    let type = e.currentTarget.dataset.type
-    let id = e.currentTarget.dataset.id
-    let data = {}
-    if (type == 1) {
-      console.log('关闭')
-      data = {
-        enable: -1,
-        id: id
-      }
-    } else {
-      console.log('开启')
-      data = {
-        enable: 1,
-        id: id
-      }
-    }
-    util.sendRequest('/zqhr/hall/position/enable', 'get', data).then(function (res) {
-      if (res.code == 200) {
-        // 根据type,来JS变动enable
-        let temp_str = 'list[' + index + '].enable';
-        if (type == 1) {
-          that.setData({
-            [temp_str]: -1
-          })
-        } else {
-          that.setData({
-            [temp_str]: 1
-          })
-        }
-      } else {
-        modal.showToast(res.message, 'none')
-      }
-    })
-  },
+  
 
-  onPullDownRefresh: function () {
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 1000
-    })
-    this.setData({
-      page: 1
-    })
-    this.getList()
-    setTimeout(() => {
-      wx.stopPullDownRefresh()
-    }, 1000);
-  },
 
-  onReachBottom: function () {
-    let that = this
-    let old = that.data.list
-    let data = {
-      enterpriseInfoId: wx.getStorageSync('company').id,
-      pageNo: that.data.page + 1,
-      pageSize: 10
-    }
-    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
-      console.log(res.result.records)
-      if (res.code == 0) {
-        let news = res.result.records
-        if (news.length != 0) {
-          that.setData({
-            list: old.concat(news),
-            page: data.pageNo
-          })
-        } else {
+  // // 删除
+  // toDel: function (e) {
+  //   let that = this
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '是否删除该职位',
+  //     success: function (res) {
+  //       if (res.confirm) {
+  //         let list = that.data.list
+  //         let index = e.currentTarget.dataset.index
+  //         let data = {
+  //           id: parseInt(e.currentTarget.dataset.id)
+  //         }
+  //         util.sendRequest('/zqhr/hall/position/delete', 'get', data).then(function (res) {
+  //           console.log(res)
+  //           if (res.code == 200) {
+  //             modal.showToast(res.message)
+  //             list.splice(index, 1)
+  //             that.setData({
+  //               list: list
+  //             })
+  //           } else {
+  //             modal.showToast(res.message, 'none')
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
 
-        }
-      } else {
-        modal.showToast(res.messgae, 'none')
-      }
-    })
-  }
+  // // 开启 / 关闭 
+  // isOpen: function (e) {
+  //   let that = this
+  //   let list = that.data.list
+  //   let index = e.currentTarget.dataset.index
+  //   let type = e.currentTarget.dataset.type
+  //   let id = e.currentTarget.dataset.id
+  //   let data = {}
+  //   if (type == 1) {
+  //     console.log('关闭')
+  //     data = {
+  //       enable: -1,
+  //       id: id
+  //     }
+  //   } else {
+  //     console.log('开启')
+  //     data = {
+  //       enable: 1,
+  //       id: id
+  //     }
+  //   }
+  //   util.sendRequest('/zqhr/hall/position/enable', 'get', data).then(function (res) {
+  //     if (res.code == 200) {
+  //       // 根据type,来JS变动enable
+  //       let temp_str = 'list[' + index + '].enable';
+  //       if (type == 1) {
+  //         that.setData({
+  //           [temp_str]: -1
+  //         })
+  //       } else {
+  //         that.setData({
+  //           [temp_str]: 1
+  //         })
+  //       }
+  //     } else {
+  //       modal.showToast(res.message, 'none')
+  //     }
+  //   })
+  // },
+
+  // onPullDownRefresh: function () {
+  //   wx.showToast({
+  //     title: '加载中',
+  //     icon: 'loading',
+  //     duration: 1000
+  //   })
+  //   this.setData({
+  //     page: 1
+  //   })
+  //   this.getList()
+  //   setTimeout(() => {
+  //     wx.stopPullDownRefresh()
+  //   }, 1000);
+  // },
+
+  // onReachBottom: function () {
+  //   let that = this
+  //   let old = that.data.list
+  //   let data = {
+  //     enterpriseInfoId: wx.getStorageSync('company').id,
+  //     pageNo: that.data.page + 1,
+  //     pageSize: 10
+  //   }
+  //   util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
+  //     console.log(res.result.records)
+  //     if (res.code == 0) {
+  //       let news = res.result.records
+  //       if (news.length != 0) {
+  //         that.setData({
+  //           list: old.concat(news),
+  //           page: data.pageNo
+  //         })
+  //       } else {
+
+  //       }
+  //     } else {
+  //       modal.showToast(res.messgae, 'none')
+  //     }
+  //   })
+  // }
 })

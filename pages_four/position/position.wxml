@@ -1,57 +1,66 @@
-   <view class="container">
+<view class="container col fl-align">
 
-   	<view class="orderlist">
+  <!-- 筛选 -->
+	<view class="condition flex fl-align fl-jsb" bindtap="showDown">
+		<text>全部</text>
+		<image src="../../images/buttom.png" class="icon"></image>
+	</view>
+	
+	<!-- 筛选下拉框 -->
+	<view class="content b-ff" wx:if="{{down}}">
+		<scroll-view scroll-y="true" style="height:600rpx;">
+			<view class="item flex fl-align" bindtap="choices" data-id="">
+				<text>全部</text>
+				<image src="../../images/dui.png" class="choice" wx:if="{{!choice}}"></image>
+			</view>
+			<view class="item flex fl-align" wx:for="{{elist}}" wx:key="index" bindtap="choices" data-id="{{item.id}}">
+				<text>{{item.name}}</text>
+				<image src="../../images/dui.png" class="choice" wx:if="{{choice==item.id}}"></image>
+			</view>
+		</scroll-view>
+	</view>
 
-   		<view class="content" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+	<!-- 列表 -->
+	<view class="list-item w100 flex col fl-align">
+		<view class="title">
+			<text>XXXX</text>
+		</view>
+		<view class="job-item w100 flex col fl-align">
+			
+			<view class="one flex fl-align">
 
-   			<view class="jobinfo">
-   				<view class="jobleft">
-   					<view>{{item.submitResumeTotal}}</view>
-   					<view>投递简历</view>
-   				</view>
-   				<view class="line">
-   				</view>
+				<view class="left flex col fl-align fl-jse">
+					<text class="f45 fw-b">1</text>
+					<text class="f24 c-66">投递简历</text>
+				</view>
 
-   				<view class="jobright">
-   					<view class="jobtitle">
-   						<view>{{item.postName}}</view>
-   						<image src="../../images/edit.png" bindtap="toEdit" data-item="{{item}}" />
-   					</view>
-   					<view>人数:{{item.recruitment}} | 薪资:{{item.salary}}</view>
+				<view class="right flex col fl-jse">
 
-   					<view>创建:{{item.createTime}}</view>
+					<view class="flex fl-align">
+						<text class="fw-b f45">XXXXX</text>
+						<image src="../../images/edit.png" class="edit"></image>
+					</view>
 
-   				</view>
+					<view class="f24 c-66">人数：10 | 薪资：7K - 10K</view>
 
-   			</view>
+					<view class="f24 c-66">创建：</view>
+				
+				</view>
+			
+			</view>
 
-   			<view class="payitem">
+			<view class="two flex fl-align fl-jsa">
+				<view>匹配</view>
+				<view>关闭</view>
+				<!-- <view>开启</view> -->	
+				<view>删除</view>
+			</view>
+		
+		</view>
 
-   				<!-- <view>置顶</view> -->
+	</view>
 
-   				<view>匹配</view>
-
-					<view wx:if="{{item.enable == 1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">关闭</view>
-
-					<view wx:if="{{item.enable == -1}}" bindtap="isOpen" data-type="{{item.enable}}" data-index="{{index}}" data-id="{{item.id}}">开启</view>
-
-   				<view bindtap="toDel" data-id="{{item.id}}" data-index="{{index}}">删除</view>
-
-   			</view>
-
-   		</view>
-
-   	</view>
-   </view>
+	<view class="add c-ff f24" bindtap="addcompanyjob">添加招聘职位</view>
 
 
-   <view class="weixinmao-float">
-   	<view class="weixinmao-foot">
-   		<view class="footer" bindtap='addcompanyjob'>添加招聘职位</view>
-   	</view>
-   </view>
-
-	 <view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
-   		<image src="../../images/empty.png" class="empty"></image>
-   		<text class="c-98">暂无应聘职位</text>
-   	</view>
+</view>

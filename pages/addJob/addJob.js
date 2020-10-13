@@ -8,6 +8,12 @@ Page({
   data: {
     detail: {},
 
+
+    // 招聘会
+    fair: [],
+    fairname: '',
+    fairid: '',
+
     //岗位类型
     type: [],
     choice_one: 0,
@@ -88,14 +94,33 @@ Page({
         that.seteld(that.data.choice)
       }
 
-
     }
+
+    that.getElist()
 
     that.typeList()
 
     that.priceList()
 
     that.educationList()
+  },
+
+  // 招聘会列表
+  getElist: function () {
+    let that = this
+    let data = {
+      pageNo: 1,
+      pageSize: 50,
+    }
+    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          fair: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
 
@@ -235,6 +260,15 @@ Page({
     })
   },
 
+  bindFairChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.fair
+    this.setData({
+      fairname: list[index].name,
+      fairid: list[index].id
+    })
+  },
+
   bindPriceChange: function (e) {
     let index = e.detail.value
     let list = this.data.price
@@ -291,7 +325,9 @@ Page({
   formSubmit: function (e) {
     let that = this
     let data = e.detail.value
-    if (!data.name) {
+    if (!that.data.fairname) {
+      modal.showToast('请选择要参加的招聘会', 'none')
+    } else if (!data.name) {
       modal.showToast('请输入岗位名称', 'none')
     } else if (!that.data.typeName) {
       modal.showToast('请选择岗位类型', 'none')
@@ -311,6 +347,7 @@ Page({
       modal.showToast('请输入岗位描述', 'none')
     } else {
       let param = {
+        jobFairId: that.data.fairid,
         createBy: wx.getStorageSync('company').id,
         enterpriseInfoId: wx.getStorageSync('company').id,
         enable: 1,
@@ -333,7 +370,7 @@ Page({
       } else {
         that.editors(param)
       }
-      
+
     }
   },
 

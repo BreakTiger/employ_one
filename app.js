@@ -1,6 +1,10 @@
-//app.js
+const util = require('utils/util.js')
+
 let sotk = null; //连接对象
 let socketOpen = false; //连接状态
+
+
+
 
 App({
 
@@ -57,6 +61,24 @@ App({
         }
       }
     })
+  },
+  onShow: function () {
+    // 30分钟倒计时
+
+    // wx.showModal({
+    //   title: '人才匹配通知',
+    //   content: '已检测到15位符合您企业发布职位要求的人才进入会场，是否点击查看',
+    //   cancelText: '返回',
+    //   confirmText: '查看',
+    //   confirmColor: '#3274e5',
+    //   success: function (res) {
+    //     if (res.confirm) {
+        
+    //     } else if (res.cancel) {
+          
+    //     }
+    //   }
+    // })
   },
   globalData: {
     imaUrl: 'https://zqrsjjz.jiahangit.com.cn/zqhr',

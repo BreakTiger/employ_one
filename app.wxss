@@ -61,6 +61,24 @@
   justify-content: flex-end;
 }
 
+/* 字体大小 */
+.f24 {
+  font-size: 24rpx;
+}
+
+.f30 {
+  font-size: 30rpx;
+}
+
+.f45{
+  font-size: 45rpx;
+}
+
+/* 字体粗细 */
+.fw-b{
+  font-weight: bold;
+}
+
 /* 字体颜色 */
 .c-ff {
   color: #fff;
@@ -74,7 +92,7 @@
   color: #3274e5;
 }
 
-.c-98{
+.c-98 {
   color: #999798;
 }
 

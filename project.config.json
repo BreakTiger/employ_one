@@ -71,22 +71,22 @@
       "list": [
         {
           "id": -1,
-          "name": "111",
-          "pathName": "pages/workerdetail/workerdetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "个人",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
           "name": "多媒体",
           "pathName": "pages_four/media/media",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "职位管理",
+          "pathName": "pages_four/position/position",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "职位添加",
+          "pathName": "pages/addJob/addJob",
           "scene": null
         }
       ]
