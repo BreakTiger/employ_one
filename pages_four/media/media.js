@@ -115,6 +115,7 @@ Page({
       let data = {
         systype: 'appEnterprise'
       }
+      
 
     }
 
