@@ -75,13 +75,6 @@
           "pathName": "pages_four/media/media",
           "query": "",
           "scene": null
-        },
-        {
-          "id": -1,
-          "name": "匹配简历",
-          "pathName": "pages_four/match/match",
-          "query": "",
-          "scene": null
         }
       ]
     }

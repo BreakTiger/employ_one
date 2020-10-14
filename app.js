@@ -1,4 +1,5 @@
 const util = require('utils/util.js')
+const { default: modals } = require('./modals')
 
 App({
 
@@ -57,25 +58,54 @@ App({
     })
 
   },
-  
+
   onShow: function () {
     // 30分钟倒计时
+    let that = this
+    let token = wx.getStorageSync('token')
+    if (token) {
 
-    // wx.showModal({
-    //   title: '人才匹配通知',
-    //   content: '已检测到15位符合您企业发布职位要求的人才进入会场，是否点击查看',
-    //   cancelText: '返回',
-    //   confirmText: '查看',
-    //   confirmColor: '#3274e5',
-    //   success: function (res) {
-    //     if (res.confirm) {
-        
-    //     } else if (res.cancel) {
-          
-    //     }
-    //   }
-    // })
+      let i = setInterval(() => {
+        clearInterval(i) //停止定时器
+        let data = {
+          enterpriseInfoId: wx.getStorageSync('company').id,
+          pageNo: 1,
+          pageSize: 10
+        }
+        util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data).then(function (res) {
+          console.log(res)
+          if (res.code == 0) {
+            let list = res.result.records
+            let total = res.result.total
+            if (total != 0) {
+              let content = '已检测到' + total + '位符合您企业发布职位要求的人才进入会场，是否点击查看'
+              wx.showModal({
+                title: '人才匹配通知',
+                content: content,
+                cancelText: '返回',
+                confirmText: '查看',
+                confirmColor: '#3274e5',
+                success: function (res) {
+                  if (res.confirm) {
+                    that.onShow()
+                    // 跳转
+                    wx.navigateTo({
+                      url: '/pages/list/list' + JSON.stringify(list),
+                    })
+                  } else if (res.cancel) {
+                    that.onShow()
+                  }
+                }
+              })
+            }
+          } else {
+            modals.showToast(res.message, 'none')
+          }
+        })
+      }, 1800000);
+    }
   },
+
   globalData: {
     imaUrl: 'https://zqrsjjz.jiahangit.com.cn/zqhr',
     notice: {}, //通知信息

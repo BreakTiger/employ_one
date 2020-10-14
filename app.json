@@ -12,7 +12,8 @@
     "pages/addJob/addJob",
     "pages/workerdetail/workerdetail",
     "pages/vitae/vitae",
-    "pages/search_list/search_list"
+    "pages/search_list/search_list",
+    "pages/list/list"
   ],
   "subPackages": [
     {
