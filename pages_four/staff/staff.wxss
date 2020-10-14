@@ -28,6 +28,7 @@ page {
   position: fixed;
   bottom: 0rpx;
   left: 0rpx;
+  margin: 0rpx !important;
 }
 
 .btn-line>view {

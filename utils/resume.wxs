@@ -1,0 +1,80 @@
+var time = function (value) { // 时间分割
+    return value.split(' ')[0]
+}
+var holding = function(enable, end) { // 判断进程
+    var time = date(0);
+    if (end > time && enable == -1){
+        return '即将进行';
+    } else if(end > time && enable == 1) {
+        return '进行中';
+    } else {
+        return '已结束';
+    }
+}
+var entry = function(end) { // 判断报名
+    var time = date(0);
+    if (end < time) {
+        return 0;
+    }
+}
+var distance = function(create) { // 时间间隔
+    create = create.split(' ')[0]; // 当前时间
+    var yesterday = date(1); // 昨天
+    var today = date(0); // 今天
+    today = today.split(' ')[0];
+    if (create == today) { // 判断是否为今天
+        return '今天';
+    } else if(create == yesterday) { // 判断是否为昨天
+        return '昨天';
+    } else {
+        var sDate =  getDate(today).getTime();
+        var eDate =  getDate(create).getTime();
+        var thisMothDays = 1000 * 3600 * 24 * getDays();
+        if (eDate - sDate > thisMothDays) { // 判断是否大于一个月
+            return '一个月前';
+        } else { // 返回具体时间
+            return create;
+        }
+    }
+}
+function getDays() {// 获取当前月的总天数
+	var date = getDate();
+	date.setMonth(date.getMonth() + 1);//将当前月份加1，下移到下一个月
+	date.setDate(0);//将当前的日期置为0，
+	var days = date.getDate();//再获取天数即取上个月的最后一天的天数
+	return days;
+}
+function date(days) { // 获取当前时间 0今天 1昨天 
+    var date =  getDate();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    var day = date.getDate()
+    if (month<10) month = '0' + month;
+    if (day<10) day = '0' + day;
+    if (hour<10) hour = '0' + hour;
+    if (minute<10) minute = '0' + minute;
+    if (second<10) second = '0' + second;
+    var time = '';
+    if (days == 0) {
+        time = year + '-' + month + '-' + day;
+        return time;
+    } else {
+        var dayt = date.getDate() - 1;
+        if (dayt<10) day = '0' + dayt;
+        time = year + '-' + month + '-' + dayt;
+        return time;
+    }
+}
+var division = function(value) { // 以逗号分割
+    // value = '五险一金,交通补贴,定期体检';
+    var str = value.split(',');
+    return str;
+}
+module.exports.time = time
+module.exports.holding = holding
+module.exports.entry = entry
+module.exports.distance = distance
+module.exports.division = division

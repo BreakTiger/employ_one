@@ -1,14 +1,14 @@
 <form bindsubmit="formSubmit">
 	<view class="container col fl-align">
 
-		<view class="title">员工基本信息</view>
+		<view class="title">用户基本信息</view>
 
 		<view class="b-ff flex col fl-align content">
 
-			<view class="content-line flex fl-align">
+			<!-- <view class="content-line flex fl-align">
 				<text>角色</text>
-				<view>员工</view>
-			</view>
+				<view>普通用户</view>
+			</view> -->
 
 			<view class="content-line flex fl-align">
 				<text>姓名</text>
@@ -45,12 +45,12 @@
 				</view>
 			</view>
 
-			<view class="content-line flex fl-align" style="border：none;">
+			<!-- <view class="content-line flex fl-align" style="border：none;">
 				<text>身份证号码</text>
 				<view>
 					<input placeholder="请输入身份证号码" name="idcard" value="{{idcard}}"></input>
 				</view>
-			</view>
+			</view> -->
 
 		</view>
 

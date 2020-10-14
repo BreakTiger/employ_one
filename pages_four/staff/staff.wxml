@@ -22,7 +22,7 @@
 				<view class="item flex fl-align c-66">
 					<view class="name">角色</view>
 					<view wx:if="{{item.role==1}}">负责人</view>
-					<view wx:else>员工</view>
+					<view wx:else>普通用户</view>
 				</view>
 			</view>
 		</view>
@@ -37,7 +37,7 @@
 
 	<view style="height:80rpx;"></view>
 
-	<view class="btn c-ff" bindtap="toAdd">添加企业员工</view>
+	<view class="btn c-ff" bindtap="toAdd">添加用户</view>
 
 
 </view>

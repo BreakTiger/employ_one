@@ -5,9 +5,9 @@
   </view>
 
   <view class="picture w100 flex fl-w">
-    <image src="../../images/add.png" wx:if="{{img.length<=5}}" bindtap="choseImg"></image>
+    <image src="../../images/add.png" wx:if="{{img.length<5}}" bindtap="choseImg"></image>
     <view wx:for="{{img}}" wx:key="index">
-      <image class="close" src="../../images/close.png" data-index="{{index}}"></image>
+      <image class="close" src="../../images/close.png" data-type="1" data-index="{{index}}" bindtap="toDel"></image>
       <image src="{{item}}" class="wh"></image>
     </view>
   </view>
@@ -18,7 +18,12 @@
 
   <view class="videos flex col fl-align">
     <image src="../../images/upVideo.png" wx:if="{{!vd}}" bindtap="choiceVideo"></image>
-    <video src="{{vd}}" wx:else></video>
+    <view wx:else>
+      <image class="close_one" src="../../images/close.png" data-type="2" bindtap="toDel"></image>
+      <video class="wh" src="{{vd}}"></video>
+    </view>
   </view>
+
+  <view class="add b-e5 c-ff f24" bindtap="toSave">保存上传</view>
 
 </view>

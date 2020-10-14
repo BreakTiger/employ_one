@@ -60,7 +60,7 @@
 	</view>
 
 	<view class="item" bindtap="toStaff">
-		<image src="../../img/Jjob.png" class="icon"></image>员工管理
+		<image src="../../img/Jjob.png" class="icon"></image>用户管理
 	</view>
 
 	<view class="item" bindtap="toHistory">

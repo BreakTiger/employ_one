@@ -21,29 +21,29 @@
 	</view>
 
 	<!-- 列表 -->
-	<view class="list-item w100 flex col fl-align">
+	<view class="list-item w100 flex col fl-align" wx:for="{{list}}" wx:key="index">
 		<view class="title">
-			<text>XXXX</text>
+			<text>{{item.name}}</text>
 		</view>
-		<view class="job-item w100 flex col fl-align">
+		<view class="job-item w100 flex col fl-align" wx:for="{{item.data}}" wx:for-item="items"  wx:for-index="idx" wx:key="indexs">
 			
 			<view class="one flex fl-align">
 
 				<view class="left flex col fl-align fl-jse">
-					<text class="f45 fw-b">1</text>
+					<text class="f45 fw-b">{{items.submitResumeTotal}}</text>
 					<text class="f24 c-66">投递简历</text>
 				</view>
 
 				<view class="right flex col fl-jse">
 
 					<view class="flex fl-align">
-						<text class="fw-b f45">XXXXX</text>
-						<image src="../../images/edit.png" class="edit"></image>
+						<text class="fw-b f45">{{items.postName}}</text>
+						<image src="../../images/edit.png" class="edit" bindtap="toEdit" data-item="{{items}}"></image>
 					</view>
 
-					<view class="f24 c-66">人数：10 | 薪资：7K - 10K</view>
+					<view class="f24 c-66">人数：{{items.recruitment}} | 薪资：{{items.salary}}</view>
 
-					<view class="f24 c-66">创建：</view>
+					<view class="f24 c-66">创建：{{items.createBy}}</view>
 				
 				</view>
 			
@@ -51,9 +51,9 @@
 
 			<view class="two flex fl-align fl-jsa">
 				<view>匹配</view>
-				<view>关闭</view>
-				<!-- <view>开启</view> -->	
-				<view>删除</view>
+				<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
+				<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>	
+				<view bindtap="toDel" data-id="{{items.id}}" data-index="{{index}}" data-idx="{{idx}}">删除</view>
 			</view>
 		
 		</view>
@@ -61,6 +61,5 @@
 	</view>
 
 	<view class="add c-ff f24" bindtap="addcompanyjob">添加招聘职位</view>
-
 
 </view>

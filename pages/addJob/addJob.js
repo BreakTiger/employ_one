@@ -87,7 +87,9 @@ Page({
         sex: detail.genderRequirement,
         choice: detail.special,
         describe: detail.jobDescription,
-        typeName: detail.jobType
+        typeName: detail.jobType,
+        fairname: detail.jobFairName,
+        fairid:detail.jobFairId
       })
 
       if (that.data.choice) {

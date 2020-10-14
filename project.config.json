@@ -78,15 +78,9 @@
         },
         {
           "id": -1,
-          "name": "职位管理",
-          "pathName": "pages_four/position/position",
+          "name": "匹配简历",
+          "pathName": "pages_four/match/match",
           "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "职位添加",
-          "pathName": "pages/addJob/addJob",
           "scene": null
         }
       ]

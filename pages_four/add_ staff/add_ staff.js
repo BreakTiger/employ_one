@@ -7,20 +7,21 @@ Page({
 
   data: {
     sex: '',
+    psw: '123456',
     ed_type: false
   },
 
   onLoad: function (options) {
-    let detail = JSON.parse(options.detail)
-    if (detail) {
+    if (options.detail) {
+      let detail = JSON.parse(options.detail)
       console.log(detail)
       this.setData({
         ed_type: true,
-        sex: detail.sex,
+        sex: detail.gender,
         name: detail.name,
         phone: detail.phone,
-        psw: detail.password,
-        idcard: detail.idcard
+        psw: detail.password
+        // idcard: detail.idcard
       })
 
       wx.setNavigationBarTitle({
@@ -50,15 +51,18 @@ Page({
       modal.showToast('请输入合法的电话号码', 'none')
     } else if (!data.psw) {
       modal.showToast('请设置密码', 'none')
-    } else if (!data.idcard) {
-      modal.showToast('请输入身份证号码', 'none')
-    } else if (!(/(^\d{15}$)|(^\d{17}(\d|X)$)/.test(data.idcard))) {
-      modal.showToast('请输入合法的身份号码', 'none')
-    } else {
+    }
+    // else if (!data.idcard) {
+    //   modal.showToast('请输入身份证号码', 'none')
+    // } else if (!(/(^\d{15}$)|(^\d{17}(\d|X)$)/.test(data.idcard))) {
+    //   modal.showToast('请输入合法的身份号码', 'none')
+    // } 
+
+    else {
       let param = {
         enterpriseInfoId: wx.getStorageSync('company').id,
         gender: that.data.sex,
-        idcard: data.idcard,
+        // idcard: data.idcard,
         name: data.name,
         password: data.psw,
         phone: data.tel,
