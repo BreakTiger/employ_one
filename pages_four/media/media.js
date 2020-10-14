@@ -6,18 +6,54 @@ Page({
 
   data: {
 
-    type: '', //媒体类型
+    //媒体类型
+    type_one: 0,
+
+    type_two: 0,
 
     img: [], //图片
+    imgAddress: [],
 
-    vd: '', //视频
+    vd: {}, //视频
+    vdAddress: {},
 
-    edType: 0 // 0 保存 1 修改  根据获取的已上传内容来判断
+    edType: 0 //操作类型  0 保存 1 修改  根据获取的已上传内容来判断
 
   },
 
   onLoad: function (options) {
+
+    this.getPower()
+
     this.getMedia()
+
+  },
+
+  // 上传权限
+  getPower: function () {
+    let that = this
+    let data = {
+      id: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/zqhr/hall/enterprise/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        let detail = res.result.records[0]
+        if (detail.isuploadpictures == 1) {
+          that.setData({
+            type_one: 1
+          })
+        }
+
+        if (detail.isuploadvideo == 1) {
+          that.setData({
+            type_two: 1
+          })
+        }
+
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 获取媒体数据
@@ -28,12 +64,28 @@ Page({
     }
     util.sendRequest('/zqhr/hall/enterpriseMultimedia/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        // console.log(res.result.records[0])
-        // let result = res.result.records[0]
-        // that.setData({
-        //   type:result.multimediaType
-        // })
-
+        let list = res.result.records
+        if (list.length != 0) {
+          let one = []
+          let two = ''
+          list.forEach(function (item) {
+            if (item.multimediaType == 'img') {
+              one.push({
+                id: item.id,
+                path: app.globalData.imaUrl + item.multimediaAddress
+              })
+            } else {
+              two = {
+                id: item.id,
+                path: app.globalData.imaUrl + item.multimediaAddress
+              }
+            }
+          })
+          that.setData({
+            img: one,
+            vd: two
+          })
+        }
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -46,21 +98,65 @@ Page({
     wx.chooseImage({
       count: 5,
       success: function (res) {
-        let list = that.data.img
 
-        let img = res.tempFilePaths
 
         // 限制图片的张数为五张
-        let lists = list.concat(img)
-        that.setData({
-          img: lists.slice(0, 5)
-        })
+
+        let img = res.tempFilePaths
+        console.log(img)
+
+        that.upImage(img)
 
       },
       fail: function (res) {
         modal.showToast('图片选择失败', 'none')
       }
     })
+  },
+
+  // 上传图片
+  upImage: async function (list) {
+    let that = this
+    let one = []
+    let two = []
+    let data = {
+      systype: 'appEnterprise'
+    }
+    for (let i = 0; i < list.length; i++) {
+      let item = list[i]
+      console.log(item)
+      await util.upLoading(item, data).then(function (res) {
+        let datas = JSON.parse(res)
+        console.log(datas.result)
+        if (datas.code == 200) {
+
+          one.push(app.globalData.imaUrl + datas.result)
+
+          two.push(datas.result)
+
+          let data = {
+            createBy: wx.getStorageSync('company').id,
+            enterpriseInfoId: wx.getStorageSync('company').id,
+            multimediaAddress: datas.result,
+            multimediaType: "img"
+          }
+          that.save(data)
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+
+    }
+
+    console.log(one)
+
+    console.log(two)
+
+    that.setData({
+      img: one,
+      imgAddress: two
+    })
+
   },
 
 
@@ -75,9 +171,7 @@ Page({
         let file = res.tempFiles[0]
         // 判断文件大小
         if (file.size <= maxSize) {
-          that.setData({
-            vd: file.tempFilePath
-          })
+          that.upVideo(file.tempFilePath)
         } else {
           modal.showToast('你选择的视频过大', 'none')
         }
@@ -88,28 +182,78 @@ Page({
     })
   },
 
+  // 上传视频
+  upVideo: async function (path) {
+    let that = this
+    let data = {
+      systype: 'appEnterprise'
+    }
+    await util.upLoading(path, data).then(function (res) {
+      let datas = JSON.parse(res)
+      console.log(datas.result)
+      if (datas.code == 200) {
+        that.setData({
+          vd: app.globalData.imaUrl + datas.result,
+          vdAddress: datas.result
+        })
+        let data = {
+          enterpriseInfoId: wx.getStorageSync('company').id,
+          multimediaAddress: datas.result,
+          multimediaType: "video",
+          createBy: wx.getStorageSync('company').id
+        }
+        that.save(data)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 保存
+  save: async function (param) {
+    let that = this
+    console.log('参数:', param)
+    await util.sendRequest('/zqhr/hall/enterpriseMultimedia/add', 'post', param).then(function (res) {
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        console.log(res)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
   // 删除 图片 /  视频  1 图片 2视频
   toDel: function (e) {
     let that = this
     let types = e.currentTarget.dataset.type
-    if (types == 1) {
-      let index = e.currentTarget.dataset.index
-      let list = that.data.img
-      list.splice(index, 1)
-      that.setData({
-        img: list
-      })
-    } else {
-      that.setData({
-        vd: ''
-      })
+    let data = {
+      id: e.currentTarget.dataset.id
     }
-  },
-
-  // 保存上传
-  toSave: function () {
-    let that = this
-
+    util.sendRequest('/zqhr/hall/enterpriseMultimedia/delete', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message)
+        if (types == 1) {
+          let index = e.currentTarget.dataset.index
+          let list = that.data.img
+          list.splice(index, 1)
+          let lists = that.data.imgAddress
+          lists.splice(index, 1)
+          that.setData({
+            img: list,
+            imgAddress: lists
+          })
+        } else {
+          that.setData({
+            vd: {},
+            vdAddress: {}
+          })
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
 

@@ -1,3 +1,6 @@
+<!-- 引入wxs -->
+<wxs src="../../utils/resume.wxs" module="tools"></wxs>
+
 <view style="height:28rpx;"></view>
 
 <!-- 列表 -->

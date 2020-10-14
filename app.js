@@ -1,11 +1,5 @@
 const util = require('utils/util.js')
 
-let sotk = null; //连接对象
-let socketOpen = false; //连接状态
-
-
-
-
 App({
 
   onLaunch: function () {
@@ -61,7 +55,9 @@ App({
         }
       }
     })
+
   },
+  
   onShow: function () {
     // 30分钟倒计时
 

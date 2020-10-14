@@ -63,3 +63,9 @@
   bottom: 0rpx;
   z-index: 100;
 }
+
+.emedia{
+  width: 351rpx;
+  height: 352rpx;
+  margin-top: 200rpx;
+}

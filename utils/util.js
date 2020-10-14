@@ -38,9 +38,6 @@ function sendRequest(url, method, data, loading) {
                   // 清空所有的缓存
                   wx.clearStorage()
 
-                  // 关闭socket连接
-                  // wx.closeSocket()
-
                   wx.navigateTo({
                     url: '/pages/login/login',
                   })
