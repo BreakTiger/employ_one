@@ -98,19 +98,8 @@ Page({
       count: 5,
       success: function (res) {
         let img = res.tempFilePaths
-        console.log(img)
-
-        // 限制总图片张数为五张
-        let list = that.data.img
-
-        // // 判断
-        // if (list.length == 0) {
-        //   that.upImage(img)
-        // } else {
-        //   let num = 5 - list.length
-        //   that.upImage(img.slice(0, num))
-        // }
-
+        let length = 5 - that.data.img.length
+        that.upImage(img.slice(0, length))
       },
       fail: function (res) {
         modal.showToast('图片选择失败', 'none')
@@ -121,47 +110,36 @@ Page({
   // 上传图片
   upImage: async function (list) {
     let that = this
-    console.log(list)
-    // // let one = []
-    // // let two = []
-    // let data = {
-    //   systype: 'appEnterprise'
-    // }
+    for (let i = 0; i < list.length; i++) {
+      console.log('临时路径：',list[i])
+      let data = {
+        systype: 'appEnterprise'
+      }
+
+    }
+
     // for (let i = 0; i < list.length; i++) {
     //   let item = list[i]
     //   console.log(item)
-    //   await util.upLoading(item, data).then(function (res) {
-    //     let datas = JSON.parse(res)
-    //     console.log(datas.result)
-    //     if (datas.code == 200) {
 
-    //       one.push(app.globalData.imaUrl + datas.result)
+    //   // await util.upLoading(item, data).then(function (res) {
+    //   //   let datas = JSON.parse(res)
+    //   //   console.log(datas.result)
+    //   //   if (datas.code == 200) {
+    //   //     let data = {
+    //   //       createBy: wx.getStorageSync('company').id,
+    //   //       enterpriseInfoId: wx.getStorageSync('company').id,
+    //   //       multimediaAddress: datas.result,
+    //   //       multimediaType: "img"
+    //   //     }
+    //   //     console.log(data)
 
-    //       two.push(datas.result)
-
-    //       let data = {
-    //         createBy: wx.getStorageSync('company').id,
-    //         enterpriseInfoId: wx.getStorageSync('company').id,
-    //         multimediaAddress: datas.result,
-    //         multimediaType: "img"
-    //       }
-    //       that.save(data)
-    //     } else {
-    //       modal.showToast(res.message, 'none')
-    //     }
-    //   })
-
+    //   //     // that.save(data)
+    //   //   } else {
+    //   //     modal.showToast(res.message, 'none')
+    //   //   }
+    //   // })
     // }
-
-    // console.log(one)
-
-    // console.log(two)
-
-    // that.setData({
-    //   img: one,
-    //   imgAddress: two
-    // })
-
   },
 
 
@@ -195,20 +173,14 @@ Page({
     }
     await util.upLoading(path, data).then(function (res) {
       let datas = JSON.parse(res)
-      console.log(datas.result)
       if (datas.code == 200) {
-
-        // that.setData({
-        //   vd: app.globalData.imaUrl + datas.result,
-        //   vdAddress: datas.result
-        // })
-        // let data = {
-        //   enterpriseInfoId: wx.getStorageSync('company').id,
-        //   multimediaAddress: datas.result,
-        //   multimediaType: "video",
-        //   createBy: wx.getStorageSync('company').id
-        // }
-        // that.save(data)
+        let data = {
+          enterpriseInfoId: wx.getStorageSync('company').id,
+          multimediaAddress: datas.result,
+          multimediaType: "mp4",
+          createBy: wx.getStorageSync('company').id
+        }
+        that.save(data)
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -222,7 +194,21 @@ Page({
     await util.sendRequest('/zqhr/hall/enterpriseMultimedia/add', 'post', param).then(function (res) {
       if (res.code == 200) {
         modal.showToast(res.message)
-        console.log(res)
+        let id = res.result
+        if (param.multimediaType == "img") {
+
+        } else {
+          that.setData({
+            vd: {
+              id: id,
+              path: app.globalData.imaUrl + param.multimediaAddress
+            },
+            vdAddress: {
+              id: id,
+              path: param.multimediaAddress
+            }
+          })
+        }
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -260,7 +246,7 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
-  },
+  }
 
 
 })
