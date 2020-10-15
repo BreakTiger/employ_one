@@ -1,23 +1,37 @@
 <view class="container col fl-align">
 
-	<view class="list-item flex col fl-align b-ff" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
-		<view style="font-weight:bold;">{{item.postName}}</view>
+		  <view class="w100 flex fl-align fl-jsb">
+				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
 
-		<view class="flex fl-align fl-jsb c-66" style="margin:20rpx 0;font-size:.7rem;">
-			<view class="flex">
-				<text wx:if="{{item.name}}">{{item.name}} |  </text>
-				<text wx:if="{{item.gender}}"> {{item.gender}} | </text>
-				<text wx:if="{{item.phone}}">{{item.phone}}</text>
+				<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}" class="header"></image>
+
+				<view class="type-info flex col">
+					<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
+						<text>{{item.name}}</text>
+						<text>{{item.submitResumeTime}}</text>
+					</view>
+					<view style="color:#646464;font-size:.7rem;">
+						<text wx:if="{{item.gender}}">{{item.gender}}</text>
+						<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
+						<text wx:if="{{item.education}}">{{item.education}} /</text>
+						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+					</view>
+					<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
+				</view>
 			</view>
-			<text>投递时间: {{item.submitResumeTime}}</text>
-		</view>
 
-		<view class="btn flex fl-align fl-jfe">
-		  <view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+			<view class="btn w100 flex fl-align fl-jfe">
+
+				<view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+
+
    			<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
+			
 			</view>
-	  </view>
+
+		</view>
 
 		<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
    		<image src="../../images/empty.png" class="empty"></image>
@@ -25,3 +39,6 @@
    	</view>
 
 </view>
+
+
+		

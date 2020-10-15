@@ -67,6 +67,7 @@ function sendRequest(url, method, data, loading) {
 
 // 上传
 function upLoading(filePath, data) {
+  console.log('图片路径',filePath)
   var promise = new Promise(function (resolve, reject) {
     wx.showLoading({
       title: '加载中',

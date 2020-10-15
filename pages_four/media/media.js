@@ -95,7 +95,7 @@ Page({
   choseImg: function () {
     let that = this
     wx.chooseImage({
-      count: 5,
+      count: 1,
       success: function (res) {
         let img = res.tempFilePaths
         let length = 5 - that.data.img.length
@@ -111,36 +111,27 @@ Page({
   upImage: async function (list) {
     let that = this
     for (let i = 0; i < list.length; i++) {
-      console.log('临时路径：',list[i])
+      // console.log('临时路径：',list[i])
       let data = {
         systype: 'appEnterprise'
       }
-      
-
+      await util.upLoading(list[i], data).then(function (res) {
+        let datas = JSON.parse(res)
+        if (datas.code == 200) {
+          console.log(datas.result)
+          let data = {
+            createBy: wx.getStorageSync('company').id,
+            enterpriseInfoId: wx.getStorageSync('company').id,
+            multimediaAddress: datas.result,
+            multimediaType: "img"
+          }
+          that.save(data)
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
     }
 
-    // for (let i = 0; i < list.length; i++) {
-    //   let item = list[i]
-    //   console.log(item)
-
-    //   // await util.upLoading(item, data).then(function (res) {
-    //   //   let datas = JSON.parse(res)
-    //   //   console.log(datas.result)
-    //   //   if (datas.code == 200) {
-    //   //     let data = {
-    //   //       createBy: wx.getStorageSync('company').id,
-    //   //       enterpriseInfoId: wx.getStorageSync('company').id,
-    //   //       multimediaAddress: datas.result,
-    //   //       multimediaType: "img"
-    //   //     }
-    //   //     console.log(data)
-
-    //   //     // that.save(data)
-    //   //   } else {
-    //   //     modal.showToast(res.message, 'none')
-    //   //   }
-    //   // })
-    // }
   },
 
 
@@ -197,7 +188,16 @@ Page({
         modal.showToast(res.message)
         let id = res.result
         if (param.multimediaType == "img") {
-
+          let one = {
+            id: id,
+            path: app.globalData.imaUrl + param.multimediaAddress
+          }
+          let list = that.data.img
+          list.push(one)
+          console.log(list)
+          that.setData({
+            img: list
+          })
         } else {
           that.setData({
             vd: {

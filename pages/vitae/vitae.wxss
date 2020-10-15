@@ -1,12 +1,7 @@
 @import '../../wxParse/wxParse.wxss';
 
-.container {
-  background-color: #FFF;
-  min-height: 100%;
-}
-
-.container .header {
-  width: 750rpx;
+.header {
+  width: 100%;
   height: 120rpx;
   display: flex;
   flex-direction: row;

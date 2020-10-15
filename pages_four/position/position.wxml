@@ -51,8 +51,8 @@
 
 			<view class="two flex fl-align fl-jsa">
 				<view>匹配</view>
-				<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
-				<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>	
+				<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
+				<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>	
 				<view bindtap="toDel" data-id="{{items.id}}" data-index="{{index}}" data-idx="{{idx}}">删除</view>
 			</view>
 		

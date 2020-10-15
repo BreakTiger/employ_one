@@ -75,6 +75,12 @@
           "pathName": "pages_four/media/media",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收到简历",
+          "pathName": "pages_four/vitae_count/vitae_count",
+          "scene": null
         }
       ]
     }
