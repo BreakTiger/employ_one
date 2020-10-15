@@ -64,7 +64,6 @@ App({
     let that = this
     let token = wx.getStorageSync('token')
     if (token) {
-
       let i = setInterval(() => {
         clearInterval(i) //停止定时器
         let data = {

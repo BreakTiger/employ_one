@@ -21,7 +21,7 @@
 
 	</view>
 
-	<view class="order" style='margin-top:140rpx;'>
+	<view class="order">
 
 		<view class="title">简历信息</view>
 
@@ -51,7 +51,7 @@
 	</view>
 
 
-	<view class="order">
+	<view class="order" style="margin-bottom:100rpx;">
 
 		<view class="title">自我介绍及工作经历</view>
 

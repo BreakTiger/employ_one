@@ -40,3 +40,5 @@ workerdetail
 12.微简历
 vitae
 
+13.临时列表
+list
