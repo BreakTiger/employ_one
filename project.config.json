@@ -71,15 +71,16 @@
       "list": [
         {
           "id": -1,
-          "name": "多媒体",
-          "pathName": "pages_four/media/media",
+          "name": "收到简历",
+          "pathName": "pages_four/vitae_count/vitae_count",
           "query": "",
           "scene": null
         },
         {
           "id": -1,
-          "name": "收到简历",
-          "pathName": "pages_four/vitae_count/vitae_count",
+          "name": "匹配简历",
+          "pathName": "pages_four/match/match",
+          "query": "",
           "scene": null
         }
       ]

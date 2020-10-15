@@ -10,6 +10,9 @@ Page({
   },
 
   onLoad: function (options) {
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
     this.getList()
   },
 

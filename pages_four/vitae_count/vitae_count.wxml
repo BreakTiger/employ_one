@@ -26,7 +26,6 @@
 
 				<view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
 
-
    			<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
 			
 			</view>

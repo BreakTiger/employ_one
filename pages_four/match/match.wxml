@@ -1,31 +1,34 @@
 <!-- 引入wxs -->
-<wxs src="../../utils/resume.wxs" module="tools"></wxs>
-
-<view style="height:28rpx;"></view>
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
 
 <!-- 列表 -->
-<view class="news">
-	<view class="newslist" wx:for="[1,2]" wx:key="index">
+<view class="container col fl-align">
+
+	<view class="newslist flex" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+
 		<view class="title" bindtap="toWorkerDetail" data-id="{{item.id}}">
 
 			<view class="detail">
 				<view class="pic">
-					<image src="../../images/male1.png"></image>
+					<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}"></image>
+					<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}"></image>
 				</view>
 				<view class="info">
-					<view>顺年 <text class="time">1月前</text></view>
-					<view> 男/26岁/大专/3-5年 </view>
-					<view class="jobmoney">
-						<view>职位意向<text>保健老师</text></view>
+					<view>{{item.name}}<text class="time">{{tools.distance(item.createTime)}}</text></view>
+					<view>{{item.gender}}/26岁/{{item.education}}/{{item.workExperience}} </view>
+					<view class="jobmoney flex fl-jsb">
+						<view>职位意向:<text>{{item.intendedPosition}}</text></view>
+						<view wx:if="{{item.ispresent==1}}">已入场</view>
+						<view wx:if="{{item.ispresent==-1}}">已离场</view>
 					</view>
 				</view>
 			</view>
 		</view>
 	</view>
 
-</view>
+	<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
+ 		<image src="../../images/empty.png" class="empty"></image>
+ 		<text class="c-98">暂无匹配简历</text>
+  </view>
 
-<!-- 加载更多 -->
-<view class="loadmore">
-	<text>{{loadMore}}</text>
 </view>
