@@ -77,7 +77,7 @@ Page({
       if (res.code == 200) {
         app.globalData.worker = detail
         wx.navigateTo({
-          url: '/pages/workerdetail/workerdetail',
+          url: '/pages_four/workerdetail/workerdetail',
         })
       } else {
         modal.showToast(res.message, 'none')

@@ -78,15 +78,8 @@
         },
         {
           "id": -1,
-          "name": "匹配",
-          "pathName": "pages_four/match/match",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "收藏",
-          "pathName": "pages/collect/collect",
+          "name": "简历",
+          "pathName": "pages_four/workerdetail/workerdetail",
           "query": "",
           "scene": null
         }

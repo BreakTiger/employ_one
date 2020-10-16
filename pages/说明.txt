@@ -34,11 +34,8 @@ forget
 10.添加职位
 addJob
 
-11.简历模板
-workerdetail
-
-12.微简历
+11.微简历
 vitae
 
-13.临时列表
+12.临时列表
 list

@@ -1,0 +1,69 @@
+.f16 {
+  font-size: 16rpx;
+}
+
+.f11 {
+  font-size: 11rpx;
+}
+
+.f12 {
+  font-size: 12rpx;
+}
+
+.c-a3 {
+  color: #818BA3;
+}
+
+.left {
+  width: 605rpx;
+  min-height: 643rpx;
+  border: 1rpx solid #DEDEDE;
+  margin: 25rpx 15rpx;
+}
+
+.header {
+  width: 71rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+  margin: 0 30rpx;
+}
+
+.one {
+  width: 100%;
+  height: 125rpx;
+  background: #3F4160;
+}
+
+.icon {
+  width: 13rpx;
+  height: 13rpx;
+  margin-right: 10rpx;
+}
+
+.two {
+  width: 100%;
+  padding: 20rpx 0;
+  border: 1rpx solid #F2F3F5;
+}
+
+.two>view{
+  width: 90%;
+}
+
+.line>view{
+  width: 50%;
+}
+
+.line>view>view{
+  margin: 10rpx 0;
+  display: flex;
+}
+
+.title{
+  display: inline-block;
+  width: 78rpx;
+}
+
+.right{
+  height: 643rpx;
+}

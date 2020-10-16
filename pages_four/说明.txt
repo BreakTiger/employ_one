@@ -39,3 +39,6 @@ vitae_count
 
 11.媒体
 media
+
+12.简历模板
+workerdetail

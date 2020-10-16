@@ -10,7 +10,6 @@
     "pages/search/search",
     "pages/forget/forget",
     "pages/addJob/addJob",
-    "pages/workerdetail/workerdetail",
     "pages/vitae/vitae",
     "pages/search_list/search_list",
     "pages/list/list"
@@ -52,7 +51,8 @@
         "add_ staff/add_ staff",
         "staff_editor/staff_editor",
         "vitae_count/vitae_count",
-        "media/media"
+        "media/media",
+        "workerdetail/workerdetail"
       ]
     }
   ],
