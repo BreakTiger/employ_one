@@ -12,6 +12,10 @@ Page({
   },
 
   onLoad: function (options) {
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+    
     let token = wx.getStorageSync('token')
     if (token) {
       this.getList()
@@ -43,6 +47,7 @@ Page({
         that.setData({
           list: res.result.records
         })
+        console.log(res.result.records)
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -105,7 +110,7 @@ Page({
       if (res.code == 200) {
         app.globalData.worker = detail
         wx.navigateTo({
-          url: '/pages/workerdetail/workerdetail',
+          url: '/pages/vitae/vitae',
         })
       } else {
         modal.showToast(res.message, 'none')
