@@ -78,7 +78,7 @@
         },
         {
           "id": -1,
-          "name": "匹配简历",
+          "name": "匹配",
           "pathName": "pages_four/match/match",
           "query": "",
           "scene": null

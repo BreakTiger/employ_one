@@ -21,7 +21,7 @@ Page({
       detail: app.globalData.notice
     })
 
-    let article = app.globalData.notice.invitation
+    let article = app.globalData.notice.noticeContent
     WxParse.wxParse('article', 'html', article, that, 5)
 
   },

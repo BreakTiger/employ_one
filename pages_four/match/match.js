@@ -47,8 +47,41 @@ Page({
     })
   },
 
-  onPullDownRefresh: function () {
+  // 详情 - 增加查看次数
+  toWorkerDetail: function (e) {
+    let that = this
+    let item = e.currentTarget.dataset.item
+    let data = {
+      curriculumVitaeId: item.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    console.log(data)
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        app.globalData.worker = item
+        wx.navigateTo({
+          url: '/pages/vitae/vitae',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
 
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    this.setData({
+      pageNo: 1
+    })
+    this.getList()
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
   },
 
   onReachBottom: function () {

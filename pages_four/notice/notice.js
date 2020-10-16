@@ -10,7 +10,7 @@ Page({
     list: []
   },
 
-  onLoad: function (options) {
+  onShow: function () {
     this.getList()
   },
 
@@ -18,11 +18,11 @@ Page({
   getList: function () {
     let that = this
     let data = {
-      enterpriseid: wx.getStorageSync('company').id,
+      enterpriseInfoId: wx.getStorageSync('company').id,
       pageNo: that.data.page,
       pageSize: 10
     }
-    util.sendRequest('/zqhr/hall/jobfair/invitationlist', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/enterprisenotice/list', 'get', data).then(function (res) {
       console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
@@ -36,9 +36,20 @@ Page({
 
   // 详情跳转
   toDetail: function (e) {
-    app.globalData.notice = e.currentTarget.dataset.item
-    wx.navigateTo({
-      url: '/pages_four/notice_detail/notice_detail',
+    let that = this
+    let item = e.currentTarget.dataset.item
+    let data = {
+      id: item.id
+    }
+    util.sendRequest('/zqhr/app/enterprisenotice/read', 'get', data).then(function (res) {
+      if (res.code == 200) {
+        app.globalData.notice = e.currentTarget.dataset.item
+        wx.navigateTo({
+          url: '/pages_four/notice_detail/notice_detail',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
   },
 
@@ -61,18 +72,18 @@ Page({
     let that = this
     let old = that.data.list
     let data = {
-      enterpriseid: wx.getStorageSync('company').id,
-      pageNo: that.data.page + 1,
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageNo: that.data.page+1,
       pageSize: 10
     }
-    util.sendRequest('/zqhr/hall/jobfair/invitationlist', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/app/enterprisenotice/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
         let news = res.result.records
         if (news.length != 0) {
           that.setData({
             list: old.concat(news),
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 

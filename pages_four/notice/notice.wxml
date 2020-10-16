@@ -3,13 +3,11 @@
 	<view class="item flex col fl-align" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}" wx:if="{{list.length!=0}}">
 
 		<view class="flex fl-jsb">
-			<view class="c-e5" style="font-size:32rpx;">{{item.invitationTitle}}</view>
-			<view class="point" wx:if="{{item.reaStatus==0}}"></view>
+			<view class="c-e5" style="font-size:32rpx;">{{item.noticeTitle}}</view>
+			<view class="point" wx:if="{{item.readStatus==0}}"></view>
 		</view>
 
-		<view><text class="c-66">时间：</text>{{item.holdingtimeStart}} - {{item.holdingtimeEnd}}</view>
-
-		<view><text class="c-66">地点：</text>{{item.address}}</view>
+		<view class="c-66" style="text-align:right;">{{item.createTime}}</view>
 
 	</view>
 
