@@ -139,7 +139,6 @@ Page({
         }
       })
     }
-
   },
 
   // 我的收藏
@@ -185,8 +184,8 @@ Page({
       token: wx.getStorageSync('token')
     }
     util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
-      console.log(res.result)
       if (res.code == 200) {
+        app.globalData.codeData = res.result
         wx.navigateTo({
           url: '/pages_one/ticket/ticket',
         })

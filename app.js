@@ -110,6 +110,7 @@ App({
     notice: {}, //通知信息
     venue: {}, //会场信息
     worker: {}, //简历信息
+    codeData:{}
   }
   
 })

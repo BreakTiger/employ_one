@@ -2,33 +2,50 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
+const QRCode = require('../../utils/qr-core.js')
+
+let qrcode = null;
+
 Page({
 
   data: {
     detail: {},
-    code: ''
+    qrcodeWidth: 0
   },
 
   onLoad: function (options) {
-    this.getType()
+    
+    this.setData({
+      detail: app.globalData.codeData
+    })
+
+    console.log(app.globalData.codeData)
+
+    this.getCode(app.globalData.codeData.qrCode)
+
   },
 
-  getType: function () {
+  getCode: function (code) {
     let that = this
-    let data = {
-      token: wx.getStorageSync('token')
-    }
-    util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
-      console.log(res.result)
-      if (res.code == 200) {
-        that.setData({
-          detail: res.result,
-          code: app.globalData.imaUrl + res.result.qrCodeAddress
-        })
-      } else {
-        modal.showToast(res.message, 'none')
-      }
+    const ctx = wx.createCanvasContext('canvas')
+    const rate = wx.getSystemInfoSync().windowWidth / 750
+    //二维码宽高
+    let qrcodeWidth = rate * 400
+    that.setData({
+      qrcodeWidth: qrcodeWidth
     })
+    qrcode = new QRCode('canvas', {
+      usingIn: that,
+      width: qrcodeWidth,
+      height: qrcodeWidth,
+      colorDark: "#000000", //前景颜色
+      colorLight: "white", //背景颜色
+      correctLevel: QRCode.CorrectLevel.H,
+    })
+
+    let id = code
+    console.log(code)
+    qrcode.makeCode(code)
   },
 
   // 面试管理
@@ -45,15 +62,15 @@ Page({
     })
   },
 
-  onPullDownRefresh:function(){
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 1000
-    })
-    this.getType()
-    setTimeout(() => {
-      wx.stopPullDownRefresh()
-    }, 1000);
+  onPullDownRefresh: function () {
+    // wx.showToast({
+    //   title: '加载中',
+    //   icon: 'loading',
+    //   duration: 1000
+    // })
+    // this.getType()
+    // setTimeout(() => {
+    //   wx.stopPullDownRefresh()
+    // }, 1000);
   },
 })
