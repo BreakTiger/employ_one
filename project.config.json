@@ -82,6 +82,12 @@
           "pathName": "pages_four/workerdetail/workerdetail",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "面试管理",
+          "pathName": "pages_four/record/record",
+          "scene": null
         }
       ]
     }

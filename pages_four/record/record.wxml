@@ -1,15 +1,28 @@
-   <view class="container col fl-align">
+<view class="container col fl-align">
 
-		<view class="list-item flex col fl-align b-ff" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
-			<view style="font-weight:bold;">{{item.postName}}</view>
+		  <view class="w100 flex fl-align fl-jsb">
+				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
 
-			<view class="flex fl-align fl-jsb c-66" style="margin:20rpx 0;font-size:.7rem;">
-				<text>{{item.name}} | {{item.phone}}</text>
-				<text>{{item.createTime}}</text>
+				<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}" class="header"></image>
+
+				<view class="type-info flex col">
+					<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
+						<text>{{item.name}}</text>
+						<text>{{item.submitResumeTime}}</text>
+					</view>
+					<view style="color:#646464;font-size:.7rem;">
+						<text wx:if="{{item.gender}}">{{item.gender}}</text>
+						<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
+						<text wx:if="{{item.education}}">{{item.education}} /</text>
+						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+					</view>
+					<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
+				</view>
 			</view>
 
-			<view class="btn flex fl-align fl-jfe">
+			<view class="btn w100 flex fl-align fl-jfe">
 				<view bindtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
 				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
 				<view bindtap="toFinsh" data-item="{{item}}">结束面试</view>
@@ -19,11 +32,10 @@
 
 		<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
    		<image src="../../images/empty.png" class="empty"></image>
-   		<text class="c-98">暂无求职记录</text>
+   		<text class="c-98">暂无简历记录</text>
    	</view>
 
-		<view style="height:80rpx;" class="b-ff"></view>
+</view>
 
-   	<view class="addNew b-e5" bindtap="toAdd">新增面试</view>
 
-   </view>
+		

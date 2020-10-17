@@ -12,6 +12,9 @@ Page({
 
   onShow: function () {
     this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+    this.setData({
       page: 1
     })
     this.getList()
