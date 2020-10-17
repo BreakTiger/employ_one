@@ -1,2 +1,9 @@
-<!--components/circle.wxml-->
-<text>components/circle.wxml</text>
+<view class='canvasBox'>
+  <view class='bigCircle'></view>
+  <view class='littleCircle'>
+    <text class="f15 c-94">50%</text>
+  </view>
+  <!-- 画布 -->
+  <canvas canvas-id="runCanvas" id="runCanvas" class='canvas'></canvas>
+</view>
+<view class="title f15 c-94">工作职位</view>

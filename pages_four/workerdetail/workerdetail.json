@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "Circle":"/components/circle"
+  },
   "navigationBarTitleText": "面试评价",
   "pageOrientation":"landscape"
 }

@@ -10,6 +10,14 @@
   font-size: 12rpx;
 }
 
+.f16 {
+  font-size: 16rpx;
+}
+
+.f17 {
+  font-size: 17rpx;
+}
+
 .c-a3 {
   color: #818BA3;
 }
@@ -46,24 +54,57 @@
   border: 1rpx solid #F2F3F5;
 }
 
-.two>view{
+.two>view {
   width: 90%;
 }
 
-.line>view{
+.line>view {
   width: 50%;
 }
 
-.line>view>view{
+.line>view>view {
   margin: 10rpx 0;
   display: flex;
 }
 
-.title{
+.title {
   display: inline-block;
   width: 78rpx;
 }
 
-.right{
+.right {
+  width: 345rpx;
   height: 643rpx;
+  margin-right: 15rpx;
+}
+
+.c-line {
+  margin-top: 20rpx;
+}
+
+.c_title{
+  display: inline-block;
+  width: 80rpx;
+}
+
+.lines{
+  margin: 10rpx 0;
+}
+
+.star {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.c-line .btn {
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  margin: 0 10rpx;
+}
+
+.b-51{
+  background: #F8B551;
 }

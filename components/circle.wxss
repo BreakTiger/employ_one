@@ -1,1 +1,49 @@
-/* components/circle.wxss */
+.f15 {
+  font-size: 15rpx;
+}
+
+.c-94{
+  color: #949494;
+}
+.canvasBox {
+  width: 99rpx;
+  height: 99rpx;
+  position: relative;
+  margin: 0 8rpx;
+}
+
+.bigCircle {
+  width: 99rpx;
+  height: 99rpx;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+.littleCircle {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  left: 13rpx;
+  top: 13rpx;
+  line-height: 74rpx;
+  text-align: center;
+}
+
+.canvas{
+  width: 99rpx;
+  height: 99rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto auto;
+  z-index: 99;
+}
+
+.title{
+  text-align: center;
+  margin:20rpx 0;
+}
