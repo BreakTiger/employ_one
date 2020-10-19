@@ -25,7 +25,6 @@ Page({
       pageSize: 10
     }
     util.sendRequest('/zqhr/app/interview/receivelist', 'get', data).then(function (res) {
-      console.log(res.result.records)
       if (res.code == 0) {
         that.settle(res.result.records)
       } else {

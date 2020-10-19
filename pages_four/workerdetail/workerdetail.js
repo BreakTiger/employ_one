@@ -36,8 +36,6 @@ Page({
       imaUrl: app.globalData.imaUrl
     })
 
-    // console.log(app.globalData.worker)
-
     this.getBase(app.globalData.worker)
 
     this.getOne(app.globalData.worker)
@@ -153,11 +151,21 @@ Page({
   toMove: function (e) {
     let that = this
     console.log(e.currentTarget.dataset.type)
+
   },
 
   // 待定
   toWait: function () {
     let that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否发送入职通知',
+      success: function (res) {
+        if (res.confirm) {
+
+        }
+      }
+    })
 
   },
 

@@ -106,7 +106,6 @@
 
       <view class="flex f11">
         <text>{{base.jobCompanyName}}</text>
-        <!-- <text>[9个月]</text> -->
       </view>
 
       <view class="flex f11">
