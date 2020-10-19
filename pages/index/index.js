@@ -42,11 +42,13 @@ Page({
     }
     util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data, 1).then(function (res) {
       if (res.code == 0) {
+        console.log(res.result)
         that.setData({
           companycount: res.result.enterpriseCount,
           jobcount: res.result.postReleaseCount,
           notecount: res.result.curriculumVitaeCount,
-          noevaluationCount: res.result.noevaluationCount
+          noevaluationCount: res.result.noevaluationCount,
+          noticeCount:res.result.noticeCount
         })
       } else {
         modal.showToast(res.message, 'none')

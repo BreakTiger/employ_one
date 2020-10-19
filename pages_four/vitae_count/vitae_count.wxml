@@ -24,7 +24,7 @@
 
 			<view class="btn w100 flex fl-align fl-jfe">
 
-				<view bindtap="toWatch" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
 
    			<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
 			

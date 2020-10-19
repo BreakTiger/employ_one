@@ -55,7 +55,7 @@
 }
 
 .two>view {
-  width: 90%;
+  width: 95%;
 }
 
 .line>view {
@@ -69,7 +69,7 @@
 
 .title {
   display: inline-block;
-  width: 78rpx;
+  width: 75rpx;
 }
 
 .right {

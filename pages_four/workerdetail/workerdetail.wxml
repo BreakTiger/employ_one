@@ -4,13 +4,16 @@
 
     <view class="one flex fl-align">
 
-      <image src="" class="header"></image>
+      <image src="{{base.headimgAddress}}" class="header" wx:if="{{base.headimgAddress}}"></image>
+      
+      <image src="../../images/parson.png" class="header" wx:else></image>
+
 
       <view class="flex col c-ff">
-        <text class="f16 fw-b">张三</text>
+        <text class="f16 fw-b">{{base.name}}</text>
         <view class="flex fl-align" style="margin-top:20rpx;">
           <image src="../../images/s_parson.png" class="icon"></image>
-          <text class="f12">男 | 34岁(1986/02/04)</text>
+          <text class="f12">{{base.gender}} | {{base.age}}岁({{base.birthday}})</text>
         </view>
       </view>
     
@@ -25,30 +28,30 @@
         <view>
           <view>
             <text class="title">性别：</text>
-            <text>男</text>
+            <text>{{base.gender}}</text>
           </view>
           <view>
             <text class="title">身份证号码：</text>
-            <text></text>
+            <text>{{base.idcard}}</text>
           </view>
           <view>
             <text class="title">参加工作时间：</text>
-            <text></text>
+            <text>{{base.workingHoursStart}}</text>
           </view>
         </view>
 
         <view>
           <view>
             <text class="title">出生日期：</text>
-            <text></text>
+            <text>{{base.birthday}}</text>
           </view>
           <view>
             <text class="title">联系电话：</text>
-            <text></text>
+            <text>{{base.phone}}</text>
           </view>
           <view>
             <text class="title">工作经验：</text>
-            <text></text>
+            <text>{{base.workExperience}}</text>
           </view>
         </view>
       
@@ -64,29 +67,29 @@
         <view>
           <view>
             <text class="title">期望职业：</text>
-            <text></text>
+            <text>{{base.intendedPosition}}</text>
           </view>
           <view>
             <text class="title">期望行业：</text>
-            <text></text>
+            <text>{{base.intendedIndustries}}</text>
           </view>
           <view>
             <text class="title">工作区域：</text>
-            <text></text>
+            <text>{{base.workArea}}</text>
           </view>
           <view>
             <text class="title">求职类型：</text>
-            <text></text>
+            <text>{{base.jobSearchType}}</text>
           </view>
         </view>
         <view>
           <view>
             <text class="title">期望薪资：</text>
-            <text></text>
+            <text>{{base.salaryExpectation}}</text>
           </view>
           <view>
             <text class="title">到岗时间：</text>
-            <text></text>
+            <text>{{base.availableTime}}</text>
           </view>
         </view>
       </view>
@@ -98,14 +101,13 @@
       <view class="f14 fw-b" style="margin-bottom: 20rpx;">工作经历</view>
 
       <view class="f11 flex">
-        <text>2010/01 - 至今 </text>
-        <text class="fw-b" style="color:#000 !important;margin-left:10rpx;"> 前端 </text>
-        <text>| 销售</text>
+        <text>{{base.workingHoursStart}} - {{base.workingHoursEnd}} </text>
+        <text class="fw-b" style="color:#000 !important;margin-left:10rpx;">{{base.postName}}</text>
       </view>
 
       <view class="flex f11">
-        <text>广州佳航</text>
-        <text>[9个月]</text>
+        <text>{{base.jobCompanyName}}</text>
+        <!-- <text>[9个月]</text> -->
       </view>
 
       <view class="flex f11">
@@ -120,13 +122,13 @@
       <view class="f14 fw-b" style="margin-bottom: 20rpx;">教育经历</view>
 
       <view class="flex f11">
-        <text>2007/01-2010/01 </text>
-        <text class="fw-b" style="color:#000 !important;margin-left:10rpx;"> 广州大学</text>
+        <text>{{base.schoolHoursStart}}-{{base.schoolHoursEnd}} </text>
+        <text class="fw-b" style="color:#000 !important;margin-left:10rpx;">{{base.graduateSchool}}</text>
       </view>
 
       <view class="flex f11">
-        <text>博士 |</text>
-        <text>计算机/AI设计</text>
+        <text>{{base.education}} |</text>
+        <text>{{base.majorCategory}}</text>
       </view>
 
     </view>
@@ -135,22 +137,20 @@
 
   <view class="right flex col">
 
-    <text class="c-e5 fw-b f17">简历匹配度（综合指数50%）</text>
+    <text class="c-e5 fw-b f17">简历匹配度（综合指数{{total}}%）</text>
 
     <!-- 百分比进度条 -->
     <view class="c-line flex fl-w">
-      
-      <block wx:for="[0,6]" wx:key="index">
+      <block wx:for="{{list}}" wx:key="index">
         <Circle></Circle>
       </block>
-  
     </view>
 
     <!-- 评价 -->
 
     <view class="c-line flex col">
 
-      <view class="flex lines">
+      <view class="flex fl-align lines">
         <text class="c_title f15 c-94">形象气质</text>
         <view class="flex fl-align fl-jsb">
           <image src="../../images/star-1.png" class="star"></image>
@@ -158,7 +158,7 @@
         </view>
       </view>
 
-      <view class="flex lines">
+      <view class="flex fl-align lines">
         <text class="c_title f15 c-94">语言表达</text>
         <view class="flex fl-align fl-jsb">
           <image src="../../images/star-1.png" class="star"></image>
@@ -166,7 +166,7 @@
         </view>
       </view>
 
-      <view class="flex lines">
+      <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作经验</text>
         <view class="flex fl-align fl-jsb">
           <image src="../../images/star-1.png" class="star"></image>
@@ -174,7 +174,7 @@
         </view>
       </view>
 
-      <view class="flex lines">
+      <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作能力</text>
         <view class="flex fl-align fl-jsb">
           <image src="../../images/star-1.png" class="star"></image>
@@ -182,7 +182,7 @@
         </view>
       </view>
 
-      <view class="flex lines">
+      <view class="flex fl-align lines">
         <text class="c_title f15 c-94">综合评价</text>
         <view class="flex fl-align fl-jsb">
           <image src="../../images/star-1.png" class="star"></image>

@@ -1,22 +1,19 @@
-// components/circle.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+import Canvas from '../utils/canvas.js'
 
+Component({
+  
+  properties: {
+    
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
 
   },
 
-  /**
-   * 组件的方法列表
-   */
+  created: function () {
+    // console.log(this.properties.items)
+  },
+
   methods: {
 
   }

@@ -70,6 +70,7 @@
   width: 187.5rpx;
   font-size: .7rem;
   padding-bottom: 30rpx;
+  position: relative;
 }
 
 .navlist .item image {
@@ -144,4 +145,15 @@
   height: 40rpx;
   margin-left: 35rpx;
   margin-right: 15rpx;
+}
+
+.point {
+  position: absolute;
+  top: 0rpx;
+  right: 24rpx;
+  background: red;
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
 }
