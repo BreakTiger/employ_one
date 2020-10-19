@@ -40,46 +40,43 @@
 	<view class="navlist flex fl-w">
 
 		<view class="item flex col fl-align" bindtap="toMeeting">
-			<image src="../../nav/nav-1.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/zph.png"></image>
 			<view>招聘会</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="companyLogin">
-			<image src="../../nav/nav-2.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/qydl.png"></image>
 			<view>企业登录</view>
 		</view>
 		
 
 		<view class="item flex col fl-align" bindtap="myCollect">
-			<image src="../../nav/nav-4.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/scjl.png"></image>
 			<view>收藏简历</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="scanGet">
-			<image src="../../nav/nav-3.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/sm.png"></image>
 			<view>借用/归还平板</view>
 		</view>
 
 		<view class="item flex col fl-align" bindtap="ticket">
-			<image src="../../nav/nav-5.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/rcj.png"></image>
 			<view>电子入场券</view>
 		</view>
 
-		
 		<view class="item flex col fl-align" bindtap="notice">
-			<image src="../../nav/nav-6.png"></image>
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appEnterprise/tz.png"></image>
 			<view>通知</view>
 			<view class="point" wx:if="{{noticeCount!=0}}"></view>
 		</view>
 
 	</view>
 
-
 	<view class="release flex fl-align fl-jc" bindtap="toAddCompanyjob">
 		<text class="fa fa-pencil-square-o fa-lg"></text>
 		<text>发布职位</text>
 	</view>
-
 
 	<view class="news flex fl-align fl-jsb">
 

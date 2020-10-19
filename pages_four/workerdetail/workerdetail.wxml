@@ -142,7 +142,7 @@
     <!-- 百分比进度条 -->
     <view class="c-line flex fl-w">
       <block wx:for="{{list}}" wx:key="index">
-        <Circle></Circle>
+        <circle data-name="{{item.name}}" data-percent="{{item.percent}}" names="{{item.name}}" percent="{{item.percent}}"></circle>
       </block>
     </view>
 

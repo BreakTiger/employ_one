@@ -64,7 +64,7 @@ Page({
         //综合匹配度
         let total = (datas.jobTypeRatio + datas.tradeRatio + datas.workAreaRatio + datas.workExperienceRatio + datas.educationRatio + datas.salaryRatio) / 6 * 100
 
-        console.log(total.toFixed(0))
+        // console.log(total.toFixed(0))
 
         // 整合六种不同的匹配度
         let list = [
