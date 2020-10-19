@@ -68,7 +68,7 @@
 		<view class="item flex col fl-align" bindtap="notice">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appEnterprise/tz.png"></image>
 			<view>通知</view>
-			<view class="point" wx:if="{{noticeCount!=0}}"></view>
+			<view class="point" wx:if="{{noticeCount!=0}}">{{noticeCount}}</view>
 		</view>
 
 	</view>

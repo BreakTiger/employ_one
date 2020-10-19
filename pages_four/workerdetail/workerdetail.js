@@ -15,11 +15,28 @@ Page({
 
     list: [],
 
+    // 评价
+
+    c_one: 0,
+
+    c_two: 0,
+
+    c_three: 0,
+
+    c_four: 0,
+
+    c_five: 0
+
+
   },
 
   onLoad: function (options) {
 
-    console.log(app.globalData.worker)
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+
+    // console.log(app.globalData.worker)
 
     this.getBase(app.globalData.worker)
 
@@ -58,13 +75,11 @@ Page({
       enterprisePostReleaseId: item.enterpriseInfoId
     }
     util.sendRequest('/zqhr/app/interviewevaluation/matching', 'get', data).then(function (res) {
-      console.log(res.result)
+      // console.log(res.result)
       if (res.code == 0) {
         let datas = res.result
         //综合匹配度
         let total = (datas.jobTypeRatio + datas.tradeRatio + datas.workAreaRatio + datas.workExperienceRatio + datas.educationRatio + datas.salaryRatio) / 6 * 100
-
-        // console.log(total.toFixed(0))
 
         // 整合六种不同的匹配度
         let list = [
@@ -94,12 +109,10 @@ Page({
           }
         ]
 
-
         that.setData({
           total: total.toFixed(0),
           list: list
         })
-
 
       } else {
         modal.showToast(res.message, 'none')
@@ -107,28 +120,52 @@ Page({
     })
   },
 
+  // 评价查询
   getTwo: function (item) {
     let that = this
-  }
+    let data = {
+      curriculumVitaeId: item.curriculumVitaeId,
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      enterprisePostReleaseId: item.enterpriseInfoId
+    }
+    util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        if (res.result) {
+          console.log(res.result)
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 选择评价星级
+  toChoice: function (e) {
+    let that = this
+    let type = e.currentTarget.dataset.type
+    let index = e.currentTarget.dataset.index
+    that.setData({
+      [type]: index + 1
+    })
+  },
+
+  // 滑动评星
+  toMove: function (e) {
+    let that = this
+    console.log(e.currentTarget.dataset.type)
+  },
+
+  // 待定
+  toWait: function () {
+    let that = this
+
+  },
+
+  // 入职通知
+  toNotice: function () {
+    let that = this
+
+  },
 
 
-
-  // getData: function (detail) {
-  //   let that = this
-  //   let data = {
-  //     curriculumVitaeId: detail.curriculumVitaeId,
-  //     enterpriseInfoId: wx.getStorageSync('company').id,
-  //     enterprisePostReleaseId: detail.enterpriseInfoId
-  //   }
-  //   util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
-  //     console.log(res)
-  //     if (res.code == 0) {
-  //       if (res.result) {
-  //         console.log(res.result)
-  //       }
-  //     } else {
-  //       modal.showToast(res.message, 'none')
-  //     }
-  //   })
-  // }
 })

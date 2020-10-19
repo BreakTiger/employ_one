@@ -4,6 +4,6 @@
     <text class="f15 c-94">{{percentage}}%</text>
   </view>
   <!-- 画布 -->
-  <canvas type="2d" canvas-id="runCanvas" id="runCanvas" class='canvas'></canvas>
+  <canvas canvas-id="runCanvas" id="runCanvas" class='canvas'></canvas>
 </view>
 <view class="title f15 c-94">{{names}}</view>

@@ -148,12 +148,26 @@
 }
 
 .point {
-  position: absolute;
-  top: 0rpx;
-  right: 24rpx;
+  padding: 0 13rpx;
+  height: 26rpx;
+  line-height: 26rpx;
   background: red;
-  border-radius: 50%;
-  width: 30rpx;
-  height: 30rpx;
   color: #fff;
+  text-align: center;
+  font-size: 19rpx;
+  position: absolute;
+  border-radius: 15rpx;
+  top: 0;
+  right: 10rpx;
+  z-index: 2;
+}
+
+.point:before {
+  content: "";
+  border-width: 10rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent red;
+  position: absolute;
+  bottom: -4rpx;
+  left: 4rpx;
 }
