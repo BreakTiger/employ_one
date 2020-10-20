@@ -64,6 +64,9 @@
     "enablePullDownRefresh": true,
     "pageOrientation": "portrait"
   },
+  "usingComponents": {
+    "showModal": "/components/showModal"
+  },
   "tabBar": {
     "color": "#6e6d6b",
     "selectedColor": "#0180CF",
