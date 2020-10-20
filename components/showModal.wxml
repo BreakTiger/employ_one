@@ -1,0 +1,18 @@
+<view class="modal-mask" catchtap='_cancelEvent' catchtouchmove="move"  hidden="{{!isShow}}"></view>
+<view class="modal-dialog" hidden="{{!isShow}}">
+  <view class="cancel" catchtap='_cancelEvent'>×</view>
+  <view class="modal-title">{{ title }}</view>
+  <view class="modal-content">
+    <view class="txt" wx:if="{{tips == 'true'}}">检测到您已入场</view>
+    <view wx:if="{{judge == 'admission'}}"> 
+      已为您查询到 <span class="colr">{{content[0]}}</span> 个符合您意向的职位，是否前往查看？
+    </view>
+    <view wx:if="{{judge == 'interview'}}">
+      （{{content[0]}} ）邀请您前往面试（<span style="font-weight:bold">{{content[1]}}</span>）岗位，点击查看进入详情页面
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-confirm" catchtap='_confirmEvent' >前往查看</view>
+    <view class="btn-cancel"  catchtap='_cancelEvent' >下次再说</view>
+  </view>
+</view>

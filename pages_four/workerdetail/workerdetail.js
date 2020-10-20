@@ -2,6 +2,8 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
+const WxParse = require('../../wxParse/wxParse.js')
+
 Page({
 
 
@@ -58,6 +60,10 @@ Page({
         that.setData({
           base: items
         })
+
+        let article = items.jobDescription
+        WxParse.wxParse('article', 'html', article, that, 5)
+    
       } else {
         modal.showToast(res.message)
       }
@@ -158,6 +164,20 @@ Page({
   toWait: function () {
     let that = this
     wx.showModal({
+      title:'提示',
+      content:'是否将该简历选待定',
+      success:function(res){
+        if(res.confirm){
+
+        }
+      }
+    })
+  },
+
+  // 入职通知
+  toNotice: function () {
+    let that = this
+    wx.showModal({
       title: '提示',
       content: '是否发送入职通知',
       success: function (res) {
@@ -166,13 +186,6 @@ Page({
         }
       }
     })
-
-  },
-
-  // 入职通知
-  toNotice: function () {
-    let that = this
-
   },
 
 
