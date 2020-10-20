@@ -154,35 +154,35 @@
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">形象气质</text>
-        <view class="flex fl-align fl-jsb" bindtouchmove="toMove" data-type="c_one">
+        <view class="flex fl-align fl-jsb">
           <image src="{{c_one>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_one" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">语言表达</text>
-        <view class="flex fl-align fl-jsb" bindtouchmove="toMove" data-type="c_two">
+        <view class="flex fl-align fl-jsb">
           <image src="{{c_two>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_two" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作经验</text>
-        <view class="flex fl-align fl-jsb" bindtouchmove="toMove" data-type="c_three">
+        <view class="flex fl-align fl-jsb">
           <image src="{{c_three>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_three" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作能力</text>
-        <view class="flex fl-align fl-jsb" bindtouchmove="toMove" data-type="c_four">
+        <view class="flex fl-align fl-jsb">
           <image src="{{c_four>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_four" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">综合评价</text>
-        <view class="flex fl-align fl-jsb" bindtouchmove="toMove" data-type="c_five">
+        <view class="flex fl-align fl-jsb">
           <image src="{{c_five>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_five" bindtap="toChoice"></image>
         </view>
       </view>
@@ -192,8 +192,8 @@
     <!-- 按钮 -->
 
     <view class="c-line flex fl-align fl-jc">
-      <view class="btn c-ff f16 b-e5" bindtap="toWait">待定</view>
-      <view class="btn c-ff f16 b-51" bindtap="toNotice">入职通知</view>
+      <view class="btn c-ff f16 b-e5" bindtap="toWait" data-type="2">待定</view>
+      <view class="btn c-ff f16 b-51" bindtap="toNotice" data-type="1">入职通知</view>
     </view>
 
   </view>

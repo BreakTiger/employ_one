@@ -9,6 +9,8 @@ Page({
 
   data: {
 
+    details: {},
+
     base: {},
 
     // 匹配度
@@ -27,16 +29,20 @@ Page({
 
     c_four: 0,
 
-    c_five: 0
+    c_five: 0,
 
+    type: 0 //类型 1录取 2待定
 
   },
 
   onLoad: function (options) {
 
     this.setData({
+      details: app.globalData.worker,
       imaUrl: app.globalData.imaUrl
     })
+
+    // console.log(app.globalData.worker)
 
     this.getBase(app.globalData.worker)
 
@@ -63,7 +69,7 @@ Page({
 
         let article = items.jobDescription
         WxParse.wxParse('article', 'html', article, that, 5)
-    
+
       } else {
         modal.showToast(res.message)
       }
@@ -130,12 +136,20 @@ Page({
     let data = {
       curriculumVitaeId: item.curriculumVitaeId,
       enterpriseInfoId: wx.getStorageSync('company').id,
-      enterprisePostReleaseId: item.enterpriseInfoId
+      enterprisePostReleaseId: item.enterprisePostReleaseId
     }
     util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         if (res.result) {
           console.log(res.result)
+          let detail = res.result
+          that.setData({
+            c_one: detail.imageTemperament,
+            c_two: detail.languageExpression,
+            c_three: detail.workExperience,
+            c_four: detail.workingAbility,
+            c_five: detail.comprehensiveEvaluation
+          })
         }
       } else {
         modal.showToast(res.message, 'none')
@@ -153,40 +167,83 @@ Page({
     })
   },
 
-  // 滑动评星
-  toMove: function (e) {
-    let that = this
-    console.log(e.currentTarget.dataset.type)
-
-  },
 
   // 待定
-  toWait: function () {
+  toWait: function (e) {
     let that = this
     wx.showModal({
-      title:'提示',
-      content:'是否将该简历选待定',
-      success:function(res){
-        if(res.confirm){
-
+      title: '提示',
+      content: '是否将该简历选待定',
+      success: function (res) {
+        if (res.confirm) {
+          that.setData({
+            type: e.currentTarget.dataset.type
+          })
+          that.judge()
         }
       }
     })
   },
 
   // 入职通知
-  toNotice: function () {
+  toNotice: function (e) {
     let that = this
     wx.showModal({
       title: '提示',
       content: '是否发送入职通知',
       success: function (res) {
         if (res.confirm) {
-
+          that.setData({
+            type: e.currentTarget.dataset.type
+          })
+          that.judge()
         }
       }
     })
   },
+
+  // 判断
+  judge: function () {
+    if (this.data.c_one == 0) {
+      modal.showToast('请对形象气质评价', 'none')
+    } else if (this.data.c_two == 0) {
+      modal.showToast('请对语言表达评价', 'none')
+    } else if (this.data.c_three == 0) {
+      modal.showToast('请对工作经验评价', 'none')
+    } else if (this.data.c_four == 0) {
+      modal.showToast('请对工作能力评价', 'none')
+    } else if (this.data.c_five == 0) {
+      modal.showToast('请选择综合评价', 'none')
+    } else {
+      let that = this
+      let data = {
+        imageTemperament: that.data.c_one,
+        languageExpression: that.data.c_two,
+        workExperience: that.data.c_three,
+        workingAbility: that.data.c_four,
+        comprehensiveEvaluation: that.data.c_five,
+        curriculumVitaeId: that.data.details.curriculumVitaeId,
+        enterpriseInfoId: wx.getStorageSync('company').id,
+        enterprisePostReleaseId: that.data.details.enterprisePostReleaseId,
+        interviewResults: that.data.type,
+        createBy: wx.getStorageSync('company').id
+      }
+      console.log(data)
+      that.send(data)
+    }
+  },
+
+  send: function (data) {
+    let that = this
+    util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        modal.showToast(res.message, 'none')
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  }
 
 
 })
