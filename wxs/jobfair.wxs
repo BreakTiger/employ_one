@@ -27,22 +27,35 @@ var distance = function(create) { // 时间间隔
     } else if(create == yesterday) { // 判断是否为昨天
         return '昨天';
     } else {
-        var sDate =  getDate(today).getTime();
-        var eDate =  getDate(create).getTime();
-        var thisMothDays = 1000 * 3600 * 24 * getDays();
-        if (eDate - sDate > thisMothDays) { // 判断是否大于一个月
-            return '一个月前';
+        var handlesWeeks = handlesWeek(create)
+        if (handlesWeeks) { // 判断是否为本周
+            var week=getDate(create);
+            var weekday=["周日","周一","周二","周三","周四","周五","周六"];
+            return weekday[week.getDay()];
         } else { // 返回具体时间
             return create;
         }
     }
 }
-function getDays() {// 获取当前月的总天数
-	var date = getDate();
-	date.setMonth(date.getMonth() + 1);//将当前月份加1，下移到下一个月
-	date.setDate(0);//将当前的日期置为0，
-	var days = date.getDate();//再获取天数即取上个月的最后一天的天数
-	return days;
+function handle(time) { // 将传秒去除
+    time = time.split(' ');
+    var temp = time[1].split(':');
+    return time[0] + ' ' + temp[0] + ':' + temp[1];
+}
+function handlesWeek(create) {// 获取当前月的总天数
+	var now= getDate()
+    var firstdayoffset=(now.getDay()==0?7:now.getDay())-1
+    now.setDate(now.getDate()-firstdayoffset-1)
+    var firstday=now.toISOString().substring(0,10)
+    firstday=getDate(firstday)
+    now.setDate(now.getDate()+8)
+    var lastday=now.toISOString().substring(0,10)
+    lastday=getDate(lastday)
+    if(getDate(create)>firstday&&getDate(create)<lastday){
+    	return true
+    }else{
+        return false
+    }
 }
 function date(days) { // 获取当前时间 0今天 1昨天 
     var date =  getDate();

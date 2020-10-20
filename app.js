@@ -104,12 +104,7 @@ App({
       }
     })
   },
-  noticeData: {
-    admission: false,
-    admissionNum: [],
-    interview: false,
-    interviewData: ''
-  },
+
   onShow: function () {
     // 30分钟倒计时
     let that = this
@@ -123,37 +118,41 @@ App({
           pageSize: 10
         }
         util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data).then(function (res) {
-          console.log(res)
           if (res.code == 0) {
             let list = res.result.records
             let total = res.result.total
-            if (total != 0) {
-              let content = '已检测到' + total + '位符合您企业发布职位要求的人才进入会场，是否点击查看'
-              wx.showModal({
-                title: '人才匹配通知',
-                content: content,
-                cancelText: '返回',
-                confirmText: '查看',
-                confirmColor: '#3274e5',
-                success: function (res) {
-                  if (res.confirm) {
-                    that.onShow()
-                    // 跳转
-                    wx.navigateTo({
-                      url: '/pages/list/list' + JSON.stringify(list),
-                    })
-                  } else if (res.cancel) {
-                    that.onShow()
-                  }
-                }
-              })
-            }
+            console.log('匹配简历数：', total)
+            console.log('匹配简历列表：', list)
+
+            // 判断
+            // if (total != 0) {
+
+            //   that.noticeData.admission = true
+
+            //   that.noticeData.noticeList = list
+
+            //   that.noticeData.noticeTotal = total
+
+            // }
+
+            that.noticeData.admission = true
+
+            that.noticeData.noticeList = list
+
+            that.noticeData.noticeTotal = total
+
           } else {
             modals.showToast(res.message, 'none')
           }
         })
-      }, 1800000);
+      }, 5000);
     }
+  },
+
+  noticeData: { //通知数据
+    admission: false,
+    noticeList: [],
+    noticeTotal: ''
   },
 
   globalData: {
@@ -161,7 +160,7 @@ App({
     notice: {}, //通知信息
     venue: {}, //会场信息
     worker: {}, //简历信息
-    codeData: {}
+    codeData: {} //入场券信息
   }
 
 })
