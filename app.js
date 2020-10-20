@@ -119,34 +119,32 @@ App({
         }
         util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data).then(function (res) {
           if (res.code == 0) {
-            let list = res.result.records
+            let list = that.settle(res.result.records)
             let total = res.result.total
-            console.log('匹配简历数：', total)
-            console.log('匹配简历列表：', list)
-
             // 判断
-            // if (total != 0) {
-
-            //   that.noticeData.admission = true
-
-            //   that.noticeData.noticeList = list
-
-            //   that.noticeData.noticeTotal = total
-
-            // }
-
-            that.noticeData.admission = true
-
-            that.noticeData.noticeList = list
-
-            that.noticeData.noticeTotal = total
-
+            if (total != 0) {
+              that.noticeData.noticeList = list
+              that.noticeData.noticeTotal = total
+              that.noticeData.admission = true
+            }
           } else {
             modals.showToast(res.message, 'none')
           }
         })
-      }, 5000);
+      }, 1800000);
     }
+  },
+
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      let age = util.ages(item)
+      item.age = age
+      arr.push(item)
+    })
+    return arr;
   },
 
   noticeData: { //通知数据

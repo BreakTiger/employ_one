@@ -2,8 +2,6 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-
-
 Page({
 
   data: {
@@ -54,7 +52,7 @@ Page({
   onReady: function () {
     this.dialog = this.selectComponent("#dialog");
   },
-  
+
   showDialog() { // 显示弹出框
     this.dialog.showDialog();
   },
@@ -70,7 +68,7 @@ Page({
   _confirmEvent() {
     app.noticeData.admission = false
     wx.navigateTo({
-      url: '/pages/list/list?list='+JSON.stringify(app.noticeData.noticeList)
+      url: '/pages/list/list?list=' + JSON.stringify(app.noticeData.noticeList)
     })
     this.dialog.hideDialog();
     app.onShow()
@@ -200,7 +198,6 @@ Page({
         scanType: 'qrCode',
         success: function (res) {
           console.log(res)
-
           wx.navigateTo({
             url: '/pages_one/gain/gain?code=' + res.result,
           })

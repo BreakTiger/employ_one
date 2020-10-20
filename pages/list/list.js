@@ -1,66 +1,46 @@
-// pages/list/list.js
+const app = getApp()
+const util = require('../../utils/util.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    page: 1,
+    list: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.setData({
+      list: JSON.parse(options.list),
+      imaUrl: app.globalData.imaUrl
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 详情 - 增加查看次数
+  toWorkerDetail: function (e) {
+    let that = this
+    let item = e.currentTarget.dataset.item
+    let data = {
+      curriculumVitaeId: item.id,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
+      if (res.code == 200) {
+        app.globalData.worker = item
+        wx.navigateTo({
+          url: '/pages/vitae/vitae',
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })
