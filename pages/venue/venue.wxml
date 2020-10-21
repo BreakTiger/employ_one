@@ -1,3 +1,5 @@
+ <wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container col fl-align">
 
 	<!-- 列表 -->
@@ -12,7 +14,7 @@
 							<view class="recruit_state b-1" wx:if="{{item.enable==1}}">正在进行</view>
 							<view class="recruit_state b-2" wx:if="{{item.enable==-1&&item.holdingtimeOverdue!=-1}}">即将进行</view>
 							<view class="recruit_state b-3" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
-							<view class="recruit_time">{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
+							<view class="recruit_time">{{tools.handle(item.holdingtimeStart)}}至{{tools.handle(item.holdingtimeEnd)}}</view>
 						</view>
 						<view class="flex fl-align">
 							<view class="flex fl-align">

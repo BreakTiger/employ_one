@@ -167,6 +167,132 @@ Page({
     })
   },
 
+  // 滑动星
+  toMoveOne(e) {
+    var num = this.data.c_one;
+    var that = this;
+    let query = wx.createSelectorQuery().in(this);
+    var pingfen = query.select('.s_line').boundingClientRect();
+    var level = query.select('.star').boundingClientRect();
+
+    query.exec(res => {
+      var starthzW = res[0].width; //盒子宽
+      var starMinX = res[0].left; // 初始位置
+      var starWidth = res[1].width; //每颗星星宽
+      var starLen = (starthzW - starWidth * 5) / 4;
+      var touchX = e.touches[0].pageX; //获取当前触摸点X坐标
+      var starMaxX = starWidth * 5 + starLen * 4 + starMinX;
+      if (touchX > starMinX && touchX < starMaxX) {
+        var nums = Math.ceil((touchX - starMinX) / (starWidth + starLen));
+        if (num != nums) {
+          that.setData({ c_one: nums })
+        }
+      } else if (touchX < starMinX) {
+        that.setData({ c_one: 0 })
+      }
+    })
+  },
+
+  toMoveTwo(e) {
+    var num = this.data.c_two;
+    var that = this;
+    let query = wx.createSelectorQuery().in(this);
+    var pingfen = query.select('.s_line').boundingClientRect();
+    var level = query.select('.star').boundingClientRect();
+
+    query.exec(res => {
+      var starthzW = res[0].width; //盒子宽
+      var starMinX = res[0].left; // 初始位置
+      var starWidth = res[1].width; //每颗星星宽
+      var starLen = (starthzW - starWidth * 5) / 4;
+      var touchX = e.touches[0].pageX; //获取当前触摸点X坐标
+      var starMaxX = starWidth * 5 + starLen * 4 + starMinX;
+      if (touchX > starMinX && touchX < starMaxX) {
+        var nums = Math.ceil((touchX - starMinX) / (starWidth + starLen));
+        if (num != nums) {
+          that.setData({ c_two: nums })
+        }
+      } else if (touchX < starMinX) {
+        that.setData({ c_two: 0 })
+      }
+    })
+  },
+
+  toMoveThree(e) {
+    var num = this.data.c_three;
+    var that = this;
+    let query = wx.createSelectorQuery().in(this);
+    var pingfen = query.select('.s_line').boundingClientRect();
+    var level = query.select('.star').boundingClientRect();
+
+    query.exec(res => {
+      var starthzW = res[0].width; //盒子宽
+      var starMinX = res[0].left; // 初始位置
+      var starWidth = res[1].width; //每颗星星宽
+      var starLen = (starthzW - starWidth * 5) / 4;
+      var touchX = e.touches[0].pageX; //获取当前触摸点X坐标
+      var starMaxX = starWidth * 5 + starLen * 4 + starMinX;
+      if (touchX > starMinX && touchX < starMaxX) {
+        var nums = Math.ceil((touchX - starMinX) / (starWidth + starLen));
+        if (num != nums) {
+          that.setData({ c_three: nums })
+        }
+      } else if (touchX < starMinX) {
+        that.setData({ c_three: 0 })
+      }
+    })
+  },
+
+  toMoveFour(e) {
+    var num = this.data.c_four;
+    var that = this;
+    let query = wx.createSelectorQuery().in(this);
+    var pingfen = query.select('.s_line').boundingClientRect();
+    var level = query.select('.star').boundingClientRect();
+
+    query.exec(res => {
+      var starthzW = res[0].width; //盒子宽
+      var starMinX = res[0].left; // 初始位置
+      var starWidth = res[1].width; //每颗星星宽
+      var starLen = (starthzW - starWidth * 5) / 4;
+      var touchX = e.touches[0].pageX; //获取当前触摸点X坐标
+      var starMaxX = starWidth * 5 + starLen * 4 + starMinX;
+      if (touchX > starMinX && touchX < starMaxX) {
+        var nums = Math.ceil((touchX - starMinX) / (starWidth + starLen));
+        if (num != nums) {
+          that.setData({ c_four: nums })
+        }
+      } else if (touchX < starMinX) {
+        that.setData({ c_four: 0 })
+      }
+    })
+  },
+
+  toMoveFive(e) {
+    var num = this.data.c_five;
+    var that = this;
+    let query = wx.createSelectorQuery().in(this);
+    var pingfen = query.select('.s_line').boundingClientRect();
+    var level = query.select('.star').boundingClientRect();
+
+    query.exec(res => {
+      var starthzW = res[0].width; //盒子宽
+      var starMinX = res[0].left; // 初始位置
+      var starWidth = res[1].width; //每颗星星宽
+      var starLen = (starthzW - starWidth * 5) / 4;
+      var touchX = e.touches[0].pageX; //获取当前触摸点X坐标
+      var starMaxX = starWidth * 5 + starLen * 4 + starMinX;
+      if (touchX > starMinX && touchX < starMaxX) {
+        var nums = Math.ceil((touchX - starMinX) / (starWidth + starLen));
+        if (num != nums) {
+          that.setData({ c_five: nums })
+        }
+      } else if (touchX < starMinX) {
+        that.setData({ c_five: 0 })
+      }
+    })
+  },
+
 
   // 待定
   toWait: function (e) {

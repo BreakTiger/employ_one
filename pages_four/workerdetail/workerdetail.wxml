@@ -1,6 +1,6 @@
 <import src="../../wxParse/wxParse.wxml" />
 
-<view class="container fl-align fl-jsb">
+<view class="container fl-jsb">
 
   <view class="left flex col">
 
@@ -154,35 +154,35 @@
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">形象气质</text>
-        <view class="flex fl-align fl-jsb">
+        <view class="flex fl-align fl-jsb s_line" bindtouchmove="toMoveOne">
           <image src="{{c_one>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_one" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">语言表达</text>
-        <view class="flex fl-align fl-jsb">
+        <view class="flex fl-align fl-jsb" bindtouchmove="toMoveTwo">
           <image src="{{c_two>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_two" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作经验</text>
-        <view class="flex fl-align fl-jsb">
+        <view class="flex fl-align fl-jsb" bindtouchmove="toMoveThree">
           <image src="{{c_three>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_three" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">工作能力</text>
-        <view class="flex fl-align fl-jsb">
+        <view class="flex fl-align fl-jsb" bindtouchmove="toMoveFour">
           <image src="{{c_four>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_four" bindtap="toChoice"></image>
         </view>
       </view>
 
       <view class="flex fl-align lines">
         <text class="c_title f15 c-94">综合评价</text>
-        <view class="flex fl-align fl-jsb">
+        <view class="flex fl-align fl-jsb" bindtouchmove="toMoveFive">
           <image src="{{c_five>=index+1?'../../images/star-2.png':'../../images/star-1.png'}}" wx:for="{{5}}" wx:key="index" class="star" data-index="{{index}}" data-type="c_five" bindtap="toChoice"></image>
         </view>
       </view>

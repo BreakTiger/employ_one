@@ -37,11 +37,13 @@ var distance = function(create) { // 时间间隔
         }
     }
 }
+
 function handle(time) { // 将传秒去除
     time = time.split(' ');
     var temp = time[1].split(':');
     return time[0] + ' ' + temp[0] + ':' + temp[1];
 }
+
 function handlesWeek(create) {// 获取当前月的总天数
 	var now= getDate()
     var firstdayoffset=(now.getDay()==0?7:now.getDay())-1
@@ -86,6 +88,9 @@ var division = function(value) { // 以逗号分割
     var str = value.split(',');
     return str;
 }
+
+
+module.exports.handle = handle
 module.exports.time = time
 module.exports.holding = holding
 module.exports.entry = entry

@@ -74,7 +74,8 @@
 
 .right {
   width: 345rpx;
-  height: 643rpx;
+  min-height: 643rpx;
+  margin: 25rpx 0;
   margin-right: 15rpx;
 }
 
