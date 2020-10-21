@@ -66,16 +66,25 @@
   font-size: 24rpx;
 }
 
+.f26 {
+  font-size: 26rpx;
+}
+
 .f30 {
   font-size: 30rpx;
 }
 
-.f45{
+.f45 {
   font-size: 45rpx;
 }
 
 /* 字体粗细 */
-.fw-b{
+
+.f-wb {
+  font-weight: bold;
+}
+
+.fw-b {
   font-weight: bold;
 }
 
@@ -134,4 +143,17 @@
   width: 235rpx;
   height: 235rpx;
   margin-bottom: 20rpx;
+}
+
+/* 对齐方式 */
+.t-c {
+  text-align: center;
+}
+
+.t-l {
+  text-align: left;
+}
+
+.t-r {
+  text-align: right;
 }

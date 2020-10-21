@@ -1,12 +1,7 @@
-.container {
-  min-height: 100%;
-}
-
 /* 搜索框 */
 .header {
   width: 750rpx;
   padding: 40rpx 0;
-  background: #3274e5;
 }
 
 .header>view {
@@ -32,19 +27,11 @@
   height: 402rpx;
 }
 
-
-
 /* 统计 */
 .tongji {
   width: 750rpx;
-  padding-top: 20rpx;
-  margin-top: 10rpx;
-  font-size: .8rem;
   color: #3e3e3e;
-}
-
-.tongji view:nth-child(1) {
-  margin-left: 55rpx;
+  margin: 20rpx 0;
 }
 
 .tongji>view {
@@ -58,22 +45,26 @@
 .tongji image {
   width: 35rpx;
   height: 35rpx;
+  margin-left: 34rpx;
 }
 
 /* 分类导航 */
 .navlist {
-  width: 750rpx;
-  padding: 20rpx 0;
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+  overflow: hidden;
 }
 
-.navlist .item {
-  width: 187.5rpx;
-  font-size: .7rem;
-  padding-bottom: 30rpx;
+.item {
+  display: inline-block;
+  margin: 0 25rpx;
   position: relative;
 }
 
-.navlist .item image {
+.item image {
+  display: block;
+  margin: auto;
   width: 120rpx;
   height: 120rpx;
 }
@@ -84,7 +75,6 @@
   height: 80rpx;
   background: #75aac9;
   font-size: .7rem;
-  color: #fff;
   margin: 10rpx auto;
   border-radius: 5rpx;
 }
@@ -93,7 +83,6 @@
 .news {
   width: 690rpx;
   height: 80rpx;
-  font-size: .7rem;
   margin-top: 10rpx;
   border-bottom: 1rpx solid #efefef;
   padding: 0 30rpx;
@@ -135,9 +124,10 @@
 }
 
 .inform {
-  background: #dee8ff;
+
   width: 100%;
-  padding: 10rpx 30rpx;
+  padding: 10rpx 0;
+  background: #dee8ff;
   color: #8d8d8d;
   font-size: 26rpx;
 }

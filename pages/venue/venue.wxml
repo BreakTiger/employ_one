@@ -9,9 +9,9 @@
 					<view class="detail">
 						<view class="type_list">{{item.theme}}</view>
 						<view class="flex fl-align" style="margin: 10rpx 0rpx">
-							<view class="recruit_state" wx:if="{{item.enable==1}}">正在进行</view>
-							<view class="recruit_state" wx:if="{{item.enable==-1&&item.holdingtimeOverdue!=-1}}">即将进行</view>
-							<view class="recruit_state" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
+							<view class="recruit_state b-1" wx:if="{{item.enable==1}}">正在进行</view>
+							<view class="recruit_state b-2" wx:if="{{item.enable==-1&&item.holdingtimeOverdue!=-1}}">即将进行</view>
+							<view class="recruit_state b-3" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
 							<view class="recruit_time">{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
 						</view>
 						<view class="flex fl-align">
@@ -27,7 +27,7 @@
 						<view>主办方: {{item.organizer}}</view>
 						<view>地址: {{item.address}}</view>
 						<view class="flex fl-align fl-jsb" style="margin: 20rpx 0">
-							<view class="recruit_button" bindtap="join" data-item="{{item}}">报名参会</view>
+							<view class="recruit_button b-1" bindtap="join" data-item="{{item}}">报名参会</view>
 							<view class="recruit_button" style="background: #fff;color:#33b6be;border:2rpx solid #33b6be" bindtap="toVenue" data-item="{{item}}">进入会场</view>
 						</view>
 					</view>

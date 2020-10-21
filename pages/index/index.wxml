@@ -3,16 +3,11 @@
 <view class="container col fl-align b-ff">
 
 	<!-- 搜索栏 -->
-	<view class="header flex col fl-align">
-
+	<view class="header flex col fl-align b-e5">
 		<view class="search flex fl-align b-ff" bindtap='toSearch'>
-
 			<icon type="search" size="22" />
-
 			<view>请选择搜索信息</view>
-
 		</view>
-
 	</view>
 
 	<swiper class="swiper_box" autoplay="ture" interval="3000" duration="500" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#FFFFFF">
@@ -23,65 +18,62 @@
 
 	<view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}" bindtap="toManage" >
 		<image src="../../images/inform.png"></image>
-		<text class="c-66">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
+		<text class="c-66 f24">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
 	</view>
 
-	<view class="tongji flex fl-w fl-jss">	
-		<view>
-			<image src="../../images/tongji.png"></image>
-		</view>
+	<view class="tongji flex fl-w fl-jss f24">	
+		<image src="../../images/tongji.png"></image>
 		<view>入驻企业:<text>{{companycount}}</text></view>
 		<view>职位:<text>{{jobcount}}</text></view>
 		<view>简历:<text>{{notecount}}</text></view>
 	</view>
 
-
-	<view class="navlist flex fl-w">
-
-		<view class="item flex col fl-align" bindtap="toMeeting">
+	<!-- 导航 -->
+	<scroll-view class="navlist f24" scroll-x="true">
+	
+		<view class="item" bindtap="toMeeting">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/zph.png"></image>
-			<view>招聘会</view>
+			<view class="t-c">招聘会</view>
 		</view>
 
-		<view class="item flex col fl-align" bindtap="companyLogin">
+		<view class="item" bindtap="companyLogin">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/qydl.png"></image>
-			<view>企业登录</view>
+			<view class="t-c">企业登录</view>
 		</view>
 		
-
-		<view class="item flex col fl-align" bindtap="myCollect">
+		<view class="item" bindtap="myCollect">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/scjl.png"></image>
-			<view>收藏简历</view>
+			<view class="t-c">收藏简历</view>
 		</view>
 
-		<view class="item flex col fl-align" bindtap="scanGet">
+		<view class="item" bindtap="scanGet">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/sm.png"></image>
-			<view>借用/归还平板</view>
+			<view class="t-c">借用/归还平板</view>
 		</view>
 
-		<view class="item flex col fl-align" bindtap="ticket">
+		<view class="item" bindtap="ticket">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/rcj.png"></image>
-			<view>电子入场券</view>
+			<view class="t-c">电子入场券</view>
 		</view>
 
-		<view class="item flex col fl-align" bindtap="notice">
+		<view class="item" bindtap="notice">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appEnterprise/tz.png"></image>
-			<view>通知</view>
+			<view class="t-c">通知</view>
 			<view class="point" wx:if="{{noticeCount!=0}}">{{noticeCount}}</view>
 		</view>
 
-	</view>
+	</scroll-view>
 
-	<view class="release flex fl-align fl-jc" bindtap="toAddCompanyjob">
+	<view class="release flex fl-align fl-jc c-ff f26" bindtap="toAddCompanyjob">
 		<text class="fa fa-pencil-square-o fa-lg"></text>
 		<text>发布职位</text>
 	</view>
 
-	<view class="news flex fl-align fl-jsb">
+	<view class="news flex fl-align fl-jsb f24">
 
 		<view>最新人才</view>
 
-		<view bindtap="toMore">更多</view>
+		<view class="f-wb" bindtap="toMore">更多</view>
 
 	</view>
 

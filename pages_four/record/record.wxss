@@ -33,13 +33,13 @@
 }
 
 .btn>view {
-  width: 130rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+  width: 137rpx;
+  height: 51rpx;
+  line-height: 51rpx;
+  border: 2rpx solid #F5F5F5;
+  border-radius: 8rpx;
   text-align: center;
-  font-size: .7rem;
-  color: #666666;
-  border: 1rpx solid #f5f5f5;
-  border-radius: 10rpx;
+  font-size: 21rpx;
+  color: #545454;
   margin-left: 15rpx;
 }

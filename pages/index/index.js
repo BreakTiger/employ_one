@@ -21,6 +21,8 @@ Page({
 
     notecount: 0,
 
+    noticeCount:0,
+
     noevaluationCount: ''
 
   },
