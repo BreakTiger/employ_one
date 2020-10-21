@@ -239,6 +239,9 @@ Page({
       console.log(res)
       if (res.code == 200) {
         modal.showToast(res.message, 'none')
+        wx.navigateBack({
+          delta: 0,
+        })
       } else {
         modal.showToast(res.message, 'none')
       }
