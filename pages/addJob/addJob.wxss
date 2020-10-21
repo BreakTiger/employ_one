@@ -28,7 +28,7 @@ page {
 .selectitem {
   width: 80%;
   display: flex;
-  color: #808080;
+  color: #000;
   font-size: .8rem;
 }
 
