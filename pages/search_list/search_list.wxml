@@ -30,3 +30,6 @@
   </view>
 	
 </view>
+
+
+<showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>

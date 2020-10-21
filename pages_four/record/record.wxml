@@ -25,7 +25,7 @@
 			<view class="btn w100 flex fl-align fl-jfe">
 				<view bindtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
 				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
-				<view bindtap="toFinsh" data-item="{{item}}">结束面试</view>
+				<!-- <view bindtap="toFinsh" data-item="{{item}}">结束面试</view> -->
 			</view>
 
 		</view>
