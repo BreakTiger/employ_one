@@ -147,7 +147,7 @@ Page({
         url: '/pages/login/login',
       })
     } else {
-      modal.showToast('已经进行登录', 'none')
+      modal.showToast('已经登录', 'none')
     }
   },
 

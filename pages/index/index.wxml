@@ -26,7 +26,6 @@
 		<text class="c-66">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
 	</view>
 
-
 	<view class="tongji flex fl-w fl-jss">	
 		<view>
 			<image src="../../images/tongji.png"></image>

@@ -2,7 +2,7 @@ page {
   background-color: #f5f5f5;
 }
 
-.container>view{
+.container>view {
   width: 100%;
 }
 
@@ -31,14 +31,14 @@ page {
   position: relative;
 }
 
-.mymoney .item view:nth-child(1) {
-  color: #1aad19;
-}
-
-.item {
+.mymoney>view {
+  width: calc(100% /3);
   padding: 20rpx 0;
 }
 
+.mymoney>view view:nth-child(1) {
+  color: #1aad19;
+}
 
 /* 入口列表 */
 .list {
