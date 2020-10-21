@@ -36,47 +36,16 @@ Page({
   // 查看简历
   toWatch: function (e) {
     let that = this
-    console.log(e.currentTarget.dataset.item)
-    let photo = e.currentTarget.dataset.item.photographResumeAddress
-
-    if (photo) {
-      let arr = []
-      arr.push(app.globalData.imaUrl + photo)
-      wx.previewImage({
-        urls: arr,
-      })
-    } else {
-      let data = {
-        id: e.currentTarget.dataset.item.curriculumVitaeId
-      }
-      util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
-        if (res.code == 0) {
-          console.log(res.result.records[0])
-          let item = res.result.records[0]
-          let age = util.ages(item)
-          item.age = age
-          that.addlog(item)
-        } else {
-          modal.showToast(res.message)
-        }
-      })
-    }
-
-
-  },
-
-  addlog: function (detail) {
-    let that = this
+    let item = e.currentTarget.dataset.item
     let data = {
-      curriculumVitaeId: detail.id,
+      curriculumVitaeId: item.curriculumVitaeId,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
     util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
-      console.log(res)
       if (res.code == 200) {
-        app.globalData.worker = detail
+        app.globalData.worker = item
         wx.navigateTo({
-          url: '/pages/workerdetail/workerdetail',
+          url: '/pages_four/workerdetail/workerdetail',
         })
       } else {
         modal.showToast(res.message, 'none')

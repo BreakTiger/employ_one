@@ -1,6 +1,6 @@
 .container>view {
   width: 100%;
-  font-size: .7rem;
+  font-size: 22rpx;
 }
 
 .title {

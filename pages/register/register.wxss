@@ -6,6 +6,7 @@ page {
   width: 100%;
   text-indent: 20rpx;
   padding: 20rpx 0;
+  font-size: 22rpx;
 }
 
 .item {
@@ -18,7 +19,6 @@ page {
 
 .name>view {
   width: 25%;
-  font-size: 1rem;
 }
 
 .item>input {
