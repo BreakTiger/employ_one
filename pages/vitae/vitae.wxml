@@ -66,3 +66,5 @@
 	<view class="btn b-e5 c-ff" bindtap="toCancel" wx:if="{{type==1}}">取消收藏</view>
 
 </view>
+
+<showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>

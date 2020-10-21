@@ -20,12 +20,12 @@
 }
 
 .name {
-  width: 20%;
+  width: 22%;
 }
 
 .selectitem {
   flex: 1;
-  color: #8c8b8b;
+  color: #000;
 }
 
 .introduce {

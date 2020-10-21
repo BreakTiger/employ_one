@@ -36,9 +36,48 @@ Page({
       WxParse.wxParse('article', 'html', article, that, 5);
     }
 
-
-
     that.getType()
+    
+    app.setWatcher(app.noticeData, this); // 设置监听器
+
+  },
+
+  watch: { // 监听
+    admission(newValue) { // admission 要监测的具体数据
+      let that = this
+      if (newValue == true) {
+        that.setData({
+          total: app.noticeData.noticeTotal,
+          nlist: app.noticeData.noticeList
+        })
+        that.showDialog();
+      }
+    }
+  },
+
+  onReady: function () {
+    this.dialog = this.selectComponent("#dialog");
+  },
+
+  showDialog() { // 显示弹出框
+    this.dialog.showDialog();
+  },
+
+  //取消事件
+  _cancelEvent() {
+    app.noticeData.admission = false
+    this.dialog.hideDialog();
+    app.onShow()
+  },
+
+  //确认事件
+  _confirmEvent() {
+    app.noticeData.admission = false
+    wx.navigateTo({
+      url: '/pages/list/list?list=' + JSON.stringify(app.noticeData.noticeList)
+    })
+    this.dialog.hideDialog();
+    app.onShow()
   },
 
   //简历收藏状态
