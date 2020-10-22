@@ -1,5 +1,3 @@
-@import '../../wxParse/wxParse.wxss';
-
 page {
   background: #f8f8f9;
 }
@@ -76,4 +74,9 @@ page {
 
 .f-8 {
   font-size: 28rpx;
+}
+
+.p_class {
+  font-size: 28rpx !important;
+  color: #999999;
 }

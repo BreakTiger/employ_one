@@ -161,3 +161,9 @@
   bottom: -4rpx;
   left: 4rpx;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

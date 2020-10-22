@@ -2,8 +2,6 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-const WxParse = require('../../wxParse/wxParse.js')
-
 Page({
 
   data: {
@@ -11,7 +9,8 @@ Page({
 
     position: {},
 
-    enterprise: {}
+    enterprise: {},
+    
   },
 
   onLoad: function (options) {
@@ -33,11 +32,22 @@ Page({
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
       console.log(res.result.records[0])
       if (res.code == 0) {
+        var info = res.result.records[0].jobDescription
+        info = info
+          .replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p')
+          .replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p')
+          .replace(/<p>/ig, '<p class="p_class">')
+          .replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span')
+          .replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span')
+          .replace(/<span>/ig, '<span class="p_class">')
+console.log(info)
         that.setData({
+          info:info,
           position: res.result.records[0]
         })
-        let ask = res.result.records[0].jobDescription
-        WxParse.wxParse('ask', 'html', ask, that, 5)
+
+
+        // WxParse.wxParse('ask', 'html', ask, that, 5)
         that.getEnterprise(res.result.records[0].enterpriseInfoId)
       } else {
         modal.showToast(res.messgae, 'none')
@@ -69,7 +79,7 @@ Page({
       icon: 'loading',
       duration: 1000
     })
-    
+
     this.getBase(this.data.id)
 
     setTimeout(() => {

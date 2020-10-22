@@ -32,9 +32,13 @@
             <text>{{base.gender}}</text>
           </view>
           <view>
+            <text class="title">出生日期：</text>
+            <text>{{base.birthday}}</text>
+          </view>
+          <!-- <view>
             <text class="title">身份证号码：</text>
             <text>{{base.idcard}}</text>
-          </view>
+          </view> -->
           <view>
             <text class="title">参加工作时间：</text>
             <text>{{base.workingHoursStart}}</text>
@@ -43,16 +47,12 @@
 
         <view>
           <view>
-            <text class="title">出生日期：</text>
-            <text>{{base.birthday}}</text>
-          </view>
-          <view>
             <text class="title">联系电话：</text>
             <text>{{base.phone}}</text>
           </view>
           <view>
             <text class="title">工作经验：</text>
-            <text>{{base.workExperience}}</text>
+            <text>{{base.workExperience||'无'}}</text>
           </view>
         </view>
       

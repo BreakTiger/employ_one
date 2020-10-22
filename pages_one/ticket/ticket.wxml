@@ -9,7 +9,7 @@
 
     <view class="w100">
 
-      <view class="title">{{detail.jobFairName}}</view>
+      <view class="title f-wb">{{detail.jobFairName}}</view>
 
       <view class="time c-66">举办日期：{{tools.handle(detail.holdingtimeStart)}}至{{tools.handle(detail.holdingtimeEnd)}}</view>
     </view>

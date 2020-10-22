@@ -36,16 +36,17 @@
 			<view class="t-c">招聘会</view>
 		</view> -->
 
+		<view class="item" bindtap="notice">
+			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/tz.png"></image>
+			<view class="t-c">通知</view>
+			<view class="point" wx:if="{{noticeCount!=0}}">{{noticeCount}}</view>
+		</view>
+
 		<view class="item" bindtap="companyLogin">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/qydl.png"></image>
 			<view class="t-c">企业登录</view>
 		</view>
 
-		<view class="item" bindtap="notice">
-			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appEnterprise/tz.png"></image>
-			<view class="t-c">通知</view>
-			<view class="point" wx:if="{{noticeCount!=0}}">{{noticeCount}}</view>
-		</view>
 
 		<view class="item" bindtap="ticket">
 			<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/rcj.png"></image>

@@ -61,9 +61,9 @@
 
 	</view>
 
-	<view class="btn b-e5 c-ff f24" bindtap="toCollect" wx:if="{{type==0}}">收藏简历</view>
+	<view class="btn b-e5 c-ff f24" bindtap="toCollect" wx:if="{{type==1}}">收藏简历</view>
 
-	<view class="btn b-e5 c-ff f24" bindtap="toCancel" wx:if="{{type==1}}">取消收藏</view>
+	<view class="btn b-e5 c-ff f24" bindtap="toCancel" wx:if="{{type==0}}">取消收藏</view>
 
 </view>
 

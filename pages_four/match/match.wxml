@@ -15,7 +15,12 @@
 				</view>
 				<view class="info">
 					<view>{{item.name}}<text class="time">{{tools.distance(item.createTime)}}</text></view>
-					<view>{{item.gender}}/{{item.age}}岁/{{item.education}}/{{item.workExperience}} </view>
+					<view>
+						<text wx:if="{{item.gender}}">{{item.gender}}/</text>
+						<text wx:if="{{item.age}}">{{item.age}}岁/</text>
+						<text wx:if="{{item.education}}">{{item.education}}/</text>
+						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+					</view>
 					<view class="jobmoney flex fl-jsb">
 						<view>职位意向:<text>{{item.intendedPosition}}</text></view>
 						<view wx:if="{{item.ispresent==1}}">已入场</view>

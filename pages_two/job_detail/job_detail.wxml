@@ -1,5 +1,3 @@
-<import src="../../wxParse/wxParse.wxml" />
-
 <view class="container col fl-align">
 
   <view class="header flex col fl-align">
@@ -58,9 +56,10 @@
   <view class="describe w100 b-ff flex col fl-align">
     <view class="title">职位描述</view>
     <view class="c-66 f-7" style="margin-top:15rpx;">
-      <template is="wxParse" data="{{wxParseData:ask.nodes}}"></template>
+      <!-- <rich-text nodes="{{info}}"></rich-text> -->
     </view>
   </view>
     
 </view>
+
 

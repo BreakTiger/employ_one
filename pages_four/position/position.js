@@ -27,9 +27,9 @@ Page({
   getElist: function () {
     let that = this
     let data = {
-      pageNo: 1,
-      isexisting: 1,
-      pageSize: 50,
+      pageNo: that.data.page,
+      pageSize: 10,
+      isexisting: 1
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -77,10 +77,8 @@ Page({
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
         let list = that.settle(res.result.records)
-        // console.log(list)
         that.setData({
           list: list
         })
@@ -92,28 +90,30 @@ Page({
 
   // 整理
   settle: function (list) {
-    var map = {},
-      dest = [];
-    for (var i = 0; i < list.length; i++) {
-      var ai = list[i];
-      if (!map[ai.jobFairId]) {
-        dest.push({
+    console.log(list)
+    let after = []
+    let temp = []
+    for (let i = 0; i < list.length; i++) {
+      let ai = list[i];
+      if (temp.indexOf(ai.jobFairId) === -1) {
+        after.push({
           id: ai.jobFairId,
           name: ai.jobFairName,
           data: [ai]
-        });
-        map[ai.jobFairId] = ai;
+        })
+        temp.push(ai.jobFairId)
       } else {
-        for (var j = 0; j < dest.length; j++) {
-          var dj = dest[j];
-          if (dj.jobFairId == ai.jobFairId) {
-            dj.data.push(ai);
+        for (let j = 0; j < after.length; j++) {
+          let as = after[j]
+          if (as.id == ai.jobFairId) {
+            as.data.push(ai)
             break;
           }
         }
       }
     }
-    return dest;
+    console.log(after)
+    return after;
   },
 
 

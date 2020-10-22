@@ -23,7 +23,9 @@ Component({
 
     let that = this
 
-    this.draw(this.properties.percent, 1500)
+    let percent = (this.properties.percent * 100).toFixed(0)
+
+    this.draw(percent, 1500)
 
   },
 
@@ -39,7 +41,7 @@ Component({
       const ctx2 = wx.createCanvasContext('runCanvas', this)
       that.setData({
         ctx2: ctx2,
-        percentage: percent * 100,
+        percentage: percent,
         animTime: animTime
       });
       
