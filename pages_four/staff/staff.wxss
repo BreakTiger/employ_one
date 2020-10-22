@@ -16,7 +16,7 @@ page {
 .laber {
   padding: 5rpx 15rpx;
   border-radius: 10rpx;
-  font-size: .7rem;
+  font-size: 28rpx;
 }
 
 .btn {
@@ -24,7 +24,7 @@ page {
   line-height: 80rpx;
   text-align: center;
   background: rgb(231, 67, 64);
-  font-size: .8rem;
+  font-size: 28rpx;
   position: fixed;
   bottom: 0rpx;
   left: 0rpx;
@@ -39,12 +39,12 @@ page {
   color: #666;
   border-radius: 10rpx;
   border: 1rpx solid #f5f5f5;
-  font-size: .7rem;
+  font-size: 28rpx;
   margin-left: 15rpx;
 }
 
 .item {
-  font-size: .7rem;
+  font-size: 28rpx;
   margin: 10rpx 0;
 }
 

@@ -22,14 +22,14 @@ page {
 
 .name {
   width: 20%;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 .selectitem {
   width: 80%;
   display: flex;
   color: #000;
-  font-size: .8rem;
+  font-size:28rpx;
 }
 
 .selectitem>input,
@@ -40,7 +40,7 @@ page {
 .checkitem {
   width: calc(100% / 3);
   margin: 15rpx 0;
-  font-size: 0.7rem;
+  font-size: 28rpx;
 }
 
 .footer {
@@ -49,7 +49,7 @@ page {
   padding: 0rpx !important;
   line-height: 88rpx;
   color: #fff;
-  font-size: .7rem;
+  font-size:28rpx;
 }
 
 /* 遮罩层 */

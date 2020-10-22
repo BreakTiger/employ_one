@@ -21,13 +21,13 @@ page {
 
 .header>view {
   color: #FFF;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 /* 计数 */
 .mymoney {
   width: 750rpx;
-  font-size: .8rem;
+  font-size: 28rpx;
   position: relative;
 }
 
@@ -47,7 +47,7 @@ page {
 }
 
 .list .item {
-  font-size: .9rem;
+  font-size: 28rpx;
   border-bottom: 1rpx solid #efefef;
   color: #747474;
   display: flex;
@@ -105,7 +105,7 @@ page {
   text-align: center;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
-  font-size: .8rem;
+  font-size: 28rpx;
   background: #3274e5;
   color: #FFF;
   display: flex;
@@ -139,8 +139,7 @@ page {
 }
 
 .weixinmao-content .content .item {
-
-  font-size: .8rem;
+  font-size: 28rpx;
   width: 100%;
   align-self: center;
   margin-bottom: 10rpx;
@@ -205,15 +204,14 @@ page {
 .weixinmao-content-userinfo .userinfo-title {
   align-self: left;
   margin-left: 40rpx;
-  font-size: 1.2rem;
+  font-size: 40rpx;
   margin-top: 40rpx;
-
 }
 
 .weixinmao-content-userinfo .userinfo-content {
   align-self: left;
   margin-left: 40rpx;
-  font-size: .9rem;
+  font-size: 28rpx;
   margin-top: 20rpx;
 
 }
@@ -271,7 +269,7 @@ page {
 .weixinmao-content-usertel .usertel-title {
   align-self: left;
   margin-left: 40rpx;
-  font-size: 1.2rem;
+  font-size: 40rpx;
   margin-top: 40rpx;
 
 }
@@ -279,7 +277,7 @@ page {
 .weixinmao-content-usertel .usertel-content {
   align-self: left;
   margin-left: 40rpx;
-  font-size: .9rem;
+  font-size: 28rpx;
   margin-top: 40rpx;
 
 }
@@ -306,6 +304,6 @@ button::after {
 
 .money {
   color: #FFF;
-  font-size: .7rem;
+  font-size: 28rpx;
   text-align: center;
 }

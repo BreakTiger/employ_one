@@ -6,7 +6,7 @@ page {
   width: 690rpx;
   padding: 20rpx 0;
   border-bottom: 1rpx solid #efefef;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 .header {
@@ -26,7 +26,7 @@ page {
 .inform {
   background: #f5f5f5;
   padding: 20rpx 0;
-  font-size: 1rem;
+  font-size: 30rpx;
 }
 
 .inform>image {
@@ -41,7 +41,7 @@ page {
   height: 40rpx;
   line-height: 40rpx;
   text-align: center;
-  font-size: .7rem;
+  font-size: 28rpx;
   color: #666666;
   border: 1rpx solid #f5f5f5;
   border-radius: 10rpx;

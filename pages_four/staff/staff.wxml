@@ -4,7 +4,7 @@
 
 		<view class="flex col fl-align">
 			<view class="w100 flex fl-align fl-jsb">
-				<text>{{item.name}}</text>
+				<text class="f30 f-wb">{{item.name}}</text>
 				<view class="laber c-e5" style=" border: 1rpx solid #3274e5;" wx:if="{{item.role==1}}">管理员</view>
 				<view class="laber" style=" border: 1rpx solid #ff6600;color:#ff6600;" wx:if="{{item.role!=1 && item.examinestate==0}}">待审核</view>
 				<view class="laber" style=" border: 1rpx solid #0DD068;color:#0DD068;" wx:if="{{item.role!=1 && item.examinestate==1}}">通过</view>

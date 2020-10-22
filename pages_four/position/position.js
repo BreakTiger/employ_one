@@ -28,6 +28,7 @@ Page({
     let that = this
     let data = {
       pageNo: 1,
+      isexisting: 1,
       pageSize: 50,
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {

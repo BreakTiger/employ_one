@@ -90,13 +90,13 @@
 					<text>{{item.name}}</text>
 					<text>{{tools.distance(item.createTime)}}</text>
 				</view>
-				<view style="color:#646464;font-size:.7rem;">
+				<view style="color:#646464;font-size:28rpx;">
 					<text wx:if="{{item.gender}}">{{item.gender}}</text>
 					<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
 					<text wx:if="{{item.education}}">{{item.education}} /</text>
 					<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
 				</view>
-				<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
+				<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
 			</view>
 
 		</view>
