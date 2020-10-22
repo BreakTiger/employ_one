@@ -17,7 +17,7 @@ page {
 
 .money {
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 40rpx;
   margin-top: 40rpx;
 }
 
@@ -34,7 +34,7 @@ page {
 
 .content>view>view:first-child {
   width: 25%;
-  font-size: .9rem;
+  font-size: 29rpx;
 }
 
 
@@ -71,9 +71,9 @@ page {
 }
 
 .f-7 {
-  font-size: .7rem;
+  font-size: 28rpx;
 }
 
 .f-8 {
-  font-size: .8rem;
+  font-size: 28rpx;
 }

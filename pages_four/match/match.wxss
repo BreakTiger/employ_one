@@ -11,7 +11,7 @@ page {
   height: 80rpx;
   line-height: 80rpx;
   margin-left: 20rpx;
-  font-size: .7rem;
+  font-size: 28rpx;
   border-bottom: 1rpx solid #efefef;
   margin: 0 auto;
   display: flex;
@@ -52,7 +52,7 @@ page {
 .newslist .title .detail {
   padding-left: 2%;
   text-align: left;
-  font-size: .8rem;
+  font-size: 28rpx;
   color: #000;
   display: flex;
   flex-direction: row;
@@ -89,13 +89,13 @@ page {
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   color: #646464;
-  font-size: .7rem;
+  font-size: 28rpx;
 }
 
 .newslist .title .detail view:nth-child(3) {
   padding-top: 10rpx;
   font-weight: bold;
-  font-size: .7rem;
+  font-size: 28rpx;
   padding-right: 10rpx;
 }
 
@@ -106,7 +106,7 @@ page {
 .newslist .title .price .money {
   color: #d65408;
   font-weight: bold;
-  font-size: .7rem;
+  font-size: 28rpx;
   padding-right: 10rpx;
 }
 
@@ -140,5 +140,5 @@ page {
 
 .info .time {
   color: #ff4129;
-  font-size: .7rem;
+  font-size: 28rpx;
 }

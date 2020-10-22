@@ -52,7 +52,7 @@ icon {
   margin: 0rpx !important;
   padding: 0rpx !important;
   text-align: center;
-  font-size: .7rem;
+  font-size: 28rpx;
   position: fixed;
   bottom: 0rpx;
   left: 0rpx;

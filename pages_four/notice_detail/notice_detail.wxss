@@ -10,7 +10,7 @@
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
-  font-size: .7rem;
+  font-size: 28rpx;
   border-radius: 8rpx;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .article>view {
-  font-size: .7rem;
+  font-size: 28rpx;
   width: 92%;
   overflow: hidden;
   margin: 20rpx 0;

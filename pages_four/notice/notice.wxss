@@ -6,7 +6,7 @@
 
 .item>view {
   width: 92%;
-  font-size: .8rem;
+  font-size: 28rpx;
   margin: 10rpx 0;
 }
 

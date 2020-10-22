@@ -22,7 +22,7 @@ page {
   border-radius: 10rpx;
   line-height: 80rpx;
   text-align: center;
-  font-size: .7rem;
+  font-size: 28rpx;
 }
 
 .btn>view:first-child {

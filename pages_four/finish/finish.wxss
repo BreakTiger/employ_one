@@ -11,7 +11,7 @@ page {
   width: 98%;
   padding: 20rpx 0;
   border-bottom: 1rpx solid #f5f5f5;
-  font-size: .7rem;
+  font-size: 28rpx;
 }
 
 .content>view:last-child {
@@ -19,7 +19,7 @@ page {
 }
 
 .content>view>view {
-  font-size: .7rem;
+  font-size:28rpx;
   margin-top: 20rpx;
 }
 
@@ -43,7 +43,7 @@ icon {
   line-height: 80rpx;
   border-radius: 10rpx;
   text-align: center;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 .btn>view:first-child {

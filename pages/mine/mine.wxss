@@ -228,7 +228,7 @@ page {
 
 .userinfo-button button {
   background: #FFF;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 .userinfo-button button:nth-child(2) {
@@ -291,7 +291,7 @@ page {
 
 .usertel-button button {
   background: #FFF;
-  font-size: .8rem;
+  font-size:28rpx;
 }
 
 .usertel-button button:nth-child(2) {

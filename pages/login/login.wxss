@@ -48,5 +48,5 @@ page {
   margin-bottom: 30rpx;
   border-radius: 6rpx;
   box-sizing: border-box;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
