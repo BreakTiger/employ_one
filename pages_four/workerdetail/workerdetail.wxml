@@ -2,7 +2,7 @@
 
 <view class="container fl-jsb">
 
-  <view class="left flex col">
+  <view class="left">
 
     <view class="one flex fl-align">
 
@@ -137,14 +137,14 @@
   
   </view>
 
-  <view class="right flex col">
+  <view class="right">
 
-    <text class="c-e5 fw-b f17">简历匹配度（综合指数{{total}}%）</text>
+    <view class="c-e5 fw-b f17">简历匹配度（综合指数{{total}}%）</view>
 
     <!-- 百分比进度条 -->
     <view class="c-line flex fl-w">
       <block wx:for="{{list}}" wx:key="index">
-        <circle data-name="{{item.name}}" data-percent="{{item.percent}}" names="{{item.name}}" percent="{{item.percent}}"></circle>
+        <circle style="margin-left:10rpx;" data-name="{{item.name}}" data-percent="{{item.percent}}" names="{{item.name}}" percent="{{item.percent}}"></circle>
       </block>
     </view>
 

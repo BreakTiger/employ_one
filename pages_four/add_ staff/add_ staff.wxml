@@ -5,11 +5,6 @@
 
 		<view class="b-ff flex col fl-align content">
 
-			<!-- <view class="content-line flex fl-align">
-				<text>角色</text>
-				<view>普通用户</view>
-			</view> -->
-
 			<view class="content-line flex fl-align">
 				<text>姓名</text>
 				<view>

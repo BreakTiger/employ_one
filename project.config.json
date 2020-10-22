@@ -68,21 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "收到简历",
-          "pathName": "pages_four/vitae_count/vitae_count",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/person/person",
-          "pathName": "pages/person/person",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

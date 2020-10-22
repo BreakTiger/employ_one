@@ -90,7 +90,7 @@ Component({
         that.data.ctx2.setStrokeStyle("#00FF00");
       }
           
-      that.data.ctx2.setLineWidth("16");
+      that.data.ctx2.setLineWidth("14");
       
       that.data.ctx2.setLineCap("butt");
       
