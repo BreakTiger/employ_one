@@ -148,7 +148,8 @@ Page({
             c_two: detail.languageExpression,
             c_three: detail.workExperience,
             c_four: detail.workingAbility,
-            c_five: detail.comprehensiveEvaluation
+            c_five: detail.comprehensiveEvaluation,
+            type: detail.interviewResults
           })
         }
       } else {
@@ -361,8 +362,23 @@ Page({
 
   send: function (data) {
     let that = this
-    util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data).then(function (res) {
+    util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data, '1').then(function (res) {
       console.log(res)
+      if (res.code == 200) {
+        that.finish()
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  finish: function () {
+    let that = this
+    let data = {
+      curriculumVitaeId: that.data.details.curriculumVitaeId,
+      enterpriseInfoId: wx.getStorageSync('company').id
+    }
+    util.sendRequest('/zqhr/app/interview/finish', 'get', data).then(function (res) {
       if (res.code == 200) {
         modal.showToast(res.message, 'none')
         wx.navigateBack({

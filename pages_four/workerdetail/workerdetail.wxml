@@ -192,8 +192,8 @@
     <!-- 按钮 -->
 
     <view class="c-line flex fl-align fl-jc">
-      <view class="btn c-ff f16 b-e5" bindtap="toWait" data-type="2">待定</view>
-      <view class="btn c-ff f16 b-51" bindtap="toNotice" data-type="1">入职通知</view>
+      <view class="btn c-ff f16 b-e5" bindtap="toWait" data-type="2" wx:if="{{type!=2}}">待定</view>
+      <view class="btn c-ff f16 b-51" bindtap="toNotice" data-type="1" wx:if="{{type!=1}}">入职通知</view>
     </view>
 
   </view>

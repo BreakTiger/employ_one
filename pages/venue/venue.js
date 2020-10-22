@@ -2,10 +2,6 @@ const app = getApp()
 const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
-// 时间戳
-var timestamp = new Date().getTime();
-
-
 Page({
 
   /**
@@ -13,6 +9,7 @@ Page({
    */
   data: {
     page: 1,
+    isexisting: 1,
     list: [],
     load: ''
   },
@@ -71,6 +68,7 @@ Page({
     let data = {
       pageNo: that.data.page,
       pageSize: 10,
+      isexisting: that.data.isexisting
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -155,6 +153,7 @@ Page({
     let data = {
       pageNo: that.data.page + 1,
       pageSize: 10,
+      isexisting: that.data.isexisting
     }
     util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
       if (res.code == 0) {

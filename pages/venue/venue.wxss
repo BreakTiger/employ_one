@@ -3,43 +3,20 @@ page {
   color: #333;
 }
 
-.search {
-  width: 92%;
-  height: 50px;
-  padding: 0 4%;
-  border-bottom: 1px solid #ececec;
-  position: fixed;
-  top: 0;
-  z-index: 99;
-}
-
-.search>view {
-  height: 30px;
-  background-color: #f7f7f7;
-  margin-top: calc(50rpx - 30rpx);
-  font-size: .9rem;
-  color: #666666;
-}
-
-icon {
-  margin: 0 20rpx;
-}
-
 /* 列表 */
 .recruit {
-  margin-top: 10rpx;
   width: 750rpx;
   background: #FFF;
   display: flex;
   flex-direction: column;
 }
 
-.recruit .recruittitle {
+.recruittitle {
   width: 750rpx;
   height: 80rpx;
   line-height: 80rpx;
   margin-left: 20rpx;
-  font-size: .7rem;
+  font-size: 26rpx;
   border-bottom: 1rpx solid #efefef;
   margin: 0 auto;
   display: flex;
@@ -90,7 +67,7 @@ icon {
   padding: 0 2%;
   box-sizing: border-box;
   text-align: left;
-  font-size: .8rem;
+  font-size: 28rpx;
   color: #000;
   width: 100%;
 }
@@ -138,111 +115,3 @@ icon {
   padding: 17rpx 86rpx;
   font-size: 22rpx;
 }
-
-/* 
-
-
-
-
-
-
-.loadmore {
-  line-height: 35px;
-  font-size: 15px;
-  text-align: center;
-}
-
-
-
-
-.case {
-  margin-top: 10rpx;
-  width: 750rpx;
-  background: #FFF;
-  display: flex;
-  flex-direction: column;
-
-}
-
-.case .casetitle {
-  width: 750rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  margin-left: 20rpx;
-  font-size: .7rem;
-  border-bottom: 1rpx solid #efefef;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-
-}
-
-.case .casetitle view:nth-child(1) {
-
-  height: 40rpx;
-  line-height: 40rpx;
-  width: 6rpx;
-  background: red;
-  align-self: center;
-
-}
-
-.case .casetitle view:nth-child(2) {
-
-  height: 80rpx;
-  line-height: 80rpx;
-  width: 150rpx;
-  padding-left: 15rpx;
-
-}
-
-.case .caselist {
-  display: flex;
-  flex-direction: row;
-  width: 750rpx;
-  margin: 0 auto;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  flex-wrap: wrap;
-}
-
-.case .caselist .caseitem {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20rpx;
-
-}
-
-.case .caselist .caseitem .pic {
-
-  height: 220rpx;
-  line-height: 220rpx;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.case .caselist .caseitem .pic image {
-  width: 320rpx;
-  height: 220rpx;
-}
-
-.case .caselist .caseitem .title {
-  height: 40rpx;
-  line-height: 40rpx;
-  font-size: .7rem;
-  padding-top: 10rpx;
-  color: #3e3e3e;
-  padding-left: 40rpx;
-}
-
-.case .content {
-
-  font-size: .8rem;
-  padding: 20rpx;
-  text-indent: 50rpx;
-  color: #6a6a6a;
-}
- */

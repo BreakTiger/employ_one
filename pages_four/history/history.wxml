@@ -1,21 +1,39 @@
-   <view class="container col fl-align">
+<view class="container col fl-align">
 
-   	<view class="orderlist b-ff" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
-   		<view class="orderid">应聘人：{{item.name}}</view>
-   		<view class="content">
-   			<view class="item">性别：{{item.gender}}</view>
-   			<view class="item">联系电话：{{item.phone}}</view>
-   			<view class="item">结束时间：{{item.createTime}}</view>
-   			<view class="payitem">
-   				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
-					<!-- <view bindtap="toFinsh" data-item="{{item}}">修改评价</view> -->
-   			</view>
-   		</view>
-   	</view>
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
-   </view>
+		  <view class="w100 flex fl-align fl-jsb">
+				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
 
-	 <view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:250rpx;">
+				<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}" class="header"></image>
+
+				<view class="type-info flex col">
+					<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
+						<text>{{item.name}}</text>
+						<text>{{item.submitResumeTime}}</text>
+					</view>
+					<view style="color:#646464;font-size:.7rem;">
+						<text wx:if="{{item.gender}}">{{item.gender}}</text>
+						<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
+						<text wx:if="{{item.education}}">{{item.education}} /</text>
+						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+					</view>
+					<view style="font-size:.7rem;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
+				</view>
+			</view>
+
+			<view class="btn w100 flex fl-align fl-jfe">
+				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
+			</view>
+
+		</view>
+
+		<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">
    		<image src="../../images/empty.png" class="empty"></image>
-   		<text class="c-98">暂无面试记录</text>
+   		<text class="c-98">暂无简历记录</text>
    	</view>
+
+</view>
+
+
+		

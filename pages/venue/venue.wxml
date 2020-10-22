@@ -1,6 +1,9 @@
- <wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
 
 <view class="container col fl-align">
+
+	<!-- 往期按钮 -->
+	<view></view>
 
 	<!-- 列表 -->
 	<view class="recruit">
@@ -29,7 +32,8 @@
 						<view>主办方: {{item.organizer}}</view>
 						<view>地址: {{item.address}}</view>
 						<view class="flex fl-align fl-jsb" style="margin: 20rpx 0">
-							<view class="recruit_button b-1" bindtap="join" data-item="{{item}}">报名参会</view>
+						<view class="recruit_button b-3" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
+							<view class="recruit_button b-1" bindtap="join" data-item="{{item}}" wx:else>报名参会</view>
 							<view class="recruit_button" style="background: #fff;color:#33b6be;border:2rpx solid #33b6be" bindtap="toVenue" data-item="{{item}}">进入会场</view>
 						</view>
 					</view>

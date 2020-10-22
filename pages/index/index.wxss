@@ -16,7 +16,6 @@
 
 .search view {
   color: #a6a6a6;
-  font-size: .7rem;
   border-left: 4rpx solid #a6a6a6;
   text-indent: 8rpx;
 }
@@ -74,7 +73,6 @@
   width: 680rpx;
   height: 80rpx;
   background: #75aac9;
-  font-size: .7rem;
   margin: 10rpx auto;
   border-radius: 5rpx;
 }
@@ -83,7 +81,7 @@
 .news {
   width: 690rpx;
   height: 80rpx;
-  margin-top: 10rpx;
+  margin-top: 18rpx;
   border-bottom: 1rpx solid #efefef;
   padding: 0 30rpx;
 }
@@ -106,7 +104,7 @@
   width: 690rpx;
   padding: 20rpx 0;
   border-bottom: 1rpx solid #efefef;
-  font-size: .8rem;
+  font-size: 28rpx;
 }
 
 .type-box>image {

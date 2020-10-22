@@ -1,3 +1,5 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container col fl-align">
   <view class="header w100 b-e5 flex col fl-align">
     <image src="../../images/ewmhead.png"></image>
@@ -9,7 +11,7 @@
 
       <view class="title">{{detail.jobFairName}}</view>
 
-      <view class="time c-66">举办日期：{{detail.holdingtimeStart}}至{{detail.holdingtimeEnd}}</view>
+      <view class="time c-66">举办日期：{{tools.handle(detail.holdingtimeStart)}}至{{tools.handle(detail.holdingtimeEnd)}}</view>
     </view>
 
     <canvas style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' class="code"></canvas>
@@ -26,15 +28,6 @@
       <view bindtap="two">收到简历({{detail.resumeTotal}})</view>
     </view>
 
-
   </view>
 
-  <!-- <view class="main flex col fl-align">
-    <view class="content w100">
-      <view>招聘会名称: 2020-02-20</view>
-      <view>招聘会类型: 2020-02-20</view>
-      <view>招聘会举办日期: 2020-02-20</view>
-    </view>
-
-  </view> -->
 </view>
