@@ -5,16 +5,18 @@ import modal from '../../modals.js'
 Page({
 
   data: {
+
     id: '',
 
     position: {},
 
     enterprise: {},
-    
+
+    info: ''
+
   },
 
   onLoad: function (options) {
-    // console.log(options.id)
     this.setData({
       id: options.id
     })
@@ -30,19 +32,20 @@ Page({
       id: id
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
-      console.log(res.result.records[0])
+      // console.log(res.result.records[0])
       if (res.code == 0) {
-        var info = res.result.records[0].jobDescription
+        let info = res.result.records[0].jobDescription
         info = info
           .replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p')
           .replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p')
-          .replace(/<p>/ig, '<p class="p_class">')
+          .replace(/<p>/ig, '<p class="p_class">')
           .replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span')
           .replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span')
-          .replace(/<span>/ig, '<span class="p_class">')
-console.log(info)
+          .replace(/<span>/ig, '<span class="p_class">')
+        console.log(info)
+
         that.setData({
-          info:info,
+          info: info,
           position: res.result.records[0]
         })
 
@@ -62,7 +65,7 @@ console.log(info)
       id: e
     }
     util.sendRequest('/zqhr/hall/enterprise/list', 'get', data).then(function (res) {
-      console.log(res.result)
+      // console.log(res.result)
       if (res.code == 0) {
         that.setData({
           enterprise: res.result.records[0]

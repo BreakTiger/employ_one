@@ -56,7 +56,7 @@
   <view class="describe w100 b-ff flex col fl-align">
     <view class="title">职位描述</view>
     <view class="c-66 f-7" style="margin-top:15rpx;">
-      <!-- <rich-text nodes="{{info}}"></rich-text> -->
+      <rich-text nodes="{{info}}"></rich-text>
     </view>
   </view>
     
