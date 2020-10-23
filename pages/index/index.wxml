@@ -12,7 +12,7 @@
 
 	<swiper class="swiper_box" autoplay="ture" interval="3000" duration="500" indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.8)" indicator-active-color="#FFFFFF">
 		<swiper-item wx:for="{{banners}}" wx:key="index">
-			<image src="{{item.thumb}}" class="wh" />
+			<image src="{{imaUrl+item.address}}" class="wh" />
 		</swiper-item>
 	</swiper>
 

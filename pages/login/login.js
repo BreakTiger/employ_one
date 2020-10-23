@@ -8,14 +8,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    banners: [
-      {
-        thumb: 'http://120.79.207.87:8091//img/zqzpImg/1.jpg'
-      },
-      {
-        thumb: 'http://120.79.207.87:8091//img/zqzpImg/2.jpg'
+    banners: []
+  },
+
+  onLoad:function(){
+    this.setData({
+      imaUrl: app.globalData.imaUrl
+    })
+    this.getBanner()
+  },
+
+  getBanner: function () {
+    let that = this
+    util.sendRequest('/zqhr/app/enterprisenotice/rotatepictures', 'get', {}).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          banners: res.result
+        })
+      } else {
+        modal.showToast(res.message, 'none')
       }
-    ]
+    })
   },
 
   // 立即登录
