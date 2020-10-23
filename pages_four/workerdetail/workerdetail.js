@@ -303,9 +303,6 @@ Page({
       content: '是否将该简历选待定',
       success: function (res) {
         if (res.confirm) {
-          that.setData({
-            type: e.currentTarget.dataset.type
-          })
           that.judge()
         }
       }
@@ -320,9 +317,6 @@ Page({
       content: '是否发送入职通知',
       success: function (res) {
         if (res.confirm) {
-          that.setData({
-            type: e.currentTarget.dataset.type
-          })
           that.judge()
         }
       }
