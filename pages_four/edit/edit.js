@@ -414,6 +414,11 @@ Page({
       console.log(res)
       if (res.code == 200) {
         modal.showToast(res.message)
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
       } else {
         modal.showToast(res.message, 'none')
       }

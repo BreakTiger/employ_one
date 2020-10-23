@@ -50,7 +50,6 @@
 
 	</view>
 
-
 	<view class="order" style="margin-bottom:100rpx;">
 
 		<view class="title">自我介绍及工作经历</view>
@@ -61,9 +60,9 @@
 
 	</view>
 
-	<view class="btn b-e5 c-ff f24" bindtap="toCollect" wx:if="{{type==1}}">收藏简历</view>
+	<view class="btn b-e5 c-ff f24" bindtap="toCollect" wx:if="{{type==0}}">收藏简历</view>
 
-	<view class="btn b-e5 c-ff f24" bindtap="toCancel" wx:if="{{type==0}}">取消收藏</view>
+	<view class="btn b-e5 c-ff f24" bindtap="toCancel" wx:if="{{type==1}}">取消收藏</view>
 
 </view>
 

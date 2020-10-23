@@ -20,8 +20,8 @@ Page({
         sex: detail.gender,
         name: detail.name,
         phone: detail.phone,
-        psw: detail.password
-        // idcard: detail.idcard
+        psw: detail.password,
+        id:detail.id
       })
 
       wx.setNavigationBarTitle({
@@ -51,18 +51,11 @@ Page({
       modal.showToast('请输入合法的电话号码', 'none')
     } else if (!data.psw) {
       modal.showToast('请设置密码', 'none')
-    }
-    // else if (!data.idcard) {
-    //   modal.showToast('请输入身份证号码', 'none')
-    // } else if (!(/(^\d{15}$)|(^\d{17}(\d|X)$)/.test(data.idcard))) {
-    //   modal.showToast('请输入合法的身份号码', 'none')
-    // } 
-
-    else {
+    }else {
       let param = {
         enterpriseInfoId: wx.getStorageSync('company').id,
         gender: that.data.sex,
-        // idcard: data.idcard,
+        id:that.data.id,
         name: data.name,
         password: data.psw,
         phone: data.tel,

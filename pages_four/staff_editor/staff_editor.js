@@ -49,7 +49,7 @@ Page({
     let that = this
     util.sendRequest('/zqhr/app/staff/UpdatePasswordAdmin', 'get', e).then(function (res) {
       console.log(res)
-      if (res.code == 0) {
+      if (res.code == 200) {
         modal.showToast(res.message)
         setTimeout(() => {
           wx.navigateBack({
@@ -68,7 +68,7 @@ Page({
     let that = this
     util.sendRequest('/zqhr/app/staff/UpdatePasswordStaff', 'get', e).then(function (res) {
       console.log(res)
-      if (res.code == 0) {
+      if (res.code == 200) {
         modal.showToast(res.message)
         setTimeout(() => {
           wx.navigateBack({

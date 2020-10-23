@@ -55,6 +55,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           let index = e.currentTarget.dataset.index
+          console.log(index)
           let list = that.data.list
           let data = {
             id: e.currentTarget.dataset.id
@@ -63,7 +64,7 @@ Page({
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.message)
-              list.splice(index, 0)
+              list.splice(index, 1)
               that.setData({
                 list: list
               })

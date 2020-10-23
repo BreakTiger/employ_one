@@ -115,3 +115,12 @@ page {
   padding: 17rpx 86rpx;
   font-size: 22rpx;
 }
+
+.top-btn {
+  font-size: 26rpx;
+  border: 2rpx solid #3274e5;
+  color: #3274e5;
+  padding: 10rpx 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}

@@ -3,7 +3,13 @@
 <view class="container col fl-align">
 
 	<!-- 往期按钮 -->
-	<view></view>
+	<view class="w100 flex fl-align fl-jfe" style="margin:10rpx 0;">
+
+		<view class="top-btn" wx:if="{{isexisting==1}}" bindtap="changeds" data-type="-1">往期招聘会</view>
+		
+		<view class="top-btn" wx:else bindtap="changeds" data-type="1">现在招聘会</view>
+
+	</view>
 
 	<!-- 列表 -->
 	<view class="recruit">

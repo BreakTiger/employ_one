@@ -13,7 +13,7 @@ Page({
    */
   data: {
     detail: {},
-    type: null,
+    type: 0,
     id: ''
   },
 
@@ -37,7 +37,7 @@ Page({
     }
 
     that.getType()
-    
+
     app.setWatcher(app.noticeData, this); // 设置监听器
 
   },
@@ -90,10 +90,12 @@ Page({
       console.log(res)
       if (res.code == 0) {
         if (res.result.records.length == 0) { //未收藏
+          console.log('未收藏')
           that.setData({
             type: 0
           })
         } else { //收藏
+          console.log('收藏')
           that.setData({
             type: 1,
             id: res.result.records[0].id
@@ -117,11 +119,12 @@ Page({
         enterpriseInfoId: wx.getStorageSync('company').id
       }
       util.sendRequest('/zqhr/app/resumecollection/collection', 'post', data).then(function (res) {
-        console.log(res)
         if (res.code == 200) {
           modal.showToast('收藏成功')
           setTimeout(() => {
-            that.getType()
+            that.setData({
+              type: 1
+            })
           }, 2000);
         } else {
           modal.showToast(res.message, 'none')
@@ -155,7 +158,9 @@ Page({
         if (res.code == 200) {
           modal.showToast('取消收藏')
           setTimeout(() => {
-            that.getType()
+            that.setData({
+              type: 0
+            })
           }, 2000);
 
         } else {

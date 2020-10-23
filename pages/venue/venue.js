@@ -61,6 +61,15 @@ Page({
     app.onShow()
   },
 
+  changeds: function (e) {
+    let that = this
+    that.setData({
+      page:1,
+      isexisting: e.currentTarget.dataset.type
+    })
+    that.getList()
+  },
+
 
   // 列表
   getList: function () {
