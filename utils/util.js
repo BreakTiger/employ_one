@@ -34,7 +34,7 @@ function sendRequest(url, method, data, loading) {
               content: "登录失效，请重新登录",
               success: function (res) {
                 if (res.confirm) {
-                  
+
                   // 清空所有的缓存
                   wx.clearStorage()
 
@@ -67,7 +67,7 @@ function sendRequest(url, method, data, loading) {
 
 // 上传
 function upLoading(filePath, data) {
-  console.log('图片路径',filePath)
+  console.log('图片路径', filePath)
   var promise = new Promise(function (resolve, reject) {
     wx.showLoading({
       title: '加载中',
@@ -101,28 +101,45 @@ function upLoading(filePath, data) {
 // 计算年龄
 function calculate(item) {
   let that = this
-
   let date = new Date()
   let n_year = date.getFullYear()
-  // console.log('年份：', n_year)
-
   let time = []
   let bir = item.birthday
   time = bir.split('-')
-  // console.log('出生年份：', time[0])
-
   let age = n_year - time[0]
-
-  // console.log('年龄：', age)
-
   return age;
+}
+
+// 计算从业时间
+function calculates(item) {
+  let that = this
+
+  let work = ''
+
+  let one = item.workingHoursStart.split('-')
+  let two = item.workingHoursEnd.split('-')
+
+  let num = two[0] - one[0]
+
+  // console.log(num)
+
+  if (num == 0) {
+    work = "一年以下"
+  } else {
+    work = num + '年'
+  }
+
+  console.log(work)
+
+
 }
 
 
 module.exports = {
   sendRequest: sendRequest,
   upLoading: upLoading,
-  ages: calculate
+  ages: calculate,
+  calculates: calculates
 }
 
 

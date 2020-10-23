@@ -20,8 +20,8 @@ page {
 }
 
 .btn {
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   text-align: center;
   background: rgb(231, 67, 64);
   font-size: 28rpx;
@@ -29,6 +29,7 @@ page {
   bottom: 0rpx;
   left: 0rpx;
   margin: 0rpx !important;
+  border-radius: 5rpx;
 }
 
 .btn-line>view {

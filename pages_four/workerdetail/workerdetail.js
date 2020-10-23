@@ -62,6 +62,8 @@ Page({
       if (res.code == 0) {
         let items = res.result.records[0]
         let age = util.ages(items)
+        let work = util.calculates(items)
+        items.workExperience = work
         items.age = age
         that.setData({
           base: items

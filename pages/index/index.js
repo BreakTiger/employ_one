@@ -128,7 +128,9 @@ Page({
     let arr = []
     list.forEach(function (item) {
       let age = util.ages(item)
+      let work = util.calculates(item)
       item.age = age
+      item.workExperience = work
       arr.push(item)
     })
     that.setData({
