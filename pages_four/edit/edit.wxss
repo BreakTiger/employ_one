@@ -4,10 +4,11 @@
 }
 
 .title {
+  height: 75rpx;
+  line-height: 75rpx;
   background: #f5f5f5;
-  padding: 20rpx 0;
+  color: #616161;
   text-indent: 20rpx;
-  color: #666;
 }
 
 .edit-content>view {

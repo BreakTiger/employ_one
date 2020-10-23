@@ -3,7 +3,7 @@
 <view class="container col fl-align">
 
 	<!-- 往期按钮 -->
-	<view class="w100 flex fl-align fl-jfe" style="margin:10rpx 0;">
+	<view class="top w100 flex fl-align fl-jfe">
 
 		<view class="top-btn" wx:if="{{isexisting==1}}" bindtap="changeds" data-type="-1">往期招聘会</view>
 		
@@ -12,7 +12,7 @@
 	</view>
 
 	<!-- 列表 -->
-	<view class="recruit">
+	<view class="recruit flex col">
 		<view wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 			<view class="recruit_header">{{item.name}}</view>
 			<view class="recruitlist">
@@ -23,7 +23,7 @@
 							<view class="recruit_state b-1" wx:if="{{item.enable==1}}">正在进行</view>
 							<view class="recruit_state b-2" wx:if="{{item.enable==-1&&item.holdingtimeOverdue!=-1}}">即将进行</view>
 							<view class="recruit_state b-3" wx:if="{{item.enable==-1&&item.holdingtimeOverdue==-1}}">已结束</view>
-							<view class="recruit_time">{{tools.handle(item.holdingtimeStart)}}至{{tools.handle(item.holdingtimeEnd)}}</view>
+							<view class="recruit_time">{{tools.time(item.holdingtimeStart)}}至{{tools.time(item.holdingtimeEnd)}}</view>
 						</view>
 						<view class="flex fl-align">
 							<view class="flex fl-align">

@@ -2,6 +2,7 @@
 
 page {
   background: #f5f5f5;
+  font-size: 22rpx;
 }
 
 .main {
@@ -9,7 +10,10 @@ page {
 }
 
 .title {
+  height: 75rpx;
+  line-height: 75rpx;
   background: #f5f5f5;
+  color: #616161;
   padding: 15rpx 0 15rpx 15rpx;
 }
 
@@ -24,14 +28,12 @@ page {
 
 .name {
   width: 20%;
-  font-size: 28rpx;
 }
 
 .selectitem {
   width: 80%;
   display: flex;
   color: #000;
-  font-size: 28rpx;
 }
 
 .selectitem>input,
@@ -42,7 +44,6 @@ page {
 .checkitem {
   width: calc(100% / 3);
   margin: 15rpx 0;
-  font-size: 28rpx;
 }
 
 .footer {
@@ -51,7 +52,6 @@ page {
   padding: 0rpx !important;
   line-height: 88rpx;
   color: #fff;
-  font-size: 28rpx;
 }
 
 /* 遮罩层 */
@@ -74,7 +74,6 @@ page {
   bottom: 0;
   left: 0;
   z-index: 9999;
-  /* transition: height 0.5s;  */
 }
 
 .left {
@@ -90,7 +89,6 @@ page {
 .left-title {
   padding: 30rpx 5rpx;
   text-align: center;
-  font-size: 24rpx;
 }
 
 .line {

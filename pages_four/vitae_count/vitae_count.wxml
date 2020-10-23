@@ -18,7 +18,7 @@
 						<text wx:if="{{item.education}}">{{item.education}} /</text>
 						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
 					</view>
-					<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.intendedPosition}}</view>
+					<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.postName}}</view>
 				</view>
 			</view>
 

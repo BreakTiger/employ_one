@@ -62,6 +62,10 @@
 }
 
 /* 字体大小 */
+.f22 {
+  font-size: 22rpx;
+}
+
 .f24 {
   font-size: 24rpx;
 }
