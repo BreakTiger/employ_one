@@ -4,7 +4,7 @@
 
 		<view class="main b-ff">
 
-			<view class="title c-66">招聘职位添加</view>
+			<view class="title c-66">招聘职位信息</view>
 
 			<view class="list flex col fl-align">
 
@@ -114,7 +114,7 @@
 
 		<!-- 特色服务 -->
 		<view class="main">
-			<view class="title c-66">特色服务</view>
+			<view class="title c-66">福利待遇</view>
 			<view class="checklist b-ff ">
 				<checkbox-group bindchange="checkboxChange" class="w100 flex fl-w">
 					<view class="checkitem" wx:for="{{speciallist}}" wx:key="index">

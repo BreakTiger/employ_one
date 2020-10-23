@@ -68,15 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "pages_four/notice/notice",
-          "pathName": "pages_four/notice/notice",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

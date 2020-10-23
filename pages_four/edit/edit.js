@@ -260,6 +260,7 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
+        console.log(res)
         let img = res.tempFilePaths[0]
         that.setData({
           logo: img

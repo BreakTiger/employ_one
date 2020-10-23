@@ -1,13 +1,24 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container flex col fl-align">
 
-	<view class="item flex col fl-align" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}" wx:if="{{list.length!=0}}">
+	<view class="item flex fl-align fl-jsa" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}" wx:if="{{list.length!=0}}">
+	
+		<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appPersonal/img/msyq.png" class="icon"></image>
 
-		<view class="flex fl-jsb">
-			<view class="c-e5" style="font-size:32rpx;">{{item.noticeTitle}}</view>
-			<view class="point" wx:if="{{item.readStatus==0}}"></view>
+		<view class="flex col">
+
+			<view class="flex fl-jsb f28">
+				<view style="font-size:32rpx;margin-bottom:15rpx;">{{item.noticeTitle}}</view>
+				<view class="flex fl-align">
+					<view class="c-93">{{tools.distance(item.createTime)}}</view>
+					<view class="point" wx:if="{{item.readStatus==0}}"></view>
+				</view>
+			</view>
+
+			<view class="f24 c-93">{{item.noticeSketch}}</view>
+		
 		</view>
-
-		<view class="c-66" style="text-align:right;">{{item.createTime}}</view>
 
 	</view>
 
