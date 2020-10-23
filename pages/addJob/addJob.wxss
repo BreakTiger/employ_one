@@ -1,3 +1,5 @@
+@import "../../utils/iconfont.wxss";
+
 page {
   background: #f5f5f5;
 }
@@ -29,7 +31,7 @@ page {
   width: 80%;
   display: flex;
   color: #000;
-  font-size:28rpx;
+  font-size: 28rpx;
 }
 
 .selectitem>input,
@@ -49,7 +51,7 @@ page {
   padding: 0rpx !important;
   line-height: 88rpx;
   color: #fff;
-  font-size:28rpx;
+  font-size: 28rpx;
 }
 
 /* 遮罩层 */
@@ -111,4 +113,24 @@ page {
   text-align: center;
   padding: 30rpx 0;
   border-bottom: 2rpx solid #f5f5f5;
+}
+
+/* 富文本 */
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+  z-index: 100;
 }

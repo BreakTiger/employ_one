@@ -12,6 +12,8 @@ Page({
 
     choice: '',//招聘会ID
 
+    choice_name: '全部',
+
     fid: '',
     page: 1,
     list: []
@@ -27,14 +29,13 @@ Page({
   getElist: function () {
     let that = this
     let data = {
-      pageNo: that.data.page,
-      pageSize: 10,
-      isexisting: 1
+      enterpriseInfoId:wx.getStorageSync('company').id
     }
-    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/entryenterprise/EntryJobFair', 'get', data).then(function (res) {
       if (res.code == 0) {
+        console.log(res.result)
         that.setData({
-          elist: res.result.records
+          elist: res.result
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -60,8 +61,10 @@ Page({
   choices: function (e) {
     let that = this
     let id = e.currentTarget.dataset.id
+    let name = e.currentTarget.dataset.name
     that.setData({
       choice: id,
+      choice_name: name,
       down: false
     })
     that.getList()
