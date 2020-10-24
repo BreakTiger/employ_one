@@ -26,7 +26,9 @@ Page({
     util.sendRequest('/zqhr/hall/curriculumvitae/AllMatchinglist', 'get', data).then(function (res) {
       console.log(res.result.records)
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          list: that.settle(res.result.records)
+        })
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -39,12 +41,12 @@ Page({
     let arr = []
     list.forEach(function (item) {
       let age = util.ages(item)
+      let work = util.calculates(item)
+      item.workExperience = work
       item.age = age
       arr.push(item)
     })
-    that.setData({
-      list: arr
-    })
+    return arr
   },
 
   // 详情 - 增加查看次数

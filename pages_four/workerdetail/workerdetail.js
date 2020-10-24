@@ -42,7 +42,7 @@ Page({
       imaUrl: app.globalData.imaUrl
     })
 
-    // console.log(app.globalData.worker)
+    console.log(app.globalData.worker)
 
     this.getBase(app.globalData.worker)
 
@@ -296,7 +296,6 @@ Page({
     })
   },
 
-
   // 待定
   toWait: function (e) {
     let that = this
@@ -305,7 +304,7 @@ Page({
       content: '是否将该简历选待定',
       success: function (res) {
         if (res.confirm) {
-          that.judge()
+          that.judge(e.currentTarget.dataset.type)
         }
       }
     })
@@ -319,14 +318,14 @@ Page({
       content: '是否发送入职通知',
       success: function (res) {
         if (res.confirm) {
-          that.judge()
+          that.judge(e.currentTarget.dataset.type)
         }
       }
     })
   },
 
   // 判断
-  judge: function () {
+  judge: function (types) {
     if (this.data.c_one == 0) {
       modal.showToast('请对形象气质评价', 'none')
     } else if (this.data.c_two == 0) {
@@ -340,6 +339,7 @@ Page({
     } else {
       let that = this
       let data = {
+        id:that.data.details.id,
         imageTemperament: that.data.c_one,
         languageExpression: that.data.c_two,
         workExperience: that.data.c_three,
@@ -348,7 +348,7 @@ Page({
         curriculumVitaeId: that.data.details.curriculumVitaeId,
         enterpriseInfoId: wx.getStorageSync('company').id,
         enterprisePostReleaseId: that.data.details.enterprisePostReleaseId,
-        interviewResults: that.data.type,
+        interviewResults: types,
         createBy: wx.getStorageSync('company').id
       }
       console.log(data)

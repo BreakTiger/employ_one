@@ -4,12 +4,12 @@ page {
 
 .container>view {
   width: 100%;
+  font-size: 22rpx;
 }
 
 .title {
   text-indent: 25rpx;
   margin: 20rpx 0;
-
 }
 
 .content-line {

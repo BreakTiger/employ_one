@@ -43,3 +43,16 @@
   color: #545454;
   margin-left: 15rpx;
 }
+
+.add{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  margin: 0rpx !important;
+  border-radius: 5rpx;
+}

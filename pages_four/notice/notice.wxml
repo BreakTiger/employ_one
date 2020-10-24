@@ -9,7 +9,7 @@
 		<view class="flex col">
 
 			<view class="flex fl-jsb f28">
-				<view style="font-size:32rpx;margin-bottom:15rpx;">{{item.noticeTitle}}</view>
+				<view style="margin-bottom:15rpx;">{{item.noticeTitle}}</view>
 				<view class="flex fl-align">
 					<view class="c-93">{{tools.distance(item.createTime)}}</view>
 					<view class="point" wx:if="{{item.readStatus==0}}"></view>
