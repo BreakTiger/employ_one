@@ -110,7 +110,7 @@ Page({
   toSearch: function (e) {
     let that = this
     let detail = {
-      word: that.data.word,
+      // word: that.data.word,
       area: that.data.areaname,
       trade: that.data.tradename,
       education: that.data.eductaionname

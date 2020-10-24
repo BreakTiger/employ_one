@@ -67,12 +67,15 @@ Page({
       pageSize: 10,
       workArea: detail.area,
       intendedIndustries: detail.trade,
-      education: detail.education,
-      name: detail.word
+      education: detail.education
+      // name: detail.word
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          worklist: that.settle(res.result.records)
+        })
+
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -84,15 +87,13 @@ Page({
     let that = this
     let arr = []
     list.forEach(function (item) {
-      if (item.enable == 1) {
-        let age = util.ages(item)
-        item.age = age
-        arr.push(item)
-      }
+      let age = util.ages(item)
+      let work = util.calculates(item)
+      item.workExperience = work
+      item.age = age
+      arr.push(item)
     })
-    that.setData({
-      worklist: arr
-    })
+    return arr
   },
 
   // 简历详情

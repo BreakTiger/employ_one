@@ -135,7 +135,6 @@ Page({
       item.age = age
       arr.push(item)
     })
-
     return arr
   },
 

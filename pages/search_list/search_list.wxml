@@ -1,3 +1,5 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+ 
 <view class="container col fl-align">
 
   <!-- 列表 -->
@@ -11,8 +13,13 @@
  						<image src="{{item.gender=='男'?'../../images/male1.png':'../../images/male0.png'}}" wx:if="{{!item.headimgAddress}}"></image>
  					</view>
  					<view class="info">
- 						<view>{{item.name}} <text class="time">{{item.createTime}}</text></view>
- 						<view> {{item.gender}} / {{item.age}}岁 / {{item.education}} / {{item.workExperience}} </view>
+					 	<view>{{item.name}}<text class="time">{{tools.distance(item.createTime)}}</text></view>
+ 						<view>
+							<text>{{item.gender}}</text>
+							<text> /{{item.age}}岁 /</text>
+							<text>{{item.education||'无学历'}} /</text>
+							<text>{{item.workExperience}}</text>
+						</view>
  						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
  					</view>
  				</view>
