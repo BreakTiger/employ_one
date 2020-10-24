@@ -22,9 +22,11 @@ Page({
 
     // Logo
     logo: '',
+    logoAddress: '',
 
     // 执照
     license: '',
+    licenseAddress: '',
 
     // 上传状态
     loadingType: false,
@@ -94,6 +96,8 @@ Page({
               licenseAddress: detail.businessLicenseAddress
             })
           }
+
+
         }
       } else {
         modal.showToast(res.message, 'none')
@@ -157,7 +161,7 @@ Page({
     })
   },
 
-  //规模
+  //区域
   getList_four: function () {
     let that = this
     let data = {
@@ -296,7 +300,7 @@ Page({
   forSubmit: function (e) {
     let that = this
     let data = e.detail.value
-    console.log(data)
+    // console.log(data)
 
     // 判断
     if (!data.name) {
@@ -320,15 +324,40 @@ Page({
     } else if (!data.idcard) {
       modal.showToast('请输入负责人身份证', 'none')
     } else {
+      console.log('都存在：')
+      console.log(that.data.logo && that.data.license)
+      console.log(!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress))
 
-      // 判断
-      if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
-        console.log('不相等1')
-        that.upImg(that.data.logo, data)
-      } else if (!(that.data.license == app.globalData.imaUrl + that.data.detail.businessLicenseAddress)) {
-        console.log('不相等2')
-        that.upLicense(that.data.license, data)
+      // console.log()
+
+      if (that.data.logo && that.data.license) { //都存在
+        console.log('都存在')
+        if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) { //都是新上传的
+          console.log('新上传1')
+          that.upImg(that.data.logo, data)
+        } else {
+          that.upForms(data)
+        }
+      } else if (that.data.logo || that.data.license) {
+
+        console.log('存在其一：')
+
+        // 再判断存在哪一个:
+
+        if (that.data.logo && !(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
+
+          console.log('存在logo,并新上传')
+          that.upImg(that.data.logo, data)
+
+        } else if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
+
+          console.log('存在执照,并为新上传')
+          that.upLicense(that.data.license, data)
+
+        }
+
       } else {
+        console.log('都不存在')
         that.upForms(data)
       }
     }
@@ -345,14 +374,18 @@ Page({
       console.log(datas.result)
       if (datas.code == 200) {
 
+        // 绑定
         that.setData({
           logo: app.globalData.imaUrl + datas.result,
           logoAddress: datas.result
         })
 
-        if (!(that.data.license == app.globalData.imaUrl + that.data.detail.businessLicenseAddress)) {
+        // 判断 执照，并判断执照是否为新上传的
+        if (that.data.license && (that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
+          console.log('执照存在，并为新上传的')
           that.upLicense(that.data.license, param)
         } else {
+          console.log('执照不存在，或者执照不是新上传的')
           that.upForms(param)
         }
 
@@ -372,16 +405,14 @@ Page({
       let datas = JSON.parse(res)
       console.log(datas.result)
       if (datas.code == 200) {
+
+        // 绑定
         that.setData({
           license: app.globalData.imaUrl + datas.result,
           licenseAddress: datas.result
         })
 
-        if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
-          that.upImg(that.data.logo, param)
-        } else {
-          that.upForms(param)
-        }
+        that.upForms(param)
 
       } else {
         modal.showToast(res.message, 'none')
@@ -410,7 +441,7 @@ Page({
       idcard: datas.idcard,
       updateBy: wx.getStorageSync('company').id
     }
-    console.log('参数：', param)
+    console.log('提交参数：', param)
     util.sendRequest('/zqhr/hall/enterprise/editById', 'post', param).then(function (res) {
       console.log(res)
       if (res.code == 200) {

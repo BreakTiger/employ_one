@@ -50,7 +50,7 @@
 
 	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:if="{{list.length==0}}">
 		<image src="../../images/empty.png" class="empty"></image>
-		<text class="c-98">暂无招聘会</text>
+		<text class="c-98 f26">暂无招聘会</text>
 	</view>
 
 

@@ -46,8 +46,8 @@ Page({
     let arr = []
     list.forEach(function (item) {
       let age = util.ages(item)
-      let work = util.calculates(item)
-      item.workExperience = work
+      // let work = util.calculates(item)
+      // item.workExperience = work
       item.age = age
       arr.push(item)
     })
