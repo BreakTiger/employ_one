@@ -13,10 +13,10 @@
 						<text>{{item.submitResumeTime}}</text>
 					</view>
 					<view style="color:#646464;font-size:28rpx;">
-						<text wx:if="{{item.gender}}">{{item.gender}}</text>
-						<text wx:if="{{item.age}}"> /{{item.age}}岁 /</text>
-						<text wx:if="{{item.education}}">{{item.education}} /</text>
-						<text wx:if="{{item.workExperience}}">{{item.workExperience}}</text>
+						<text>{{item.gender}}</text>
+						<text> /{{item.age}}岁 /</text>
+						<text>{{item.education||'无学历'}} /</text>
+						<text>{{item.workExperience}}</text>
 					</view>
 					<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.postName}}</view>
 				</view>

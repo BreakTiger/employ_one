@@ -28,12 +28,26 @@ Page({
       console.log(res)
       if (res.code == 0) {
         that.setData({
-          list: res.result.records
+          list: that.settle(res.result.records)
         })
       } else {
         modal.showToast(res.messgae, 'none')
       }
     })
+  },
+
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      let age = util.ages(item)
+      let work = util.calculates(item)
+      item.workExperience = work
+      item.age = age
+      arr.push(item)
+    })
+    return arr
   },
 
   // 查看简历

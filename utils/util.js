@@ -113,24 +113,29 @@ function calculate(item) {
 // 计算从业时间
 function calculates(item) {
   let that = this
-
   let work = ''
 
-  let one = item.workingHoursStart.split('-')
-  let two = item.workingHoursEnd.split('-')
+  let one = item.workingHoursStart
+  let two = item.workingHoursEnd
 
-  let num = two[0] - one[0]
+  if (one && two) {
+    let ones = one.split('-')
+    let twos = two.split('-')
+    let num = twos[0] - ones[0]
+    // console.log(num)
+    if (num == 0) {
+      work = "一年以下"
+    } else {
+      work = num + '年'
+    }
 
-  // console.log(num)
-
-  if (num == 0) {
-    work = "一年以下"
   } else {
-    work = num + '年'
+    work = '无工作经验'
   }
 
   console.log(work)
 
+  return work;
 
 }
 

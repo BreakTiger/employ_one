@@ -15,7 +15,7 @@ Page({
     this.setData({
       imaUrl: app.globalData.imaUrl
     })
-    
+
     let token = wx.getStorageSync('token')
     if (token) {
       this.getList()
@@ -45,13 +45,27 @@ Page({
     util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
-          list: res.result.records
+          list: that.settle(res.result.records)
         })
-        console.log(res.result.records)
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  // 整理，并计算求职者年龄
+  settle: function (list) {
+    let that = this
+    let arr = []
+    list.forEach(function (item) {
+      let age = util.ages(item)
+      let work = util.calculates(item)
+      item.workExperience = work
+      item.age = age
+      arr.push(item)
+    })
+
+    return arr
   },
 
   // 取消收藏
@@ -168,9 +182,9 @@ Page({
     let old = that.data.list
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
-      pageNo: that.data.page+1,
+      pageNo: that.data.page + 1,
       pageSize: 10
-    }    
+    }
     util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
@@ -178,7 +192,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(news),
-            page:data.pageNo
+            page: data.pageNo
           })
         } else {
 

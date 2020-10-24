@@ -99,7 +99,9 @@ Page({
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          worklist: that.settle(res.result.records)
+        })
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -108,7 +110,6 @@ Page({
 
   // 整理，并计算求职者年龄
   settle: function (list) {
-    // console.log(list)
     let that = this
     let arr = []
     list.forEach(function (item) {
@@ -118,10 +119,7 @@ Page({
       item.age = age
       arr.push(item)
     })
-    console.log(arr)
-    that.setData({
-      worklist: arr
-    })
+    return arr;
   },
 
   // 开关：

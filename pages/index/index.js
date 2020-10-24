@@ -115,7 +115,9 @@ Page({
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          notelist:that.settle(res.result.records)
+        })
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -129,13 +131,12 @@ Page({
     list.forEach(function (item) {
       let age = util.ages(item)
       let work = util.calculates(item)
-      item.age = age
       item.workExperience = work
+      item.age = age
       arr.push(item)
     })
-    that.setData({
-      notelist: arr
-    })
+
+    return arr
   },
 
   // 搜索

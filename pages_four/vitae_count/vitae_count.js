@@ -26,7 +26,9 @@ Page({
     }
     util.sendRequest('/zqhr/app/interview/receivelist', 'get', data).then(function (res) {
       if (res.code == 0) {
-        that.settle(res.result.records)
+        that.setData({
+          list:that.settle(res.result.records)
+        })
       } else {
         modal.showToast(res.messgae, 'none')
       }
@@ -44,9 +46,7 @@ Page({
       item.age = age
       arr.push(item)
     })
-    that.setData({
-      list: arr
-    })
+    return arr;
   },
 
   // 查看简历
