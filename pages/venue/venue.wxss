@@ -7,7 +7,7 @@ page {
 .recruit {
   width: 750rpx;
   background: #FFF;
-  margin-top: 75rpx;
+  margin-top: 85rpx;
 }
 
 .recruittitle {
@@ -27,7 +27,7 @@ page {
   border-bottom: 2rpx solid #ececec;
   font-size: 32rpx;
   font-weight: 600;
-  padding: 40rpx 0rpx 10rpx 20rpx;
+  padding: 13rpx 0rpx 10rpx 20rpx;
 }
 
 .recruit .recruittitle view:nth-child(1) {

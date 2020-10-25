@@ -7,18 +7,22 @@ Page({
 
   data: {
 
+    //招聘会
+    choice_one: '',
+    choice_one_name: '',
     elist: [],
-    down: false,
+    down_one: false,
 
-    choice: '',//招聘会ID
+    // 招聘职位
+    choice_two_name: '',
+    jlist: [],
+    down_two: false,
 
-    choice_name: '全部',
-
+    // 职位列表
     fid: '',
     page: 1,
     list: []
   },
-
 
   onShow: function () {
     this.getElist()
@@ -29,11 +33,10 @@ Page({
   getElist: function () {
     let that = this
     let data = {
-      enterpriseInfoId:wx.getStorageSync('company').id
+      enterpriseInfoId: wx.getStorageSync('company').id
     }
     util.sendRequest('/zqhr/hall/entryenterprise/EntryJobFair', 'get', data).then(function (res) {
       if (res.code == 0) {
-        console.log(res.result)
         that.setData({
           elist: res.result
         })
@@ -43,47 +46,23 @@ Page({
     })
   },
 
-  // 显示 / 隐藏 下拉
-  showDown: function () {
-    let type = this.data.down
-    if (type) {
-      this.setData({
-        down: false
-      })
-    } else {
-      this.setData({
-        down: true
-      })
-    }
-  },
-
-  // 选择招聘会
-  choices: function (e) {
-    let that = this
-    let id = e.currentTarget.dataset.id
-    let name = e.currentTarget.dataset.name
-    that.setData({
-      choice: id,
-      choice_name: name,
-      down: false
-    })
-    that.getList()
-  },
-
   // 职位列表
   getList: function () {
     let that = this
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
+      postName: that.data.choice_two_name,
+      jobFairId: that.data.choice_one,
       pageNo: that.data.page,
-      jobFairId: that.data.choice,
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        let list = that.settle(res.result.records)
+        let l = that.settle(res.result.records)
+        let p = that.handlePosition(res.result.records)
         that.setData({
-          list: list
+          list: l,
+          jlist: p
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -93,7 +72,6 @@ Page({
 
   // 整理
   settle: function (list) {
-    console.log(list)
     let after = []
     let temp = []
     for (let i = 0; i < list.length; i++) {
@@ -115,10 +93,72 @@ Page({
         }
       }
     }
-    console.log(after)
     return after;
   },
 
+  handlePosition(data) {
+    console.log(data)
+    let list = [];
+    for (const key in data) {
+      if (list.indexOf(data[key].postName) === -1) {
+        list.push(data[key].postName)
+      }
+    }
+    return list;
+  },
+
+  // 显示 / 隐藏 下拉
+  showOne: function () {
+    let one = this.data.down_one
+    if (one) {
+      this.setData({
+        down_one: false
+      })
+    } else {
+      this.setData({
+        down_one: true
+      })
+    }
+  },
+
+  showTwo: function () {
+    let two = this.data.down_two
+    if (two) {
+      this.setData({
+        down_two: false
+      })
+    } else {
+      this.setData({
+        down_two: true
+      })
+    }
+  },
+
+  // 选择招聘会
+  choices_one: function (e) {
+    let that = this
+    let id = e.currentTarget.dataset.id
+    let name = e.currentTarget.dataset.name
+    that.setData({
+      choice_one: id,
+      choice_one_name: name,
+      down_one: false,
+      page: 1
+    })
+    that.getList()
+  },
+
+  // 选择职位
+  choices_two: function (e) {
+    let that = this
+    let name = e.currentTarget.dataset.name
+    that.setData({
+      choice_two_name: name,
+      down_two: false,
+      page: 1
+    })
+    that.getList()
+  },
 
   // 添加职位
   addcompanyjob: function () {
@@ -134,7 +174,6 @@ Page({
       url: '/pages/addJob/addJob?detail=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
-
 
   // 删除
   toDel: function (e) {
@@ -235,10 +274,12 @@ Page({
   onReachBottom: function () {
     let that = this
     let old = that.data.list
+    let olds = that.data.jlist
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
+      postName: that.data.choice_two_name,
+      jobFairId: that.data.choice_one,
       pageNo: that.data.page + 1,
-      jobFairId: that.data.choice,
       pageSize: 10
     }
     util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
@@ -247,6 +288,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(that.settle(news)),
+            jlist:olds.concat(that.handlePosition(news)),
             page: data.pageNo
           })
         } else {

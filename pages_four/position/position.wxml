@@ -1,72 +1,93 @@
 <view class="container col fl-align">
 
-  <!-- 筛选 -->
-	<view class="condition flex fl-align fl-jsb" bindtap="showDown">
-		<text>{{choice_name}}</text>
-		<image src="../../images/buttom.png" class="icon"></image>
+	<!-- 筛选栏 -->
+	<view class="condition f26 flex fl-align fl-jsb b-ff">
+
+		<view class="flex fl-align fl-jsb" style="border-right:1rpx solid #BCBCBC;" bindtap="showOne">
+			<text>{{choice_one_name || '全部'}}</text>
+			<image src="../../images/buttom.png" class="icon"></image>
+		</view>
+
+		<view class="flex fl-align fl-jsb" bindtap="showTwo">
+			<text>{{choice_two_name || '全部'}}</text>
+			<image src="../../images/buttom.png" class="icon"></image>
+		</view>
+		
 	</view>
-	
-	<!-- 筛选下拉框 -->
-	<view class="content b-ff" wx:if="{{down}}">
+
+	<!-- 筛选下拉框1 -->
+	<view class="content b-ff f26" wx:if="{{down_one}}">
 		<scroll-view scroll-y="true" style="height:600rpx;">
-			<view class="item flex fl-align" bindtap="choices" data-id="" data-name="全部">
+			<view class="item flex fl-align fl-jsb" bindtap="choices_one" data-id="" data-name="全部">
 				<text>全部</text>
-				<image src="../../images/dui.png" class="choice" wx:if="{{!choice}}"></image>
+				<image src="../../images/dui.png" class="choice" wx:if="{{!choice_one}}"></image>
 			</view>
-			<view class="item flex fl-align" wx:for="{{elist}}" wx:key="index" bindtap="choices" data-id="{{item.id}}" data-name="{{item.name}}">
+			<view class="item flex fl-align fl-jsb" wx:for="{{elist}}" wx:key="index" bindtap="choices_one" data-id="{{item.id}}" data-name="{{item.name}}">
 				<text>{{item.name}}</text>
-				<image src="../../images/dui.png" class="choice" wx:if="{{choice==item.id}}"></image>
+				<image src="../../images/dui.png" class="choice" wx:if="{{choice_one==item.id}}"></image>
 			</view>
 		</scroll-view>
 	</view>
 
-	<!-- 列表 -->
-	<view class="list-item w100 flex col fl-align" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
-		<view class="title">
-			<text>{{item.name}}</text>
-		</view>
-		<view class="job-item w100 flex col fl-align" wx:for="{{item.data}}" wx:for-item="items"  wx:for-index="idx" wx:key="indexs">
-			
-			<view class="one flex fl-align">
+	<!-- 筛选下拉框2 -->
+	<view class="content b-ff f26" wx:if="{{down_two}}">
+		<scroll-view scroll-y="true" style="height:600rpx;">
+			<view class="item flex fl-align fl-jsb" bindtap="choices_two" data-name="">
+				<text>全部</text>
+				<image src="../../images/dui.png" class="choice" wx:if="{{!choice_two_name}}"></image>
+			</view>
+			<view class="item flex fl-align fl-jsb" wx:for="{{jlist}}" wx:key="index" bindtap="choices_two" data-name="{{item}}">
+				<text>{{item}}</text>
+				<image src="../../images/dui.png" class="choice" wx:if="{{choice_two_name==item}}"></image>
+			</view>
+		</scroll-view>
+	</view>
 
-				<view class="left flex col fl-align fl-jse">
-					<text class="f45 fw-b">{{items.submitResumeTotal}}</text>
+	<view style="width:100%;height:71rpx;"></view>
+
+	<!-- 列表 -->
+	<view class="contents flex col fl-align" wx:if="{{list.length!=0}}">
+		<block wx:for="{{list}}" wx:key="index">
+			<view class="title">{{item.name}}</view>
+			<view class="list w100 b-ff flex fl-align" wx:for="{{item.data}}" wx:for-item="items"  wx:for-index="idx" wx:key="indexs">
+			
+				<view class="one flex col fl-align fl-jse">
+					<text class="f50 f-wb c-e5">{{items.submitResumeTotal}}</text>
 					<text class="f24 c-66">投递简历</text>
 				</view>
 
-				<view class="right flex col fl-jse">
+				<view class="two flex col fl-align">
 
-					<view class="flex fl-align">
-						<text class="fw-b f45">{{items.postName}}</text>
-						<image src="../../images/edit.png" class="edit" bindtap="toEdit" data-item="{{items}}"></image>
+					<view class="f-wb f30">{{items.postName}}</view>
+
+					<view class="f24 c-66 flex col" style="margin:25rpx 0;">
+						<text>人数：{{items.recruitment}} | 薪资：{{items.salary}}</text>
+						<text>创建时间：{{items.createTime}}</text>
 					</view>
 
-					<view class="f24 c-66">人数：{{items.recruitment}} | 薪资：{{items.salary}}</view>
+					<view class="btn flex fl-align fl-jfe">
+					
+						<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
+						<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>
+						<view bindtap="toEdit" data-item="{{items}}">编辑</view>	
+						<view bindtap="toDel" data-id="{{items.id}}" data-index="{{index}}" data-idx="{{idx}}">删除</view>
 
-					<view class="f24 c-66">创建：{{items.createBy}}</view>
+					</view>
 				
 				</view>
-			
-			</view>
 
-			<view class="two flex fl-align fl-jsa">
-				<!-- <view>匹配</view> -->
-				<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
-				<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>	
-				<view bindtap="toDel" data-id="{{items.id}}" data-index="{{index}}" data-idx="{{idx}}">删除</view>
 			</view>
 		
-		</view>
-
+		</block>
 	</view>
 
 	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:if="{{list.length==0}}">
 		<image src="../../images/empty.png" class="empty"></image>
-		<text class="c-98">暂无职位</text>
+		<text class="c-98 f26">暂无职位</text>
 	</view>
 
-	<view style="width:100%;height:110rpx;"></view>
+	<view style="width:100%;height:130rpx;"></view>
 
-	<view class="add c-ff f24" bindtap="addcompanyjob">添加招聘职位</view>
+	<view class="add c-ff f24 b-e5" bindtap="addcompanyjob">添加招聘职位</view>
 
 </view>

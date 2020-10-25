@@ -1,46 +1,58 @@
-/* 筛选 */
-.condition {
-  width: 100%;
-  height: 61rpx;
-  border-bottom: 3rpx solid #F0F0F0;
-  font-size: 28rpx;
+.f50 {
+  font-size: 50rpx;
 }
 
-.condition>text {
-  margin-left: 30rpx;
+page {
+  background: #f5f5f5;
+}
+
+.container {
+  height: 100%;
+}
+
+.container>view {
+  width: 100%;
+}
+
+.condition {
+  height: 70rpx;
+  border-bottom: 1rpx solid #BCBCBC;
+  position: fixed;
+  top: 0rpx;
+  z-index: 100;
+}
+
+.condition>view {
+  width: 49%;
+  height: 100%;
+}
+
+.condition>view>text {
+  margin-left: 20rpx;
 }
 
 .icon {
-  width: 28rpx;
-  height: 16rpx;
-  margin-right: 30rpx;
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
 }
 
 .content {
-  width: 100%;
   position: fixed;
-  top: 65rpx;
+  top: 72rpx;
   z-index: 100;
-  border-bottom: 10rpx solid #efefef;
 }
 
 .item {
-  width: 92%;
+  width: 94%;
   padding: 15rpx 0;
   margin: 0 auto;
-  border-bottom: 1rpx solid #f5f5f5;
-  font-size: 28rpx;
-}
-
-.item>text {
-  display: block;
-  flex: 1;
+  border-bottom: 1rpx solid #ececec;
 }
 
 .choice {
   width: 36rpx;
   height: 36rpx;
-  margin-right: 16rpx;
 }
 
 .title {
@@ -49,51 +61,48 @@
   line-height: 75rpx;
   background: #f5f5f5;
   color: #616161;
+  text-indent: 20rpx;
   font-size: 22rpx;
 }
 
-.title>text {
-  margin-left: 28rpx;
-  font-size: 27rpx;
-  color: #7A7A7A;
+.list {
+  border-bottom: 1rpx solid #F6F6F6;
 }
 
-.job-item>view {
-  width: 100%;
-  border-bottom: 1rpx solid #f5f5f5;
+.one {
+  width: 30%;
+  height: 245rpx;
+  border-right: 1rpx solid #F6F6F6;
+  background: #fdfdfd;
+}
+
+.two {
+  width: 69%;
 }
 
 .two>view {
-  font-size: 27rpx;
-  color: #666666;
-  border: 1rpx solid #f5f5f5;
-  width: 100rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  width: 90%;
+}
+
+.btn>view {
+  width: 94rpx;
+  height: 42rpx;
+  line-height: 42rpx;
   text-align: center;
-  margin: 25rpx 0;
-}
-
-.left {
-  width: 225rpx;
-  height: 200rpx;
-  border-right: 1rpx solid #f5f5f5;
-}
-
-.edit {
-  width: 60rpx;
-  height: 60rpx;
+  border: 2rpx solid #f5f5f5;
+  border-radius: 5rpx;
+  font-size: 20rpx;
+  color: #5F5F5F;
   margin-left: 15rpx;
 }
 
+
 .add {
-  background: #E74141;
   width: 100%;
   height: 90rpx;
   line-height: 90rpx;
-  border-radius: 5rpx;
+  text-align: center;
   position: fixed;
   bottom: 0rpx;
   z-index: 100;
-  text-align: center;
 }

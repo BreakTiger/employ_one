@@ -324,18 +324,20 @@ Page({
     } else if (!data.idcard) {
       modal.showToast('请输入负责人身份证', 'none')
     } else {
-      console.log('都存在：')
-      console.log(that.data.logo && that.data.license)
-      console.log(!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress))
-
-      // console.log()
 
       if (that.data.logo && that.data.license) { //都存在
         console.log('都存在')
         if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) { //都是新上传的
           console.log('新上传1')
           that.upImg(that.data.logo, data)
+        }else if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) ) {
+          console.log(333)
+          that.upImg(that.data.logo, data)
+        } else if (!(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
+          console.log(222)
+          that.upLicense(that.data.license, data)
         } else {
+          console.log(111)
           that.upForms(data)
         }
       } else if (that.data.logo || that.data.license) {
@@ -403,7 +405,7 @@ Page({
     }
     await util.upLoading(img, data).then(function (res) {
       let datas = JSON.parse(res)
-      console.log(datas.result)
+      console.log('执照：', datas.result)
       if (datas.code == 200) {
 
         // 绑定

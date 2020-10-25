@@ -43,8 +43,8 @@ icon {
 }
 
 .sort_list image {
-	width: 13px;
-	height: 13px;
+	width: 26rpx;
+	height: 26rpx;
 	vertical-align: middle;
 }
 
@@ -97,13 +97,13 @@ icon {
 
 .select_cars_list {
 	display: flex;
-	border-bottom: 1px solid #ececec;
+	border-bottom: 1rpx solid #ececec;
 }
 
 .select_cars_list image {
-	width: 18px;
-	height: 18px;
-	padding-top: 8px;
+	width: 36rpx;
+	height: 36rpx;
+	padding-top: 16rpx;
 }
 
 .sold {
