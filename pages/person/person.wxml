@@ -99,7 +99,7 @@
 							<text wx:if="{{item.education}}">/ {{item.education}}</text>
 							<text wx:if="{{item.workExperience}}">/ {{item.workExperience}}</text>
 						</view>
- 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
+ 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition || '不限'}}</text></view>
  					</view>
  				</view>
  			</view>
@@ -109,7 +109,7 @@
 
 	<view class="w100 flex col fl-align" style="margin-top:300rpx;" wx:else>
 		<image src="../../images/empty.png" class="empty"></image>
-		<text class="c-98 f26">暂无记录</text>
+		<text class="c-98">暂无记录</text>
 	</view>
 
 

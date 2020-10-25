@@ -68,7 +68,28 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "pages_four/edit/edit",
+          "pathName": "pages_four/edit/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages_four/edit/edit",
+          "pathName": "pages_four/edit/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages_four/vitae_count/vitae_count",
+          "pathName": "pages_four/vitae_count/vitae_count",
+          "scene": null
+        }
+      ]
     }
   }
 }

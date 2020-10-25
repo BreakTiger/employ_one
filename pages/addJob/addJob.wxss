@@ -53,6 +53,7 @@ page {
   line-height: 90rpx;
   border-radius: 5rpx !important;
   color: #fff;
+  font-size: 28rpx !important;
 }
 
 /* 遮罩层 */

@@ -141,14 +141,13 @@ Page({
     util.sendRequest('/zqhr/hall/entryenterprise/EntryJobFair', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
-          fair: res.result.records
+          fair: res.result
         })
       } else {
         modal.showToast(res.message, 'none')
       }
     })
   },
-
 
   seteld: function (e) {
     let that = this

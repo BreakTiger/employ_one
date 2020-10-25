@@ -38,11 +38,15 @@ page {
   margin: 0rpx !important;
   padding: 0rpx !important;
   text-align: center;
-  font-size: 28rpx;
   position: fixed;
   bottom: 0rpx;
   left: 0rpx;
   border-radius: 5rpx !important;
+}
+
+button {
+  font-size: 28rpx !important;
+  font-weight: normal !important;
 }
 
 .radio {

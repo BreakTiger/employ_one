@@ -31,7 +31,9 @@ Page({
 
     c_five: 0,
 
-    type: 0 //类型 1录取 2待定
+    type: 0, //类型 1录取 2待定
+
+    types: 0
 
   },
 
@@ -43,7 +45,13 @@ Page({
       imaUrl: app.globalData.imaUrl
     })
 
-    console.log(app.globalData.worker)
+    if (this.data.photo) {
+      this.setData({
+        types: 1
+      })
+    }
+
+    // console.log(app.globalData.worker)
 
     this.getBase(app.globalData.worker)
 
@@ -144,6 +152,7 @@ Page({
     }
     util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
       if (res.code == 0) {
+        console.log('面试评价：')
         if (res.result) {
           console.log(res.result)
           let detail = res.result
@@ -354,10 +363,19 @@ Page({
         createBy: wx.getStorageSync('company').id
       }
       console.log(data)
-      that.send(data)
+
+      // 判断是新增，还是修改
+      if (that.data.type == 0) {
+        console.log('新增')
+        that.send(data)
+      } else {
+        console.log('修改')
+        that.editor(data)
+      }
     }
   },
 
+  // 新增评价
   send: function (data) {
     let that = this
     util.sendRequest('/zqhr/app/interviewevaluation/evaluation', 'post', data, '1').then(function (res) {
@@ -370,6 +388,20 @@ Page({
     })
   },
 
+  // 修改评价
+  editor: function (data) {
+    let that = this
+    util.sendRequest('/zqhr/app/interviewevaluation/editById', 'post', data, '1').then(function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        that.finish()
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 结束面试
   finish: function () {
     let that = this
     let data = {

@@ -20,7 +20,7 @@
 							<text>{{item.education||'无学历'}} /</text>
 							<text>{{item.workExperience}}</text>
 						</view>
- 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition}}</text></view>
+ 						<view class="jobmoney">职位意向：<text>{{item.intendedPosition||'不限'}}</text></view>
  					</view>
  				</view>
  			</view>

@@ -182,7 +182,8 @@ Page({
   condition: async function (type) {
     let that = this
     let data = {
-      type: type
+      type: type,
+      pageSize: 100
     }
     await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       console.log(res.result.records)

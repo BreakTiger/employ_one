@@ -41,7 +41,7 @@ Page({
     }
     util.sendRequest("/zqhr/hall/tabletpc/scan", 'post', data).then(function (res) {
       if (res.code == 200) {
-        modal.showToast(res.message)
+        modal.showToast(res.message,'none')
         setTimeout(() => {
           wx.navigateBack({
             delta: 0,
@@ -66,7 +66,7 @@ Page({
     }
     util.sendRequest('/zqhr/hall/tabletpc/repay', 'post', data).then(function (res) {
       if (res.code == 200) {
-        modal.showToast(res.message)
+        modal.showToast(res.message,'none')
         setTimeout(() => {
           wx.navigateBack({
             delta: 0,

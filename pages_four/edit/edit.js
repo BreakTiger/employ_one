@@ -95,6 +95,8 @@ Page({
               license: app.globalData.imaUrl + detail.businessLicenseAddress,
               licenseAddress: detail.businessLicenseAddress
             })
+
+            console.log(that.data.licenseAddress)
           }
 
 
@@ -337,17 +339,17 @@ Page({
 
       if (that.data.logo && that.data.license) { //都存在
         console.log('都存在')
-        if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) { //都是新上传的
-          console.log('新上传1')
+        if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) { //都是新上传的
+          console.log('都新上传')
           that.upImg(that.data.logo, data)
-        } else if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
-          console.log(333)
+        } else if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
+          console.log('logo新上传')
           that.upImg(that.data.logo, data)
-        } else if (!(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
-          console.log(222)
+        } else if (!(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
+          console.log('执照新上传')
           that.upLicense(that.data.license, data)
         } else {
-          console.log(111)
+          console.log('都不是新的')
           that.upForms(data)
         }
       } else if (that.data.logo || that.data.license) {
@@ -356,12 +358,12 @@ Page({
 
         // 再判断存在哪一个:
 
-        if (that.data.logo && !(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
+        if (that.data.logo && !(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
 
           console.log('存在logo,并新上传')
           that.upImg(that.data.logo, data)
 
-        } else if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
+        } else if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
 
           console.log('存在执照,并为新上传')
           that.upLicense(that.data.license, data)
@@ -393,7 +395,7 @@ Page({
         })
 
         // 判断 执照，并判断执照是否为新上传的
-        if (that.data.license && (that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {
+        if (that.data.license && (that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
           console.log('执照存在，并为新上传的')
           that.upLicense(that.data.license, param)
         } else {

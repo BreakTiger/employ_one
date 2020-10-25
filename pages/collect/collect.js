@@ -106,7 +106,7 @@ Page({
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-        that.addlog(res.result.records[0])
+        that.addlog(that.settle(res.result.records))
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -116,13 +116,14 @@ Page({
   addlog: function (detail) {
     let that = this
     let data = {
-      curriculumVitaeId: detail.id,
+      curriculumVitaeId: detail[0].id,
       enterpriseInfoId: wx.getStorageSync('company').id
     }
     util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
-        app.globalData.worker = detail
+        app.globalData.worker = detail[0]
+        console.log(detail[0])
         wx.navigateTo({
           url: '/pages/vitae/vitae',
         })

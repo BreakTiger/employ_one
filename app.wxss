@@ -153,6 +153,10 @@
   margin-bottom: 20rpx;
 }
 
+.empty + text{
+  font-size: 26rpx !important;
+}
+
 /* 对齐方式 */
 .t-c {
   text-align: center;
