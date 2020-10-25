@@ -264,10 +264,20 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
-        console.log(res)
-        let img = res.tempFilePaths[0]
-        that.setData({
-          logo: img
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: function (res) {
+            console.log(res)
+            let w = res.width
+            let h = res.height
+            if (w = h) {
+              that.setData({
+                logo: res.path
+              })
+            } else {
+              modal.showToast('您上传的图片尺寸不符，请重新上传', 'none')
+            }
+          }
         })
       },
       fail: function (res) {
@@ -330,7 +340,7 @@ Page({
         if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) { //都是新上传的
           console.log('新上传1')
           that.upImg(that.data.logo, data)
-        }else if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress) ) {
+        } else if (!(that.data.logo == app.globalData.imaUrl + that.data.detail.logoAddress)) {
           console.log(333)
           that.upImg(that.data.logo, data)
         } else if (!(that.data.license == app.globalData.imaUrl + that.data.detail.licenseAddress)) {

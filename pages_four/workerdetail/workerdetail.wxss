@@ -127,3 +127,9 @@
 .b-51 {
   background: #F8B551;
 }
+
+.photo{
+  width: 55%;
+  border: 1rpx solid #DEDEDE;
+  margin: 25rpx 15rpx;
+}

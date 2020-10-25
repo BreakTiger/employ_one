@@ -39,11 +39,9 @@ Page({
 
     this.setData({
       details: app.globalData.worker,
-      photo:app.globalData.worker.photographResumeAddress,
+      photo: app.globalData.worker.photographResumeAddress,
       imaUrl: app.globalData.imaUrl
     })
-
-    // if(app.globalData.worker.)
 
     console.log(app.globalData.worker)
 
@@ -73,7 +71,7 @@ Page({
         })
 
         let article = items.jobDescription
-        if(article){
+        if (article) {
           WxParse.wxParse('article', 'html', article, that, 5)
         }
       } else {
@@ -343,7 +341,7 @@ Page({
     } else {
       let that = this
       let data = {
-        id:that.data.details.id,
+        id: that.data.details.id,
         imageTemperament: that.data.c_one,
         languageExpression: that.data.c_two,
         workExperience: that.data.c_three,
@@ -387,6 +385,15 @@ Page({
       } else {
         modal.showToast(res.message, 'none')
       }
+    })
+  },
+
+  toShows: function () {
+    let p = this.data.imaUrl + this.data.photo
+    let arr = []
+    arr.push(p)
+    wx.previewImage({
+      urls: arr,
     })
   }
 

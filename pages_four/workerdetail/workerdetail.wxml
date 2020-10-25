@@ -2,7 +2,7 @@
 
 <view class="container fl-jsb">
 
-  <view class="left">
+  <view class="left" wx:if="{{!photo}}">
 
     <view class="one flex fl-align">
 
@@ -137,6 +137,8 @@
     </view>
   
   </view>
+
+  <image src="{{imaUrl + photo}}" class="photo" bindtap="toShows"></image>
 
   <view class="right">
 
