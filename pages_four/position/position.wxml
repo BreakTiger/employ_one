@@ -3,14 +3,14 @@
 	<!-- 筛选栏 -->
 	<view class="condition f26 flex fl-align fl-jsb b-ff">
 
-		<view class="flex fl-align fl-jsb" style="border-right:1rpx solid #BCBCBC;" bindtap="showOne">
+		<view class="flex fl-align" style="border-right:1rpx solid #ececec;" bindtap="showOne">
 			<text>{{choice_one_name || '全部'}}</text>
-			<image src="../../images/buttom.png" class="icon"></image>
+			<image src="{{down_one ? '../../images/top-red.png' : '../../images/buttom.png'}}" class="icon"></image>
 		</view>
 
-		<view class="flex fl-align fl-jsb" bindtap="showTwo">
+		<view class="flex fl-align" bindtap="showTwo">
 			<text>{{choice_two_name || '全部'}}</text>
-			<image src="../../images/buttom.png" class="icon"></image>
+			<image src="{{down_two ? '../../images/top-red.png' : '../../images/buttom.png'}}" class="icon"></image>
 		</view>
 		
 	</view>

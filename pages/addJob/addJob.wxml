@@ -90,6 +90,14 @@
 					</view>
 				</view>
 
+				<!-- 年龄要求 -->
+				<view class="item">
+					<view class="name">年龄要求</view>
+					<view class="selectitem">
+						<input type="text" value="{{detail.ageRequirement}}" name="age" placeholder="请设置岗位年龄要求" />
+					</view>
+				</view>
+
 				<!-- 性别 -->
 				<view class="item">
 					<view class="name">性 别</view>
@@ -130,14 +138,15 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<!-- <editor id="editor" placeholder="开始输入" bindinput="toDescribe" bindready="onEditorReady" bindstatuschange="onStatusChange" value="{{describe}}"></editor> -->
 						<editor id="editor" class="ql-container" placeholder="开始输入..." bindstatuschange="onStatusChange" bindready="onEditorReady" value="{{describe}}" bindinput="toDescribe"></editor>
 					</view>
 				</view>
 			</view>
 		</view>
 
-		<button class="footer b-e5" form-type="submit">立即添加</button>
+		<button class="footer b-e5" form-type="submit" wx:if="{{is_editor}}">保存</button>
+
+		<button class="footer b-e5" form-type="submit" wx:else>立即添加</button>
 
 	</form>
 

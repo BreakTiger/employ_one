@@ -26,7 +26,9 @@
 
 				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
 
-   			<view bindtap='toInvite' data-item="{{item}}">邀请面试</view>
+   			<view bindtap='toInvite' data-item="{{item}}" data-index="{{index}}" wx:if="{{item.invitestate==0}}">邀请面试</view>
+
+   			<view style="background:#e5e5e5;color:#fff !important;" data-item="{{item}}" wx:else>邀请面试</view>
 			
 			</view>
 

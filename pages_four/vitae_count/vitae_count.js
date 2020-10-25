@@ -27,7 +27,7 @@ Page({
     util.sendRequest('/zqhr/app/interview/receivelist', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
-          list:that.settle(res.result.records)
+          list: that.settle(res.result.records)
         })
       } else {
         modal.showToast(res.messgae, 'none')
@@ -75,6 +75,8 @@ Page({
     let that = this
     let detail = e.currentTarget.dataset.item
     console.log(detail)
+    let index = e.currentTarget.dataset.index
+    let list = that.data.list
     wx.showModal({
       title: '提示',
       content: "是否发送面试邀约给该投递人",
@@ -91,6 +93,10 @@ Page({
             console.log(res)
             if (res.code == 200) {
               modal.showToast(res.message)
+              let type = 'list[' + index + '].invitestate'
+              that.setData({
+                [type]: 1
+              })
             } else {
               modal.showToast(res.messgae, 'none')
             }

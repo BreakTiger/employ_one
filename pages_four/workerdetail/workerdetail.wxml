@@ -97,7 +97,7 @@
       
     </view>
 
-    <view class="two flex col fl-align c-a3">
+    <view class="two flex col fl-align c-a3" wx:if="{{details.workExperience!='无工作经验'}}">
     
       <view class="f14 fw-b" style="margin-bottom: 20rpx;">工作经历</view>
 
@@ -113,7 +113,8 @@
       <view class="flex f11">
         <view class="">工作描述：</view>
         <view>
-          <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" wx:if="{{items.jobDescription}}"></template>
+          <text wx:else>无</text>
         </view>
       </view>
 
@@ -192,7 +193,8 @@
     <!-- 按钮 -->
 
     <view class="c-line flex fl-align fl-jc">
-      <view class="btn c-ff f16 b-e5" bindtap="toWait" data-type="2" wx:if="{{type!=2}}">待定</view>
+      <view class="btn c-ff f16 b-e5" bindtap="toWait" data-type="2" wx:if="{{type!=2 && type!=1}}">待定</view>
+      <view class="btn c-ff f16" style="background: #e5e5e5;" data-type="2" wx:else>待定</view>
       <view class="btn c-ff f16 b-51" bindtap="toNotice" data-type="1" wx:if="{{type!=1}}">入职通知</view>
     </view>
 

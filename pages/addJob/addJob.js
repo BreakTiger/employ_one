@@ -105,7 +105,7 @@ Page({
     const platform = wx.getSystemInfoSync().platform
     const isIOS = platform === 'ios'
     that.setData({ isIOS })
-    
+
     that.updatePosition(0)
     let keyboardHeight = 0
     wx.onKeyboardHeightChange(res => {
@@ -136,11 +136,9 @@ Page({
   getElist: function () {
     let that = this
     let data = {
-      pageNo: 1,
-      isexisting: 1,
-      pageSize: 50,
+      enterpriseInfoId: wx.getStorageSync('company').id
     }
-    util.sendRequest('/zqhr/hall/jobfair/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/hall/entryenterprise/EntryJobFair', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           fair: res.result.records
@@ -171,7 +169,7 @@ Page({
     })
   },
 
-  
+
 
   // 岗位类型 - 1
   typeList: function () {
@@ -380,7 +378,8 @@ Page({
         genderRequirement: that.data.sex,
         special: that.data.choice,
         jobDescription: that.data.describe,
-        token: wx.getStorageSync('token')
+        token: wx.getStorageSync('token'),
+        ageRequirement: data.age
       }
       console.log(param)
 

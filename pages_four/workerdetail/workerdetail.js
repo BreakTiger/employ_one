@@ -39,8 +39,11 @@ Page({
 
     this.setData({
       details: app.globalData.worker,
+      photo:app.globalData.worker.photographResumeAddress,
       imaUrl: app.globalData.imaUrl
     })
+
+    // if(app.globalData.worker.)
 
     console.log(app.globalData.worker)
 
@@ -70,8 +73,9 @@ Page({
         })
 
         let article = items.jobDescription
-        WxParse.wxParse('article', 'html', article, that, 5)
-
+        if(article){
+          WxParse.wxParse('article', 'html', article, that, 5)
+        }
       } else {
         modal.showToast(res.message)
       }

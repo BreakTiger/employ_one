@@ -16,7 +16,7 @@ page {
 
 .condition {
   height: 70rpx;
-  border-bottom: 1rpx solid #BCBCBC;
+  border-bottom: 1rpx solid #ececec;
   position: fixed;
   top: 0rpx;
   z-index: 100;
@@ -25,16 +25,16 @@ page {
 .condition>view {
   width: 49%;
   height: 100%;
+  text-align: center;
 }
 
 .condition>view>text {
-  margin-left: 20rpx;
+  width: 88%;
 }
 
 .icon {
   width: 26rpx;
   height: 26rpx;
-  margin-right: 10rpx;
 }
 
 .content {
