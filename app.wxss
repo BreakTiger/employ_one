@@ -78,6 +78,10 @@
   font-size: 30rpx;
 }
 
+.f40{
+  font-size: 40rpx;
+}
+
 .f45 {
   font-size: 45rpx;
 }

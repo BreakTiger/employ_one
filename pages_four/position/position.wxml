@@ -58,7 +58,7 @@
 
 				<view class="two flex col fl-align">
 
-					<view class="f-wb f30">{{items.postName}}</view>
+					<view class="f-wb f40">{{items.postName}}</view>
 
 					<view class="f24 c-66 flex col" style="margin:25rpx 0;">
 						<text>人数：{{items.recruitment}} | 薪资：{{items.salary}}</text>
@@ -67,8 +67,8 @@
 
 					<view class="btn flex fl-align fl-jfe">
 					
-						<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">关闭</view>
-						<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">开启</view>
+						<view wx:if="{{items.enable==1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">禁用</view>
+						<view wx:if="{{items.enable==-1}}" bindtap="isType" data-item="{{items}}" data-index="{{index}}" data-idx="{{idx}}">启用</view>
 						<view bindtap="toEdit" data-item="{{items}}">编辑</view>	
 						<view bindtap="toDel" data-id="{{items.id}}" data-index="{{index}}" data-idx="{{idx}}">删除</view>
 

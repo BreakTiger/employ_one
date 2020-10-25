@@ -89,6 +89,9 @@ Page({
     util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
+        that.setData({
+          id: res.result.records[0].id
+        })
         if (res.result.records.length == 0) { //未收藏
           console.log('未收藏')
           that.setData({
@@ -121,6 +124,7 @@ Page({
       util.sendRequest('/zqhr/app/resumecollection/collection', 'post', data).then(function (res) {
         if (res.code == 200) {
           modal.showToast('收藏成功')
+          that.getType()
           setTimeout(() => {
             that.setData({
               type: 1
