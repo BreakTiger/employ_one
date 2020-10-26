@@ -18,7 +18,6 @@
     {
       "root": "pages_one",
       "pages": [
-        "sign/sign",
         "gain/gain",
         "ticket/ticket"
       ]
