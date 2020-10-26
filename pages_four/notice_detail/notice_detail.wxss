@@ -1,7 +1,5 @@
 @import '../../wxParse/wxParse.wxss';
 
-@import '../../utils/quill.wxss';
-
 .btn {
   width: 92%;
   margin: 20rpx 0;
