@@ -126,6 +126,8 @@ App({
               that.noticeData.noticeList = list
               that.noticeData.noticeTotal = total
               that.noticeData.admission = true
+            } else {
+              that.onShow()
             }
           } else {
             modals.showToast(res.message, 'none')

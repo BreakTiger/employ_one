@@ -16,7 +16,7 @@
 						<text>{{item.gender}}</text>
 						<text> /{{item.age}}岁 /</text>
 						<text>{{item.education||'无学历'}} /</text>
-						<text>{{item.workExperience}}</text>
+						<!-- <text>{{item.workExperience}}</text> -->
 					</view>
 					<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.postName||'不限'}}</view>
 				</view>

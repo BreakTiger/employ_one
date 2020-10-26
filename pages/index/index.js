@@ -197,9 +197,26 @@ Page({
 
   // 我的收藏
   myCollect: function () {
-    wx.navigateTo({
-      url: '/pages/collect/collect',
-    })
+    let token = wx.getStorageSync('token')
+    if (token) {
+      wx.navigateTo({
+        url: '/pages/collect/collect',
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请您先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+
+    }
+
   },
 
   // 扫码领取
