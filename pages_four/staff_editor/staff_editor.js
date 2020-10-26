@@ -29,7 +29,6 @@ Page({
       modal.showToast('请输入新密码', 'none')
     } else {
       let param = {
-        id: that.data.detail.id,
         oldpsw: data.old,
         newpsw: data.new
       }
@@ -47,6 +46,7 @@ Page({
   change_one: function (e) {
     console.log('管理员')
     let that = this
+    e.id = wx.getStorageSync('company').id
     util.sendRequest('/zqhr/app/staff/UpdatePasswordAdmin', 'get', e).then(function (res) {
       console.log(res)
       if (res.code == 200) {
@@ -66,19 +66,20 @@ Page({
   change_two: function (e) {
     console.log('员工')
     let that = this
-    util.sendRequest('/zqhr/app/staff/UpdatePasswordStaff', 'get', e).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        modal.showToast(res.message)
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 0,
-          })
-        }, 2000);
-      } else {
-        modal.showToast(res.message, 'none')
-      }
-    })
+    e.id = that.data.detail.id,
+      util.sendRequest('/zqhr/app/staff/UpdatePasswordStaff', 'get', e).then(function (res) {
+        console.log(res)
+        if (res.code == 200) {
+          modal.showToast(res.message)
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 0,
+            })
+          }, 2000);
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
   }
 
 

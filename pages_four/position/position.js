@@ -219,18 +219,22 @@ Page({
   // 开启 / 关闭 
   isType: function (e) {
     let that = this
+    console.log(e.currentTarget.dataset.item)
+    let examinestate = e.currentTarget.dataset.item.examinestate
     let type = e.currentTarget.dataset.item.enable
     let id = e.currentTarget.dataset.item.id
     let data = {}
     if (type == 1) {
       data = {
         enable: -1,
-        id: id
+        id: id,
+        examinestate: examinestate
       }
     } else {
       data = {
         enable: 1,
-        id: id
+        id: id,
+        examinestate: examinestate
       }
     }
     console.log('参数：', data)
@@ -288,7 +292,7 @@ Page({
         if (news.length != 0) {
           that.setData({
             list: old.concat(that.settle(news)),
-            jlist:olds.concat(that.handlePosition(news)),
+            jlist: olds.concat(that.handlePosition(news)),
             page: data.pageNo
           })
         } else {

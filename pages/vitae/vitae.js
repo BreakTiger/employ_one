@@ -31,7 +31,10 @@ Page({
       detail: app.globalData.worker
     })
 
-    let article = app.globalData.worker.workHistory
+    let article = app.globalData.worker.jobDescription
+
+    console.log(article)
+
     if (article) {
       WxParse.wxParse('article', 'html', article, that, 5);
     }
@@ -89,13 +92,11 @@ Page({
     util.sendRequest('/zqhr/app/resumecollection/list', 'get', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
-        that.setData({
-          id: res.result.records[0].id
-        })
         if (res.result.records.length == 0) { //未收藏
           console.log('未收藏')
           that.setData({
-            type: 0
+            type: 0,
+            id: res.result.records[0].id
           })
         } else { //收藏
           console.log('收藏')

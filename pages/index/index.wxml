@@ -5,7 +5,7 @@
 	<!-- 搜索栏 -->
 	<view class="header flex col fl-align b-e5">
 		<view class="search flex fl-align b-ff" bindtap='toSearch'>
-			<icon type="search" size="22" />
+			<icon type="search" size="40rpx" />
 			<view class="f26">请选择搜索信息</view>
 		</view>
 	</view>

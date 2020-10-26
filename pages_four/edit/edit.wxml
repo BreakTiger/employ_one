@@ -41,6 +41,15 @@
 			</view>
 
 			<view class="item">
+				<view class="name">信用代码</view>
+				<view class="selectitem">
+					<input type="text" value="{{detail.creditCode}}" name="code" placeholder="{{tempenterpriseCode}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempenterpriseName"/>
+				</view>
+			</view>
+
+
+
+			<view class="item">
 				<view class="name"> 负责人</view>
 				<view class="selectitem">
 					<input type="text" value="{{detail.companyPrincipal}}" name="mastername" placeholder="{{tempmastername}}" bindfocus="getInputValue" bindblur="blurInputValue" data-type="tempmastername" />

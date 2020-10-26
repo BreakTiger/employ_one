@@ -37,7 +37,8 @@ Page({
     tempidcard: '请输入负责人身份证',
     tempphone: '请输入电话',
     tempemail: '请输入邮箱',
-    tempaddress: '请输入地址'
+    tempaddress: '请输入地址',
+    tempenterpriseCode: '请输入企业信用代码'
 
   },
 
@@ -272,7 +273,7 @@ Page({
             console.log(res)
             let w = res.width
             let h = res.height
-            if (w = h) {
+            if (w == h) {
               that.setData({
                 logo: res.path
               })
@@ -323,6 +324,8 @@ Page({
       modal.showToast('请选择企业性质', 'none')
     } else if (!that.data.scale) {
       modal.showToast('请设置企业规模', 'none')
+    } else if (!data.code) {
+      modal.showToast('请输入企业信用代码', 'none')
     } else if (!data.mastername) {
       modal.showToast('请输入企业负责人', 'none')
     } else if (!data.tel) {
@@ -453,7 +456,8 @@ Page({
       area: that.data.area,
       examinestate: that.data.detail.examinestate,
       idcard: datas.idcard,
-      updateBy: wx.getStorageSync('company').id
+      updateBy: wx.getStorageSync('company').id,
+      creditCode:datas.code
     }
     console.log('提交参数：', param)
     util.sendRequest('/zqhr/hall/enterprise/editById', 'post', param).then(function (res) {

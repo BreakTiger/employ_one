@@ -31,9 +31,13 @@ Page({
 
     c_five: 0,
 
-    type: 0, //类型 1录取 2待定
+    types: 0, // 0 简历模板 1上传的图片简历
 
-    types: 0
+    type: 0, //0 新增 1修改
+
+    type_one: 0, // 0 显示待定
+
+    type_two: 0 // 0 显示入职通知
 
   },
 
@@ -50,8 +54,6 @@ Page({
         types: 1
       })
     }
-
-    // console.log(app.globalData.worker)
 
     this.getBase(app.globalData.worker)
 
@@ -97,7 +99,6 @@ Page({
       enterprisePostReleaseId: item.enterpriseInfoId
     }
     util.sendRequest('/zqhr/app/interviewevaluation/matching', 'get', data).then(function (res) {
-      // console.log(res.result)
       if (res.code == 0) {
         let datas = res.result
         //综合匹配度
@@ -152,18 +153,29 @@ Page({
     }
     util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        console.log('面试评价：')
+        console.log('面试评价：',res.result)
         if (res.result) {
-          console.log(res.result)
           let detail = res.result
           that.setData({
+            id: detail.id,
             c_one: detail.imageTemperament,
             c_two: detail.languageExpression,
             c_three: detail.workExperience,
             c_four: detail.workingAbility,
             c_five: detail.comprehensiveEvaluation,
-            type: detail.interviewResults
+            type: 1
           })
+          // 判断显示按钮
+          let type = detail.interviewResults
+          if (type == 2) {
+            that.setData({
+              type_one: type
+            })
+          } else if (type == 1) {
+            that.setData({
+              type_two: type
+            })
+          }
         }
       } else {
         modal.showToast(res.message, 'none')
@@ -391,6 +403,8 @@ Page({
   // 修改评价
   editor: function (data) {
     let that = this
+    data.id = that.data.id
+    data.updateBy = wx.getStorageSync('company').id
     util.sendRequest('/zqhr/app/interviewevaluation/editById', 'post', data, '1').then(function (res) {
       console.log(res)
       if (res.code == 200) {

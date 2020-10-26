@@ -378,7 +378,8 @@ Page({
         special: that.data.choice,
         jobDescription: that.data.describe,
         token: wx.getStorageSync('token'),
-        ageRequirement: data.age
+        ageRequirement: data.age,
+        examinestate: 0
       }
       console.log(param)
 

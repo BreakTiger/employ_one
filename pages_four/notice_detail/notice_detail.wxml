@@ -2,7 +2,7 @@
 
 <view class="container flex col fl-align">
 
-	<view class="article flex col fl-align">
+	<view class="article flex col fl-align ql-editor">
 
 		<template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
 

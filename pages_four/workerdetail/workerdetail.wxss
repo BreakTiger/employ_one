@@ -86,7 +86,7 @@
   margin-right: 15rpx;
 }
 
-.right>view{
+.right>view {
   width: 100%;
 }
 
@@ -128,8 +128,9 @@
   background: #F8B551;
 }
 
-.photo{
+.photo {
   width: 55%;
+  height: auto;
   border: 1rpx solid #DEDEDE;
   margin: 25rpx 15rpx;
 }

@@ -138,7 +138,7 @@
   
   </view>
 
-  <image src="{{imaUrl + photo}}" class="photo" bindtap="toShows" wx:if="{{types==1}}"></image>
+  <image mode="widthFix" src="{{imaUrl + photo}}" class="photo" bindtap="toShows" wx:if="{{types==1}}"></image>
 
   <view class="right">
 
@@ -196,13 +196,11 @@
 
     <view class="c-line flex fl-align fl-jc">
 
-      <view class="btn c-ff f16 b-e5" data-type="2" bindtap="toWait" wx:if="{{type!=2}}">待定</view>
-
-      <view class="btn c-ff f16 b-51" data-type="1" bindtap="toNotice"  wx:if="{{type!=2}}">入职通知</view>
-
-      <!-- <view    wx:if="{{ && type!=1}}"></view>
-      <view class="btn c-ff f16" style="background: #e5e5e5;" data-type="2" wx:else>待定</view>
-      <view    wx:if="{{type!=1}}"></view> -->
+      <view class="btn c-ff f16 b-e5" data-type="2" bindtap="toWait" wx:if="{{type_one!=2&&type_two==0}}">待定</view>
+      <view class="btn c-ff f16" style="background: #e5e5e5;" wx:if="{{type_one==2&&type_two==0}}">待定</view>
+      
+      <view class="btn c-ff f16 b-51" data-type="1" bindtap="toNotice" wx:if="{{type_two!=1}}">入职通知</view>
+      <view class="btn c-ff f16" style="background: #e5e5e5;" wx:if="{{type_two==1}}">入职通知</view>
 
     </view>
 

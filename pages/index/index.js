@@ -116,7 +116,7 @@ Page({
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
-          notelist:that.settle(res.result.records)
+          notelist: that.settle(res.result.records)
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -233,19 +233,34 @@ Page({
 
   // 入场券
   ticket: function () {
-    let data = {
-      token: wx.getStorageSync('token')
-    }
-    util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
-      if (res.code == 200) {
-        app.globalData.codeData = res.result
-        wx.navigateTo({
-          url: '/pages_one/ticket/ticket',
-        })
-      } else {
-        modal.showToast(res.message, 'none')
+    let token = wx.getStorageSync('token')
+    if (token) {
+      let data = {
+        token: wx.getStorageSync('token')
       }
-    })
+      util.sendRequest('/zqhr/app/ticket/getticket', 'get', data).then(function (res) {
+        if (res.code == 200) {
+          app.globalData.codeData = res.result
+          wx.navigateTo({
+            url: '/pages_one/ticket/ticket',
+          })
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请您先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+          }
+        }
+      })
+    }
   },
 
   // 通知
