@@ -19,9 +19,6 @@ recode
 5.1新增面试
 add_record
 
-5.2 结束面试
-finish
-
 6.求职面试历史
 history
 

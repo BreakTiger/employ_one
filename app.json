@@ -45,7 +45,6 @@
         "record/record",
         "notice_detail/notice_detail",
         "add_record/add_record",
-        "finish/finish",
         "staff/staff",
         "add_ staff/add_ staff",
         "staff_editor/staff_editor",
