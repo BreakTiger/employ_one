@@ -68,29 +68,29 @@
         <view>
           <view>
             <text class="title">期望职业：</text>
-            <text>{{base.intendedPosition}}</text>
+            <text>{{base.intendedPosition||''}}</text>
           </view>
           <view>
             <text class="title">期望行业：</text>
-            <text>{{base.intendedIndustries}}</text>
+            <text>{{base.intendedIndustries||''}}</text>
           </view>
           <view>
             <text class="title">工作区域：</text>
-            <text>{{base.workArea}}</text>
+            <text>{{base.workArea||''}}</text>
           </view>
           <view>
             <text class="title">求职类型：</text>
-            <text>{{base.jobSearchType}}</text>
+            <text>{{base.jobSearchType||''}}</text>
           </view>
         </view>
         <view>
           <view>
             <text class="title">期望薪资：</text>
-            <text>{{base.salaryExpectation}}</text>
+            <text>{{base.salaryExpectation|''}}</text>
           </view>
           <view>
             <text class="title">到岗时间：</text>
-            <text>{{base.availableTime}}</text>
+            <text>{{base.availableTime||''}}</text>
           </view>
         </view>
       </view>

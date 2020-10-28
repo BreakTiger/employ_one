@@ -63,9 +63,9 @@
 		<image src="../../img/Jjob.png" class="icon"></image>用户管理
 	</view>
 
-	<view class="item" bindtap="toHistory">
+	<!-- <view class="item" bindtap="toHistory">
 		<image src="../../img/note.png" class="icon"></image>面试记录
-	</view>
+	</view> -->
 
 	<view class="item" bindtap="toMatchnote">
 		<image src="../../img/search.png" class="icon"></image>精确匹配简历
