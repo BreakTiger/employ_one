@@ -4,7 +4,8 @@
 
 	<view class="item flex fl-align fl-jsa" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-item="{{item}}" wx:if="{{list.length!=0}}">
 	
-		<image src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appPersonal/img/msyq.png" class="icon"></image>
+		<image class="icon" wx:if="{{item.noticeType == 'invitation'}}" src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appPersonal/img/msyq.png"></image>
+    <image class="icon" wx:elif="{{item.noticeType == 'signupexamine'}}" src="https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appPersonal/img/mstg.png"></image>
 
 		<view class="flex col">
 

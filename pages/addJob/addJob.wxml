@@ -141,7 +141,7 @@
 						<!-- 操作栏 -->
 						
 						<!-- 编辑窗 -->
-						<editor id="editor" placeholder="开始输入..." bindtap="onEditorTap" bindstatuschange="onStatusChange" bindinput="toDescribe"></editor>
+						<editor id="editor"  placeholder="开始输入..." bindtap="onEditorTap" bindstatuschange="onStatusChange" bindinput="toDescribe"></editor>
 
 					</view>
 				</view>

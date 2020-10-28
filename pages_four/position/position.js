@@ -97,7 +97,6 @@ Page({
   },
 
   handlePosition(data) {
-    console.log(data)
     let list = [];
     for (const key in data) {
       if (list.indexOf(data[key].postName) === -1) {

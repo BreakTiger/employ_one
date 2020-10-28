@@ -139,6 +139,6 @@ page {
 }
 
 .info .time {
-  color: #ff4129;
+  color: #646464;
   font-size: 28rpx;
 }

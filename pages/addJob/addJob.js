@@ -80,7 +80,7 @@ Page({
     if (options.detail) {
 
       let detail = JSON.parse(options.detail)
-      console.log(detail)
+      // console.log(detail)
 
       that.setData({
         is_editor: true,
@@ -102,7 +102,7 @@ Page({
       }
 
     }
-    
+
     wx.createSelectorQuery().select('#editor').context(function (res) {
       that.editorCtx = res.context;
       that.editorCtx.setContents({
@@ -140,7 +140,7 @@ Page({
     let that = this
     let arr = e.split(',')
     let list = that.data.speciallist
-    console.log(list)
+    // console.log(list)
     for (let i = 0; i < arr.length; i++) {
       let item = arr[i]
       for (let j = 0; j < list.length; j++) {
@@ -181,7 +181,7 @@ Page({
       parentid: e
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.code == 0) {
         that.setData({
           types: res.result.records
