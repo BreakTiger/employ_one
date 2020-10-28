@@ -119,6 +119,11 @@ Page({
     that.educationList()
   },
 
+  onShow: function () {
+    console.log(this.data.describe)
+    this.onEditorReady()
+  },
+
   // 招聘会列表
   getElist: function () {
     let that = this
@@ -430,5 +435,5 @@ Page({
     })
   },
 
-  
+
 })

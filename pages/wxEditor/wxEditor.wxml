@@ -20,7 +20,7 @@
   </view>
 
   <!-- 保存 -->
-  <view class="add c-ff f24 b-e5" bindtap="toSave">保存</view>
+  <view class="add c-ff f24 b-e5" bindtap="toSave">确定</view>
 
 
 </view>
