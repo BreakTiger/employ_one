@@ -398,7 +398,7 @@ Page({
         })
 
         // 判断 执照，并判断执照是否为新上传的
-        if (that.data.license && (that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
+        if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
           console.log('执照存在，并为新上传的')
           that.upLicense(that.data.license, param)
         } else {
