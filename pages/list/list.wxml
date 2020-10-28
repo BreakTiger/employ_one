@@ -23,8 +23,6 @@
 					</view>
 					<view class="jobmoney flex fl-jsb">
 						<view>职位意向:<text>{{item.intendedPosition||'不限'}}</text></view>
-						<view wx:if="{{item.ispresent==1}}">已入场</view>
-						<view wx:if="{{item.ispresent==-1}}">已离场</view>
 					</view>
 				</view>
 			</view>

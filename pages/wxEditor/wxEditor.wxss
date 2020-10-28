@@ -1,1 +1,26 @@
-/* pages/wxEditor/wxEditor.wxss */
+@import "../../utils/iconfont.wxss";
+
+.container {
+  height: 100vh;
+}
+
+.container>view {
+  width: 100%;
+}
+
+.toolbar {
+  height: 85rpx;
+  border: 1rpx solid #ECECEC;
+}
+
+.qi_editor {
+  height: calc(100vh - 85rpx - 90rpx);
+  /* background: black; */
+}
+
+.add {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}

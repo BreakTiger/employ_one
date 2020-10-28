@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "简历匹配"
+  "navigationBarTitleText": "简历匹配",
+  "enablePullDownRefresh": false
 }
