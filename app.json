@@ -12,7 +12,8 @@
     "pages/addJob/addJob",
     "pages/vitae/vitae",
     "pages/search_list/search_list",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/wxEditor/wxEditor"
   ],
   "subPackages": [
     {

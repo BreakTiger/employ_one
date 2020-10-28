@@ -7,7 +7,9 @@ Page({
   data: {
     page: 1,
     list: [],
-    ed_type: false
+    ed_type: false,
+    show: true,
+    interviewstate: 'invite'
   },
 
   onShow: function () {
@@ -19,13 +21,28 @@ Page({
     })
     this.getList()
   },
-
+  cutstate() {
+    var that = this
+    if(that.data.show == true) {
+      this.setData({
+        show: false,
+        interviewstate: 'finish'
+      })
+    } else {
+      this.setData({
+        show: true,
+        interviewstate: 'invite'
+      })
+    }
+    this.getList()
+    
+  },
   // 列表
   getList: function () {
     let that = this
     let data = {
       enterpriseInfoId: wx.getStorageSync('company').id,
-      interviewstate: 'invite',
+      interviewstate: that.data.interviewstate,
       pageNo: that.data.page,
       pageSize: 10
     }

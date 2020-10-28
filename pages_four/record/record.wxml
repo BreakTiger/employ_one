@@ -1,4 +1,9 @@
 <view class="container col fl-align">
+		<view class="content">
+			<view bindtap="cutstate" class=" {{show ? 'active' : ''}}"><text >未开始</text></view>
+			<view bindtap="cutstate" class=" {{!show ?' active' : ''}}"><text >已结束</text></view>
+			<i class="cursor {{!show ?' cursorss' : ''}}"></i>
+		</view>
 
 		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 

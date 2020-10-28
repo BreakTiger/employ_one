@@ -412,13 +412,22 @@ Page({
 
   // 富文本 - 操作
   onEditorReady: function () {
-    // let that = this
-    // wx.createSelectorQuery().select('#editor').context(function (res) {
-    //   that.editorCtx = res.context;
-    //   that.editorCtx.setContents({
-    //     html: that.data.describe
-    //   })
-    // }).exec()
+    let that = this
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      that.editorCtx = res.context;
+      that.editorCtx.setContents({
+        html: that.data.describe
+      })
+    }).exec()
+  },
+
+  toEditor: function () {
+    let that = this
+    let describe = that.data.describe
+    app.globalData.describe = describe
+    wx.navigateTo({
+      url: '/pages/wxEditor/wxEditor',
+    })
   },
 
   // onEditorTap: function () {
@@ -429,90 +438,90 @@ Page({
   // },
 
 
-  toDescribe: function (e) {
-    this.setData({
-      describe: e.detail.html
-    })
-  },
+  // toDescribe: function (e) {
+  //   this.setData({
+  //     describe: e.detail.html
+  //   })
+  // },
 
 
-  updatePosition(keyboardHeight) {
-    const toolbarHeight = 50
-    const { windowHeight, platform } = wx.getSystemInfoSync()
-    let editorHeight = keyboardHeight > 0 ? (windowHeight - keyboardHeight - toolbarHeight) : windowHeight
-    this.setData({ editorHeight, keyboardHeight })
-  },
+  // updatePosition(keyboardHeight) {
+  //   const toolbarHeight = 50
+  //   const { windowHeight, platform } = wx.getSystemInfoSync()
+  //   let editorHeight = keyboardHeight > 0 ? (windowHeight - keyboardHeight - toolbarHeight) : windowHeight
+  //   this.setData({ editorHeight, keyboardHeight })
+  // },
 
-  calNavigationBarAndStatusBar() {
-    const systemInfo = wx.getSystemInfoSync()
-    const { statusBarHeight, platform } = systemInfo
-    const isIOS = platform === 'ios'
-    const navigationBarHeight = isIOS ? 44 : 48
-    return statusBarHeight + navigationBarHeight
-  },
+  // calNavigationBarAndStatusBar() {
+  //   const systemInfo = wx.getSystemInfoSync()
+  //   const { statusBarHeight, platform } = systemInfo
+  //   const isIOS = platform === 'ios'
+  //   const navigationBarHeight = isIOS ? 44 : 48
+  //   return statusBarHeight + navigationBarHeight
+  // },
 
-  blur() {
-    this.editorCtx.blur()
-  },
+  // blur() {
+  //   this.editorCtx.blur()
+  // },
 
-  format(e) {
-    let { name, value } = e.target.dataset
-    if (!name) return
-    this.editorCtx.format(name, value)
-  },
+  // format(e) {
+  //   let { name, value } = e.target.dataset
+  //   if (!name) return
+  //   this.editorCtx.format(name, value)
+  // },
 
-  onStatusChange(e) {
-    const formats = e.detail
-    this.setData({ formats })
-  },
+  // onStatusChange(e) {
+  //   const formats = e.detail
+  //   this.setData({ formats })
+  // },
 
-  insertDivider() {
-    this.editorCtx.insertDivider({
-      success: function () {
-        console.log('insert divider success')
-      }
-    })
-  },
+  // insertDivider() {
+  //   this.editorCtx.insertDivider({
+  //     success: function () {
+  //       console.log('insert divider success')
+  //     }
+  //   })
+  // },
 
-  clear() {
-    this.editorCtx.clear({
-      success: function (res) {
-        console.log("clear success")
-      }
-    })
-  },
+  // clear() {
+  //   this.editorCtx.clear({
+  //     success: function (res) {
+  //       console.log("clear success")
+  //     }
+  //   })
+  // },
 
-  removeFormat() {
-    this.editorCtx.removeFormat()
-  },
+  // removeFormat() {
+  //   this.editorCtx.removeFormat()
+  // },
 
-  insertDate() {
-    const date = new Date()
-    const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
-    this.editorCtx.insertText({
-      text: formatDate
-    })
-  },
+  // insertDate() {
+  //   const date = new Date()
+  //   const formatDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+  //   this.editorCtx.insertText({
+  //     text: formatDate
+  //   })
+  // },
 
-  // 插入图片
-  insertImage() {
-    const that = this
-    wx.chooseImage({
-      count: 1,
-      success: function (res) {
-        that.editorCtx.insertImage({
-          src: res.tempFilePaths[0],
-          data: {
-            id: 'abcd',
-            role: 'god'
-          },
-          width: '80%',
-          success: function () {
-            console.log('insert image success')
-          }
-        })
-      }
-    })
-  }
+  // // 插入图片
+  // insertImage() {
+  //   const that = this
+  //   wx.chooseImage({
+  //     count: 1,
+  //     success: function (res) {
+  //       that.editorCtx.insertImage({
+  //         src: res.tempFilePaths[0],
+  //         data: {
+  //           id: 'abcd',
+  //           role: 'god'
+  //         },
+  //         width: '80%',
+  //         success: function () {
+  //           console.log('insert image success')
+  //         }
+  //       })
+  //     }
+  //   })
+  // }
 
 })
