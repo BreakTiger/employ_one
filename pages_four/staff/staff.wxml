@@ -24,7 +24,7 @@
 		</view>
 
 		<view class="btn-line flex fl-align fl-jfe">
-			<view bindtap="toEditor" wx:if="{{item.role!=1 && role==1}}" data-item="{{item}}">编辑</view>
+			<view bindtap="toEditor" wx:if="{{item.role!=1}}" data-item="{{item}}">编辑</view>
 			<view bindtap="toDelete" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.role!=1 && role==1}}">删除</view>
 			<view bindtap="toChange" data-item="{{item}}">修改密码</view>
 		</view>
