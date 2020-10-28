@@ -371,6 +371,11 @@ Page({
           console.log('存在执照,并为新上传')
           that.upLicense(that.data.license, data)
 
+        } else {
+
+          console.log('存在图片不是新上传的')
+          that.upForms(data)
+
         }
 
       } else {
@@ -388,7 +393,7 @@ Page({
     }
     await util.upLoading(img, data).then(function (res) {
       let datas = JSON.parse(res)
-      console.log(datas.result)
+      console.log('logo:', datas.result)
       if (datas.code == 200) {
 
         // 绑定
@@ -400,7 +405,11 @@ Page({
         // 判断 执照，并判断执照是否为新上传的
         if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
           console.log('执照存在，并为新上传的')
-          that.upLicense(that.data.license, param)
+          modal.loading()
+          setTimeout(() => {
+            that.upLicense(that.data.license, param)
+          }, 1000);
+          modal.loaded()
         } else {
           console.log('执照不存在，或者执照不是新上传的')
           that.upForms(param)
@@ -457,7 +466,7 @@ Page({
       examinestate: that.data.detail.examinestate,
       idcard: datas.idcard,
       updateBy: wx.getStorageSync('company').id,
-      creditCode:datas.code
+      creditCode: datas.code
     }
     console.log('提交参数：', param)
     util.sendRequest('/zqhr/hall/enterprise/editById', 'post', param).then(function (res) {

@@ -66,6 +66,13 @@ Page({
     app.onShow()
   },
 
+  onShow: function () {
+    let that = this
+    let token = wx.getStorageSync('token')
+    if (token) {
+      that.getData()
+    }
+  },
 
   getData: function () {
     let that = this
@@ -75,8 +82,12 @@ Page({
     util.sendRequest('/zqhr/hall/statistics/EnterpriseStatistics', 'get', data).then(function (res) {
       console.log(res.result)
       if (res.code == 0) {
+        let company = res.result.enterprise
+        wx.setStorageSync('company', company)
         that.setData({
-          detail: res.result
+          detail: res.result,
+          company: wx.getStorageSync('company'),
+          login: 1
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -90,6 +101,8 @@ Page({
       url: '/pages/login/login',
     })
   },
+
+
 
   // 退出登录
   loginout: function () {
@@ -119,41 +132,7 @@ Page({
     })
   },
 
-  onShow: function () {
-    let that = this
-    let token = wx.getStorageSync('token')
-    if (token) {
-      that.setData({
-        company: wx.getStorageSync('company'),
-        login: 1
-      })
-      that.getData()
-    }
-  },
-
   // 跳转:
-
-  // 通知
-  // notice: function () {
-  //   let token = wx.getStorageSync('token')
-  //   if (token) {
-  //     wx.navigateTo({
-  //       url: '/pages_four/notice/notice',
-  //     })
-  //   } else {
-  //     wx.showModal({
-  //       title: "提示",
-  //       content: "请先登录",
-  //       success: function (res) {
-  //         if (res.confirm) {
-  //           wx.navigateTo({
-  //             url: '/pages/login/login',
-  //           })
-  //         }
-  //       }
-  //     })
-  //   }
-  // },
 
   //收到简历
   toCount: function () {
@@ -200,6 +179,7 @@ Page({
     }
   },
 
+  // 媒体上传
   upMedia: function () {
     let token = wx.getStorageSync('token')
     if (token) {
@@ -241,7 +221,6 @@ Page({
         }
       })
     }
-
   },
 
   //面试记录
@@ -264,7 +243,6 @@ Page({
         }
       })
     }
-
   },
 
   // 匹配简历
@@ -287,7 +265,6 @@ Page({
         }
       })
     }
-
   },
 
   // 职位管理
