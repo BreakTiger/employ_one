@@ -1,7 +1,8 @@
 {
   "usingComponents": {
-    "circle":"/components/circle"
+    "circle": "/components/circle"
   },
   "navigationBarTitleText": "面试评价",
-  "pageOrientation":"landscape"
+  "pageOrientation": "landscape",
+  "enablePullDownRefresh": false
 }

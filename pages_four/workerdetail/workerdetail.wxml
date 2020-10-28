@@ -41,7 +41,7 @@
           </view> -->
           <view>
             <text class="title">参加工作时间：</text>
-            <text>{{base.workingHoursStart}}</text>
+            <text>{{base.workingHoursStart||'无'}}</text>
           </view>
         </view>
 
@@ -120,7 +120,7 @@
 
     </view>
 
-    <view class="two flex col fl-align c-a3" style="border:none !important;">
+    <view class="two flex col fl-align c-a3" style="border:none !important;" wx:if="{{base.graduateSchool}}">
     
       <view class="f14 fw-b" style="margin-bottom: 20rpx;">教育经历</view>
 

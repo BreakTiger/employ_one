@@ -52,7 +52,7 @@
 
 	<view class="order" style="margin-bottom:100rpx;">
 
-		<view class="title">自我介绍及工作经历</view>
+		<view class="title">工作经历</view>
 
 		<view class="content">
 			<template is="wxParse" data="{{wxParseData:article.nodes}}" />

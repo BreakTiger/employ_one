@@ -35,7 +35,7 @@ icon {
 .sort_list {
 	width: calc(100% / 3);
 	text-align: center;
-	border-right: 1px solid #ececec;
+	border-right: 2rpx solid #ececec;
 }
 
 .sort_list:last-child {
@@ -59,7 +59,7 @@ icon {
 
 /* 触发样式 */
 .select {
-	border-bottom: 1px solid #e62129;
+	border-bottom: 2rpx solid #e62129;
 }
 
 .select text {
@@ -81,8 +81,8 @@ icon {
 .select_sort text {
 	display: block;
 	flex: 1;
-	line-height: 35px;
-	font-size: 13px;
+	line-height: 70rpx;
+	font-size: 26rpx;
 }
 
 .select_cars text:last-child,
@@ -97,18 +97,18 @@ icon {
 
 .select_cars_list {
 	display: flex;
+	align-items: center;
 	border-bottom: 1rpx solid #ececec;
 }
 
 .select_cars_list image {
 	width: 36rpx;
 	height: 36rpx;
-	padding-top: 16rpx;
 }
 
 .sold {
 	background: url(http://s2.nongjigou.com/images/sold.png) no-repeat right 0;
-	background-size: 70px 70px;
+	background-size: 140rpx 140rpx;
 }
 
 .select_price .item {
@@ -124,16 +124,16 @@ icon {
 
 .select_price .item .content text {
 	padding: 5rpx 15rpx;
-	line-height: 30px;
-	margin: 6px 1.8%;
-	border: 1px solid #acacac;
-	border-radius: 2px;
+	line-height: 60rpx;
+	margin: 12rpx 1.8%;
+	border: 2rpx solid #acacac;
+	border-radius: 4rpx;
 	text-align: center;
-	font-size: 13px;
+	font-size: 26rpx;
 }
 
 .select_price .boractive {
-	border: 1px solid #e62129;
+	border: 2rpx solid #e62129;
 	color: #e62129;
 }
 
@@ -174,7 +174,7 @@ icon {
 	flex-direction: row;
 	width: 720rpx;
 	margin: 0 auto;
-	border-bottom: 1px solid #efefef;
+	border-bottom: 2rpx solid #efefef;
 	padding-top: 10rpx;
 	padding-bottom: 10rpx;
 }
@@ -214,7 +214,6 @@ icon {
 }
 
 .news .newslist .title .detail .info {
-
 	width: 75%;
 }
 
@@ -243,13 +242,12 @@ icon {
 }
 
 .news .newslist .title .price {
-
 	width: 28%;
 }
 
 .news .newslist .title .price .money {
 	color: #d65408;
 	font-weight: bold;
-	font-size:28rpx;
+	font-size: 28rpx;
 	padding-right: 10rpx;
 }

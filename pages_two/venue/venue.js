@@ -11,13 +11,13 @@ Page({
   },
 
   onLoad: function (options) {
-    
+
     this.setData({
       imaUrl: app.globalData.imaUrl
     })
 
     let item = app.globalData.venue
-    console.log('基础数据:',item)
+    console.log('基础数据:', item)
 
     wx.setNavigationBarTitle({
       title: item.name,

@@ -71,13 +71,14 @@ Page({
 
     formats: {},
 
-    keyboardHeight: 0,
+    readOnly: false
 
   },
 
   onLoad: function (options) {
     let that = this
     if (options.detail) {
+
       let detail = JSON.parse(options.detail)
       console.log(detail)
 
@@ -101,27 +102,13 @@ Page({
       }
 
     }
-
-    const platform = wx.getSystemInfoSync().platform
-    const isIOS = platform === 'ios'
-    that.setData({ isIOS })
-
-    that.updatePosition(0)
-    let keyboardHeight = 0
-    wx.onKeyboardHeightChange(res => {
-      if (res.height === keyboardHeight) return
-      const duration = res.height > 0 ? res.duration * 1000 : 0
-      keyboardHeight = res.height
-      setTimeout(() => {
-        wx.pageScrollTo({
-          scrollTop: 0,
-          success() {
-            that.updatePosition(keyboardHeight)
-            that.editorCtx.scrollIntoView()
-          }
-        })
-      }, duration)
-    })
+    
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      that.editorCtx = res.context;
+      that.editorCtx.setContents({
+        html: that.data.detail.jobDescription
+      })
+    }).exec()
 
     that.getElist()
 
@@ -167,8 +154,6 @@ Page({
       speciallist: list
     })
   },
-
-
 
   // 岗位类型 - 1
   typeList: function () {
@@ -331,13 +316,7 @@ Page({
     })
   },
 
-  // 职位描述
-  toDescribe: function (e) {
-    this.setData({
-      describe: e.detail.html
-    })
-  },
-
+  // 提交判断
   formSubmit: function (e) {
     let that = this
     let data = e.detail.value
@@ -392,7 +371,7 @@ Page({
     }
   },
 
-
+  // 新增
   add: function (data) {
     let that = this
     util.sendRequest('/zqhr/hall/position/add', 'post', data).then(function (res) {
@@ -410,6 +389,7 @@ Page({
     })
   },
 
+  // 修改
   editors: function (data) {
     let that = this
     data.updateBy = wx.getStorageSync('company').id
@@ -429,7 +409,33 @@ Page({
     })
   },
 
-  // 富文本
+
+  // 富文本 - 操作
+  onEditorReady: function () {
+    // let that = this
+    // wx.createSelectorQuery().select('#editor').context(function (res) {
+    //   that.editorCtx = res.context;
+    //   that.editorCtx.setContents({
+    //     html: that.data.describe
+    //   })
+    // }).exec()
+  },
+
+  // onEditorTap: function () {
+  //   console.log(111)
+  //   this.setData({
+  //     readOnly: true
+  //   })
+  // },
+
+
+  toDescribe: function (e) {
+    this.setData({
+      describe: e.detail.html
+    })
+  },
+
+
   updatePosition(keyboardHeight) {
     const toolbarHeight = 50
     const { windowHeight, platform } = wx.getSystemInfoSync()
@@ -443,17 +449,6 @@ Page({
     const isIOS = platform === 'ios'
     const navigationBarHeight = isIOS ? 44 : 48
     return statusBarHeight + navigationBarHeight
-  },
-
-  onEditorReady: function () {
-    const that = this
-    wx.createSelectorQuery().select('#editor').context(function (res) {
-      console.log(res.context)
-      that.editorCtx = res.context;
-      that.editorCtx.setContents({
-        html: that.data.describe
-      })
-    }).exec()
   },
 
   blur() {

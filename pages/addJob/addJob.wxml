@@ -138,7 +138,11 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<editor id="editor" class="ql-container" placeholder="开始输入..." bindstatuschange="onStatusChange" bindready="onEditorReady" value="{{describe}}" bindinput="toDescribe"></editor>
+						<!-- 操作栏 -->
+						
+						<!-- 编辑窗 -->
+						<editor id="editor" placeholder="开始输入..." bindtap="onEditorTap" bindstatuschange="onStatusChange" bindinput="toDescribe"></editor>
+
 					</view>
 				</view>
 			</view>
@@ -174,7 +178,7 @@
 
 </view>
 
-<view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
+<!-- <view class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
   <i class="iconfont icon-charutupian" catchtouchend="insertImage"></i>
   <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
   <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
@@ -184,4 +188,4 @@
   <i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
   <i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
   <i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
-</view>
+</view> -->

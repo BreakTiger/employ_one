@@ -116,7 +116,7 @@ page {
 }
 
 /* 富文本 */
-.toolbar {
+/* .toolbar {
   box-sizing: border-box;
   padding: 0 10px;
   height: 50px;
@@ -133,4 +133,4 @@ page {
   border-left: none;
   border-right: none;
   z-index: 100;
-}
+} */

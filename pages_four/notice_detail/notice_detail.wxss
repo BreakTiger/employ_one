@@ -1,24 +1,27 @@
 @import '../../wxParse/wxParse.wxss';
 
 .btn {
-  width: 92%;
-  margin: 20rpx 0;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0rpx;
 }
 
-.btn>view{
-  width: 45%;
+.btn>view {
+  width: 40%;
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
   font-size: 28rpx;
   border-radius: 8rpx;
+  margin: 20rpx;
 }
 
-.btn>view:first-child{
+.btn>view:first-child {
   color: #fff;
 }
 
-.btn>view:last-child{
+.btn>view:last-child {
   border: 1rpx solid #777;
   color: #777;
 }
