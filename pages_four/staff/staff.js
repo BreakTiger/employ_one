@@ -11,7 +11,8 @@ Page({
 
   onShow: function () {
     this.setData({
-      page: 1
+      page: 1,
+      role: wx.getStorageSync('person').userRole
     })
     this.getList()
   },
