@@ -172,7 +172,7 @@ icon {
 .news .newslist {
 	display: flex;
 	flex-direction: row;
-	width: 720rpx;
+	width: 98%;
 	border-bottom: 2rpx solid #efefef;
 	padding-top: 10rpx;
 	padding-bottom: 10rpx;

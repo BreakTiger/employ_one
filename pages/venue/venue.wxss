@@ -10,6 +10,10 @@ page {
   margin-top: 85rpx;
 }
 
+.recruit>view {
+  width: 100%;
+}
+
 .recruittitle {
   width: 750rpx;
   height: 80rpx;
@@ -27,7 +31,8 @@ page {
   border-bottom: 2rpx solid #ececec;
   font-size: 32rpx;
   font-weight: 600;
-  padding: 13rpx 0rpx 10rpx 20rpx;
+  text-indent: 16rpx;
+  padding: 13rpx 0;
 }
 
 .recruit .recruittitle view:nth-child(1) {
@@ -50,9 +55,8 @@ page {
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: 0 auto;
   border-bottom: 30rpx solid #efefef;
-  padding: 10rpx 0rpx 10rpx 0;
+  padding: 10rpx 0;
 }
 
 .recruit .recruitlist .title {

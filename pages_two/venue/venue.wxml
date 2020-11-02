@@ -1,7 +1,6 @@
 <view class="container">
 
-	<view class="header">
-		<view class='acitveinfo'>
+	<view class='acitveinfo'>
 			<view class="item">时间：{{item.holdingtimeStart}}至{{item.holdingtimeEnd}}</view>
 			<view class="item">主办方：{{item.organizer}}</view>
 			<view class="item">规模：参会企业{{item.enterpriseTotal}}家|岗位{{item.postTotal}}个|{{item.personalTotal}}个求职者</view>
@@ -17,7 +16,6 @@
 				</swiper>
 			</view>
 		</view>
-	</view>
 
 	<view class="companylist">
 	  <block wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">

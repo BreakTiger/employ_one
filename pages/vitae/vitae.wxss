@@ -35,7 +35,7 @@
 }
 
 .container .order {
-  width: 750rpx;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +60,7 @@
 }
 
 .container .list {
-  width: 750rpx;
+  width: 100%;
   background: #FFF;
 }
 
