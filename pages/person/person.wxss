@@ -112,11 +112,11 @@ icon {
 }
 
 .select_price .item {
-	width: 750rpx;
+	width: 100%;
 }
 
 .select_price .item .content {
-	width: 750rpx;
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
@@ -173,7 +173,6 @@ icon {
 	display: flex;
 	flex-direction: row;
 	width: 720rpx;
-	margin: 0 auto;
 	border-bottom: 2rpx solid #efefef;
 	padding-top: 10rpx;
 	padding-bottom: 10rpx;
@@ -183,15 +182,13 @@ icon {
 
 .news .newslist .title {
 	width: 100%;
-	flex-direction: column;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-
 }
 
 
 .news .newslist .title .detail {
-	padding-left: 2%;
 	text-align: left;
 	font-size: 28rpx;
 	color: #000;

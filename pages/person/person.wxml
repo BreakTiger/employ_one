@@ -82,7 +82,7 @@
  	</view>
 
  	<!-- 列表 -->
- 	<view class="news w100 b-ff flex col" wx:if="{{worklist.length!=0}}">
+ 	<view class="news w100 b-ff flex col fl-align" wx:if="{{worklist.length!=0}}">
 
  		<view class="newslist" wx:for="{{worklist}}" wx:key="index" wx:if="{{item.overt==1}}">
  			<view class="title" bindtap="toWorkerDetail" data-item="{{item}}">

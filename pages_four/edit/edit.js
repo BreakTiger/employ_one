@@ -76,7 +76,7 @@ Page({
             trade: detail.trade, //企业行业
             property: detail.nature, //企业性质
             scale: detail.scale, //人员规模
-            area: detail.area,//所在区域
+            area: detail.area, //所在区域
           })
 
           // 判断logo和执照是否存在
@@ -311,78 +311,88 @@ Page({
   // 1.判断，验证信息
   // PS:logo，执照，以及介绍不做限制，其他都要
   forSubmit: function (e) {
+
+    wx.showModal({
+      title: '提示',
+      content: '保存后将提交审核，是否保存？',
+      success: function (res) {
+        if (res.confirm) {
+          let data = e.detail.value
+          // console.log(data)
+
+          // 判断
+          if (!data.name) {
+            modal.showToast('请输入企业名称', 'none')
+          } else if (!that.data.trade) {
+            modal.showToast('请选择企业行业', 'none')
+          } else if (!that.data.property) {
+            modal.showToast('请选择企业性质', 'none')
+          } else if (!that.data.scale) {
+            modal.showToast('请设置企业规模', 'none')
+          } else if (!data.code) {
+            modal.showToast('请输入企业信用代码', 'none')
+          } else if (!data.mastername) {
+            modal.showToast('请输入企业负责人', 'none')
+          } else if (!data.tel) {
+            modal.showToast('请输入电话号码', 'none')
+          } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
+            modal.showToast('请输入合法的电话号码', 'none')
+          } else if (!data.email) {
+            modal.showToast('请输入邮箱', 'none')
+          } else if (!data.address) {
+            modal.showToast('请输入地址信息', 'none')
+          } else if (!data.idcard) {
+            modal.showToast('请输入负责人身份证', 'none')
+          } else {
+
+            if (that.data.logo && that.data.license) { //都存在
+              console.log('都存在')
+              if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) { //都是新上传的
+                console.log('都新上传')
+                that.upImg(that.data.logo, data)
+              } else if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
+                console.log('logo新上传')
+                that.upImg(that.data.logo, data)
+              } else if (!(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
+                console.log('执照新上传')
+                that.upLicense(that.data.license, data)
+              } else {
+                console.log('都不是新的')
+                that.upForms(data)
+              }
+            } else if (that.data.logo || that.data.license) {
+
+              console.log('存在其一：')
+
+              // 再判断存在哪一个:
+
+              if (that.data.logo && !(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
+
+                console.log('存在logo,并新上传')
+                that.upImg(that.data.logo, data)
+
+              } else if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
+
+                console.log('存在执照,并为新上传')
+                that.upLicense(that.data.license, data)
+
+              } else {
+
+                console.log('存在图片不是新上传的')
+                that.upForms(data)
+
+              }
+
+            } else {
+              console.log('都不存在')
+              that.upForms(data)
+            }
+          }
+        }
+      },
+    })
     let that = this
-    let data = e.detail.value
-    // console.log(data)
 
-    // 判断
-    if (!data.name) {
-      modal.showToast('请输入企业名称', 'none')
-    } else if (!that.data.trade) {
-      modal.showToast('请选择企业行业', 'none')
-    } else if (!that.data.property) {
-      modal.showToast('请选择企业性质', 'none')
-    } else if (!that.data.scale) {
-      modal.showToast('请设置企业规模', 'none')
-    } else if (!data.code) {
-      modal.showToast('请输入企业信用代码', 'none')
-    } else if (!data.mastername) {
-      modal.showToast('请输入企业负责人', 'none')
-    } else if (!data.tel) {
-      modal.showToast('请输入电话号码', 'none')
-    } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
-      modal.showToast('请输入合法的电话号码', 'none')
-    } else if (!data.email) {
-      modal.showToast('请输入邮箱', 'none')
-    } else if (!data.address) {
-      modal.showToast('请输入地址信息', 'none')
-    } else if (!data.idcard) {
-      modal.showToast('请输入负责人身份证', 'none')
-    } else {
-
-      if (that.data.logo && that.data.license) { //都存在
-        console.log('都存在')
-        if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress) && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) { //都是新上传的
-          console.log('都新上传')
-          that.upImg(that.data.logo, data)
-        } else if (!(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
-          console.log('logo新上传')
-          that.upImg(that.data.logo, data)
-        } else if (!(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
-          console.log('执照新上传')
-          that.upLicense(that.data.license, data)
-        } else {
-          console.log('都不是新的')
-          that.upForms(data)
-        }
-      } else if (that.data.logo || that.data.license) {
-
-        console.log('存在其一：')
-
-        // 再判断存在哪一个:
-
-        if (that.data.logo && !(that.data.logo == app.globalData.imaUrl + that.data.logoAddress)) {
-
-          console.log('存在logo,并新上传')
-          that.upImg(that.data.logo, data)
-
-        } else if (that.data.license && !(that.data.license == app.globalData.imaUrl + that.data.licenseAddress)) {
-
-          console.log('存在执照,并为新上传')
-          that.upLicense(that.data.license, data)
-
-        } else {
-
-          console.log('存在图片不是新上传的')
-          that.upForms(data)
-
-        }
-
-      } else {
-        console.log('都不存在')
-        that.upForms(data)
-      }
-    }
   },
 
   // logo上传
