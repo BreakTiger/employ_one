@@ -163,7 +163,8 @@ App({
     venue: {}, //会场信息
     worker: {}, //简历信息
     codeData: {}, //入场券信息
-    describe: ''
+    describe: '',
+    detail: {} // 职位详细信息
   }
 
 })

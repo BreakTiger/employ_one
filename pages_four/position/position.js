@@ -169,8 +169,10 @@ Page({
 
   // 编辑
   toEdit: function (e) {
+    console.log(JSON.stringify(e.currentTarget.dataset.item))
+    app.globalData.detail = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '/pages/addJob/addJob?detail=' + JSON.stringify(e.currentTarget.dataset.item),
+      url: '/pages/addJob/addJob'
     })
   },
 
