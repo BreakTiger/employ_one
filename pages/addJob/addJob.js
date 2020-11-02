@@ -164,7 +164,8 @@ Page({
   typeList: function () {
     let that = this
     let data = {
-      type: 'jobtype'
+      type: 'jobtype',
+      pageSize: 100
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -183,7 +184,8 @@ Page({
     let that = this
     let data = {
       type: 'jobname',
-      parentid: e
+      parentid: e,
+      pageSize: 100
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res)
@@ -378,38 +380,55 @@ Page({
 
   // 新增
   add: function (data) {
-    let that = this
-    util.sendRequest('/zqhr/hall/position/add', 'post', data).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        modal.showToast(res.message)
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 0,
+    wx.showModal({
+      title: '提示',
+      content: '保存后将提交审核，是否保存？',
+      success: function (res) {
+        if (res.confirm) {
+          let that = this
+          util.sendRequest('/zqhr/hall/position/add', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+              setTimeout(() => {
+                wx.navigateBack({
+                  delta: 0,
+                })
+              }, 2000);
+            } else {
+              modal.showToast(res.message, 'none')
+            }
           })
-        }, 2000);
-      } else {
-        modal.showToast(res.message, 'none')
+        }
       }
     })
+
   },
 
   // 修改
   editors: function (data) {
-    let that = this
-    data.updateBy = wx.getStorageSync('company').id
-    data.id = that.data.detail.id
-    util.sendRequest('/zqhr/hall/position/editById', 'post', data).then(function (res) {
-      console.log(res)
-      if (res.code == 200) {
-        modal.showToast(res.message)
-        setTimeout(() => {
-          wx.navigateBack({
-            delta: 0,
+    wx.showModal({
+      title: "提示",
+      content: '保存后将提交审核，是否保存？',
+      success: function (res) {
+        if (res.confirm) {
+          let that = this
+          data.updateBy = wx.getStorageSync('company').id
+          data.id = that.data.detail.id
+          util.sendRequest('/zqhr/hall/position/editById', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+              setTimeout(() => {
+                wx.navigateBack({
+                  delta: 0,
+                })
+              }, 2000);
+            } else {
+              modal.showToast(res.message, 'none')
+            }
           })
-        }, 2000);
-      } else {
-        modal.showToast(res.message, 'none')
+        }
       }
     })
   },

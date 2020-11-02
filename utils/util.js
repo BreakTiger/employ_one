@@ -34,10 +34,8 @@ function sendRequest(url, method, data, loading) {
               content: "登录失效，请重新登录",
               success: function (res) {
                 if (res.confirm) {
-
                   // 清空所有的缓存
                   wx.clearStorage()
-
                   wx.navigateTo({
                     url: '/pages/login/login',
                   })
@@ -133,7 +131,7 @@ function calculates(item) {
     work = '无工作经验'
   }
 
-  console.log(work)
+  // console.log(work)
 
   return work;
 

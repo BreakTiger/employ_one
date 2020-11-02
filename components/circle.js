@@ -17,6 +17,8 @@ Component({
   data: {
     percentage: 0, //百分比
     animTime: '', // 动画执行时间
+    canvasWidth: '',
+    canvasHeight: ''
   },
 
   ready: function () {
@@ -37,21 +39,30 @@ Component({
      */
     draw: function (percent, animTime) {
       let that = this
-      
+
       const ctx2 = wx.createCanvasContext('runCanvas', this)
       that.setData({
         ctx2: ctx2,
         percentage: percent,
         animTime: animTime
       });
-      
+
       let time = that.data.animTime / that.data.percentage;
 
       const query = wx.createSelectorQuery().in(this)
-      query.select('.canvas').boundingClientRect((rect) => {
+      query.select('.bigCircle').boundingClientRect((rect) => {
+
+        that.setData({
+          canvasWidth: rect.width,
+          canvasHeight: rect.height
+        })
+
+        // 计算圆心
         var w = parseInt(rect.width / 2); //获取canvas宽的的一半
         var h = parseInt(rect.height / 2); //获取canvas高的一半，
+
         that.canvasTap(0, that.data.percentage, time, w, h)
+
       }).exec()
     },
 
@@ -84,20 +95,20 @@ Component({
       that.data.ctx2.arc(w, h, w - 8, -0.5 * Math.PI, num); //每个间隔绘制的弧度
 
       // 根据进度判断颜色
-      if(c<50){
+      if (c < 50) {
         that.data.ctx2.setStrokeStyle("#FF0000");
-      }else if(c<100){
+      } else if (c < 100) {
         that.data.ctx2.setStrokeStyle("#90ff90");
-      }else if(c==100){
+      } else if (c == 100) {
         that.data.ctx2.setStrokeStyle("#00FF00");
       }
-          
+
       that.data.ctx2.setLineWidth("14");
-      
+
       that.data.ctx2.setLineCap("butt");
-      
+
       that.data.ctx2.stroke();
-      
+
       that.data.ctx2.draw();
 
     },

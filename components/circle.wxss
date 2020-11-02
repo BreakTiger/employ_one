@@ -9,7 +9,6 @@
   width: 90rpx;
   height: 90rpx;
   position: relative;
-  /* margin: 0 8rpx; */
 }
 
 .bigCircle {
@@ -32,8 +31,7 @@
 }
 
 .canvas{
-  width: 90rpx;
-  height: 90rpx;
+  display: block !important;
   position: absolute;
   left: 0;
   top: 0;

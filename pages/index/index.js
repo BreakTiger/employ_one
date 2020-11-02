@@ -92,7 +92,7 @@ Page({
     }
     util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data, 1).then(function (res) {
       if (res.code == 0) {
-        console.log(res.result)
+        // console.log(res.result)
         that.setData({
           companycount: res.result.enterpriseCount,
           jobcount: res.result.postReleaseCount,
@@ -172,7 +172,7 @@ Page({
         onlyFromCamera: true,
         scanType: 'qrCode',
         success: function (res) {
-          console.log(res)
+          // console.log(res)
           let id = wx.getStorageSync('company').id
           let sid = res.result
           wx.navigateTo({
@@ -214,9 +214,7 @@ Page({
           }
         }
       })
-
     }
-
   },
 
   // 扫码领取
@@ -348,7 +346,7 @@ Page({
         enterpriseInfoId: wx.getStorageSync('company').id
       }
       util.sendRequest('/zqhr/app/interview/browse', 'get', data).then(function (res) {
-        console.log(res)
+        // console.log(res)
         if (res.code == 200) {
           app.globalData.worker = detail
           wx.navigateTo({

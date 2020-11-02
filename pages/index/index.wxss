@@ -1,6 +1,6 @@
 /* 搜索框 */
 .header {
-  width: 750rpx;
+  width: 100%;
   padding: 40rpx 0;
 }
 

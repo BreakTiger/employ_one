@@ -57,9 +57,13 @@ Page({
 
     this.getBase(app.globalData.worker)
 
-    this.getOne(app.globalData.worker)
-
     this.getTwo(app.globalData.worker)
+
+  },
+
+  onReady: function () {
+
+    this.getOne(app.globalData.worker)
 
   },
 
@@ -91,14 +95,14 @@ Page({
   },
 
   // 匹配度
-  getOne: function (item) {
+  getOne:async function (item) {
     let that = this
     let data = {
       curriculumVitaeId: item.curriculumVitaeId,
       enterpriseInfoId: wx.getStorageSync('company').id,
       enterprisePostReleaseId: item.enterpriseInfoId
     }
-    util.sendRequest('/zqhr/app/interviewevaluation/matching', 'get', data).then(function (res) {
+    await util.sendRequest('/zqhr/app/interviewevaluation/matching', 'get', data).then(function (res) {
       if (res.code == 0) {
         let datas = res.result
         //综合匹配度
@@ -153,7 +157,7 @@ Page({
     }
     util.sendRequest('/zqhr/app/interviewevaluation/list', 'get', data).then(function (res) {
       if (res.code == 0) {
-        console.log('面试评价：',res.result)
+        console.log('面试评价：', res.result)
         if (res.result) {
           let detail = res.result
           that.setData({
