@@ -12,7 +12,7 @@ page {
 .acitveinfo {
   display: flex;
   flex-direction: column;
-  width: 600rpx;
+  width: 88%;
   margin: 40rpx 0;
 }
 
@@ -58,7 +58,7 @@ page {
 
 
 .companylist {
-  width: 700rpx;
+  width: 90%;
   background: #6d99e4;
   border-radius: 15rpx;
   display: flex;
