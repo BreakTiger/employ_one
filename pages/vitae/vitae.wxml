@@ -60,9 +60,11 @@
 
 	</view>
 
-	<view class="btn b-e5 c-ff f24" bindtap="toCollect" wx:if="{{type==0}}">收藏简历</view>
-
-	<view class="btn b-e5 c-ff f24" bindtap="toCancel" wx:if="{{type==1}}">取消收藏</view>
+	<view class="btn f24 flex fl-align fl-jsb">
+		<view class="b-f5" bindtap="toCollect" wx:if="{{type==0}}">收藏简历</view>
+		<view class="b-f5" bindtap="toCancel" wx:if="{{type==1}}">取消收藏</view>
+		<view class="b-e5 c-ff" bindtap='toInvite'>邀请面试</view>
+	</view>
 
 </view>
 

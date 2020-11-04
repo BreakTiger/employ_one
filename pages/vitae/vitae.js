@@ -8,9 +8,6 @@ let token = wx.getStorageSync('token')
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     detail: {},
     type: 0,
@@ -185,6 +182,42 @@ Page({
         }
       })
     }
+  },
+
+  toInvite: function () {
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否发送面试邀约',
+      success: function (res) {
+        if (res.confirm) {
+
+          console.log(that.data.detail)
+
+          let data = {
+            createBy: wx.getStorageSync('company').id,
+            curriculumVitaeId: that.data.detail.id,
+            enterpriseInfoId: that.data.detail.enterpriseInfoId,
+            enterprisePostReleaseId: that.data.detail.enterprisePostReleaseId,
+            interviewstate: 'invite'
+          }
+          console.log(data)
+        }
+      }
+    })
+
+    // util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
+    //   console.log(res)
+    //   if (res.code == 200) {
+    //     modal.showToast(res.message)
+    //     let type = 'list[' + index + '].invitestate'
+    //     that.setData({
+    //       [type]: 1
+    //     })
+    //   } else {
+    //     modal.showToast(res.messgae, 'none')
+    //   }
+    // })
   }
 
 

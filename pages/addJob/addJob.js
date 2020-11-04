@@ -80,10 +80,15 @@ Page({
     if (app.globalData.detail) {
 
       let detail = app.globalData.detail
-      // console.log(detail)
+
+      if (Object.keys(detail).length != 0) {
+        console.log('存在内容,开启修改')
+        that.setData({
+          is_editor: true
+        })
+      }
 
       that.setData({
-        is_editor: true,
         detail: detail,
         pricename: detail.salary,
         educationname: detail.educationRequirements,
@@ -368,8 +373,10 @@ Page({
       console.log(param)
 
       if (!that.data.is_editor) {
+        console.log('新增')
         that.add(param)
       } else {
+        console.log('修改')
         that.editors(param)
       }
 
@@ -396,6 +403,7 @@ Page({
 
   // 修改
   editors: function (data) {
+    console.log()
     let that = this
     data.updateBy = wx.getStorageSync('company').id
     data.id = that.data.detail.id
