@@ -142,7 +142,7 @@ Page({
       count: 1,
       mediaType: 'video',
       success: function (res) {
-        let maxSize = 20 * 1024 * 1024
+        let maxSize = 50 * 1024 * 1024
         let file = res.tempFiles[0]
         // 判断文件大小
         if (file.size <= maxSize) {

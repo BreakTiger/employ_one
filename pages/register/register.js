@@ -34,11 +34,13 @@ Page({
       modal.showToast('请输入企业名称', 'none')
     } else if (!data.companycode) {
       modal.showToast('请输入企业信用代码', 'none')
+    } else if(!(/[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g.test(data.companycode))){
+      modal.showToast('请输入合法的企业信用代码', 'none')
     } else if (!data.mastername) {
       modal.showToast('请填写负责人', 'none')
     } else if (!data.tel) {
       modal.showToast('请输入联系电话', 'none')
-    } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
+    } else if (!(/^1[3456789]\d{9}$/.test(data.tel)) && !(/^([0-9]{3,4}-)?[0-9]{7,8}$/.test(data.tel))) {
       modal.showToast('请输入合法的联系电话', 'none')
     } else if (!data.mail) {
       modal.showToast('请输入邮箱', 'none')

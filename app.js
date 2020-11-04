@@ -59,6 +59,8 @@ App({
 
   },
 
+
+
   // 模拟watch周期
   /**
  * 设置监听器
@@ -158,6 +160,8 @@ App({
   },
 
   globalData: {
+    appid: 'wx401a2c2d3d422ffd', //appid
+    secret: '5565ab098b19b34e258f1426ba76772c',
     imaUrl: 'https://zqrsjjz.jiahangit.com.cn/zqhr',
     notice: {}, //通知信息
     venue: {}, //会场信息

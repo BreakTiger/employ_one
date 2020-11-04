@@ -20,7 +20,7 @@
   <block wx:if="{{type_two!=0}}">
 
     <view class="title">
-      <text>高清视频上传</text>
+      <text>高清视频上传（视频大小限制：在50MB以下）</text>
     </view>
 
     <view class="videos flex col fl-align">

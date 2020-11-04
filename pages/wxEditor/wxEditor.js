@@ -114,7 +114,7 @@ Page({
     let that = this
     that.editorCtx.getContents({
       success: function (res) {
-        console.log(res.html)
+        // let text = res.text
         let html = res.html
         let pages = getCurrentPages();
         let prevPage = pages[pages.length - 2]; //上一个页面
@@ -128,6 +128,23 @@ Page({
     })
   },
 
-
+  // // 凭证
+  // getAccess: function (t, h) {
+  //   let that = this
+  //   let data = {
+  //     grant_type: 'client_credential',
+  //     appid: app.globalData.appid,
+  //     secret: app.globalData.secret
+  //   }
+  //   console.log(data)
+  //   util.getAccessToken(data).then(function (res) {
+  //     let param = {
+  //       access_token: res.access_token,
+  //       content: t
+  //     }
+  //     console.log(param)
+  //     that.checkContent(param, h)
+  //   })
+  // },
 
 })

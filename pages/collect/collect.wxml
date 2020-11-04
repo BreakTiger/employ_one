@@ -1,6 +1,6 @@
 <view class="container col fl-align">
 
-		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}" bindtap="toDetail" data-id="{{item.curriculumVitaeId}}">
 
 		  <view class="w100 flex fl-align fl-jsb">
 				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
@@ -24,9 +24,9 @@
 
 			<view class="btn w100 flex fl-align fl-jfe">
 
-				<view bindtap="toCancle" data-id="{{item.id}}" data-index="{{index}}">取消收藏</view>
+				<view catchtap="toCancle" data-id="{{item.id}}" data-index="{{index}}">取消收藏</view>
 
-   			<view bindtap="toDetail" data-id="{{item.curriculumVitaeId}}">查看简历</view>
+   			<view>查看简历</view>
 			
 			</view>
 

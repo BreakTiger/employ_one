@@ -68,7 +68,14 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/addJob/addJob",
+          "pathName": "pages/addJob/addJob",
+          "scene": null
+        }
+      ]
     }
   }
 }
