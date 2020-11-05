@@ -125,8 +125,11 @@ function calculate(item) {
   let n_year = date.getFullYear()
   let time = []
   let bir = item.birthday
-  time = bir.split('-')
-  let age = n_year - time[0]
+  let age = '0'
+  if (bir) {
+    time = bir.split('-')
+    age = n_year - time[0]
+  }
   return age;
 }
 

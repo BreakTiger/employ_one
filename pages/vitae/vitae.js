@@ -202,22 +202,19 @@ Page({
             interviewstate: 'invite'
           }
           console.log(data)
+          util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+            } else {
+              modal.showToast(res.messgae, 'none')
+            }
+          })
         }
       }
     })
 
-    // util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
-    //   console.log(res)
-    //   if (res.code == 200) {
-    //     modal.showToast(res.message)
-    //     let type = 'list[' + index + '].invitestate'
-    //     that.setData({
-    //       [type]: 1
-    //     })
-    //   } else {
-    //     modal.showToast(res.messgae, 'none')
-    //   }
-    // })
+
   }
 
 

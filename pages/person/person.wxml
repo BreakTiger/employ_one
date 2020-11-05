@@ -19,7 +19,7 @@
  		</view>
 
  		<view class="sort_list {{isPrice ? '' : 'select'}}" bindtap="selectPrice">
- 			<text>{{priceid!=0?price:'行业'}}</text>
+ 			<text>{{priceid!=0?price:'职位'}}</text>
  			<image src="{{isPrice ? '../../images/buttom.png' : '../../images/top-red.png'}}"></image>
  		</view>
 
@@ -57,8 +57,8 @@
  				<image src="../../images/dui.png" wx:if="{{priceid== 0}}"></image>
  			</view>
  			<block wx:for="{{list}}" wx:key="index">
- 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
- 					<text>{{item.dataName}}</text>
+ 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.postName}}">
+ 					<text>{{item.postName}}</text>
  					<image src="../../images/dui.png" wx:if="{{item.id== priceid}}"></image>
  				</view>
  			</block>

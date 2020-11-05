@@ -41,6 +41,9 @@ Page({
     //性别
     sex: '', //1 男 2女 0不限
 
+    areaList: [],
+    areaname: '',
+
     //特色服务
     speciallist: [
       { name: '五险', checked: false },
@@ -122,10 +125,12 @@ Page({
     that.priceList()
 
     that.educationList()
+
+    that.areaList()
   },
 
   onShow: function () {
-    console.log(this.data.describe)
+    // console.log(this.data.describe)
     this.onEditorReady()
   },
 
@@ -238,6 +243,25 @@ Page({
     })
   },
 
+  // 区域列表
+  areaList: function () {
+    let that = this
+    let data = {
+      type: 'area',
+      pageSize: 100
+    }
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      // console.log(res.result.records)
+      if (res.code == 0) {
+        that.setData({
+          areaList: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
   // 是否显示
   toShow: function () {
     let type = this.data.is_show
@@ -273,6 +297,7 @@ Page({
 
   bindFairChange: function (e) {
     let index = e.detail.value
+    console.log(index)
     let list = this.data.fair
     this.setData({
       fairname: list[index].name,
@@ -282,6 +307,7 @@ Page({
 
   bindPriceChange: function (e) {
     let index = e.detail.value
+    console.log(index)
     let list = this.data.price
     this.setData({
       pricename: list[index].dataName
@@ -311,6 +337,15 @@ Page({
       worktypename: list[index]
     })
   },
+
+  bindAreaChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.areaList
+    this.setData({
+      areaname: list[index].dataName
+    })
+  },
+
 
   radioChange: function (e) {
     this.setData({

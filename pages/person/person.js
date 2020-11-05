@@ -93,7 +93,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
       workArea: that.data.title,
-      intendedIndustries: that.data.price,
+      intendedPosition: that.data.price,
       education: that.data.typetitle,
       overt: 1
     }
@@ -147,7 +147,8 @@ Page({
     let that = this
     let type = that.data.isPrice
     if (type) {
-      that.condition('industrytype')
+      that.getJlist()
+      // that.condition('industrytype')
       this.setData({
         isCars: true,
         isPrice: false,
@@ -176,6 +177,24 @@ Page({
         isType: true,
       })
     }
+  },
+
+  getJlist: function () {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageSize: 100
+    }
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        console.log(res.result)
+        that.setData({
+          list: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 筛选条件 - 列表内容
@@ -209,6 +228,7 @@ Page({
 
   // 行业项
   selectpriceitem: function (e) {
+    console.log(e.currentTarget.dataset)
     this.setData({
       isPrice: true,
       price: e.currentTarget.dataset.title,

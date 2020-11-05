@@ -78,11 +78,24 @@
 					</view>
 				</view>
 
+				<!-- 就职区域 -->
+				<view class="item">
+					<view class="name">就职区域</view>
+					<view class="selectitem">
+						<picker range="{{areaList}}" range-key="dataName" bindchange="bindAreaChange">
+							<view class="picker">
+								{{areaname? areaname: '请选择就职区域'}}
+							</view>
+						</picker>
+					</view>
+				</view>
+
+
 				<!-- 工作性质 -->
 				<view class="item">
 					<view class="name">岗位性质</view>
 					<view class="selectitem">
-						<picker value="{{Index}}" range="{{worktype}}" range-key="" bindchange="bindWorktypeChange">
+						<picker value="{{Index}}" range="{{worktype}}" bindchange="bindWorktypeChange">
 							<view class="picker">
 								{{worktypename? worktypename: '请选择岗位性质'}}
 							</view>
