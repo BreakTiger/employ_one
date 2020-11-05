@@ -12,15 +12,13 @@
 
 			<view class="row-wrap flex fl-align">
 				<view>账 号</view>
-				<input name="name" class="input" type="text" placeholder="请输入账号 / 手机号码"/>
+				<input name="name" class="input" type="text" placeholder="请输入联系电话"/>
 			</view>
 
 			<view class="row-wrap  flex fl-align">
 				<view>密 码</view>
 				<input name="password" class="input" maxlength="20" type="password" placeholder="请输入密码" />
 			</view>
-
-			<!-- <view class="forget c-e5" bindtap="toForget">忘记密码？</view> -->
 
 		</view>
 

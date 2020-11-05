@@ -148,7 +148,6 @@ Page({
     let type = that.data.isPrice
     if (type) {
       that.getJlist()
-      // that.condition('industrytype')
       this.setData({
         isCars: true,
         isPrice: false,
@@ -182,12 +181,11 @@ Page({
   getJlist: function () {
     let that = this
     let data = {
-      enterpriseInfoId: wx.getStorageSync('company').id,
-      pageSize: 100
+      type: 'jobname'
     }
-    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      console.log(res.result.records)
       if (res.code == 0) {
-        console.log(res.result)
         that.setData({
           list: res.result.records
         })
@@ -313,7 +311,7 @@ Page({
       pageNo: that.data.page + 1,
       pageSize: 10,
       workArea: that.data.title,
-      intendedIndustries: that.data.price,
+      intendedPosition: that.data.price,
       education: that.data.typetitle
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {

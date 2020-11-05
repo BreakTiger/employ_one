@@ -120,9 +120,9 @@ Page({
         enterpriseInfoId: wx.getStorageSync('company').id
       }
       util.sendRequest('/zqhr/app/resumecollection/collection', 'post', data).then(function (res) {
+        console.log(res)
         if (res.code == 200) {
           modal.showToast('收藏成功')
-          that.getType()
           setTimeout(() => {
             that.setData({
               type: 1
@@ -164,7 +164,6 @@ Page({
               type: 0
             })
           }, 2000);
-
         } else {
           modal.showToast(res.message, 'none')
         }

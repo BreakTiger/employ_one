@@ -57,8 +57,8 @@
  				<image src="../../images/dui.png" wx:if="{{priceid== 0}}"></image>
  			</view>
  			<block wx:for="{{list}}" wx:key="index">
- 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.postName}}">
- 					<text>{{item.postName}}</text>
+ 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
+ 					<text>{{item.dataName}}</text>
  					<image src="../../images/dui.png" wx:if="{{item.id== priceid}}"></image>
  				</view>
  			</block>
