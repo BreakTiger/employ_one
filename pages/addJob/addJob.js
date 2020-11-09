@@ -44,6 +44,9 @@ Page({
     areaList: [],
     areaname: '',
 
+    ageList: [],
+    agename: '',
+
     //特色服务
     speciallist: [
       { name: '五险', checked: false },
@@ -84,6 +87,7 @@ Page({
 
       let detail = app.globalData.detail
 
+      console.log(detail)
       if (Object.keys(detail).length != 0) {
         console.log('存在内容,开启修改')
         that.setData({
@@ -102,7 +106,9 @@ Page({
         describe: detail.jobDescription,
         typeName: detail.jobType,
         fairname: detail.jobFairName,
-        fairid: detail.jobFairId
+        fairid: detail.jobFairId,
+        areaname: detail.area,
+        agename: detail.ageRequirement
       })
 
       if (that.data.choice) {
@@ -127,10 +133,11 @@ Page({
     that.educationList()
 
     that.areaList()
+
+    that.ageList()
   },
 
   onShow: function () {
-    // console.log(this.data.describe)
     this.onEditorReady()
   },
 
@@ -174,7 +181,8 @@ Page({
   typeList: function () {
     let that = this
     let data = {
-      type: 'jobtype'
+      type: 'jobtype',
+      pageSize: 200
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       if (res.code == 0) {
@@ -193,7 +201,8 @@ Page({
     let that = this
     let data = {
       type: 'jobname',
-      parentid: e
+      parentid: e,
+      pageSize: 300
     }
     util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
       // console.log(res)
@@ -255,6 +264,24 @@ Page({
       if (res.code == 0) {
         that.setData({
           areaList: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 年龄要求
+  ageList: function () {
+    let that = this
+    let data = {
+      type: 'Age'
+    }
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      console.log(res.result.records)
+      if (res.code == 0) {
+        that.setData({
+          ageList: res.result.records
         })
       } else {
         modal.showToast(res.message, 'none')
@@ -346,6 +373,13 @@ Page({
     })
   },
 
+  bindAgeChange: function (e) {
+    let index = e.detail.value
+    let list = this.data.ageList
+    this.setData({
+      agename: list[index].dataName
+    })
+  },
 
   radioChange: function (e) {
     this.setData({
@@ -379,6 +413,8 @@ Page({
       modal.showToast('请选择学历要求', 'none')
     } else if (!that.data.expressname) {
       modal.showToast('请选择工作经验', 'none')
+    } else if (!that.data.areaname) {
+      modal.showToast('请选择就职区域', 'none')
     } else if (!that.data.worktypename) {
       modal.showToast('请选择岗位性质', 'none')
     } else if (!that.data.sex) {
@@ -402,8 +438,9 @@ Page({
         special: that.data.choice,
         jobDescription: that.data.describe,
         token: wx.getStorageSync('token'),
-        ageRequirement: data.age,
-        examinestate: 0
+        ageRequirement: that.data.agename,
+        examinestate: 0,
+        area: that.data.areaname
       }
       console.log(param)
 

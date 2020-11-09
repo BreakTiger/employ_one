@@ -47,8 +47,6 @@
 				</view>
 			</view>
 
-
-
 			<view class="item">
 				<view class="name"> 负责人</view>
 				<view class="selectitem">
@@ -98,7 +96,7 @@
 		<view class="title">公司介绍</view>
 
 		<view class="introduce">
-			<textarea class="w100" value="{{detail.synopsis}}" placeholder="请输入公司介绍" name="introduce"></textarea>
+			<textarea class="w100" value="{{detail.synopsis}}" placeholder="请输入公司介绍" name="introduce" maxlength="-1"></textarea>
 		</view>
 
 		<view class="title">企业LOGO (建议尺寸：200*200)</view>

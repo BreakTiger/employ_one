@@ -1,0 +1,132 @@
+.f16 {
+    font-size: 16rpx;
+}
+
+.f11 {
+    font-size: 11rpx;
+}
+
+.f12 {
+    font-size: 12rpx;
+}
+
+.f16 {
+    font-size: 16rpx;
+}
+
+.f17 {
+    font-size: 17rpx;
+}
+
+.c-a3 {
+    color: #818BA3;
+}
+
+.b-51 {
+    background: #F8B551;
+}
+
+.left {
+    width: calc(605vmin / 7.5);
+    min-height: calc(643vmin / 7.5);
+    border: calc(1vmin / 7.5) solid #DEDEDE;
+    margin: calc(25vmin / 7.5) calc(15vmin / 7.5);
+}
+
+.one {
+    width: 100%;
+    height: calc(125vmin / 7.5);
+    background: #3F4160;
+}
+
+.header {
+    width: calc(71vmin / 7.5);
+    height: calc(80vmin / 7.5);
+    margin: 0 calc(30vmin / 7.5);
+}
+
+.icon {
+    width: calc(13vmin / 7.5);
+    height: calc(13vmin / 7.5);
+    margin-right: calc(10vmin / 7.5);
+}
+
+.two {
+    width: 100%;
+    padding: calc(20vmin / 7.5) 0;
+    border: 1rpx solid #F2F3F5;
+}
+
+.two>view {
+    width: 95%;
+}
+
+.line>view>view {
+    margin: calc(10vmin / 7.5) 0;
+    display: flex;
+}
+
+.two>view>view:nth-child(1) {
+    width: 60%;
+}
+
+.two>view>view:nth-child(2) {
+    width: 40%;
+}
+
+.title {
+    display: inline-block;
+    width: calc(75vmin / 7.5);
+}
+
+.photo {
+    width: 55%;
+    height: auto;
+    border: calc(1vmin / 7.5) solid #DEDEDE;
+    margin: calc(25vmin / 7.5) calc(15vmin / 7.5);
+}
+
+.right {
+    width: 40%;
+    min-height: calc(643vmin / 7.5);
+    margin: calc(25vmin / 7.5) 0;
+    margin-right: calc(15vmin / 7.5);
+}
+
+.right>view {
+    width: 100%;
+}
+
+.c-line {
+    margin-top: calc(20vmin / 7.5);
+}
+
+.c_title {
+    display: inline-block;
+    width: calc(80vmin / 7.5);
+}
+
+.lines {
+    width: 100%;
+    margin: calc(10vmin / 7.5) 0;
+}
+
+.lines>view {
+    width: calc(100% - calc(80vmin / 7.5));
+    display: flex;
+    justify-content: space-between;
+}
+
+.star {
+    width: calc(24vmin / 7.5);
+    height: calc(24vmin / 7.5);
+}
+
+.c-line .btn {
+    width: calc(120vmin / 7.5);
+    height: calc(40vmin / 7.5);
+    line-height: calc(40vmin / 7.5);
+    text-align: center;
+    border-radius: calc(4vmin / 7.5);
+    margin: 0 calc(10vmin / 7.5);
+}

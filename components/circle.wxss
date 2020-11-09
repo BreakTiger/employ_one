@@ -1,45 +1,46 @@
 .f15 {
-  font-size: 15rpx;
+    font-size: 15rpx;
 }
 
-.c-94{
-  color: #949494;
+.c-94 {
+    color: #949494;
 }
+
 .canvasBox {
-  width: 90rpx;
-  height: 90rpx;
-  position: relative;
+    width: calc(90vmin / 7.5);
+    height: calc(90vmin / 7.5);
+    position: relative;
 }
 
 .bigCircle {
-  width: 90rpx;
-  height: 90rpx;
-  border-radius: 50%;
-  background-color: #ddd;
+    width: calc(90vmin / 7.5);
+    height: calc(90vmin / 7.5);
+    border-radius: 50%;
+    background-color: #ddd;
 }
 
 .littleCircle {
-  width: 65rpx;
-  height: 65rpx;
-  border-radius: 50%;
-  background: #ffffff;
-  position: absolute;
-  left: 13rpx;
-  top: 13rpx;
-  line-height: 65rpx;
-  text-align: center;
+    width: calc(65vmin / 7.5);
+    height: calc(65vmin / 7.5);
+    border-radius: 50%;
+    background: #ffffff;
+    position: absolute;
+    left: calc(13vmin / 7.5);
+    top: calc(13vmin / 7.5);
+    line-height: calc(65vmin / 7.5);
+    text-align: center;
 }
 
-.canvas{
-  display: block !important;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
+.canvas {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 
-.title{
-  text-align: center;
-  margin:15rpx 0;
+.title {
+    text-align: center;
+    margin: calc(15vmin / 7.5) 0;
 }

@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -71,15 +71,8 @@
       "list": [
         {
           "id": -1,
-          "name": "pages_four/media/media",
-          "pathName": "pages_four/media/media",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages_four/vitae_count/vitae_count",
-          "pathName": "pages_four/vitae_count/vitae_count",
+          "name": "pages/addJob/addJob",
+          "pathName": "pages/addJob/addJob",
           "scene": null
         }
       ]

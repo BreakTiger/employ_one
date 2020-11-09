@@ -90,7 +90,6 @@
 					</view>
 				</view>
 
-
 				<!-- 工作性质 -->
 				<view class="item">
 					<view class="name">岗位性质</view>
@@ -107,7 +106,11 @@
 				<view class="item">
 					<view class="name">年龄要求</view>
 					<view class="selectitem">
-						<input type="text" value="{{detail.ageRequirement}}" name="age" placeholder="请设置岗位年龄要求" />
+					<picker value="{{Index}}" range-key="dataName" range="{{ageList}}" bindchange="bindAgeChange">
+							<view class="picker">
+								{{agename? agename: '请设置岗位年龄要求'}}
+							</view>
+						</picker>
 					</view>
 				</view>
 
@@ -166,11 +169,11 @@
 
 </view>
 
-<view class="cover" catchtouchmove="preventdefault" wx:if="{{is_show}}" bindtap="toShow"></view>
+<view class="cover" wx:if="{{is_show}}" bindtap="toShow" ></view>
 
 <view class="majorShow flex fl-jsb" wx:if="{{is_show}}">
 
-	  <view class='left'>
+	  <view class='left' catchtouchmove="true">
       <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
 
 				<view class="left-title {{choice_one==index?'line':''}}" wx:for="{{type}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtap="choice_title">{{item.dataName}}</view>
@@ -178,7 +181,7 @@
       </scroll-view>
     </view>
 
-    <view class="right">
+    <view class="right" catchtouchmove="true">
       <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
 
 				<view class="right-title" wx:for="{{types}}" wx:key="index" bindtap="choice_right" data-item="{{item}}">{{item.dataName}}</view>
