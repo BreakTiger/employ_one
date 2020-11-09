@@ -335,7 +335,7 @@ Page({
             modal.showToast('请输入企业负责人', 'none')
           } else if (!data.tel) {
             modal.showToast('请输入电话号码', 'none')
-          } else if (!(/^1[3456789]\d{9}$/.test(data.tel))) {
+          } else if (!(/^1[3456789]\d{9}$/.test(data.tel)) && !(/^([0-9]{3,4}-)?[0-9]{7,8}$/)) {
             modal.showToast('请输入合法的电话号码', 'none')
           } else if (!data.email) {
             modal.showToast('请输入邮箱', 'none')
