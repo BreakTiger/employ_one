@@ -94,12 +94,27 @@ Page({
   // 选择图片
   choseImg: function () {
     let that = this
+    let arr = []
     wx.chooseImage({
       count: 1,
       success: function (res) {
-        let img = res.tempFilePaths
-        let length = 5 - that.data.img.length
-        that.upImage(img.slice(0, length))
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: function (res) {
+            let w = res.width
+            let h = res.height
+            // 判断
+            if (w >= 1280 || h >= 522) {
+              let path = res.path
+              arr.push(path)
+              let length = 5 - that.data.img.length
+              that.upImage(arr.slice(0, length))
+            } else {
+              modal.showToast('宣传图上传最小尺寸为"1280*522"', 'none')
+            }
+          }
+        })
+
       },
       fail: function (res) {
         modal.showToast('图片选择失败', 'none')
@@ -111,7 +126,6 @@ Page({
   upImage: async function (list) {
     let that = this
     for (let i = 0; i < list.length; i++) {
-      // console.log('临时路径：',list[i])
       let data = {
         systype: 'appEnterprise'
       }
@@ -131,7 +145,6 @@ Page({
         }
       })
     }
-
   },
 
 
@@ -169,7 +182,7 @@ Page({
         let data = {
           enterpriseInfoId: wx.getStorageSync('company').id,
           multimediaAddress: datas.result,
-          multimediaType: "mp4",
+          multimediaType: "video",
           createBy: wx.getStorageSync('company').id
         }
         that.save(data)

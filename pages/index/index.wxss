@@ -5,7 +5,7 @@
 }
 
 .header>view {
-  width: 680rpx;
+  width: 90%;
   height: 80rpx;
   border-radius: 5rpx;
 }
@@ -28,7 +28,7 @@
 
 /* 统计 */
 .tongji {
-  width: 750rpx;
+  width: 100%;
   color: #3e3e3e;
   margin: 20rpx 0;
 }
@@ -44,7 +44,7 @@
 .tongji image {
   width: 35rpx;
   height: 35rpx;
-  margin-left: 34rpx;
+  margin-left: 35rpx;
 }
 
 /* 分类导航 */
@@ -70,7 +70,7 @@
 
 /* 发布职位 */
 .release {
-  width: 680rpx;
+  width: 90%;
   height: 80rpx;
   background: #75aac9;
   margin: 10rpx auto;
@@ -79,7 +79,7 @@
 
 /* 优秀人才 */
 .news {
-  width:92%;
+  width: 92%;
   height: 80rpx;
   margin-top: 18rpx;
   border-bottom: 1rpx solid #efefef;
