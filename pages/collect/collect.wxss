@@ -3,7 +3,7 @@ page {
 }
 
 .type-box {
-  width: 690rpx;
+  width: 92%;
   padding: 20rpx 0;
   border-bottom: 1rpx solid #efefef;
   font-size: 28rpx;

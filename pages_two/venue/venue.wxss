@@ -58,7 +58,7 @@ page {
 
 
 .companylist {
-  width: 90%;
+  width: 94%;
   background: #6d99e4;
   border-radius: 15rpx;
   display: flex;
