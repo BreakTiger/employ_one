@@ -1,3 +1,5 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+
 <view class="container col fl-align">
 
 	<view class="header b-e5"></view>
@@ -48,13 +50,33 @@
 
 	</view>
 
+	<view class="order">
+			
+		<view class="title">教育背景</view>
+
+		<view class="list">
+			<view class="item" wx:if="{{detail.graduateSchool}}">学校名称：{{detail.graduateSchool}}</view>
+			<view class="item" wx:if="{{detail.majorCategory}}">专业类型：{{detail.majorCategory}}</view>
+			<view class="item" wx:if="{{detail.schoolHoursStart}}">在校时间：{{detail.schoolHoursStart}}至{{detail.schoolHoursEnd}}</view>
+		</view>
+
+	</view>
+
 	<view class="order" style="margin-bottom:100rpx;">
 
 		<view class="title">工作经历</view>
 
-		<!-- <view class="content">
+		<view class="list">
+			<view class="item" wx:if="{{detail.jobCompanyName}}">公司名称：{{detail.jobCompanyName}}</view>
+			<view class="item" wx:if="{{detail.postName}}">职位名称：{{detail.postName}}</view>
+			<view class="item" wx:if="{{detail.workingHoursStart}}">在职时间：{{detail.workingHoursStart}}至{{detail.workingHoursEnd}}</view>
+		</view>
+
+		<view class="title">工作描述</view>
+
+		<view class="content">
 			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
-		</view> -->
+		</view>
 
 	</view>
 
@@ -67,3 +89,21 @@
 </view>
 
 <showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>
+
+<view class="cover flex col fl-align fl-jc" catchtouchmove="true" wx:if="{{is_show}}">
+
+	<view class="covers b-ff flex col fl-align">
+
+		<view class="c_title f-wb">选择邀请面试职位</view>
+
+		<scroll-view class="c_scroll" scroll-y="true">
+
+			<view class="c_scroll_item" wx:for="{{jList}}" wx:key="index" data-item="{{item}}" catchtap="choice_job_tosend">{{item.postName}}</view>
+		
+		</scroll-view>
+	
+	</view>
+
+	<image src="../../images/closed.png" class="close" catchtap="toClose"></image>
+
+</view>

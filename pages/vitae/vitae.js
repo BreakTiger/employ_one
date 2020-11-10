@@ -11,7 +11,9 @@ Page({
   data: {
     detail: {},
     type: 0,
-    id: ''
+    id: '',
+    is_show: false,
+    jList: []
   },
 
   onLoad: function (options) {
@@ -30,7 +32,7 @@ Page({
 
     let article = app.globalData.worker.jobDescription
 
-    console.log(article)
+    // console.log(article)
 
     if (article) {
       WxParse.wxParse('article', 'html', article, that, 5);
@@ -184,35 +186,61 @@ Page({
   },
 
   toInvite: function () {
-    // let that = this
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '是否发送面试邀约',
-    //   success: function (res) {
-    //     if (res.confirm) {
+    let that = this
+    let data = {
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      pageSize: 200
+    }
+    util.sendRequest('/zqhr/hall/position/list', 'get', data).then(function (res) {
+      console.log(res.result.records)
+      if (res.code == 0) {
+        that.setData({
+          is_show: true,
+          jList: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
 
-    //       console.log(that.data.detail)
+  toClose: function () {
+    this.setData({
+      is_show: false
+    })
+  },
 
-    //       let data = {
-    //         createBy: wx.getStorageSync('company').id,
-    //         curriculumVitaeId: that.data.detail.id,
-    //         enterpriseInfoId: that.data.detail.enterpriseInfoId,
-    //         enterprisePostReleaseId: that.data.detail.enterprisePostReleaseId,
-    //         interviewstate: 'invite'
-    //       }
-    //       console.log(data)
-    //       util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
-    //         console.log(res)
-    //         if (res.code == 200) {
-    //           modal.showToast(res.message)
-    //         } else {
-    //           modal.showToast(res.messgae, 'none')
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-  }
+  choice_job_tosend: function (e) {
+    let that = this
+    let detail = e.currentTarget.dataset.item
+    wx.showModal({
+      title: '提示',
+      content: '是否发送该职位面试邀约',
+      success: function (res) {
+        if (res.confirm) {
+          let data = {
+            createBy: wx.getStorageSync('company').id,
+            curriculumVitaeId: that.data.detail.id,
+            enterpriseInfoId: detail.enterpriseInfoId,
+            enterprisePostReleaseId: detail.id,
+            interviewstate: 'invite'
+          }
+          console.log(data)
+          util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
+            console.log(res)
+            if (res.code == 200) {
+              modal.showToast(res.message)
+            } else {
+              modal.showToast(res.messgae, 'none')
+            }
+          })
+        }
+      }
+    })
+    setTimeout(() => {
+      that.toClose()
+    }, 2000);
+  },
 
 
 })

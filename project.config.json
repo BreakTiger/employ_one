@@ -29,8 +29,8 @@
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": true,
     "packNpmManually": false,
     "packNpmRelationList": []
   },
@@ -68,14 +68,7 @@
     },
     "miniprogram": {
       "current": -1,
-      "list": [
-        {
-          "id": -1,
-          "name": "pages/addJob/addJob",
-          "pathName": "pages/addJob/addJob",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
