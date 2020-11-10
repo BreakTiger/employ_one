@@ -174,7 +174,7 @@
 <view class="majorShow flex fl-jsb" wx:if="{{is_show}}">
 
 	  <view class='left' catchtouchmove="true">
-      <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
+      <scroll-view class='wh' scroll-y="true">
 
 				<view class="left-title {{choice_one==index?'line':''}}" wx:for="{{type}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtap="choice_title">{{item.dataName}}</view>
           
@@ -182,7 +182,7 @@
     </view>
 
     <view class="right" catchtouchmove="true">
-      <scroll-view class='wh' scroll-y="true" scroll-with-animation="true" enable-back-to-top="true">
+      <scroll-view class='wh' scroll-y="true">
 
 				<view class="right-title" wx:for="{{types}}" wx:key="index" bindtap="choice_right" data-item="{{item}}">{{item.dataName}}</view>
     
