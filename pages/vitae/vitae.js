@@ -229,9 +229,9 @@ Page({
           util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
             console.log(res)
             if (res.code == 200) {
-              modal.showToast(res.message)
+              modal.showToast(res.message, 'none')
             } else {
-              modal.showToast(res.messgae, 'none')
+              modal.showToast(res.message, 'none')
             }
           })
         }
@@ -240,6 +240,7 @@ Page({
     setTimeout(() => {
       that.toClose()
     }, 2000);
+
   },
 
 

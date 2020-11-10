@@ -50,3 +50,7 @@ textarea {
   margin: 0rpx !important;
   line-height: 90rpx;
 }
+
+.c-8f {
+  color: #8f8f8f;
+}

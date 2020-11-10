@@ -34,7 +34,7 @@ Page({
       modal.showToast('请输入企业名称', 'none')
     } else if (!data.companycode) {
       modal.showToast('请输入企业信用代码', 'none')
-    } else if(!(/[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g.test(data.companycode))){
+    } else if(!(/^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g.test(data.companycode))){
       modal.showToast('请输入合法的企业信用代码', 'none')
     } else if (!data.mastername) {
       modal.showToast('请填写负责人', 'none')

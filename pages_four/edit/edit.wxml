@@ -17,7 +17,7 @@
 				<view class="name">企业行业</view>
 				<view class="selectitem">
 					<picker range="{{list_one}}" range-key="dataName" bindchange="getOne">
-						<view>{{trade?trade:'请设置企业行业'}}</view>
+						<view class="{{trade? '' : 'c-8f'}}">{{trade?trade:'请设置企业行业'}}</view>
 					</picker>
 				</view>
 			</view>
@@ -26,7 +26,7 @@
 				<view class="name">企业性质</view>
 				<view class="selectitem">
 					<picker range="{{list_two}}" range-key="dataName" bindchange="getTwo">
-						<view>{{property?property:'请选择企业性质'}}</view>
+						<view class="{{property? '' : 'c-8f'}}">{{property?property:'请选择企业性质'}}</view>
 					</picker>
 				</view>
 			</view>
@@ -35,7 +35,7 @@
 				<view class="name">人员规模</view>
 				<view class="selectitem">
 					<picker range="{{list_three}}" range-key="dataName" bindchange="getThree">
-						<view>{{scale?scale:'请设置人员规模'}}</view>
+						<view class="{{scale? '' : 'c-8f'}}">{{scale?scale:'请设置人员规模'}}</view>
 					</picker>
 				</view>
 			</view>
@@ -79,7 +79,7 @@
 				<view class="name">所属区域</view>
 				<view class="selectitem">
 					<picker range="{{list_four}}" range-key="dataName" bindchange="getFour">
-						<view>{{area?area:'请选择所属区域'}}</view>
+						<view class="{{area? '' : 'c-8f'}}">{{area?area:'请选择所属区域'}}</view>
 					</picker>
 				</view>
 			</view>
