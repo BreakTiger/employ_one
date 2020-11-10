@@ -66,16 +66,15 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
       workArea: detail.area,
-      intendedIndustries: detail.trade,
-      education: detail.education
-      // name: detail.word
+      intendedPosition: detail.trade,
+      education: detail.education,
+      overt: 1
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         that.setData({
           worklist: that.settle(res.result.records)
         })
-
       } else {
         modal.showToast(res.message, 'none')
       }

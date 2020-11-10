@@ -17,7 +17,6 @@ input {
   color: #fff;
 }
 
-
 .condition {
   width: 90%;
 }

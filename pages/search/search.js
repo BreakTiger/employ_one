@@ -9,11 +9,10 @@ Page({
     area: [],
     areaname: '',
 
-    trade: [],
-    tradename: '',
-
     eductaion: [],
-    eductaionname: ''
+    eductaionname: '',
+
+    jobname: ''
 
   },
 
@@ -21,19 +20,17 @@ Page({
 
     this.areaList()
 
-    this.tradeList()
-
     this.educationList()
 
   },
 
+  // 区域列表
   areaList: async function () {
     let that = this
     let data = {
       type: 'area'
     }
     await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
       if (res.code == 0) {
         that.setData({
           area: res.result.records
@@ -44,23 +41,7 @@ Page({
     })
   },
 
-  tradeList: async function () {
-    let that = this
-    let data = {
-      type: 'industrytype'
-    }
-    await util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
-      // console.log(res.result.records)
-      if (res.code == 0) {
-        that.setData({
-          trade: res.result.records
-        })
-      } else {
-        modal.showToast(res.message, 'none')
-      }
-    })
-  },
-
+  // 学历列表
   educationList: async function () {
     let that = this
     let data = {
@@ -78,7 +59,9 @@ Page({
     })
   },
 
+  // 选项：
 
+  // 区域
   getArea: function (e) {
     let that = this
     let list = that.data.area
@@ -88,15 +71,7 @@ Page({
     })
   },
 
-  getTrade: function (e) {
-    let that = this
-    let list = that.data.trade
-    let index = e.detail.value
-    that.setData({
-      tradename: list[index].dataName
-    })
-  },
-
+  // 学历
   getEducation: function (e) {
     let that = this
     let list = that.data.eductaion
@@ -106,13 +81,14 @@ Page({
     })
   },
 
+  // 职位
+
   // 提交
   toSearch: function (e) {
     let that = this
     let detail = {
-      // word: that.data.word,
       area: that.data.areaname,
-      trade: that.data.tradename,
+      trade: that.data.jobname,
       education: that.data.eductaionname
     }
     wx.navigateTo({

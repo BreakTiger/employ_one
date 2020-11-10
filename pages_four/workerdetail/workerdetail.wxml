@@ -1,5 +1,5 @@
 <import src="../../wxParse/wxParse.wxml" />
-<view class="container">
+<view class="container fl-jsb">
     <view class="left" wx:if="{{types==0}}">
         <view class="one flex fl-align">
             <image src="{{imaUrl+base.headimgAddress}}" class="header b-ff" wx:if="{{base.headimgAddress}}"></image>

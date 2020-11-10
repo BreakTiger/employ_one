@@ -34,7 +34,7 @@ Page({
       modal.showToast('请输入企业名称', 'none')
     } else if (!data.companycode) {
       modal.showToast('请输入企业信用代码', 'none')
-    } else if(!(/^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g.test(data.companycode))){
+    } else if (!(/^[^_IOZSVa-z\W]{2}\d{6}[^_IOZSVa-z\W]{10}$/g.test(data.companycode))) {
       modal.showToast('请输入合法的企业信用代码', 'none')
     } else if (!data.mastername) {
       modal.showToast('请填写负责人', 'none')
@@ -78,55 +78,5 @@ Page({
         }
       })
     }
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

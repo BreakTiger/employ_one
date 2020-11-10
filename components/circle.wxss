@@ -7,27 +7,27 @@
 }
 
 .canvasBox {
-    width: calc(90vmin / 7.5);
-    height: calc(90vmin / 7.5);
+    width: 90rpx;
+    height: 90rpx;
     position: relative;
 }
 
 .bigCircle {
-    width: calc(90vmin / 7.5);
-    height: calc(90vmin / 7.5);
+    width: 90rpx;
+    height: 90rpx;
     border-radius: 50%;
     background-color: #ddd;
 }
 
 .littleCircle {
-    width: calc(65vmin / 7.5);
-    height: calc(65vmin / 7.5);
+    width: 65rpx;
+    height: 65rpx;
     border-radius: 50%;
     background: #ffffff;
     position: absolute;
-    left: calc(13vmin / 7.5);
-    top: calc(13vmin / 7.5);
-    line-height: calc(65vmin / 7.5);
+    left: 13rpx;
+    top: 13rpx;
+    line-height: 65rpx;
     text-align: center;
 }
 
@@ -42,5 +42,5 @@
 
 .title {
     text-align: center;
-    margin: calc(15vmin / 7.5) 0;
+    margin: 15rpx 0;
 }

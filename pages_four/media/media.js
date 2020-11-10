@@ -151,15 +151,12 @@ Page({
   // 选择视频
   choiceVideo: function () {
     let that = this
-    wx.chooseMedia({
-      count: 1,
-      mediaType: 'video',
+    wx.chooseVideo({
       success: function (res) {
+        console.log(res)
         let maxSize = 50 * 1024 * 1024
-        let file = res.tempFiles[0]
-        // 判断文件大小
-        if (file.size <= maxSize) {
-          that.upVideo(file.tempFilePath)
+        if (res.size <= maxSize) {
+          that.upVideo(res.tempFilePath)
         } else {
           modal.showToast('你选择的视频过大', 'none')
         }

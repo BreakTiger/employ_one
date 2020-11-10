@@ -2,16 +2,6 @@
 
 	<view class="container col fl-align">
 
-		<!-- <view class="top b-e5 flex col fl-align fl-jc">
-
-			<view class="search flex fl-align fl-jc">
-
-				<input placeholder-class="c-ff" placeholder="搜索人才" name="word"></input>
-
-			</view>
-
-		</view> -->
-
 		<!-- 筛选条件 -->
 		<view class="condition flex col fl-align">
 
@@ -32,15 +22,13 @@
 
 			<view>
 			
-				<view class="name">行业</view>
+				<view class="name">职位</view>
 			
 				<view class="setting">
-					<picker  bindchange="getTrade" range="{{trade}}" range-key="dataName">
-						<view class="title flex fl-align fl-jfe c-e5">
-						<text>{{tradename?tradename:'不限'}}</text>
+					<view class="title flex fl-align fl-jfe c-e5">
+						<text>{{jobname?jobname:'不限'}}</text>
 						<image src="../../images/right.png" class="arrow"></image>
-						</view>
-					</picker>
+					</view>
 				</view>
 
 			</view>

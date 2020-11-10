@@ -27,10 +27,10 @@
 }
 
 .left {
-    width: calc(605vmin / 7.5);
-    min-height: calc(643vmin / 7.5);
+    width: 50%;
+    min-height: 643rpx;
     border: calc(1vmin / 7.5) solid #DEDEDE;
-    margin: calc(25vmin / 7.5) calc(15vmin / 7.5);
+    margin: 25rpx 15rpx;
 }
 
 .one {
@@ -40,15 +40,15 @@
 }
 
 .header {
-    width: calc(71vmin / 7.5);
-    height: calc(80vmin / 7.5);
-    margin: 0 calc(30vmin / 7.5);
+    width: 71rpx;
+    height: 80rpx;
+    margin: 0 30rpx;
 }
 
 .icon {
-    width: calc(13vmin / 7.5);
-    height: calc(13vmin / 7.5);
-    margin-right: calc(10vmin / 7.5);
+    width: 13rpx;
+    height: 13rpx;
+    margin-right: 10rpx;
 }
 
 .two {
@@ -76,7 +76,7 @@
 
 .title {
     display: inline-block;
-    width: calc(75vmin / 7.5);
+    width: 75rpx;
 }
 
 .photo {
@@ -88,9 +88,9 @@
 
 .right {
     width: 40%;
-    min-height: calc(643vmin / 7.5);
-    margin: calc(25vmin / 7.5) 0;
-    margin-right: calc(15vmin / 7.5);
+    min-height: 643rpx;
+    margin: 25rpx 0;
+    margin-right: 15rpx;
 }
 
 .right>view {
@@ -103,7 +103,7 @@
 
 .c_title {
     display: inline-block;
-    width: calc(80vmin / 7.5);
+    width: 80rpx;
 }
 
 .lines {
@@ -112,21 +112,21 @@
 }
 
 .lines>view {
-    width: calc(100% - calc(80vmin / 7.5));
+    width: calc(100% - 80rpx);
     display: flex;
     justify-content: space-between;
 }
 
 .star {
-    width: calc(24vmin / 7.5);
-    height: calc(24vmin / 7.5);
+    width: 24rpx;
+    height: 24rpx;
 }
 
 .c-line .btn {
-    width: calc(120vmin / 7.5);
-    height: calc(40vmin / 7.5);
-    line-height: calc(40vmin / 7.5);
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
     text-align: center;
-    border-radius: calc(4vmin / 7.5);
-    margin: 0 calc(10vmin / 7.5);
+    border-radius: 4rpx;
+    margin: 0 10rpx;
 }
