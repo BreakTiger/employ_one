@@ -35,7 +35,7 @@
 
 .one {
     width: 100%;
-    height: calc(125vmin / 7.5);
+    height: 100rpx;
     background: #3F4160;
 }
 
@@ -103,7 +103,7 @@
 
 .c_title {
     display: inline-block;
-    width: 80rpx;
+    width: 75rpx;
 }
 
 .lines {

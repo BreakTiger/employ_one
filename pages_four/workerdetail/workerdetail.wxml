@@ -8,7 +8,7 @@
                 <text class="f16 fw-b">{{base.name}}</text>
                 <view class="flex fl-align" style="margin-top:20rpx;">
                     <image src="../../images/s_parson.png" class="icon"></image>
-                    <text class="f12">{{base.gender}} | {{base.age}}岁({{base.birthday}})</text>
+                    <text class="f12">{{base.gender}} | {{base.age}}岁({{base.phone}})</text>
                 </view>
             </view>
         </view>
@@ -38,6 +38,10 @@
                         <text class="title">工作经验：</text>
                         <text>{{base.workExperience||'无'}}</text>
                     </view>
+                    <view>
+                        <text class="title">学历：</text>
+                        <text>{{base.education||'无'}}</text>
+                    </view>
                 </view>
             </view>
         </view>
@@ -65,7 +69,7 @@
                 <view>
                     <view>
                         <text class="title">期望薪资：</text>
-                        <text>{{base.salaryExpectation|''}}</text>
+                        <text>{{base.salaryExpectation || '面议'}}</text>
                     </view>
                     <view>
                         <text class="title">到岗时间：</text>
@@ -74,21 +78,19 @@
                 </view>
             </view>
         </view>
-        <view class="two flex col fl-align c-a3" wx:if="{{details.workExperience!='无工作经验'}}">
+        <view class="two flex col fl-align c-a3">
             <view class="f14 fw-b" style="margin-bottom: 20rpx;">工作经历</view>
-            <view class="f11 flex">
-                <text>{{base.workingHoursStart}} - {{base.workingHoursEnd}}</text>
-                <text class="fw-b" style="color:#000 !important;margin-left:10rpx;">
-                    {{base.postName}}
-                </text>
+            <view class="f11 flex fl-align">
+                <view style="width:auto !important;">{{base.workingHoursStart}} - {{base.workingHoursEnd}}</view>
+                <view class="f-wb" style="color:#000 !important;margin-left:10rpx;">{{base.postName}}</view>
             </view>
             <view class="flex f11">
                 <text>{{base.jobCompanyName}}</text>
             </view>
             <view class="flex f11">
-                <view class="">工作描述：</view>
+                <view style="width:75rpx !important;">工作描述：</view>
                 <view>
-                    <template is="wxParse" data="{{wxParseData:article.nodes}}" wx:if="{{items.jobDescription}}"></template>
+                    <template is="wxParse" data="{{wxParseData:article.nodes}}" wx:if="{{base.jobDescription}}"></template>
                     <text wx:else>无</text>
                 </view>
             </view>
@@ -96,10 +98,8 @@
         <view class="two flex col fl-align c-a3" style="border:none !important;" wx:if="{{base.graduateSchool}}">
             <view class="f14 fw-b" style="margin-bottom: 20rpx;">教育经历</view>
             <view class="flex f11">
-                <text>{{base.schoolHoursStart}}-{{base.schoolHoursEnd}}</text>
-                <text class="fw-b" style="color:#000 !important;margin-left:10rpx;">
-                    {{base.graduateSchool}}
-                </text>
+                <view style="width:auto !important;">{{base.schoolHoursStart}}-{{base.schoolHoursEnd}}</view>
+                <view class="fw-b" style="color:#000 !important;margin-left:10rpx;">{{base.graduateSchool}}</view>
             </view>
             <view class="flex f11">
                 <text>{{base.education}} |</text>

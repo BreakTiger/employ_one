@@ -13,7 +13,7 @@
 					<view class="name">参与招聘会</view>
 					<view class="selectitem">
 						<picker range="{{fair}}" range-key="name" bindchange="bindFairChange">
-							<view class="picker">
+							<view class="picker {{fairname?'':'c-8f'}}">
 								{{fairname? fairname: '请选择参加的招聘会'}}
 							</view>
 						</picker>
@@ -31,7 +31,7 @@
 				<!-- 岗位类型 -->
 				<view class="item">
 					<view class="name">岗位类型</view>
-					<view class="selectitem" bindtap="toShow">{{typeName? typeName: '请选择岗位类型'}}</view>
+					<view class="selectitem {{typeName?'':'c-8f'}}" bindtap="toShow">{{typeName? typeName: '请选择岗位类型'}}</view>
 				</view>
 
 				<!-- 薪资待遇 -->
@@ -39,7 +39,7 @@
 					<view class="name">薪资待遇</view>
 					<view class="selectitem">
 						<picker range="{{price}}" range-key="dataName" bindchange="bindPriceChange">
-							<view class="picker">
+							<view class="picker {{pricename?'':'c-8f'}}">
 								{{pricename? pricename: '请设置薪资待遇'}}
 							</view>
 						</picker>
@@ -59,7 +59,7 @@
 					<view class="name">学历要求</view>
 					<view class="selectitem">
 						<picker range="{{education}}" range-key="dataName" bindchange="bindEducationChange">
-							<view class="picker">
+							<view class="picker {{educationname?'':'c-8f'}}">
 								{{educationname? educationname : '请选择学历要求'}}
 							</view>
 						</picker>
@@ -71,7 +71,7 @@
 					<view class="name">工作经验</view>
 					<view class="selectitem">
 						<picker value="{{Index}}" range="{{express}}" range-key="" bindchange="bindExpressChange">
-							<view class="picker">
+							<view class="picker {{expressname?'':'c-8f'}}">
 								{{expressname? expressname : '请选择工作经验'}}
 							</view>
 						</picker>
@@ -83,7 +83,7 @@
 					<view class="name">就职区域</view>
 					<view class="selectitem">
 						<picker range="{{areaList}}" range-key="dataName" bindchange="bindAreaChange">
-							<view class="picker">
+							<view class="picker {{areaname?'':'c-8f'}}">
 								{{areaname? areaname: '请选择就职区域'}}
 							</view>
 						</picker>
@@ -95,7 +95,7 @@
 					<view class="name">岗位性质</view>
 					<view class="selectitem">
 						<picker value="{{Index}}" range="{{worktype}}" bindchange="bindWorktypeChange">
-							<view class="picker">
+							<view class="picker {{worktypename?'':'c-8f'}}">
 								{{worktypename? worktypename: '请选择岗位性质'}}
 							</view>
 						</picker>
@@ -107,7 +107,7 @@
 					<view class="name">年龄要求</view>
 					<view class="selectitem">
 					<picker value="{{Index}}" range-key="dataName" range="{{ageList}}" bindchange="bindAgeChange">
-							<view class="picker">
+							<view class="picker {{agename?'':'c-8f'}}">
 								{{agename? agename: '请设置岗位年龄要求'}}
 							</view>
 						</picker>

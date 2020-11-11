@@ -102,3 +102,7 @@ page {
   padding: 30rpx 0;
   border-bottom: 2rpx solid #f5f5f5;
 }
+
+.c-8f{
+  color: #8f8f8f;
+}

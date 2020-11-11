@@ -43,6 +43,14 @@ Page({
 
   onLoad: function (options) {
 
+    console.log(app.globalData.worker)
+
+    let title = '面试评价：（' + '应聘职位：' + app.globalData.worker.postName + ')'
+
+    wx.setNavigationBarTitle({
+      title: title,
+    })
+
     this.setData({
       details: app.globalData.worker,
       photo: app.globalData.worker.photographResumeAddress,
@@ -76,6 +84,8 @@ Page({
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
       if (res.code == 0) {
         let items = res.result.records[0]
+        console.log(items)
+        console.log(items.salaryExpectation)
         let age = util.ages(items)
         let work = util.calculates(items)
         items.workExperience = work
@@ -95,7 +105,7 @@ Page({
   },
 
   // 匹配度
-  getOne:async function (item) {
+  getOne: async function (item) {
     let that = this
     let data = {
       curriculumVitaeId: item.curriculumVitaeId,

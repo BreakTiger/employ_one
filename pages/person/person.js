@@ -34,6 +34,9 @@ Page({
     page: 1,
     worklist: [],
 
+    jobname: '',
+    choice_one: 0,
+
   },
 
   onLoad: function (options) {
@@ -46,44 +49,47 @@ Page({
 
     app.setWatcher(app.noticeData, this); // 设置监听器
 
+    this.typeList()
+
   },
 
-  watch: { // 监听
-    admission(newValue) { // admission 要监测的具体数据
-      let that = this
-      if (newValue == true) {
-        that.setData({
-          total: app.noticeData.noticeTotal,
-          nlist: app.noticeData.noticeList
-        })
-        that.showDialog();
-      }
+  //职位：
+  // 岗位类型 - 1
+  typeList: function () {
+    let that = this
+    let data = {
+      type: 'jobtype',
+      pageSize: 200
     }
-  },
-
-  onReady: function () {
-    this.dialog = this.selectComponent("#dialog");
-  },
-
-  showDialog() { // 显示弹出框
-    this.dialog.showDialog();
-  },
-
-  //取消事件
-  _cancelEvent() {
-    app.noticeData.admission = false
-    this.dialog.hideDialog();
-    app.onShow()
-  },
-
-  //确认事件
-  _confirmEvent() {
-    app.noticeData.admission = false
-    wx.navigateTo({
-      url: '/pages/list/list?list=' + JSON.stringify(app.noticeData.noticeList)
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          type_one: res.result.records
+        })
+        that.typesList(res.result.records[0].id)
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
-    this.dialog.hideDialog();
-    app.onShow()
+  },
+
+  // 岗位类型 - 2
+  typesList: function (e) {
+    let that = this
+    let data = {
+      type: 'jobname',
+      parentid: e,
+      pageSize: 300
+    }
+    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
+      if (res.code == 0) {
+        that.setData({
+          type_two: res.result.records
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   // 人才列表
@@ -93,7 +99,7 @@ Page({
       pageNo: that.data.page,
       pageSize: 10,
       workArea: that.data.title,
-      intendedPosition: that.data.price,
+      intendedPosition: that.data.jobname,
       education: that.data.typetitle,
       overt: 1
     }
@@ -147,7 +153,6 @@ Page({
     let that = this
     let type = that.data.isPrice
     if (type) {
-      that.getJlist()
       this.setData({
         isCars: true,
         isPrice: false,
@@ -176,23 +181,6 @@ Page({
         isType: true,
       })
     }
-  },
-
-  getJlist: function () {
-    let that = this
-    let data = {
-      type: 'jobname'
-    }
-    util.sendRequest('/zqhr/base/list', 'get', data).then(function (res) {
-      console.log(res.result.records)
-      if (res.code == 0) {
-        that.setData({
-          list: res.result.records
-        })
-      } else {
-        modal.showToast(res.message, 'none')
-      }
-    })
   },
 
   // 筛选条件 - 列表内容
@@ -286,7 +274,25 @@ Page({
         }
       })
     }
+  },
 
+  choice_title: function (e) {
+    let that = this
+    let index = e.currentTarget.dataset.index
+    that.setData({
+      choice_one: index
+    })
+    that.typesList(e.currentTarget.dataset.item.id)
+  },
+
+  choice_right: function (e) {
+    let item = e.currentTarget.dataset.item
+    console.log(item)
+    this.setData({
+      jobname: item.dataName,
+      isPrice: true
+    })
+    this.getList()
   },
 
   onPullDownRefresh: function () {
@@ -311,7 +317,7 @@ Page({
       pageNo: that.data.page + 1,
       pageSize: 10,
       workArea: that.data.title,
-      intendedPosition: that.data.price,
+      intendedPosition: that.data.jobname,
       education: that.data.typetitle
     }
     util.sendRequest('/zqhr/hall/curriculumvitae/list', 'get', data).then(function (res) {
@@ -330,6 +336,45 @@ Page({
       }
     })
 
-  }
+  },
+
+  watch: { // 监听
+    admission(newValue) { // admission 要监测的具体数据
+      let that = this
+      if (newValue == true) {
+        that.setData({
+          total: app.noticeData.noticeTotal,
+          nlist: app.noticeData.noticeList
+        })
+        that.showDialog();
+      }
+    }
+  },
+
+  onReady: function () {
+    this.dialog = this.selectComponent("#dialog");
+  },
+
+  showDialog() { // 显示弹出框
+    this.dialog.showDialog();
+  },
+
+  //取消事件
+  _cancelEvent() {
+    app.noticeData.admission = false
+    this.dialog.hideDialog();
+    app.onShow()
+  },
+
+  //确认事件
+  _confirmEvent() {
+    app.noticeData.admission = false
+    wx.navigateTo({
+      url: '/pages/list/list?list=' + JSON.stringify(app.noticeData.noticeList)
+    })
+    this.dialog.hideDialog();
+    app.onShow()
+  },
+
 
 })

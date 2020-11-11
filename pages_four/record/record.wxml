@@ -5,7 +5,7 @@
 			<i class="cursor {{!show ?' cursorss' : ''}}"></i>
 		</view>
 
-		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}" bindtap="toWatch" data-item="{{item}}">
 
 		  <view class="w100 flex fl-align fl-jsb">
 				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
@@ -28,11 +28,10 @@
 			</view>
 
 			<view class="btn w100 flex fl-align fl-jfe">
-				<view bindtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
-				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
+				<view catchtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
+				<view>查看简历</view>
 			</view>
-
-		
+			
 		</view>
 
 		<view class="flex col fl-align" wx:if="{{list.length==0}}" style="margin-top:210rpx;">

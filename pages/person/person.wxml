@@ -2,14 +2,6 @@
  
  <view class="container col fl-align">
 
- 	<!-- 搜索 -->
- 	<!-- <view class="search flex fl-align b-ff">
- 		<view bindtap="toSearch f26" class="search_box flex fl-align">
- 			<icon type="search" size="15" />
- 			<text class="c-66">请选择搜索信息</text>
- 		</view>
- 	</view> -->
-
  	<!-- 筛选栏 -->
  	<view class="list_sort flex b-ff">
 
@@ -19,7 +11,7 @@
  		</view>
 
  		<view class="sort_list {{isPrice ? '' : 'select'}}" bindtap="selectPrice">
- 			<text>{{priceid!=0?price:'职位'}}</text>
+ 			<text>{{jobname?jobname:'职位'}}</text>
  			<image src="{{isPrice ? '../../images/buttom.png' : '../../images/top-red.png'}}"></image>
  		</view>
 
@@ -44,22 +36,6 @@
  				<view class="select_cars_list colorred" bindtap='selectcarsitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
  					<text>{{item.dataName}}</text>
  					<image src="../../images/dui.png" wx:if="{{item.id== carid}}"></image>
- 				</view>
- 			</block>
- 		</scroll-view>
- 	</view>
-
- 	<!-- 行业 -->
- 	<view class="select_sort b-ff" hidden="{{isPrice}}">
- 		<scroll-view class="bigWrap" scroll-y="true" scroll-top="{{scrollTop}}" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
- 			<view class="select_cars_list {{priceid == 0 ? 'colorred' : ''}}" bindtap='selectpriceitem' data-id="0" data-title="">
- 				<text>不限</text>
- 				<image src="../../images/dui.png" wx:if="{{priceid== 0}}"></image>
- 			</view>
- 			<block wx:for="{{list}}" wx:key="index">
- 				<view class="select_cars_list colorred" bindtap='selectpriceitem' data-id="{{item.id}}" data-title="{{item.dataName}}">
- 					<text>{{item.dataName}}</text>
- 					<image src="../../images/dui.png" wx:if="{{item.id== priceid}}"></image>
  				</view>
  			</block>
  		</scroll-view>
@@ -116,3 +92,25 @@
  </view>
 
 <showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>
+
+<view class="cover" hidden="{{isPrice}}" bindtap="toShow" ></view>
+
+<view class="majorShow flex fl-jsb" hidden="{{isPrice}}">
+
+	  <view class='left' catchtouchmove="true">
+      <scroll-view class='wh' scroll-y="true">
+
+				<view class="left-title {{choice_one==index?'line':''}}" wx:for="{{type_one}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtap="choice_title">{{item.dataName}}</view>
+          
+      </scroll-view>
+    </view>
+
+    <view class="right" catchtouchmove="true">
+      <scroll-view class='wh' scroll-y="true">
+
+				<view class="right-title" wx:for="{{type_two}}" wx:key="index" bindtap="choice_right" data-item="{{item}}">{{item.dataName}}</view>
+    
+      </scroll-view>
+    </view>
+
+</view>
