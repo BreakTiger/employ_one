@@ -46,8 +46,8 @@
             </view>
         </view>
         <view class="two flex col fl-align c-a3">
-            <view class="f14 fw-b" style="margin-bottom: 20rpx;">求职意向</view>
-            <view class="line f11 flex fl-align fl-jsb">
+            <view class="f14 fw-b" style="margin-bottom: 15rpx;">求职意向</view>
+            <view class="line f11 flex fl-jsb">
                 <view>
                     <view>
                         <text class="title">期望职业：</text>
@@ -79,7 +79,7 @@
             </view>
         </view>
         <view class="two flex col fl-align c-a3">
-            <view class="f14 fw-b" style="margin-bottom: 20rpx;">工作经历</view>
+            <view class="f14 fw-b" style="margin-bottom: 15rpx;">工作经历</view>
             <view class="f11 flex fl-align">
                 <view style="width:auto !important;">{{base.workingHoursStart}} - {{base.workingHoursEnd}}</view>
                 <view class="f-wb" style="color:#000 !important;margin-left:10rpx;">{{base.postName}}</view>
@@ -96,7 +96,7 @@
             </view>
         </view>
         <view class="two flex col fl-align c-a3" style="border:none !important;" wx:if="{{base.graduateSchool}}">
-            <view class="f14 fw-b" style="margin-bottom: 20rpx;">教育经历</view>
+            <view class="f14 fw-b" style="margin-bottom: 15rpx;">教育经历</view>
             <view class="flex f11">
                 <view style="width:auto !important;">{{base.schoolHoursStart}}-{{base.schoolHoursEnd}}</view>
                 <view class="fw-b" style="color:#000 !important;margin-left:10rpx;">{{base.graduateSchool}}</view>

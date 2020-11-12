@@ -16,6 +16,7 @@ Page({
 
   onLoad: function (options) {
     console.log(app.globalData.notice)
+
     let that = this
     that.setData({
       detail: app.globalData.notice
@@ -35,6 +36,7 @@ Page({
       token: wx.getStorageSync('token'),
       createBy: wx.getStorageSync('company').id
     }
+    console.log(data)
     util.sendRequest('/zqhr/hall/entryenterprise/entry', 'post', data).then(function (res) {
       console.log(res)
       if (res.code == 0) {
@@ -55,16 +57,4 @@ Page({
       delta: 0,
     })
   },
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
-  }
 })

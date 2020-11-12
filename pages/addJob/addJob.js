@@ -3,6 +3,8 @@ const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
 
+
+
 Page({
 
   data: {
@@ -458,6 +460,9 @@ Page({
   // 新增
   add: function (data) {
     let that = this
+    let date = new Date()
+    let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()+':'+date.getSeconds()
+    data.createTime = time
     util.sendRequest('/zqhr/hall/position/add', 'post', data).then(function (res) {
       console.log(res)
       if (res.code == 200) {
@@ -475,8 +480,10 @@ Page({
 
   // 修改
   editors: function (data) {
-    console.log()
     let that = this
+    let date = new Date()
+    let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()+':'+date.getSeconds()
+    data.updateTime = time
     data.updateBy = wx.getStorageSync('company').id
     data.id = that.data.detail.id
     util.sendRequest('/zqhr/hall/position/editById', 'post', data).then(function (res) {

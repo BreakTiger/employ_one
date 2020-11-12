@@ -1,6 +1,6 @@
 <view class="container col fl-align">
 
-		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}" bindtap="toWatch" data-item="{{item}}">
 
 		  <view class="w100 flex fl-align fl-jsb">
 				<image src="{{imaUrl+item.headimgAddress}}" wx:if="{{item.headimgAddress}}" class="header"></image>
@@ -24,9 +24,9 @@
 
 			<view class="btn w100 flex fl-align fl-jfe">
 
-				<view bindtap="toWatch" data-item="{{item}}">查看简历</view>
+				<view>查看简历</view>
 
-   			<view bindtap='toInvite' data-item="{{item}}" data-index="{{index}}" wx:if="{{item.invitestate==0}}">邀请面试</view>
+   			<view catchtap='toInvite' data-item="{{item}}" data-index="{{index}}" wx:if="{{item.invitestate==0}}">邀请面试</view>
 
    			<view style="background:#e5e5e5;color:#fff !important;" data-item="{{item}}" wx:else>邀请面试</view>
 			

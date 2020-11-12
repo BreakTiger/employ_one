@@ -110,11 +110,12 @@ Page({
     let data = {
       curriculumVitaeId: item.curriculumVitaeId,
       enterpriseInfoId: wx.getStorageSync('company').id,
-      enterprisePostReleaseId: item.enterpriseInfoId
+      enterprisePostReleaseId: item.enterprisePostReleaseId
     }
     await util.sendRequest('/zqhr/app/interviewevaluation/matching', 'get', data).then(function (res) {
       if (res.code == 0) {
         let datas = res.result
+        console.log(datas)
         //综合匹配度
         let total = (datas.jobTypeRatio + datas.tradeRatio + datas.workAreaRatio + datas.workExperienceRatio + datas.educationRatio + datas.salaryRatio) / 6 * 100
 
