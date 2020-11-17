@@ -17,17 +17,7 @@ Component({
       type: Array,
       value: ''
     },
-
-    cancelText: {
-      type: String,
-      value: '取消'
-    },
-
-    confirmText: {
-      type: String,
-      value: '确定'
-    }
-    
+        
   },
 
   /**

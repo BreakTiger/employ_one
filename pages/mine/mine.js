@@ -7,7 +7,8 @@ Page({
   data: {
     login: 0,
     company: {},
-    detail: {}
+    detail: {},
+
   },
 
 

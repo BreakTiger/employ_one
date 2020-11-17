@@ -16,10 +16,10 @@
 		</swiper-item>
 	</swiper>
 
-	<!-- <view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}" bindtap="toManage" >
+	<view class="inform w100 flex fl-align" wx:if="{{noevaluationCount>0}}" bindtap="toManage" >
 		<image src="../../images/inform.png"></image>
 		<text class="c-66 f24">您有<text style="color:red;">{{noevaluationCount}}</text>份面试未评价！请尽快进行评价</text>
-	</view> -->
+	</view>
 
 	<view class="tongji flex fl-w fl-jss f24">	
 		<image src="../../images/tongji.png"></image>
@@ -106,3 +106,5 @@
 </view>
 
 <showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>
+<!-- 
+<Notice id="notice" total="{{noevaluationCount}}" bind:cancelEvent="toCancel" bind:confirmEvent="toConfirm" wx:if="{{count_show}}"></Notice> -->

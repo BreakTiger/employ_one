@@ -18,7 +18,7 @@
   top: 50%;
   left: 0;
   z-index: 9999;
-  background: #FFFFFF url(https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/appEnterprise/bg.png) no-repeat;
+  background: #FFFFFF url(https://zqrsjjz.jiahangit.com.cn/zqhr/zqhrimg/publicImg/bg.png) no-repeat;
   background-size: 100% 222rpx;/*按比例缩放*/
   margin: -325rpx 80rpx;
   border-radius: 25rpx;

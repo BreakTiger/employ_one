@@ -9,6 +9,10 @@
 	<image src="{{imgUrl+company.logoAddress}}" wx:if="{{company.logoAddress}}"></image>
 	<image src="../../images/center.png" wx:else></image>
 	<view>{{company.enterpriseName}}</view>
+	<view class="counts flex col fl-align">
+		<image src="../../images/credit.png"></image>
+		<text>{{detail.creditPoints}}</text>
+	</view>
 </view>
 
 <!-- 计数 -->

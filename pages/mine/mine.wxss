@@ -9,6 +9,7 @@ page {
 .header {
   height: 250rpx;
   background: #3274e5;
+  position: relative;
 }
 
 .header>image {
@@ -22,6 +23,24 @@ page {
 .header>view {
   color: #FFF;
   font-size: 28rpx;
+}
+
+.counts {
+  position: absolute;
+  top: 35rpx;
+  right: 53rpx;
+}
+
+.counts>image {
+  width: 48rpx;
+  height: 52.2rpx;
+  margin-bottom: 11rpx;
+}
+
+.counts>text {
+  font-size: 23rpx;
+  font-weight: 400;
+  color: #E8F3FF;
 }
 
 /* 计数 */
@@ -291,7 +310,7 @@ page {
 
 .usertel-button button {
   background: #FFF;
-  font-size:28rpx;
+  font-size: 28rpx;
 }
 
 .usertel-button button:nth-child(2) {

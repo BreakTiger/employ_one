@@ -3,8 +3,6 @@ const util = require('../../utils/util.js')
 import modal from '../../modals.js'
 
 
-
-
 Page({
 
   data: {
@@ -119,13 +117,6 @@ Page({
 
     }
 
-    wx.createSelectorQuery().select('#editor').context(function (res) {
-      that.editorCtx = res.context;
-      that.editorCtx.setContents({
-        html: that.data.detail.jobDescription
-      })
-    }).exec()
-
     that.getElist()
 
     that.typeList()
@@ -137,10 +128,6 @@ Page({
     that.areaList()
 
     that.ageList()
-  },
-
-  onShow: function () {
-    this.onEditorReady()
   },
 
   // 招聘会列表
@@ -401,6 +388,7 @@ Page({
   formSubmit: function (e) {
     let that = this
     let data = e.detail.value
+    console.log(data)
     if (!that.data.fairname) {
       modal.showToast('请选择要参加的招聘会', 'none')
     } else if (!data.name) {
@@ -438,14 +426,13 @@ Page({
         jobNature: that.data.worktypename,
         genderRequirement: that.data.sex,
         special: that.data.choice,
-        jobDescription: that.data.describe,
+        jobDescription: data.describe,
         token: wx.getStorageSync('token'),
         ageRequirement: that.data.agename,
         examinestate: 0,
         area: that.data.areaname
       }
       console.log(param)
-
       if (!that.data.is_editor) {
         console.log('新增')
         that.add(param)
@@ -453,7 +440,6 @@ Page({
         console.log('修改')
         that.editors(param)
       }
-
     }
   },
 
@@ -498,27 +484,6 @@ Page({
       } else {
         modal.showToast(res.message, 'none')
       }
-    })
-  },
-
-
-  // 富文本 - 操作
-  onEditorReady: function () {
-    let that = this
-    wx.createSelectorQuery().select('#editor').context(function (res) {
-      that.editorCtx = res.context;
-      that.editorCtx.setContents({
-        html: that.data.describe
-      })
-    }).exec()
-  },
-
-  toEditor: function () {
-    let that = this
-    let describe = that.data.describe
-    app.globalData.describe = describe
-    wx.navigateTo({
-      url: '/pages/wxEditor/wxEditor',
     })
   },
 

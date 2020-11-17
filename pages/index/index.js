@@ -17,7 +17,9 @@ Page({
 
     noticeCount: 0,
 
-    noevaluationCount: ''
+    noevaluationCount: '',
+
+    count_show:false
 
   },
 
@@ -92,7 +94,6 @@ Page({
     }
     util.sendRequest('/zqhr/hall/statistics/EnterpriseHomePageStatistics', 'get', data, 1).then(function (res) {
       if (res.code == 0) {
-        // console.log(res.result)
         that.setData({
           companycount: res.result.enterpriseCount,
           jobcount: res.result.postReleaseCount,
@@ -378,7 +379,6 @@ Page({
     }
   },
 
-
   onPullDownRefresh: function () {
     wx.showToast({
       title: '加载中',
@@ -393,7 +393,6 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);
-  }
-
+  },
 
 })

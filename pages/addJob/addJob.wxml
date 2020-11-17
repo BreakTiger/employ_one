@@ -148,14 +148,12 @@
 			</view>
 		</view>
 
-		<!-- 职位描述 -->
 		<view class="main">
 			<view class="title c-66">职位描述</view>
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<!-- 编辑窗 - 只读 点击跳转去编辑器页面 -->
-						<editor id="editor" read-only="false" placeholder="开始输入..." bindtap="toEditor"></editor>
+						<textarea placeholder="开始输入..." name="describe" value="{{describe}}"></textarea>
 					</view>
 				</view>
 			</view>
