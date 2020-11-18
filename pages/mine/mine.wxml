@@ -9,18 +9,14 @@
 	<image src="{{imgUrl+company.logoAddress}}" wx:if="{{company.logoAddress}}"></image>
 	<image src="../../images/center.png" wx:else></image>
 	<view>{{company.enterpriseName}}</view>
-	<view class="counts flex col fl-align">
-		<image src="../../images/credit.png"></image>
-		<text>{{detail.creditPoints}}</text>
-	</view>
 </view>
 
 <!-- 计数 -->
 <view class="mymoney flex fl-jsa b-ff">
 
-	<view class="item flex col fl-align" bindtap="toMyjoblist">
-		<view>{{detail.postReleaseCount ? detail.postReleaseCount : 0}}个</view>
-		<view>已发布职位数</view>
+	<view class="item flex col fl-align">
+		<view>{{detail.creditPoints || 0}}</view>
+		<view>信用积分</view>
 	</view>
 
 	<view class="item flex col fl-align" bindtap="vitae">

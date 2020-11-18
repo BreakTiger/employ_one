@@ -218,12 +218,15 @@ Page({
       content: '是否发送该职位面试邀约',
       success: function (res) {
         if (res.confirm) {
+          let date = new Date()
+          let time = date.getFullYear() + '-' + (date.getMonth + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()      
           let data = {
             createBy: wx.getStorageSync('company').id,
             curriculumVitaeId: that.data.detail.id,
             enterpriseInfoId: detail.enterpriseInfoId,
             enterprisePostReleaseId: detail.id,
-            interviewstate: 'invite'
+            interviewstate: 'invite',
+            submitResumeTime:time
           }
           console.log(data)
           util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {

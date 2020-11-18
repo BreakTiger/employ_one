@@ -435,7 +435,8 @@ Page({
     let that = this
     let data = {
       curriculumVitaeId: that.data.details.curriculumVitaeId,
-      enterpriseInfoId: wx.getStorageSync('company').id
+      enterpriseInfoId: wx.getStorageSync('company').id,
+      enterprisePostReleaseId: that.data.details.enterprisePostReleaseId
     }
     util.sendRequest('/zqhr/app/interview/finish', 'get', data).then(function (res) {
       if (res.code == 200) {

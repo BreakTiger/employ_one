@@ -1,3 +1,5 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container col fl-align">
 		<view class="content">
 			<view bindtap="cutstate" class=" {{show ? 'active' : ''}}"><text >未开始</text></view>
@@ -15,20 +17,19 @@
 				<view class="type-info flex col">
 					<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
 						<text>{{item.name}}</text>
-						<text>{{item.createTime}}</text>
+						<text>{{tools.distance(item.updateTime)}}</text>
 					</view>
 					<view style="color:#646464;font-size:28rpx;">
 						<text>{{item.gender}}</text>
 						<text> /{{item.age}}岁 /</text>
-						<text>{{item.education||'无学历'}} /</text>
-						<!-- <text>{{item.workExperience}}</text> -->
+						<text>{{item.education||'无学历'}}</text>
 					</view>
 					<view style="font-size:28rpx;font-weight:bold;">职位意向：{{item.postName||'不限'}}</view>
 				</view>
 			</view>
 
 			<view class="btn w100 flex fl-align fl-jfe">
-				<view catchtap="toDetele" data-id="{{item.id}}" data-index="{{index}}">删除记录</view>
+				<view catchtap="toDetele" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.interviewstate!='finish'}}">删除记录</view>
 				<view>查看简历</view>
 			</view>
 			

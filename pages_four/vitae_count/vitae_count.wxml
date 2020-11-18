@@ -1,3 +1,5 @@
+<wxs src="../../wxs/jobfair.wxs" module="tools"></wxs>
+
 <view class="container col fl-align">
 
 		<view class="type-box flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}" bindtap="toWatch" data-item="{{item}}">
@@ -10,7 +12,7 @@
 				<view class="type-info flex col">
 					<view class="flex fl-align fl-jsb" style="color:#646464;font-weight:bold;">
 						<text>{{item.name}}</text>
-						<text>{{item.submitResumeTime}}</text>
+						<text>{{tools.distance(item.submitResumeTime)}}</text>
 					</view>
 					<view style="color:#646464;font-size:28rpx;">
 						<text>{{item.gender}}</text>
