@@ -47,8 +47,6 @@ Page({
 
     this.getList()
 
-    app.setWatcher(app.noticeData, this); // 设置监听器
-
     this.typeList()
 
   },
@@ -376,5 +374,8 @@ Page({
     app.onShow()
   },
 
+  onShow: function () {
+    app.setWatcher(app.noticeData, this); // 设置监听器
+  }
 
 })

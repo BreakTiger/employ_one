@@ -12,6 +12,7 @@ Page({
   },
 
   onLoad: function (options) {
+
     this.setData({
       imaUrl: app.globalData.imaUrl
     })
@@ -144,14 +145,14 @@ Page({
       success: function (res) {
         if (res.confirm) {
           let date = new Date()
-          let time = date.getFullYear() + '-' + (date.getMonth + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()      
+          let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
           let data = {
             createBy: wx.getStorageSync('company').id,
             curriculumVitaeId: that.data.detail.id,
             enterpriseInfoId: detail.enterpriseInfoId,
             enterprisePostReleaseId: detail.id,
             interviewstate: 'invite',
-            submitResumeTime:time
+            submitResumeTime: time
           }
           util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {
             console.log(res)
@@ -206,5 +207,49 @@ Page({
       }
 
     })
+  },
+
+  watch: { // 监听
+    admission(newValue) { // admission 要监测的具体数据
+      let that = this
+      if (newValue == true) {
+        that.setData({
+          total: app.noticeData.noticeTotal,
+          nlist: app.noticeData.noticeList
+        })
+        that.showDialog();
+      }
+    }
+  },
+
+  onReady: function () {
+    this.dialog = this.selectComponent("#dialog");
+  },
+
+  showDialog() { // 显示弹出框
+    this.dialog.showDialog();
+  },
+
+  //取消事件
+  _cancelEvent() {
+    app.noticeData.admission = false
+    this.dialog.hideDialog();
+    app.onShow()
+  },
+
+  //确认事件
+  _confirmEvent() {
+    app.noticeData.admission = false
+    wx.navigateTo({
+      url: '/pages/list/list?list=' + JSON.stringify(app.noticeData.noticeList)
+    })
+    this.dialog.hideDialog();
+    app.onShow()
+  },
+
+  onShow: function () {
+
+    app.setWatcher(app.noticeData, this); // 设置监听器
+
   }
 })

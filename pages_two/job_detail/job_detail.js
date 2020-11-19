@@ -35,15 +35,16 @@ Page({
       // console.log(res.result.records[0])
       if (res.code == 0) {
         let info = res.result.records[0].jobDescription
-        info = info
-          .replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p')
-          .replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p')
-          .replace(/<p>/ig, '<p class="p_class">')
-          .replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span')
-          .replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span')
-          .replace(/<span>/ig, '<span class="p_class">')
-        console.log(info)
-
+        if (info) {
+          info = info
+            .replace(/<p([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<p')
+            .replace(/<p([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<p')
+            .replace(/<p>/ig, '<p class="p_class">')
+            .replace(/<span([\s\w"=\/\.:;]+)((?:(style="[^"]+")))/ig, '<span')
+            .replace(/<span([\s\w"=\/\.:;]+)((?:(class="[^"]+")))/ig, '<span')
+            .replace(/<span>/ig, '<span class="p_class">')
+          console.log(info)
+        }
         that.setData({
           info: info,
           position: res.result.records[0]

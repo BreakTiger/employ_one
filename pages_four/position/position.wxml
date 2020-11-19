@@ -91,3 +91,5 @@
 	<view class="add c-ff f24 b-e5" bindtap="addcompanyjob">添加招聘职位</view>
 
 </view>
+<!-- 
+<showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal> -->

@@ -108,7 +108,7 @@ App({
   },
 
   onShow: function () {
-    // 30分钟倒计时
+    // 15分钟倒计时
     let that = this
     let token = wx.getStorageSync('token')
     if (token) {
@@ -119,10 +119,11 @@ App({
           pageNo: 1,
           pageSize: 10
         }
-        util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data).then(function (res) {
+        util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data,'1').then(function (res) {
           if (res.code == 0) {
             let list = that.settle(res.result.records)
             let total = res.result.total
+            console.log('计时结束：',total)
             // 判断
             if (total != 0) {
               that.noticeData.noticeList = list
@@ -135,7 +136,7 @@ App({
             modals.showToast(res.message, 'none')
           }
         })
-      }, 1800000);
+      }, 300000);
     }
   },
 

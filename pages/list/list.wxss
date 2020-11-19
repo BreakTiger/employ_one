@@ -52,7 +52,7 @@ page {
 .newslist .title .detail {
   padding-left: 2%;
   text-align: left;
-  font-size:28rpx;
+  font-size: 28rpx;
   color: #000;
   display: flex;
   flex-direction: row;
@@ -141,4 +141,16 @@ page {
 .info .time {
   color: #646464;
   font-size: 28rpx;
+}
+
+.jtypes {
+  width: 106rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: rgb(253, 209, 162) !important;
+  border: 1rpx solid rgb(253, 209, 162);
+  border-radius: 3rpx;
+  text-align: center;
+  font-size: 20rpx !important;
+  padding: 0 !important;
 }

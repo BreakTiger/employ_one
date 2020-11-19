@@ -153,7 +153,7 @@
 			<view class="list b-ff flex col fl-align">
 				<view class="item">
 					<view class="selectitem" style='width:100%;border:1rpx solid #f5f5f5;'>
-						<textarea placeholder="开始输入..." name="describe" value="{{describe}}"></textarea>
+						<textarea class="w100" placeholder="开始输入..." name="describe" value="{{describe}}" maxlength="-1"></textarea>
 					</view>
 				</view>
 			</view>

@@ -86,8 +86,8 @@ page {
 }
 
 .newslist .title .detail .info view:nth-child(2) {
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  /* padding-top: 10rpx;
+  padding-bottom: 10rpx; */
   color: #646464;
   font-size: 28rpx;
 }
@@ -122,12 +122,12 @@ page {
   color: #646464;
 }
 
-.jobmoney>view:nth-child(2) {
+.jtypes {
   width: 106rpx;
   height: 30rpx;
   line-height: 30rpx;
-  color: #00FF00 !important;
-  border: 1rpx solid #00FF00;
+  color: rgb(253, 209, 162) !important;
+  border: 1rpx solid rgb(253, 209, 162);
   border-radius: 3rpx;
   text-align: center;
   font-size: 20rpx !important;

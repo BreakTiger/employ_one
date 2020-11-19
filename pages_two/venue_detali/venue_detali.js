@@ -63,14 +63,15 @@ Page({
       // console.log(res)
       if (res.code == 0) {
         let list = res.result.records
-        list.forEach(function (item) {
-          let arr = item.special.split(',')
-          console.log(arr)
-          item.special = arr
-        })
-
         console.log(list)
-
+        list.forEach(function (item) {
+          let s = item.special
+          if(s){
+            let arr = s.split(',')
+            item.special = arr
+          }
+        })
+        console.log(list)
         that.setData({
           joblist: list
         })

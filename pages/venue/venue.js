@@ -20,7 +20,6 @@ Page({
     })
     this.getList()
     app.setWatcher(app.noticeData, this); // 设置监听器
-
   },
 
   watch: { // 监听

@@ -45,6 +45,8 @@
 		<view class="add b-e5 c-ff" bindtap="toAdd">新增面试</view>
 
 </view>
+<!-- 
+<showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal> -->
 
 
 		

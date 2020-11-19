@@ -30,12 +30,17 @@
 }
 
 .introduce {
+  width: 100%;
   padding: 15rpx 0;
 }
 
-textarea {
-  text-indent: 20rpx;
+.introduce>textarea {
+  width: 98%;
 }
+
+/* textarea {
+  text-indent: 20rpx;
+} */
 
 .logo-img {
   width: 200rpx;

@@ -219,14 +219,14 @@ Page({
       success: function (res) {
         if (res.confirm) {
           let date = new Date()
-          let time = date.getFullYear() + '-' + (date.getMonth + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()      
+          let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
           let data = {
             createBy: wx.getStorageSync('company').id,
             curriculumVitaeId: that.data.detail.id,
             enterpriseInfoId: detail.enterpriseInfoId,
             enterprisePostReleaseId: detail.id,
             interviewstate: 'invite',
-            submitResumeTime:time
+            submitResumeTime: time
           }
           console.log(data)
           util.sendRequest('/zqhr/app/interview/invite', 'post', data).then(function (res) {

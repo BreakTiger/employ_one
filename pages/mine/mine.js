@@ -25,8 +25,6 @@ Page({
       })
     }
 
-    app.setWatcher(app.noticeData, this); // 设置监听器
-
   },
 
   watch: { // 监听
@@ -72,6 +70,7 @@ Page({
     let token = wx.getStorageSync('token')
     if (token) {
       that.getData()
+      app.setWatcher(app.noticeData, this); // 设置监听器
     }
   },
 

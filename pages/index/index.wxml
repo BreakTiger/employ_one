@@ -106,5 +106,3 @@
 </view>
 
 <showModal id='dialog' total="{{total}}" arrs="{{nlist}}"  bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent"></showModal>
-<!-- 
-<Notice id="notice" total="{{noevaluationCount}}" bind:cancelEvent="toCancel" bind:confirmEvent="toConfirm" wx:if="{{count_show}}"></Notice> -->

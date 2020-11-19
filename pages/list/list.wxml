@@ -15,11 +15,14 @@
 				</view>
 				<view class="info">
 					<view>{{item.name}}<text class="time">{{tools.distance(item.createTime)}}</text></view>
-					<view>
-							<text>{{item.gender}}</text>
-							<text> /{{item.age}}岁 /</text>
-							<text>{{item.education||'无学历'}} /</text>
-							<text>{{item.workExperience}}</text>
+					<view class="flex fl-align fl-jsb" style="margin:10rpx 0;">
+						<view>
+								<text>{{item.gender}}</text>
+								<text> /{{item.age}}岁 /</text>
+								<text>{{item.education||'无学历'}} /</text>
+								<text>{{item.workExperience}}</text>
+						</view>
+						<view class="jtypes">已入场</view>
 					</view>
 					<view class="jobmoney flex fl-jsb">
 						<view>职位意向:<text>{{item.intendedPosition||'不限'}}</text></view>
