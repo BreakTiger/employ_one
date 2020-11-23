@@ -78,8 +78,8 @@
 			<view class="item">
 				<view class="name">所属区域</view>
 				<view class="selectitem">
-					<picker range="{{list_four}}" range-key="dataName" bindchange="getFour">
-						<view class="{{area? '' : 'c-8f'}}">{{area?area:'请选择所属区域'}}</view>
+					<picker mode="region" bindchange="getFour">
+						<view class="{{area? '' : 'c-8f'}}">{{areas?areas:'请选择所属区域'}}</view>
 					</picker>
 				</view>
 			</view>

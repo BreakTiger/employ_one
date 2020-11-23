@@ -86,9 +86,9 @@ Page({
           let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()+':'+date.getSeconds()     
           let data = {
             createBy: wx.getStorageSync('company').id,
-            curriculumVitaeId: that.data.detail.id,
+            curriculumVitaeId: detail.curriculumVitaeId,
             enterpriseInfoId: detail.enterpriseInfoId,
-            enterprisePostReleaseId: detail.id,
+            enterprisePostReleaseId: detail.enterprisePostReleaseId,
             interviewstate: 'invite',
             submitResumeTime:time
           }

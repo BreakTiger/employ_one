@@ -409,7 +409,7 @@ Page({
       modal.showToast('请选择岗位性质', 'none')
     } else if (!that.data.sex) {
       modal.showToast('请选择性别', 'none')
-    } else if (!that.data.describe) {
+    } else if (!data.describe) {
       modal.showToast('请输入岗位描述', 'none')
     } else {
       let param = {

@@ -138,25 +138,24 @@ function calculates(item) {
   let that = this
   let work = ''
 
-  let one = item.workingHoursStart
-  let two = item.workingHoursEnd
+  let date = new Date()
 
-  if (one && two) {
+  let one = item.participateInWork
+
+  let two = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+
+  if (one) {
     let ones = one.split('-')
     let twos = two.split('-')
     let num = twos[0] - ones[0]
-    // console.log(num)
     if (num == 0) {
       work = "一年以下"
     } else {
       work = num + '年'
     }
-
-  } else {
+  }else{
     work = '无工作经验'
   }
-
-  // console.log(work)
 
   return work;
 

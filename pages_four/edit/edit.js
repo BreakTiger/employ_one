@@ -76,7 +76,10 @@ Page({
             trade: detail.trade, //企业行业
             property: detail.nature, //企业性质
             scale: detail.scale, //人员规模
-            area: detail.area, //所在区域
+            province: detail.province,
+            city: detail.city,
+            area: detail.area,
+            areas: detail.province + detail.city + detail.area, //所在区域
           })
 
           // 判断logo和执照是否存在
@@ -212,10 +215,12 @@ Page({
 
   getFour: function (e) {
     let that = this
-    let index = e.detail.value
-    let list = that.data.list_four
+    let list = e.detail.value
     that.setData({
-      area: list[index].dataName
+      province: list[0],
+      city: list[1],
+      area: list[2],
+      areas: list[0] + list[1] + list[2]
     })
   },
 
@@ -472,6 +477,8 @@ Page({
       synopsis: datas.introduce,
       logoAddress: that.data.logoAddress,
       businessLicenseAddress: that.data.licenseAddress,
+      province: that.data.province,
+      city: that.data.city,
       area: that.data.area,
       examinestate: that.data.detail.examinestate,
       idcard: datas.idcard,
@@ -493,7 +500,5 @@ Page({
       }
     })
   }
-
-
 
 })

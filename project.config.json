@@ -56,7 +56,14 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages_four/edit/edit",
+          "pathName": "pages_four/edit/edit",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }
