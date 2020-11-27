@@ -59,8 +59,6 @@ App({
 
   },
 
-
-
   // 模拟watch周期
   /**
  * 设置监听器
@@ -108,7 +106,7 @@ App({
   },
 
   onShow: function () {
-    // 15分钟倒计时
+    // 倒计时
     let that = this
     let token = wx.getStorageSync('token')
     if (token) {

@@ -27,7 +27,7 @@ Page({
   onShow: function () {
     this.getElist()
     this.getList()
-    
+
     app.setWatcher(app.noticeData, this); // 设置监听器
 
   },
@@ -164,6 +164,7 @@ Page({
 
   // 添加职位
   addcompanyjob: function () {
+    app.globalData.detail = {}
     wx.navigateTo({
       url: '/pages/addJob/addJob',
     })

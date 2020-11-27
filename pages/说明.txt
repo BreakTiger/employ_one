@@ -18,7 +18,6 @@ search
 5.1 搜索结果 
 search_list
 
-
 6.登录
 login
 
@@ -39,3 +38,6 @@ vitae
 
 12.临时列表
 list
+
+13.富文本编辑器
+wxEditor 

@@ -34,6 +34,8 @@ Page({
 
   },
 
+
+  // 轮播图
   getBanner: function () {
     let that = this
     util.sendRequest('/zqhr/app/enterprisenotice/rotatepictures', 'get', {}).then(function (res) {
@@ -85,6 +87,7 @@ Page({
     app.onShow()
   },
 
+  // 统计数据：入驻企业 + 职位 + 简历数量
   getData: function () {
     let that = this
     let data = {
@@ -105,6 +108,7 @@ Page({
     })
   },
 
+  // 最新人才
   getList: function () {
     let that = this
     let data = {
