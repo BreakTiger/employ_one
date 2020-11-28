@@ -78,8 +78,8 @@ App({
     })
   },
   /**
-	 * 监听属性 并执行监听函数
-	 */
+   * 监听属性 并执行监听函数
+   */
   observe(obj, key, watchFun, deep, page) {
     var val = obj[key];
     if (deep && val != null && typeof val === 'object') {
@@ -117,11 +117,11 @@ App({
           pageNo: 1,
           pageSize: 10
         }
-        util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data,'1').then(function (res) {
+        util.sendRequest('/zqhr/hall/curriculumvitae/Matchinglist', 'get', data, '1').then(function (res) {
           if (res.code == 0) {
             let list = that.settle(res.result.records)
             let total = res.result.total
-            console.log('计时结束：',total)
+            console.log('计时结束：', total)
             // 判断
             if (total != 0) {
               that.noticeData.noticeList = list
@@ -159,8 +159,6 @@ App({
   },
 
   globalData: {
-    appid: 'wx401a2c2d3d422ffd', //appid
-    secret: '5565ab098b19b34e258f1426ba76772c',
     imaUrl: 'https://zqrsjjz.jiahangit.com.cn/zqhr',
     notice: {}, //通知信息
     venue: {}, //会场信息

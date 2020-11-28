@@ -95,29 +95,6 @@ function upLoading(filePath, data) {
   return promise
 }
 
-// 获取AccessToken
-function getAccessToken(data) {
-  var promise = new Promise(function (resolve, reject) {
-    wx.request({
-      url: 'https://api.weixin.qq.com/cgi-bin/token',
-      method: 'get',
-      data: data,
-      header: {
-        "content-type": "application/json"
-      },
-      success: function (res) {
-        if (res.statusCode == 200) {
-          resolve(res.data);
-        }
-      },
-      fail: function (res) {
-        reject(res);
-      }
-    })
-  })
-  return promise;
-}
-
 // 计算年龄
 function calculate(item) {
   let that = this
@@ -166,8 +143,7 @@ module.exports = {
   sendRequest: sendRequest,
   upLoading: upLoading,
   ages: calculate,
-  calculates: calculates,
-  getAccessToken: getAccessToken
+  calculates: calculates
 }
 
 
